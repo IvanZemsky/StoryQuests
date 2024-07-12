@@ -1,0 +1,29 @@
+@mixin flex-center-xy {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+@mixin flex-center-x {
+   display: flex;
+   align-items: center;
+}
+
+@mixin flex-spb-y {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+@mixin hoverEffect($selector) {
+   @media (hover: hover) {
+     #{$selector}:hover {
+       @content;
+     }
+   }
+   @media (hover: none) {
+     #{$selector}:active {
+      @content;
+     }
+   }
+ }
