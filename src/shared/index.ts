@@ -1,4 +1,6 @@
-export {Wrapper} from './ui/Wrapper'
-export {Button} from './ui/Button'
-
-export const mixinsPath = './lib/styles/mixins.scss'
+export {Wrapper} from './ui/Wrapper/Wrapper'
+export {Button} from './ui/Button/Button'
+export {PageLink} from './ui/PageLink/PageLink'
+export {OpenArrowBottomIcon} from './ui/icons/OpenArrowBottomIcon'
+export {SearchIcon} from './ui/icons/SearchIcon'
+export {PlusIcon} from './ui/icons/PlusIcon'

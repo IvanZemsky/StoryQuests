@@ -1,0 +1,77 @@
+.container{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   padding: 10px 15px;
+   border-radius: 20px;
+   border: 2px solid var(--secondaryMain);
+   transition: all 0.15s linear;
+
+   svg{
+      width: 17px;
+      height: auto;
+      transition: all 0.15s linear;
+   }
+
+   &.minWidth{
+      min-width: 125px;
+   }
+}
+
+.filled{
+   &.primary{
+      background-color: var(--primaryMain);
+
+      svg{
+         fill: var(--primaryText);
+         stroke: var(--primaryText);
+      }
+
+      &.defaultHover:hover{
+         background-color: var(--secondaryMain);
+         color: var(--secondaryText);
+
+         svg{
+            fill: var(--secondaryText);
+            stroke: var(--secondaryText);
+         }
+      }
+   }
+
+   &.secondary{
+      background-color: var(--secondaryMain);
+      color: var(--secondaryText);
+
+      svg{
+         fill: var(--secondaryText);
+         stroke: var(--secondaryText);
+      }
+
+      &.defaultHover:hover{
+         background-color: var(--primaryMain);
+         color: var(--primaryText);
+
+         svg{
+            fill: var(--primaryText);
+            stroke: var(--primaryText);
+         }
+      }
+   }
+}
+
+.outlined{
+   svg {
+      fill: var(--primaryText);
+      stroke: var(--primaryText);
+   }
+
+   &.defaultHover:hover{
+      background-color: var(--secondaryMain);
+      color: var(--secondaryText);
+
+      svg {
+         fill: var(--secondaryText)
+      }
+   }
+}

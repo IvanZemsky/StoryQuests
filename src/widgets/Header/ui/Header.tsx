@@ -1,12 +1,13 @@
-import { Button, Wrapper } from "@/src/shared"
+import { Wrapper } from "@/src/shared"
 import styles from './Header.module.scss'
+import { Logo } from '@/src/features/Logo';
 
 export const Header = () => {
   return (
     <header className={styles.header}>
       <Wrapper>
          <div className={styles.content}>
-          <Button>StoryQuests</Button>
+          <Logo />
          </div>
       </Wrapper>
     </header>
