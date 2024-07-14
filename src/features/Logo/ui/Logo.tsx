@@ -5,10 +5,9 @@ export const Logo = () => {
    return (
       <PageLink
          href="/"
-         icon={<PlusIcon />}
+         leftIcon={<PlusIcon />}
+         rightIcon={<PlusIcon />}
          defaultHover={false}
-         hasLeftIcon
-         hasRightIcon
          className={styles.logo}
       >
          StoryQuests

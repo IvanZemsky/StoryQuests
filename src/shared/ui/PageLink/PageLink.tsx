@@ -1,27 +1,25 @@
-import { HTMLAttributes, ReactNode } from "react";
-import styles from "../../lib/styles/container.module.scss"
+import { AnchorHTMLAttributes, ReactNode } from "react";
+import styles from "../styles/container.module.scss";
 import Link from "next/link";
 
 interface LinkProps {
-   variant?: "outlined" | "filled" | "none";
+   variant?: "outlined" | "filled";
    color?: "primary" | "secondary";
-   icon?: ReactNode;
-   href: string,
    defaultHover?: boolean
-   hasLeftIcon?: boolean;
-   hasRightIcon?: boolean;
+   href: string
+   leftIcon?: ReactNode;
+   rightIcon?: ReactNode;
 }
 
-type LinkFullProps = LinkProps & HTMLAttributes<HTMLAnchorElement>;
+type LinkFullProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const PageLink = ({
-   variant = "filled",
+   variant = "outlined",
    color = "secondary",
-   icon,
    href,
    defaultHover = true,
-   hasLeftIcon = false,
-   hasRightIcon = false,
+   leftIcon,
+   rightIcon,
    children,
    className,
    ...attributes
@@ -35,13 +33,16 @@ export const PageLink = ({
             styles[color],
             defaultHover && styles.defaultHover,
             children && styles.minWidth,
+            ((leftIcon || rightIcon) && !children) && styles.icon,
             className,
          ].join(" ")}
          {...attributes}
       >
-         {hasLeftIcon && icon}
-         {children}
-         {hasRightIcon && icon}
+         <span className={styles.content}>
+            {leftIcon}
+            {children}
+            {rightIcon}
+         </span>
       </Link>
    );
 };

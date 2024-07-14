@@ -1,11 +1,2 @@
-import React from 'react'
-
-const Stories = () => {
-  return (
-    <div>
-      stories
-    </div>
-  )
-}
-
+import { Stories } from "@/src/pages/Stories"
 export default Stories
