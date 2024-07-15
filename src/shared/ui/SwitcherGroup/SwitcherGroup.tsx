@@ -1,9 +1,9 @@
-import { PropsWithChildren } from "react";
+import { HTMLAttributes } from "react";
 import styles from './SwitcherGroup.module.scss'
 
-export const SwitcherGroup = ({children}: PropsWithChildren) => {
+export const SwitcherGroup = ({children, className, ...attributes}: HTMLAttributes<HTMLDivElement>) => {
    return ( 
-      <div className={styles.content}>
+      <div className={[styles.content, className].join(" ")} {...attributes}>
          {children}
       </div>
     );

@@ -10,5 +10,10 @@
 }
 
 .input::placeholder{
-   color: var(--secondaryText)
+   color: var(--secondaryText);
+   transition: color 0.15s linear;
+}
+
+.input:focus::placeholder{
+   color: rgba(0,0,0,0);
 }

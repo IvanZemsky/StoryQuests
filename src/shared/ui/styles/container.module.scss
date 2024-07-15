@@ -1,3 +1,5 @@
+@import "/src/shared/lib/styles/mixins.scss";
+
 .container {
    padding: 2px;
    border-radius: 20px;
@@ -8,8 +10,8 @@
       min-width: 125px;
    }
 
-   &.icon{
-      .content{
+   &.icon {
+      .content {
          padding: 0;
          aspect-ratio: 1 / 1;
       }
@@ -35,11 +37,12 @@
 }
 
 .outlined {
-   background: linear-gradient(90deg, #b14bf4 50%, #c82ccb 100%);
+   background: var(--gradientMain);
 
    &.secondary {
       .content {
          background-color: var(--secondaryMain);
+         color: var(--secondaryText);
       }
       svg {
          fill: var(--secondaryText);
@@ -50,6 +53,7 @@
    &.primary {
       .content {
          background-color: var(--primaryDark);
+         color: var(--primaryText);
       }
       svg {
          fill: var(--secondaryText);
@@ -57,18 +61,21 @@
       }
    }
 
-   &.defaultHover:hover{
-      .content{
-         background-color: rgba(0,0,0,0);
+   @include hoverEffect("&.defaultHover:hover") {
+      .content {
+         background-color: rgba(0, 0, 0, 0);
       }
    }
 }
 
-.filled{
-   &.primary{
-      background-color: var(--primaryDark);
+.filled {
+   background: var(--gradientMain);
 
-      .content{
+   &.primary {
+      box-shadow: 0px 0px 0px 5px var(--primaryDark) inset;
+      transition: box-shadow 0.15s linear;
+
+      .content {
          background-color: var(--primaryDark);
          color: var(--primaryText);
       }
@@ -79,10 +86,11 @@
       }
    }
 
-   &.secondary{
-      background-color: var(--secondaryMain);
+   &.secondary {
+      box-shadow: 0px 0px 0px 5px var(--secondaryMain) inset;
+      transition: box-shadow 0.15s linear;
 
-      .content{
+      .content {
          background-color: var(--secondaryMain);
          color: var(--secondaryText);
       }
@@ -93,7 +101,7 @@
       }
    }
 
-   &.defaultHover:hover{
-      background-color: var(--thirdMain);
+   @include hoverEffect('&.defaultHover:hover') {
+      box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0) inset;
    }
 }

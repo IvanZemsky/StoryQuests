@@ -1,20 +1,26 @@
-import { Button, CrossIcon, SearchIcon, TextInput, SwitcherGroup } from "@/src/shared";
+import { Button, CrossIcon, SearchIcon, TextInput, SwitcherGroup, Check, Select } from "@/src/shared";
 import styles from './StoriesFilters.module.scss'
 
 export const StoriesFilters = () => {
    return ( 
       <header>
          <form className={styles.content}>
-         <SwitcherGroup>
-            <Button variant="filled">New</Button>
-            <Button variant="filled">Tranding</Button>
-            <Button variant="filled">Best</Button>
-         </SwitcherGroup>
+            <SwitcherGroup className={styles.sort}>
+               <Check text="New" name="sort" id="sort1"/>
+               <Check text="Tranding" name="sort" id="sort2"/>
+               <Check text="Best" name="sort" id="sort3"/>
+            </SwitcherGroup>
 
-         <TextInput placeholder="Search"/>
-         
-         <Button leftIcon={<SearchIcon/>} className={styles.searchBtn}/>
-         <Button rightIcon={<CrossIcon/>} />
+            <Select className={styles.selectLength}>
+               <Check text="a1" name="sort2" id="sort4"/>
+               <Check text="a2" name="sort2" id="sort5"/>
+               <Check text="a3" name="sort2" id="sort6"/>
+            </Select>
+
+            <TextInput className={styles.search} placeholder="Search"/>
+            
+            <Button variant="filled" leftIcon={<SearchIcon/>} className={styles.searchBtn}/>
+            <Button variant="filled" rightIcon={<CrossIcon/>} />
          </form>
       </header>
     );

@@ -7,9 +7,9 @@ interface TextInputProps {
 
 type TextInputType = TextInputProps & InputHTMLAttributes<HTMLInputElement>
 
-export const TextInput = ({...attributes}: TextInputType) => {
+export const TextInput = ({className, ...attributes}: TextInputType) => {
    return ( 
-      <input type="text" className={styles.input} {...attributes}/>
+      <input type="text" className={[styles.input, className].join(" ")} {...attributes}/>
     );
 }
  

@@ -19,6 +19,7 @@ export const Button = ({
    rightIcon,
    children,
    className,
+   type = "button",
    ...attributes
 }: ButtonFullProps) => {
    return (
@@ -32,6 +33,7 @@ export const Button = ({
          ((leftIcon || rightIcon) && !children) && styles.icon,
          className,
       ].join(" ")}
+         type={type}
          {...attributes}
       >
         <span className={styles.content}>

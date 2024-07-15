@@ -1,0 +1,52 @@
+.wrap{
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   gap: 2px;
+
+   button{
+      width: 100%;
+      text-transform: inherit;
+      font: inherit;
+   }
+}
+
+.options{
+   position: absolute;
+   top: calc(100% + 2px);
+   left: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 2px;
+   width: 100%;
+   z-index: 50;
+
+   * {
+      width: 100%;
+      text-transform: inherit;
+      font: inherit;
+   }
+
+   & > * {
+      &:not(:first-child) {
+         button,
+         button > span {
+            border-radius: 0;
+         }
+      }
+
+      &:first-child {
+         button,
+         button > span {
+            border-radius: 20px 20px 0 0;
+         }
+      }
+
+      &:last-child {
+         button,
+         button > span {
+            border-radius: 0 0 20px 20px;
+         }
+      }
+   }
+}

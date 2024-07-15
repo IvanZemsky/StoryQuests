@@ -1,0 +1,25 @@
+.wrap{
+   display: inline-block;
+
+   input{
+      display: none;
+   }
+
+   label{
+      display: inline-block;
+      cursor: pointer;
+   }
+
+   input:checked + label{
+      button{
+         box-shadow: 0 0 0 5px rgba(0,0,0,0) inset;
+      }
+   }
+
+   button{
+      width: 100%;
+      min-height: 100%;
+      pointer-events: none;
+   }
+}
+
