@@ -1,4 +1,4 @@
-import { Stories } from "@/src/pages/Stories"
+import { Stories as StoriesPage } from "@/src/pages/Stories"
 
-const StoriesPage = () => <Stories/>
-export default StoriesPage
+const Stories = () => <StoriesPage/>
+export default Stories
