@@ -1,4 +1,8 @@
-import { Stories as StoriesPage } from "@/src/pages/Stories"
+import { Stories } from "@/src/pages/Stories"
 
-const Stories = () => <StoriesPage/>
-export default Stories
+const page = () => {
+   return (
+      <Stories />
+   )
+}
+export default page
