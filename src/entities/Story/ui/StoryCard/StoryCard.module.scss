@@ -1,0 +1,52 @@
+.wrap{
+   border-radius: 15px;
+   padding: 2px 2px 5px 2px;
+   background: var(--gradientMain);
+}
+
+.card{
+   background-color: var(--secondaryMain);
+   border-radius: 15px 15px 15px 15px;
+   overflow: hidden;
+}
+
+.imgWrap{
+   aspect-ratio: 1 / 0.7;
+
+   img{
+      width: 100%;
+      height: 100%;
+      filter: brightness(87%);
+      object-fit: cover;
+   }
+}
+
+.info{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   padding: 15px 15px 20px 15px;
+}
+
+.title{
+   color: var(--thirdLight);
+   font-family: Philosopher;
+   font-weight: 700;
+   font-size: 19px;
+}
+
+.desc{
+   font-size: 14px;
+}
+
+.links{
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   margin-top: auto;
+}
+
+.authorLink{
+   font-size: 16px;
+   color: var(--secondaryLight);
+}

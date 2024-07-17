@@ -1,15 +1,12 @@
 {
   "name": "storyquests",
   "version": "0.1.0",
-  "homepage": "https://IvanZemsky.github.io/StoryQuests",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "lint": "next lint"
   },
   "dependencies": {
     "mobx": "^6.13.0",

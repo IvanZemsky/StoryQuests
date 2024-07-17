@@ -1,3 +1,4 @@
+export { PageRoutes } from "./constants/pageRoutes";
 export { Select } from "./ui/Select/Select";
 export {CrossIcon} from "./ui/icons/CrossIcon"
 export {Check} from './ui/Check/Check';
