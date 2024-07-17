@@ -1,13 +1,15 @@
 import Link from "next/link";
 import styles from "./StoryCard.module.scss";
 import { PageLink, PageRoutes } from "@/src/shared";
+import Image from "next/image";
+Image
 
 export const StoryCard = () => {
    return (
       <li className={styles.wrap}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               <img src="./cardbg.jpg" alt="" />
+               <Image src="./cardbg.jpg" alt="" />
             </div>
             <div className={styles.info}>
                <h2 className={styles.title}>Story Name</h2>
