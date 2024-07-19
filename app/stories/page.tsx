@@ -1,3 +1,3 @@
-import { Stories } from "@/src/pages/Stories";
+import { Stories } from "@/src/pages_/Stories";
 
 export default Stories
