@@ -1,6 +1,10 @@
 .wrap{
    display: inline-block;
 
+   &.fillContainer{
+      flex-grow: 1;
+   }
+
    input{
       display: none;
    }
@@ -8,6 +12,11 @@
    label{
       display: inline-block;
       cursor: pointer;
+      height: 100%;
+
+      button, button span{
+         height: 100%;
+      }
    }
 
    input:checked + label{
@@ -17,8 +26,6 @@
    }
 
    button{
-      width: 100%;
-      min-height: 100%;
       pointer-events: none;
    }
 }

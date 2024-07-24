@@ -12,5 +12,5 @@ export const Logo = () => {
       >
          StoryQuests
       </PageLink>
-   );
-};
+   )
+}

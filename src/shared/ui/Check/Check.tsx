@@ -4,13 +4,17 @@ import { Button } from '@/src/shared';
 
 interface CheckProps {
    text: string
+   fillContainer?: boolean
 }
 
 type CheckType = CheckProps & InputHTMLAttributes<HTMLInputElement>
 
-export const Check = ({text, ...attributes }: CheckType) => {
+export const Check = ({fillContainer = false, text, ...attributes }: CheckType) => {
    return ( 
-      <div className={styles.wrap}>
+      <div className={[
+         styles.wrap,
+         fillContainer && styles.fillContainer
+      ].join(" ")}>
          <input type="radio" {...attributes}/>
          <label htmlFor={attributes.id}>
             <Button variant="filled" type="button">{text}</Button>

@@ -1,12 +1,23 @@
-import { HTMLAttributes } from "react";
-import styles from './SwitcherGroup.module.scss'
+import { HTMLAttributes } from "react"
+import styles from "./SwitcherGroup.module.scss"
 
-export const SwitcherGroup = ({children, className, ...attributes}: HTMLAttributes<HTMLDivElement>) => {
-   return ( 
-      <div className={[styles.content, className].join(" ")} {...attributes}>
+interface SwitcherGroupProps {
+   variant?: "row" | "column"
+}
+
+type SwitcherGroupFullProps = SwitcherGroupProps & HTMLAttributes<HTMLDivElement>
+
+export const SwitcherGroup = ({
+   variant = "row",
+   children,
+   className,
+   ...attributes
+}: SwitcherGroupFullProps) => {
+   return (
+      <div className={[styles.content, className, styles[variant]].join(" ")} {...attributes}>
          {children}
       </div>
-    );
+   )
 }
- 
-export default SwitcherGroup;
+
+export default SwitcherGroup

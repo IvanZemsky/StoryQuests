@@ -1,6 +1,6 @@
 import { Wrapper } from "@/src/shared"
 import styles from './Header.module.scss'
-import { Logo } from '@/src/features/Logo';
+import { Logo } from '@/src/shared';
 import { PageRoutes } from "@/src/shared";
 import Link from "next/link";
 

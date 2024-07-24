@@ -4,6 +4,14 @@ import { PageLink, PageRoutes } from "@/src/shared"
 import Image from "next/image"
 import cardbg from "@/public/cardbg.jpg"
 
+interface StoryCard {
+   id: string
+   name: string
+   description: string
+   login: string
+   imgLink: string
+}
+
 export const StoryCard = () => {
    return (
       <li className={styles.wrap}>
@@ -20,7 +28,7 @@ export const StoryCard = () => {
                   commodo consequat
                </p>
                <div className={styles.links}>
-                  <PageLink href="#!" color="primary">
+                  <PageLink href={`${PageRoutes.Stories}/1233423`} color="primary">
                      Start
                   </PageLink>
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>

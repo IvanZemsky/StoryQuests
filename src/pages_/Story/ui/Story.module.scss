@@ -1,0 +1,19 @@
+.content{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+}
+
+.controls{
+   display: flex;
+   gap: 10px;
+
+   button.nextSceneBtn { 
+      align-self: stretch;
+
+      svg{
+         width: 10px;
+      }
+   }
+}

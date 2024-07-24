@@ -1,15 +1,15 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react"
 import styles from "../styles/container.module.scss"
 
 interface ButtonProps {
-   variant?: "outlined" | "filled";
-   color?: "primary" | "secondary";
+   variant?: "outlined" | "filled"
+   color?: "primary" | "secondary"
    defaultHover?: boolean
-   leftIcon?: ReactNode;
-   rightIcon?: ReactNode;
+   leftIcon?: ReactNode
+   rightIcon?: ReactNode
 }
 
-type ButtonFullProps = ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
+type ButtonFullProps = ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = ({
    variant = "outlined",
@@ -24,23 +24,27 @@ export const Button = ({
 }: ButtonFullProps) => {
    return (
       <button
-      className={[
-         styles.container,
-         styles[variant],
-         styles[color],
-         defaultHover && styles.defaultHover,
-         children && styles.minWidth,
-         ((leftIcon || rightIcon) && !children) && styles.icon,
-         className,
-      ].join(" ")}
+         className={[
+            styles.container,
+            styles[variant],
+            styles[color],
+            defaultHover && styles.defaultHover,
+            children && styles.minWidth,
+            className,
+         ].join(" ")}
          type={type}
          {...attributes}
       >
-        <span className={styles.content}>
+         <span
+            className={[
+               styles.content,
+               (leftIcon || rightIcon) && !children && styles.icon,
+            ].join(" ")}
+         >
             {leftIcon}
             {children}
             {rightIcon}
          </span>
       </button>
-   );
-};
+   )
+}
