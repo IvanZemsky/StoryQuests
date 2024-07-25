@@ -1,0 +1,20 @@
+@import "/src/shared/lib/styles/mixins.scss";
+
+.select {
+   width: 33%;
+}
+
+button.nextSceneBtn {
+   align-self: stretch;
+
+   svg {
+      width: 10px;
+      transition: 0.15s stroke linear;
+   }
+
+   @include hoverEffect("&:hover") {
+      svg {
+         stroke: var(--thirdLight);
+      }
+   }
+}

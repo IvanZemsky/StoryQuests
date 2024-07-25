@@ -1,0 +1,15 @@
+.controls{
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   max-width: 996px;
+   flex-grow: 1;
+}
+
+.illustration{
+   width: 100%;
+   max-width: 577px;
+   max-height: 600px;
+   border-radius: 15px;
+   border: 2px solid var(--primaryDark);
+}
