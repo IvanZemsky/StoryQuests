@@ -1,1 +1,5 @@
-export { StoryCard } from "./ui/StoryCard/StoryCard";
+export { StoryCard } from "./ui/StoryCard/StoryCard"
+export { storyStore } from "./model/storyStore"
+export type { IStory } from "./model/types"
+export type { IScene } from "./model/types"
+export type { IAnswer } from "./model/types"

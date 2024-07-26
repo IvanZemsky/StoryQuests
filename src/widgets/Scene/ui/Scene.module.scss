@@ -1,14 +1,32 @@
+.content{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   max-width: 996px;
+   flex-grow: 1;
+}
+
+.title{
+   font-family: 'Philosopher';
+   font-size: 21px;
+   font-weight: 700;
+   letter-spacing: 1px;
+}
+
+.desc{
+   font-size: 16px;
+}
+
 .controls{
    display: flex;
    justify-content: center;
    gap: 10px;
-   max-width: 996px;
    flex-grow: 1;
 }
 
 .illustration{
    width: 100%;
-   max-width: 577px;
+   max-width: 595px;
    max-height: 600px;
    border-radius: 15px;
    border: 2px solid var(--primaryDark);

@@ -1,3 +1,5 @@
+'use client'
+
 import { InputHTMLAttributes } from "react";
 import styles from './Check.module.scss'
 import { Button } from '@/src/shared';
@@ -9,7 +11,7 @@ interface CheckProps {
 
 type CheckType = CheckProps & InputHTMLAttributes<HTMLInputElement>
 
-export const Check = ({fillContainer = false, text, ...attributes }: CheckType) => {
+export const Check = ({fillContainer = false, checked, text, ...attributes }: CheckType) => {
    return ( 
       <div className={[
          styles.wrap,
