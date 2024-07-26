@@ -1,6 +1,6 @@
 'use client'
 
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import styles from './Check.module.scss'
 import { Button } from '@/src/shared';
 
@@ -11,13 +11,15 @@ interface CheckProps {
 
 type CheckType = CheckProps & InputHTMLAttributes<HTMLInputElement>
 
-export const Check = ({fillContainer = false, checked, text, ...attributes }: CheckType) => {
+export const Check = ({fillContainer = false, checked = false, text, ...attributes }: CheckType) => {
+   const [isChecked, setIsChecked] = useState(checked)
+
    return ( 
       <div className={[
          styles.wrap,
          fillContainer && styles.fillContainer
       ].join(" ")}>
-         <input type="radio" {...attributes}/>
+         <input type="radio" defaultChecked={isChecked} onInput={() => setIsChecked(checked)} {...attributes}/>
          <label htmlFor={attributes.id}>
             <Button variant="filled" type="button">{text}</Button>
          </label>
