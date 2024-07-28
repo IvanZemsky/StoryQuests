@@ -1,7 +1,2 @@
-
-
-export default function Home() {
-  return (
-    <h1>Hi</h1>
-  );
-}
+import { Home } from "@/src/pages_/Home";
+export default Home

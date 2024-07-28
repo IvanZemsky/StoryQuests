@@ -7,11 +7,16 @@
 
 button.nextSceneBtn {
    align-self: stretch;
+   opacity: 0.5;
 
    svg {
       width: 10px;
       transition: 0.15s stroke linear;
    }
+}
+
+.select:has(input:checked) + button.nextSceneBtn{
+   opacity: 1;
 
    @include hoverEffect("&:hover") {
       svg {

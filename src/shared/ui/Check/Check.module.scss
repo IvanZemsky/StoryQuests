@@ -20,8 +20,9 @@
 
    label{
       display: inline-block;
-      cursor: pointer;
       height: 100%;
+      user-select: none;
+      cursor: pointer;
 
       button, button span{
          height: 100%;
