@@ -2,6 +2,9 @@ $button : 'button, button > span';
 
 .content {
    display: flex;
+   background-color: var(--primaryMain);
+   border-radius: 20px;
+   overflow: hidden;
 
    &.row{
       align-items: center;
