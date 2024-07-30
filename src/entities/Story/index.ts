@@ -1,3 +1,4 @@
+export { CreateStoryFields } from "./ui/CreateStoryFields/CreateStoryFields"
 export { Answer } from "./ui/Answer/Answer"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
 export { storyStore } from "./model/storyStore"

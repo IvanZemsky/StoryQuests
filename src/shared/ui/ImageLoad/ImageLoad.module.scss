@@ -1,0 +1,22 @@
+.load{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   border-radius: 20px;
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+}
+
+.content{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 7px;
+   font-size: 14px;
+   font-weight: 500;
+
+   svg{
+      width: 29px;
+   }
+}

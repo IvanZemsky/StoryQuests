@@ -2,7 +2,6 @@ import { InputHTMLAttributes } from "react";
 import styles from './TextInput.module.scss'
 
 interface Props {
-
 }
 
 type TextInputType = Props & InputHTMLAttributes<HTMLInputElement>

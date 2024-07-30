@@ -49,4 +49,8 @@
 .authorLink{
    font-size: 16px;
    color: var(--secondaryLight);
+
+   &:hover{
+      text-decoration: underline;
+   }
 }

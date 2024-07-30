@@ -3,10 +3,11 @@ import styles from "../styles/container.module.scss"
 import Link from "next/link"
 
 interface LinkProps {
-   variant?: "outlined" | "filled"
+   variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
    href: string
+   uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
 }
@@ -22,6 +23,7 @@ export const PageLink = ({
    rightIcon,
    children,
    className,
+   uppercase = false,
    ...attributes
 }: LinkFullProps) => {
    return (
@@ -33,6 +35,7 @@ export const PageLink = ({
             styles[color],
             defaultHover && styles.defaultHover,
             children && styles.minWidth,
+            uppercase && styles.uppercase,
             className,
          ].join(" ")}
          {...attributes}

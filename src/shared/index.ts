@@ -1,3 +1,7 @@
+export { ImageLoad } from "./ui/ImageLoad/ImageLoad";
+
+export { UploadIcon } from "./ui/icons/UploadIcon";
+export { Textarea } from "./ui/Textarea/Textarea";
 export { ArrowRightIcon } from "./ui/icons/ArrowRightIcon";
 export { Logo } from "./ui/Logo/Logo";
 export { PageRoutes } from "./constants/pageRoutes";

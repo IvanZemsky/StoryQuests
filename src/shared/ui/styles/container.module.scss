@@ -5,9 +5,14 @@
    padding: 2px;
    border-radius: 20px;
    transition: all 0.15s linear;
+   background: var(--gradientMain);
 
    &.minWidth {
       min-width: 125px;
+   }
+
+   &.uppercase {
+      text-transform: uppercase;
    }
 }
 
@@ -36,8 +41,6 @@
 }
 
 .outlined {
-   background: var(--gradientMain);
-
    &.secondary {
       .content {
          background-color: var(--secondaryMain);
@@ -67,9 +70,13 @@
    }
 }
 
-.filled {
-   background: var(--gradientMain);
+.gradient {
+   .content{
+      color: var(--primaryText);
+   }
+}
 
+.filled {
    &.primary {
       box-shadow: 0px 0px 0px 5px var(--primaryDark) inset;
 

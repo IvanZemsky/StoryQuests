@@ -2,9 +2,10 @@ import { ButtonHTMLAttributes, ReactNode } from "react"
 import styles from "../styles/container.module.scss"
 
 interface ButtonProps {
-   variant?: "outlined" | "filled"
+   variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
+   uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
 }
@@ -19,6 +20,7 @@ export const Button = ({
    rightIcon,
    children,
    className,
+   uppercase = false,
    type = "button",
    ...attributes
 }: ButtonFullProps) => {
@@ -30,6 +32,7 @@ export const Button = ({
             styles[color],
             defaultHover && styles.defaultHover,
             children && styles.minWidth,
+            uppercase && styles.uppercase,
             className,
          ].join(" ")}
          type={type}

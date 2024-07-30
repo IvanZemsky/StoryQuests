@@ -1,0 +1,38 @@
+div.wrapper{
+   max-width: 1150px;
+}
+
+.content, .form, .inputs{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.content{
+   padding: 25px 0;
+}
+
+.title{
+   font-size: 30px;
+   font-weight: 700;
+}
+
+.imageLoad{
+   height: 260px;
+}
+
+.top{
+   display: grid;
+   grid-template-columns: 1fr 339px;
+   grid-template-rows: auto;
+   gap: 33px;
+}
+
+.preview{
+   height: fit-content;
+}
+
+.publishBtn{
+   height: 103px;
+   font-weight: 600;
+}

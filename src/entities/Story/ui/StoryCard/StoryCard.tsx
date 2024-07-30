@@ -10,11 +10,12 @@ interface StoryCard {
    description: string
    login: string
    imgLink: string
+   className?: string
 }
 
-export const StoryCard = () => {
+export const StoryCard = ({className}: {className?: string}) => {
    return (
-      <li className={styles.wrap}>
+      <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
                <Image src={cardbg} alt="" />

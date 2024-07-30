@@ -1,0 +1,16 @@
+.textarea{
+   padding: 17px 20px;
+   background-color: var(--secondaryMain);
+   color: var(--secondaryText);
+   border-radius: 20px;
+   resize: none;
+}
+
+.textarea::placeholder{
+   color: var(--secondaryText);
+   transition: color 0.15s linear;
+}
+
+.textarea:focus::placeholder{
+   color: rgba(0,0,0,0);
+}
