@@ -1,5 +1,6 @@
-import { IAnswer, storyStore } from "@/src/entities/Story"
+import { storyStore } from "@/src/entities/Story"
 import { Check } from "@/src/shared"
+import { IAnswer } from "../../model/types"
 
 interface Props {
    answer: IAnswer

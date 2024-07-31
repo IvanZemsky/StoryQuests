@@ -1,4 +1,4 @@
-import { Button, ImageLoad, Wrapper } from "@/src/shared"
+import { Button, Wrapper } from "@/src/shared"
 import styles from "./CreateStory.module.scss"
 import { CreateStoryFields } from "@/src/entities/Story"
 import { StoryCard } from "@/src/entities/Story/"
