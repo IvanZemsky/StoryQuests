@@ -3,7 +3,7 @@
 import styles from "./Scene.module.scss"
 import Image from "next/image"
 import cardbg from "@/public/cardbg.jpg"
-import { SelectAnswer } from "@/src/features/scene/toNextScene"
+import { SelectAnswer } from "@/src/features/scene"
 import { observer } from "mobx-react"
 import { IStory, storyStore } from "@/src/entities/Story"
 import { useMemo } from "react"

@@ -1,3 +1,13 @@
-.logo{
+a.logo{
    font-weight: 600;
+
+   span{
+      padding-left: 20px;
+      padding-right: 20px;
+      gap: 14px;
+
+      svg{
+         stroke-width: 0;
+      }
+   }
 }

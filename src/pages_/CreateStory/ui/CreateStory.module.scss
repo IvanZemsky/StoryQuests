@@ -2,7 +2,7 @@ div.wrapper{
    max-width: 1150px;
 }
 
-.content, .form, .inputs{
+.content, .form{
    display: flex;
    flex-direction: column;
    gap: 25px;
@@ -17,11 +17,8 @@ div.wrapper{
    font-weight: 700;
 }
 
-.imageLoad{
-   height: 260px;
-}
-
 .top{
+   position: relative;
    display: grid;
    grid-template-columns: 1fr 339px;
    grid-template-rows: auto;
@@ -29,6 +26,9 @@ div.wrapper{
 }
 
 .preview{
+   position: sticky;
+   top: 0;
+   left: 0;
    height: fit-content;
 }
 

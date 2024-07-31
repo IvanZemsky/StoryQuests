@@ -1,0 +1,1 @@
+export type { IScene } from "./model/types";

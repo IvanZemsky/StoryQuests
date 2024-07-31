@@ -1,7 +1,7 @@
 import { SwitcherGroup, Button, ArrowRightIcon } from "@/src/shared"
 import styles from "./SelectAnswer.module.scss"
-import { IAnswer, storyStore } from "@/src/entities/Story"
-import { Answer } from "@/src/entities/Story"
+import { storyStore } from "@/src/entities/Story"
+import { Answer, IAnswer } from "@/src/entities/Answer"
 
 interface Props {
    answers: IAnswer[]

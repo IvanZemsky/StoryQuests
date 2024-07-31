@@ -1,4 +1,4 @@
-import { Textarea, TextInput } from "@/src/shared"
+import { ImageLoad, Textarea, TextInput } from "@/src/shared"
 import styles from './CreateStoryFileds.module.scss'
 
 interface Props {
@@ -9,6 +9,7 @@ export const CreateStoryFields = ({}: Props) => {
       <div className={styles.content}>
          <TextInput placeholder="Story name"/>
          <Textarea placeholder="Description"/>
+         <ImageLoad label="Illustration" className={styles.imageLoad} />
       </div>
    );
 }

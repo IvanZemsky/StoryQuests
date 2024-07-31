@@ -1,5 +1,5 @@
+export { BookIcon } from "./ui/icons/BookIcon";
 export { ImageLoad } from "./ui/ImageLoad/ImageLoad";
-
 export { UploadIcon } from "./ui/icons/UploadIcon";
 export { Textarea } from "./ui/Textarea/Textarea";
 export { ArrowRightIcon } from "./ui/icons/ArrowRightIcon";

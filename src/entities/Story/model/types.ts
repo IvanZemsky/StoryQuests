@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image"
+import { IScene } from "../../Scene/index"
 
 export interface IStory {
    id: string
@@ -6,18 +7,4 @@ export interface IStory {
    description: string
    img: StaticImageData
    scenes: IScene[]
-}
-
-export interface IScene {
-   _id: string
-   title: string
-   description: string
-   img: StaticImageData
-   answers: IAnswer[]
-}
-
-export interface IAnswer {
-   _id: string
-   title: string
-   nextSceneId: string
 }
