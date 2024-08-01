@@ -90,5 +90,15 @@ table {
 }
 
 .react-flow svg {
-   overflow: visible;
+   overflow: visible; // Для сохранения видимости reactflow ребер
+}
+
+div.react-flow__attribution { // исправление ссылки
+   background-color: var(--primaryDark);
+   padding: 3px;
+   opacity: 0.5;
+
+   a{
+      color: var(--primaryText);
+   }
 }

@@ -10,9 +10,10 @@ import {
    Node,
    useEdgesState,
    useNodesState,
-} from "reactflow"
+   ControlButton,
+} from "@xyflow/react"
 import styles from "./StoryField.module.scss"
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, useState } from "react"
 
 import "@xyflow/react/dist/style.css"
 
@@ -23,6 +24,8 @@ const initialNodes: Node[] = [
 const initialEdges = [{ id: "e1-2", source: "1", target: "2" }]
 
 export const StoryField = () => {
+   const [fullScreenMode, setFullScreenMode] = useState(false)
+
    const [nodes, setNodes, onNodesChange] = useNodesState<Node>(initialNodes)
    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>(initialEdges)
 
@@ -31,8 +34,14 @@ export const StoryField = () => {
       [setEdges],
    )
 
+   const handleFullScreenClick = () => {
+      setFullScreenMode(!fullScreenMode)
+   }
+
    return (
-      <div className={styles.content}>
+      <div
+         className={[styles.content, fullScreenMode && styles.fullScreenMode].join(" ")}
+      >
          <h2 className={styles.title}>Tree</h2>
          <div className={styles.field}>
             <ReactFlow
@@ -43,8 +52,13 @@ export const StoryField = () => {
                edges={edges}
                fitView
             >
-               <Controls />
-               <Background />
+               <Controls
+                  className={styles.controls}
+                  showInteractive={false}
+               >
+                  <ControlButton onClick={handleFullScreenClick}>h</ControlButton>
+               </Controls>
+               <Background className={styles.background}/>
             </ReactFlow>
          </div>
       </div>
