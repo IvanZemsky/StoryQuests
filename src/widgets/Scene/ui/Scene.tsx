@@ -27,7 +27,7 @@ export const Scene = observer(({ storyData }: Props) => {
    return (
       <div className={styles.content}>
          <h2 className={styles.title}>{sceneData.title}</h2>
-         {storyData.description && <p className={styles.desc}>{sceneData.description}</p>}
+         {!!sceneData.description && <p className={styles.desc}>{sceneData.description}</p>}
          
          <div className={styles.controls}>
             <Image src={cardbg} className={styles.illustration} alt="illustration" />

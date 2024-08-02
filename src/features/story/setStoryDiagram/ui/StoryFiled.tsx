@@ -13,13 +13,15 @@ import {
    ControlButton,
 } from "@xyflow/react"
 import styles from "./StoryField.module.scss"
-import { useEffect, useCallback, useState } from "react"
+import { useCallback, useState } from "react"
 
 import "@xyflow/react/dist/style.css"
+import { nodeTypes } from "../model/customNodes"
 
 const initialNodes: Node[] = [
-   { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-   { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
+   { id: "1", type: 'startScene', position: { x: 0, y: 0 }, data: { text: 'Title of scene' }, },
+   { id: "2", type: 'scene', position: { x: 0, y: 100 }, data: { text: 'Title of scene' }, },
+   { id: "3", type: 'endScene', position: { x: 100, y: 125 }, data: { text: 'End' }, },
 ]
 const initialEdges = [{ id: "e1-2", source: "1", target: "2" }]
 
@@ -49,6 +51,7 @@ export const StoryField = () => {
                onEdgesChange={onEdgesChange}
                onConnect={handleConnect}
                nodes={nodes}
+               nodeTypes={nodeTypes}
                edges={edges}
                fitView
             >

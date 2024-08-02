@@ -1,0 +1,25 @@
+.content{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 81px;
+   height: 63px;
+   padding: 3px;
+   border: 2px solid var(--thirdLight);
+   border-radius: 7.5px;
+   background-color: var(--primaryMain);
+   cursor: pointer;
+}
+
+.title{
+   font-size: 7px;
+   font-weight: 600;
+}
+
+div.handle{
+   bottom: 1px;
+   width: 7px;
+   height: 7px;
+   border-color: var(--thirdLight);
+   background-color: var(--thirdMain);
+}

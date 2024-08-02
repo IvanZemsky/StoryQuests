@@ -1,0 +1,31 @@
+.topBorder{
+   height: 12px;
+   background-color: var(--secondaryMain);
+   border-radius: 7.5px 7.5px 0 0;
+}
+
+.content{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 81px;
+   height: 47px;
+   padding: 3px;
+   background-image: var(--gradientMain);
+   border-radius: 0 0 7.5px 7.5px;
+   background-color: var(--primaryMain);
+   cursor: pointer;
+}
+
+.title{
+   font-size: 7px;
+   font-weight: 700;
+}
+
+div.handle{
+   top: 1px;
+   width: 7px;
+   height: 7px;
+   border-color: var(--secondaryMain);
+   background-color: var(--thirdMain);
+}

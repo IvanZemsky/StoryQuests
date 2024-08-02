@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import "@/src/shared/lib/styles/_vars.scss";
 import "@/src/shared/lib/styles/mixins.scss";
 import "@/src/app/styles/reset.scss";
 import "@/src/app/styles/fonts.scss";
 import { Header } from "@/src/widgets/Header";
+import Loading from "@/app/loading";
 
 export const metadata: Metadata = {
    title: "Stories",
@@ -19,7 +20,11 @@ export const RootLayout = ({ children }: RootLayoutType) => {
          <body>
             <div className="app">
                <Header />
-               <main>{children}</main>
+               <main>
+                  <Suspense fallback={<Loading/>}>
+                     {children}
+                  </Suspense>
+               </main>
             </div>
          </body>
       </html>
