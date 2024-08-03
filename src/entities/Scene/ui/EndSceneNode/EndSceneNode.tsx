@@ -8,8 +8,6 @@ type EndSceneNodeType = Node<
 >
 
 export const EndSceneNode = ({data}: NodeProps<EndSceneNodeType>) => {
-   console.log(data)
-
    return ( 
       <div>
          <Handle type="target" position={Position.Top} className={styles.handle} />

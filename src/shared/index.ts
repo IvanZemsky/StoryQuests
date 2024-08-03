@@ -1,3 +1,6 @@
+export { FullScreenIcon } from "./ui/icons/FullScreenIcon";
+export { FullScreenBtn } from "./ui/FullScreenBtn/FullScreenBtn";
+export { FullScreenExitIcon } from "./ui/icons/FullScreenExitIcon";
 export { BookIcon } from "./ui/icons/BookIcon";
 export { ImageLoad } from "./ui/ImageLoad/ImageLoad";
 export { UploadIcon } from "./ui/icons/UploadIcon";
