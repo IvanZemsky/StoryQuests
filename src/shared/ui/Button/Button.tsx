@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 import styles from "../styles/container.module.scss"
 
-interface ButtonProps {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
@@ -9,8 +9,6 @@ interface ButtonProps {
    leftIcon?: ReactNode
    rightIcon?: ReactNode
 }
-
-type ButtonFullProps = ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button = ({
    variant = "outlined",
@@ -23,7 +21,7 @@ export const Button = ({
    uppercase = false,
    type = "button",
    ...attributes
-}: ButtonFullProps) => {
+}: Props) => {
    return (
       <button
          className={[

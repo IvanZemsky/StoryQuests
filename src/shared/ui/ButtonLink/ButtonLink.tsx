@@ -2,7 +2,7 @@ import { AnchorHTMLAttributes, ReactNode } from "react"
 import styles from "../styles/container.module.scss"
 import Link from "next/link"
 
-interface LinkProps {
+interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
    variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
@@ -12,9 +12,7 @@ interface LinkProps {
    rightIcon?: ReactNode
 }
 
-type LinkFullProps = LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>
-
-export const PageLink = ({
+export const ButtonLink = ({
    variant = "outlined",
    color = "secondary",
    href,
@@ -25,7 +23,8 @@ export const PageLink = ({
    className,
    uppercase = false,
    ...attributes
-}: LinkFullProps) => {
+}: Props) => {
+
    return (
       <Link
          href={href}

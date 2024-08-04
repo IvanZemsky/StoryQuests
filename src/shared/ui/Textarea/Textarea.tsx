@@ -1,13 +1,11 @@
 import { HTMLAttributes } from "react"
 import styles from "./Textarea.module.scss"
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLTextAreaElement> {
    placeholder?: string
 }
 
-type FullProps = Props & HTMLAttributes<HTMLTextAreaElement>
-
-export const Textarea = ({ placeholder, className, ...attributes }: FullProps) => {
+export const Textarea = ({ placeholder, className, ...attributes }: Props) => {
    return (
       <textarea
          className={[styles.textarea, className].join(" ")}

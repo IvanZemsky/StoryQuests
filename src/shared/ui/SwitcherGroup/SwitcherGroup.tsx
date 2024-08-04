@@ -1,18 +1,15 @@
 import { HTMLAttributes } from "react"
 import styles from "./SwitcherGroup.module.scss"
 
-interface SwitcherGroupProps {
+interface Props extends HTMLAttributes<HTMLDivElement> {
    variant?: "row" | "column"
 }
-
-type SwitcherGroupFullProps = SwitcherGroupProps & HTMLAttributes<HTMLDivElement>
-
 export const SwitcherGroup = ({
    variant = "row",
    children,
    className,
    ...attributes
-}: SwitcherGroupFullProps) => {
+}: Props) => {
    return (
       <div className={[styles.content, className, styles[variant]].join(" ")} {...attributes}>
          {children}

@@ -1,9 +1,9 @@
-import { PageLink, PageRoutes, BookIcon } from "@/src/shared";
+import { ButtonLink, PageRoutes, BookIcon } from "@/src/shared";
 import styles from "./Logo.module.scss";
 
 export const Logo = () => {
    return (
-      <PageLink
+      <ButtonLink
          href={PageRoutes.Home}
          leftIcon={<BookIcon />}
          rightIcon={<BookIcon />}
@@ -11,6 +11,6 @@ export const Logo = () => {
          className={styles.logo}
       >
          StoryQuests
-      </PageLink>
+      </ButtonLink>
    )
 }

@@ -1,0 +1,24 @@
+.link{
+   position: relative;
+   font-size: inherit;
+   color: inherit;
+   font-weight: 500;
+
+   &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 3px;
+      background-image: var(--gradientMain);
+      border-radius: 0 0 5px 5px;
+      opacity: 0;
+      transition: opacity 0.15s linear;
+      z-index: 1;
+   }
+
+   &.active::before{
+      opacity: 1;
+   }
+}

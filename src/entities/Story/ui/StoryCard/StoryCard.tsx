@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "./StoryCard.module.scss"
-import { PageLink, PageRoutes } from "@/src/shared"
+import { ButtonLink, PageRoutes } from "@/src/shared"
 import Image from "next/image"
 import cardbg from "@/public/cardbg.jpg"
 
@@ -29,9 +29,9 @@ export const StoryCard = ({className}: {className?: string}) => {
                   commodo consequat
                </p>
                <div className={styles.links}>
-                  <PageLink href={`${PageRoutes.Stories}/1233423`} color="primary">
+                  <ButtonLink href={`${PageRoutes.Stories}/1233423`} color="primary">
                      Start
-                  </PageLink>
+                  </ButtonLink>
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>
                      #AuthorNickname
                   </Link>

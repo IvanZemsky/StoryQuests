@@ -2,13 +2,11 @@ import styles from "./ImageLoad.module.scss"
 import { UploadIcon } from "./../icons/UploadIcon"
 import { HTMLAttributes } from "react"
 
-interface Props {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
    label?: string
 }
 
-type FullProps = Props & HTMLAttributes<HTMLButtonElement>
-
-export const ImageLoad = ({ label, className, ...attributes }: FullProps) => {
+export const ImageLoad = ({ label, className, ...attributes }: Props) => {
    return (
       <button
          className={[styles.load, className].join(" ")}

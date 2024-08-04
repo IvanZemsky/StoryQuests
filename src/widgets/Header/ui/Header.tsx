@@ -1,4 +1,4 @@
-import { Wrapper } from "@/src/shared"
+import { MainLink, Wrapper } from "@/src/shared"
 import styles from './Header.module.scss'
 import { Logo } from '@/src/shared';
 import { PageRoutes } from "@/src/shared";
@@ -12,8 +12,8 @@ export const Header = () => {
           <Logo />
           <nav className={styles.nav}>
             <ul>
-              <Link href={PageRoutes.Stories}>Stories</Link>
-              <Link href={PageRoutes.Create}>Create</Link>
+              <MainLink href={PageRoutes.Stories}>Stories</MainLink>
+              <MainLink href={PageRoutes.Create}>Create</MainLink>
             </ul>
           </nav>
          </div>
