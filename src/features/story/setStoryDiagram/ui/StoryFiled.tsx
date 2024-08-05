@@ -16,8 +16,10 @@ import { useCallback, useState } from "react"
 
 import "@xyflow/react/dist/style.css"
 import { nodeTypes } from "../model/customNodes"
-import { FullScreenBtn } from "./../../../../shared/ui/FullScreenBtn/FullScreenBtn"
+import { FullScreenBtn } from "@/src/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
+import { ScenePanel } from '@/src/entities/Scene/ui/ScenePanel/ScenePanel';
+import { useDragAndDrop } from "../model/useDragAndDrop"
 
 const initialNodes: Node[] = [
    {
@@ -26,28 +28,20 @@ const initialNodes: Node[] = [
       position: { x: 0, y: 0 },
       data: { text: "Title of scene" },
    },
-   {
-      id: "2",
-      type: "scene",
-      position: { x: 0, y: 100 },
-      data: { text: "Title of scene" },
-   },
-   { id: "3", type: "endScene", position: { x: 100, y: 125 }, data: { text: "End" } },
-]
-const initialEdges = [
-   { id: "e1-2", source: "1", target: "2", type: "storyEdge", animated: true },
 ]
 
 export const StoryField = () => {
    const [fullScreenMode, setFullScreenMode] = useState(false)
 
    const [nodes, setNodes, onNodesChange] = useNodesState<Node>(initialNodes)
-   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>(initialEdges)
+   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
 
-   const handleConnect = useCallback(
-      (params: Edge | Connection) =>
+   const [onDragOver, onDrop] = useDragAndDrop(setNodes)
+
+   const onConnect = useCallback(
+      (params: Edge | Connection) => 
          setEdges((eds) =>
-            addEdge({ ...params, data: {}, animated: true, type: "storyEdge" }, eds),
+            addEdge({ ...params, data: {}, animated: true, type: "storyEdge" }, eds)
          ),
       [setEdges],
    )
@@ -62,14 +56,17 @@ export const StoryField = () => {
       >
          <h2 className={styles.title}>Tree</h2>
          <div className={styles.field}>
+            <ScenePanel/>
             <ReactFlow
                onNodesChange={onNodesChange}
                onEdgesChange={onEdgesChange}
-               onConnect={handleConnect}
+               onConnect={onConnect}
                nodes={nodes}
                nodeTypes={nodeTypes}
                edgeTypes={edgeTypes}
                edges={edges}
+               onDrop={onDrop}
+               onDragOver={onDragOver}
                fitView
             >
                <Controls className={styles.controls} showInteractive={false}>

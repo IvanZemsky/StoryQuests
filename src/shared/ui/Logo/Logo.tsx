@@ -1,4 +1,5 @@
-import { ButtonLink, PageRoutes, BookIcon } from "@/src/shared";
+import { ButtonLink, BookIcon } from "..";
+import { PageRoutes } from "../../constants";
 import styles from "./Logo.module.scss";
 
 export const Logo = () => {

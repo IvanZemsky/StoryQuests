@@ -1,8 +1,9 @@
-import { Button, Wrapper } from "@/src/shared"
+import { Button, Wrapper } from "@/src/shared/ui"
 import styles from "./CreateStory.module.scss"
 import { CreateStoryFields } from "@/src/entities/Story"
 import { StoryCard } from "@/src/entities/Story/"
 import { StoryField } from "@/src/features/story"
+import { ReactFlowProvider } from "@xyflow/react"
 
 type Props = {}
 export const CreateStory = ({}: Props) => {
@@ -15,7 +16,11 @@ export const CreateStory = ({}: Props) => {
                   <CreateStoryFields />
                   <StoryCard className={styles.preview} />
                </div>
-               <StoryField />
+
+               <ReactFlowProvider>
+                  <StoryField />
+               </ReactFlowProvider>
+               
                <Button variant="gradient" className={styles.publishBtn} uppercase>Publish</Button>
             </form>
          </div>

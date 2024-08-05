@@ -31,6 +31,7 @@
 }
 
 .field{
+   position: relative;
    height: 100%;
 }
 
@@ -40,8 +41,8 @@ div.controls{
    button {
       width: 35px;
       height: 35px;
-      background-color: var(--primaryDark);
-      color: var(--primaryText);
+      background-color: var(--secondaryMain);
+      color: var(--secondaryText);
       opacity: 1;
 
       svg{
@@ -49,7 +50,7 @@ div.controls{
          max-height: 100%;
          width: 16px;
          height: auto;
-         fill: var(--primaryText);
+         fill: var(--secondaryText);
          flex-shrink: 0;
       }
 
@@ -58,8 +59,8 @@ div.controls{
       }
 
       &:hover{
-         background-color: var(--primaryDark);
-         color: var(--primaryText);
+         background-color: var(--secondaryMain);
+         color: var(--secondaryText);
       }
    }
 }

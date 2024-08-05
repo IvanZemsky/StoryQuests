@@ -1,4 +1,4 @@
-import { Wrapper } from "@/src/shared";
+import { Wrapper } from "@/src/shared/ui";
 
 type Props = {
  

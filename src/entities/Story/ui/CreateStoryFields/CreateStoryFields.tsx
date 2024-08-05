@@ -1,4 +1,4 @@
-import { ImageLoad, Textarea, TextInput } from "@/src/shared"
+import { ImageLoad, Textarea, TextInput } from "@/src/shared/ui"
 import styles from './CreateStoryFileds.module.scss'
 
 interface Props {

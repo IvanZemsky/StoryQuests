@@ -1,4 +1,4 @@
-import { Button, CrossIcon, SearchIcon, TextInput, SwitcherGroup, Check, Select } from "@/src/shared";
+import { Button, CrossIcon, SearchIcon, TextInput, SwitcherGroup, Check, Select } from "@/src/shared/ui";
 import styles from './StoriesFilters.module.scss'
 
 export const StoriesFilters = () => {

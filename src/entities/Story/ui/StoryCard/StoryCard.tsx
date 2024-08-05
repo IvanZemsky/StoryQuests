@@ -1,8 +1,9 @@
 import Link from "next/link"
 import styles from "./StoryCard.module.scss"
-import { ButtonLink, PageRoutes } from "@/src/shared"
+import { ButtonLink} from "@/src/shared/ui"
 import Image from "next/image"
 import cardbg from "@/public/cardbg.jpg"
+import { PageRoutes } from "@/src/shared/constants"
 
 interface StoryCard {
    id: string

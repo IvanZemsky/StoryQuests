@@ -1,5 +1,5 @@
 import { storyStore } from "@/src/entities/Story"
-import { Check } from "@/src/shared"
+import { Check } from "@/src/shared/ui"
 import { IAnswer } from "../../model/types"
 
 interface Props {

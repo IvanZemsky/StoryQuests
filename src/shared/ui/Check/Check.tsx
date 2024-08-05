@@ -2,7 +2,7 @@
 
 import { InputHTMLAttributes, useState } from "react"
 import styles from "./Check.module.scss"
-import { Button } from "@/src/shared"
+import { Button } from ".."
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
    text: string

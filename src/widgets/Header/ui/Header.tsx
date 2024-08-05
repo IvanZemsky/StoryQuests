@@ -1,8 +1,6 @@
-import { MainLink, Wrapper } from "@/src/shared"
+import { MainLink, Wrapper, Logo } from "@/src/shared/ui"
 import styles from './Header.module.scss'
-import { Logo } from '@/src/shared';
-import { PageRoutes } from "@/src/shared";
-import Link from "next/link";
+import { PageRoutes } from "@/src/shared/constants";
 
 export const Header = () => {
   return (

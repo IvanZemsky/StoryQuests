@@ -1,4 +1,4 @@
-import { Wrapper } from "@/src/shared"
+import { Wrapper } from "@/src/shared/ui"
 import styles from "./Story.module.scss"
 import { Scene } from "@/src/widgets/Scene"
 import { story } from "../data/story"

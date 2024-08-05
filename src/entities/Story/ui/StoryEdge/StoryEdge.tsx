@@ -1,4 +1,4 @@
-import { Button } from "@/src/shared"
+import { Button } from "@/src/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, EdgeProps, getBezierPath } from "@xyflow/react"
 import styles from "./StoryEdge.module.scss"
 
