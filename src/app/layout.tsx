@@ -28,7 +28,7 @@ export const RootLayout = ({ children }: RootLayoutType) => {
                </main>
                <Footer/>
             </div>
-            <div className="modal"></div>
+            <div id="modal"></div>
          </body>
       </html>
    );

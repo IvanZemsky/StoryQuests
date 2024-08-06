@@ -1,3 +1,4 @@
+export { ClientPortal } from "./ClientPortal/ClientPortal"
 export { MainLink } from "./MainLink/MainLink"
 export { FullScreenIcon } from "./icons/FullScreenIcon"
 export { FullScreenBtn } from "./FullScreenBtn/FullScreenBtn"

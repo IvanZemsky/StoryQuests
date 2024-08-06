@@ -1,8 +1,8 @@
 import { Button } from "@/src/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, EdgeProps, getBezierPath } from "@xyflow/react"
-import styles from "./StoryEdge.module.scss"
+import styles from "./AnswerEdge.module.scss"
 
-export const StoryEdge = ({ id, sourceX, sourceY, targetX, targetY }: EdgeProps) => {
+export const AnswerEdge = ({ id, sourceX, sourceY, targetX, targetY }: EdgeProps) => {
    const [edgePath, labelX, labelY] = getBezierPath({
       sourceX,
       sourceY,

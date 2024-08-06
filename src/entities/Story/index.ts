@@ -1,4 +1,3 @@
-export { StoryEdge } from "./ui/StoryEdge/StoryEdge"
 export { CreateStoryFields } from "./ui/CreateStoryFields/CreateStoryFields"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
 export { storyStore } from "./model/storyStore"

@@ -1,6 +1,6 @@
-import { StoryEdge } from "@/src/entities/Story"
+import { AnswerEdge } from "@/src/entities/Answer"
 import { EdgeTypes } from "@xyflow/react"
 
 export const edgeTypes: EdgeTypes = {
-   storyEdge: StoryEdge
+   storyEdge: AnswerEdge
 }

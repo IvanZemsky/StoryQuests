@@ -10,13 +10,13 @@ class StoryStore{
       makeAutoObservable(this);
    }
 
-   setScene = () => {
+   setScene = (): void => {
       if (this.selectedSceneId) {
          this.currentSceneId = this.selectedSceneId;
       }
    }
 
-   setNextSceneId = (id: string) => {
+   setNextSceneId = (id: string): void => {
       this.selectedSceneId = id;
    }
 }
