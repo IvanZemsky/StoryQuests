@@ -1,3 +1,5 @@
+export { StoryHeader } from "./ui/StoryHeader/StoryHeader"
+export { MainHeader } from "./ui/MainHeader/MainHeader"
 export { CreateStoryFields } from "./ui/CreateStoryFields/CreateStoryFields"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
 export { storyStore } from "./model/storyStore"

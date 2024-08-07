@@ -1,0 +1,18 @@
+@import '/src/shared/lib/styles/mixins.scss';
+
+.content{
+   @include flex-spb-y;
+   gap: 15px;
+   padding: 10px 0;
+}
+
+.nav{
+   ul{
+      @include flex-center-x;
+      gap: 15px;
+   }
+
+   a{
+      color: var(--secondaryText);
+   }
+}

@@ -1,20 +1,21 @@
-import { MainLink, Wrapper, Logo } from "@/src/shared/ui"
-import styles from './Header.module.scss'
+'use client'
+
+import { Wrapper } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants";
+import { usePathname } from "next/navigation";
+import styles from './Header.module.scss'
+import { StoryHeader, MainHeader } from "@/src/entities/Story";
+
+const {Stories} = PageRoutes
 
 export const Header = () => {
+  const pathname = usePathname()
+  const shouldShowStoryHeader = pathname.startsWith(Stories + '/')
+
   return (
     <header className={styles.header}>
       <Wrapper>
-         <div className={styles.content}>
-          <Logo />
-          <nav className={styles.nav}>
-            <ul>
-              <MainLink href={PageRoutes.Stories}>Stories</MainLink>
-              <MainLink href={PageRoutes.Create}>Create</MainLink>
-            </ul>
-          </nav>
-         </div>
+        {shouldShowStoryHeader ? <StoryHeader/> : <MainHeader/>} 
       </Wrapper>
     </header>
   )

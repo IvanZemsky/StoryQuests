@@ -1,19 +1,18 @@
-'use client'
+"use client"
 
-import { Modal } from "@/src/shared/ui/Modal/Modal";
+import { Modal } from "@/src/shared/ui/Modal/Modal"
+import styles from "./SceneModal.module.scss"
 
 interface Props {
- id: string
+   id: string
 }
 
-export const SceneModal = ({id}: Props) => {
+export const SceneModal = ({ id }: Props) => {
    const modalContent = `sceneDataModal${id}`
 
-   return ( 
-      <Modal modalContent={modalContent}>
-         <div>
-            Modal!!! (id: {id})
-         </div>
+   return (
+      <Modal modalContent={modalContent} className={styles.modal}>
+         <div className={styles.content}></div>
       </Modal>
-   );
+   )
 }
