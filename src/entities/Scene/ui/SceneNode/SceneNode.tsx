@@ -5,17 +5,19 @@ import styles from "./SceneNode.module.scss"
 import { SceneModal } from './../SceneModal/SceneModal';
 import { observer } from "mobx-react";
 import { modalStore } from "@/src/shared/model";
+import { storyCreationStore } from "../../model/storyCreatingStore";
+import { useMemo, useState } from "react";
 
 type SceneNodeType = Node<
    {
-      text: string
+      title: string
+      description: string
    }
 >
 
 export const SceneNode = observer(({id, data}: NodeProps<SceneNodeType>) => {
    const {openModal} = modalStore
-
-   const text = data.text || 'Title of scene'
+   const [title, setTitle] = useState(data.title || 'Title of scene')
 
    const modalContent = `sceneDataModal${id}`
 
@@ -27,10 +29,10 @@ export const SceneNode = observer(({id, data}: NodeProps<SceneNodeType>) => {
       <div onClick={handeModalOpen}>
          <Handle type="target" position={Position.Top} className={styles.targetHandle} />
          <div className={styles.content}>
-            <p className={styles.title}>{text}</p>
+            <p className={styles.title}>{title}</p>
          </div>
          <Handle type="source" position={Position.Bottom} className={styles.sourceHandle} />
-         <SceneModal id={id}/>
+         <SceneModal id={id} data={data}/>
       </div>
    )
 })

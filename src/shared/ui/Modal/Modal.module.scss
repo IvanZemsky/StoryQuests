@@ -8,6 +8,16 @@
    align-items: center;
    justify-content: center;
    overflow: auto;
+   animation: fadeIn 0.15s linear forwards;
+
+   @keyframes fadeIn {
+      0% {
+         opacity: 0;
+      }
+      100% {
+         opacity: 1;
+      }
+   }
 }
 
 .wrap{

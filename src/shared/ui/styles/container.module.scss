@@ -28,12 +28,13 @@
    transition: all 0.15s linear;
 
    &.icon {
-      min-width: 49px;
+      width: 49px;
       padding: 0;
       aspect-ratio: 1 / 1;
    }
 
    svg {
+      flex-shrink: 1;
       width: 17px;
       height: auto;
       transition: all 0.15s linear;

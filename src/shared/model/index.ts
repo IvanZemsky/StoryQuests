@@ -1,2 +1,2 @@
-export { usePreventScroll } from "./usePreventScroll"
+export { usePreventScroll } from "../lib/hooks/usePreventScroll"
 export { modalStore } from "./modalStore"

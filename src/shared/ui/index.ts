@@ -1,3 +1,4 @@
+export { TrashIcon } from "./icons/TrashIcon"
 export { ClientPortal } from "./ClientPortal/ClientPortal"
 export { MainLink } from "./MainLink/MainLink"
 export { FullScreenIcon } from "./icons/FullScreenIcon"

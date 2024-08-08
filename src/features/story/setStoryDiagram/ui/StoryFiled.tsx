@@ -12,28 +12,32 @@ import {
    useNodesState,
 } from "@xyflow/react"
 import styles from "./StoryField.module.scss"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 import "@xyflow/react/dist/style.css"
 import { nodeTypes } from "../model/customNodes"
 import { FullScreenBtn } from "@/src/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
 import { ScenePanel } from '@/src/entities/Scene/ui/ScenePanel/ScenePanel';
-import { useDragAndDrop } from "../model/useDragAndDrop"
+import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
+import { ISceneNode, storyCreationStore } from "@/src/entities/Scene"
 
-const initialNodes: Node[] = [
+
+
+const initialNodes: ISceneNode[] = [
    {
       id: "1",
       type: "startScene",
       position: { x: 0, y: 0 },
-      data: { text: "Title of scene" },
+      data: { title: "Title of scene", description: "" },
    },
 ]
 
 export const StoryField = () => {
+   const {saveNodes, saveEdges} = storyCreationStore
    const [fullScreenMode, setFullScreenMode] = useState(false)
 
-   const [nodes, setNodes, onNodesChange] = useNodesState<Node>(initialNodes)
+   const [nodes, setNodes, onNodesChange] = useNodesState<ISceneNode>(initialNodes)
    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
 
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)
@@ -45,6 +49,15 @@ export const StoryField = () => {
          ),
       [setEdges],
    )
+
+   useEffect(() => {
+      saveNodes(nodes)
+      console.log(nodes)
+   }, [nodes])
+
+   useEffect(() => {
+      saveEdges(edges)
+   }, [edges])
 
    const handleFullScreenClick = () => {
       setFullScreenMode(!fullScreenMode)
