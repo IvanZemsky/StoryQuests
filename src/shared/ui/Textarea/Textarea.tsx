@@ -12,11 +12,9 @@ interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 export const Textarea = forwardRef(
    (
-      props: Props,
+      { counter, className, maxLength, onChange, value, ...attributes }: Props,
       ref: Ref<HTMLTextAreaElement>,
    ) => {
-      const { counter, className, maxLength, onChange, value, ...attributes } = props
-
       const [inputValue, handleChange, symbolsLeft] = useInput(
          maxLength,
          value,
@@ -37,3 +35,5 @@ export const Textarea = forwardRef(
       )
    },
 )
+
+Textarea.displayName = "Textarea";

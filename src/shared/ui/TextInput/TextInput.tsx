@@ -37,4 +37,4 @@ export const TextInput = forwardRef(
    },
 )
 
-export default TextInput
+TextInput.displayName = "TextInput";
