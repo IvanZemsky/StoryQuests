@@ -12,21 +12,28 @@ import {
 } from "@/src/shared/ui"
 import { modalStore } from "@/src/shared/model"
 import { storyCreationStore } from "../../model/storyCreatingStore"
-import { ChangeEvent, useEffect, useMemo, useRef } from "react"
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useMemo, useRef } from "react"
 import { observer } from "mobx-react"
 import { ISceneData } from "../../model/types"
 
 interface Props {
    id: string
    data: ISceneData
+   setTitle: Dispatch<SetStateAction<string>>
 }
 const { closeModal } = modalStore
 
-export const SceneModal = observer(({ id }: Props) => {
-   const {nodes} = storyCreationStore
-   const scene = useMemo(() => nodes.find(scene => scene.id === id)!, [])
-
+export const SceneModal = observer(({ id, data, setTitle }: Props) => {
    const modalContent = `sceneDataModal${id}`
+
+   const handleTitleInput = (event: ChangeEvent<HTMLInputElement>) => {
+      setTitle(event.target.value)
+      data.title = event.target.value
+   }
+
+   const handleDescInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
+      data.description = event.target.value
+   }
 
    return (
       <Modal modalContent={modalContent} className={styles.modal}>
@@ -49,14 +56,16 @@ export const SceneModal = observer(({ id }: Props) => {
                   counter
                   maxLength={100}
                   placeholder="Title"
-                  value={scene.data.title}
+                  onChange={handleTitleInput}
+                  value={data.title}
                />
                <Textarea
                   className={styles.descInput}
                   counter
                   maxLength={300}
                   placeholder="Description"
-                  value={scene.data.description}
+                  onChange={handleDescInput}
+                  value={data.description}
                />
                <ImageLoad label="Illustration" className={styles.illustration} />
             </div>

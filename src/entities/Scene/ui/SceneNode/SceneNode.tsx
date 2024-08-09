@@ -32,7 +32,7 @@ export const SceneNode = observer(({id, data}: NodeProps<SceneNodeType>) => {
             <p className={styles.title}>{title}</p>
          </div>
          <Handle type="source" position={Position.Bottom} className={styles.sourceHandle} />
-         <SceneModal id={id} data={data}/>
+         <SceneModal id={id} data={data} setTitle={setTitle}/>
       </div>
    )
 })
