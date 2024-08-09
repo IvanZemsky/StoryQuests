@@ -10,7 +10,5 @@ export const useInput = (maxLength: number | undefined, value: string | undefine
       callback && callback(event)
    }
 
-   console.log(inputValue, '-----', symbolsLeft)
-
    return [inputValue, handleChange, symbolsLeft] as const
 }

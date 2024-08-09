@@ -14,7 +14,8 @@ import { modalStore } from "@/src/shared/model"
 import { storyCreationStore } from "../../model/storyCreatingStore"
 import { ChangeEvent, Dispatch, SetStateAction, useEffect, useMemo, useRef } from "react"
 import { observer } from "mobx-react"
-import { ISceneData } from "../../model/types"
+import { ISceneData, ISceneNode } from "../../model/types"
+import { useReactFlow, } from "@xyflow/react"
 
 interface Props {
    id: string
@@ -23,17 +24,21 @@ interface Props {
 }
 const { closeModal } = modalStore
 
-export const SceneModal = observer(({ id, data, setTitle }: Props) => {
-   const modalContent = `sceneDataModal${id}`
+export const SceneModal = observer(({ id, data, setTitle  }: Props) => {
+   const { updateNodeData } = useReactFlow<ISceneNode>();
+
+   const modalContent = `sceneDataModal-${id}`
 
    const handleTitleInput = (event: ChangeEvent<HTMLInputElement>) => {
-      setTitle(event.target.value)
-      data.title = event.target.value
-   }
-
+      const newTitle = event.target.value;
+      setTitle(newTitle);
+      updateNodeData(id, { ...data, title: newTitle });
+   };
+   
    const handleDescInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
-      data.description = event.target.value
-   }
+      const newDesc = event.target.value;
+      updateNodeData(id, { ...data, description: newDesc });
+   };
 
    return (
       <Modal modalContent={modalContent} className={styles.modal}>

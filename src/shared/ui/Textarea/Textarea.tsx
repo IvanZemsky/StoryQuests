@@ -15,11 +15,7 @@ export const Textarea = forwardRef(
       { counter, className, maxLength, onChange, value, ...attributes }: Props,
       ref: Ref<HTMLTextAreaElement>,
    ) => {
-      const [inputValue, handleChange, symbolsLeft] = useInput(
-         maxLength,
-         value,
-         onChange,
-      )
+      const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
 
       return (
          <div className={[styles.wrap, className].join(" ")}>
@@ -36,4 +32,4 @@ export const Textarea = forwardRef(
    },
 )
 
-Textarea.displayName = "Textarea";
+Textarea.displayName = "Textarea"

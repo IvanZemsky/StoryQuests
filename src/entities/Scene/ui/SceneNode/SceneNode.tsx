@@ -6,7 +6,8 @@ import { SceneModal } from './../SceneModal/SceneModal';
 import { observer } from "mobx-react";
 import { modalStore } from "@/src/shared/model";
 import { storyCreationStore } from "../../model/storyCreatingStore";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { ISceneNode } from "../../model/types";
 
 type SceneNodeType = Node<
    {
@@ -19,7 +20,7 @@ export const SceneNode = observer(({id, data}: NodeProps<SceneNodeType>) => {
    const {openModal} = modalStore
    const [title, setTitle] = useState(data.title || 'Title of scene')
 
-   const modalContent = `sceneDataModal${id}`
+   let modalContent = `sceneDataModal-${id}`
 
    const handeModalOpen = () => {
       openModal(modalContent)

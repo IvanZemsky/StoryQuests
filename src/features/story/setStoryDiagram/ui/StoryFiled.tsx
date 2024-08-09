@@ -22,8 +22,6 @@ import { ScenePanel } from '@/src/entities/Scene/ui/ScenePanel/ScenePanel';
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
 import { ISceneNode, storyCreationStore } from "@/src/entities/Scene"
 
-
-
 const initialNodes: ISceneNode[] = [
    {
       id: "1",

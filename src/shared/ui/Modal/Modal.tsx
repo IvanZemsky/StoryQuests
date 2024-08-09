@@ -14,6 +14,8 @@ export const Modal = observer(
    ({ modalContent, children, className, ...attributes }: Props) => {
       const { opened, closeModal } = modalStore
 
+      const isOpened = opened === modalContent
+
       usePreventScroll(!!opened)
 
       const handleClose = (event: MouseEvent<HTMLDivElement>) => {
@@ -25,7 +27,7 @@ export const Modal = observer(
          event.stopPropagation()
       }
 
-      if (!opened) return null
+      if (!isOpened) return null
 
       return (
          <ClientPortal selector="#modal">
