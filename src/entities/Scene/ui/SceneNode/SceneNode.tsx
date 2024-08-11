@@ -1,39 +1,26 @@
 'use client'
 
-import { Handle, NodeProps, Node, Position } from "@xyflow/react"
+import { Handle, Position } from "@xyflow/react"
 import styles from "./SceneNode.module.scss"
 import { SceneModal } from './../SceneModal/SceneModal';
-import { observer } from "mobx-react";
-import { modalStore } from "@/src/shared/model";
-import { storyCreationStore } from "../../model/storyCreatingStore";
-import { useEffect, useState } from "react";
-import { ISceneNode } from "../../model/types";
+import { useState } from "react";
+import { setModal } from "@/src/shared/lib";
+import { SceneProps } from "../../model/types";
 
-type SceneNodeType = Node<
-   {
-      title: string
-      description: string
-   }
->
-
-export const SceneNode = observer(({id, data}: NodeProps<SceneNodeType>) => {
-   const {openModal} = modalStore
+export const SceneNode = ({id, data}: SceneProps) => {
    const [title, setTitle] = useState(data.title || 'Title of scene')
 
-   let modalContent = `sceneDataModal-${id}`
-
-   const handeModalOpen = () => {
-      openModal(modalContent)
-   }
+   const handleModalOpen = setModal('storyScene', id)
 
    return (
-      <div onClick={handeModalOpen}>
+      <div onClick={handleModalOpen}>
          <Handle type="target" position={Position.Top} className={styles.targetHandle} />
          <div className={styles.content}>
             <p className={styles.title}>{title}</p>
          </div>
          <Handle type="source" position={Position.Bottom} className={styles.sourceHandle} />
+
          <SceneModal id={id} data={data} setTitle={setTitle}/>
       </div>
    )
-})
+}

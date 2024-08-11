@@ -8,10 +8,11 @@ import { observer } from "mobx-react"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    modalContent: string
+   onClose?: (...args: any) => any
 }
 
 export const Modal = observer(
-   ({ modalContent, children, className, ...attributes }: Props) => {
+   ({ modalContent, children, className, onClose, ...attributes }: Props) => {
       const { opened, closeModal } = modalStore
 
       const isOpened = opened === modalContent
@@ -20,6 +21,7 @@ export const Modal = observer(
 
       const handleClose = (event: MouseEvent<HTMLDivElement>) => {
          event.stopPropagation()
+         onClose && onClose()
          closeModal()
       }
 

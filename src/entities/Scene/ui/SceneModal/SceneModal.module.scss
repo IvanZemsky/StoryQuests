@@ -29,12 +29,12 @@
             width: 30px;
             height: 30px;
          }
-         &:nth-child(1) svg {
+         &.removeBtn svg {
             width: 20px;
             fill: none;
          }
 
-         &:nth-child(2) svg {
+         &.closeBtn svg {
             width: 14px;
          }
       }
@@ -58,10 +58,13 @@
    }
 }
 
-.content {
+.content, .form{
    display: flex;
    flex-direction: column;
    gap: 15px;
+}
+
+.content {
    height: 100%;
    padding: 25px;
    border-radius: 24px;
@@ -77,4 +80,8 @@
 .title {
    text-transform: uppercase;
    font-weight: 600;
+}
+
+.form{
+   flex-grow: 1;
 }
