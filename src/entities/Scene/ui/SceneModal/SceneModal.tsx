@@ -11,114 +11,97 @@ import {
    ImageLoad,
 } from "@/src/shared/ui"
 import { modalStore } from "@/src/shared/model"
-import { useRef, ChangeEvent, Dispatch, SetStateAction } from "react"
-import { observer } from "mobx-react"
-import { ISceneData, ISceneNode } from "../../model/types"
+import { ISceneNodeData, ISceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
+import { useForm } from "react-hook-form"
 
 interface Props {
    id: string
-   data: ISceneData
-   setTitle: Dispatch<SetStateAction<string>>
+   data: ISceneNodeData
    hasDeleteBtn?: boolean
 }
 
 const { closeModal } = modalStore
 
-export const SceneModal = observer(
-   ({ id, data, setTitle, hasDeleteBtn = true }: Props) => {
-      const { updateNodeData, deleteElements } = useReactFlow<ISceneNode>()
-      const titleRef = useRef<HTMLInputElement>(null)
-      const descRef = useRef<HTMLTextAreaElement>(null)
+export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
+   const { updateNodeData, deleteElements } = useReactFlow<ISceneNode>()
+   const { getValues, register } = useForm()
 
-      const modalContent = `storyScene-${id}`
+   const titleInput = register("title", {
+      required: true,
+      minLength: 1,
+   })
 
-      const handleTitleInput = (event: ChangeEvent<HTMLInputElement>) => {
-         const newTitle = event.target.value
-         if (titleRef.current) {
-            titleRef.current.value = newTitle
-            setTitle(newTitle)
-         }
-      }
+   const descInput = register("desc")
 
-      const handleDescInput = (event: ChangeEvent<HTMLTextAreaElement>) => {
-         const newDesc = event.target.value
-         if (descRef.current) {
-            descRef.current.value = newDesc
-         }
-      }
+   const modalContent = `storyScene-${id}`
 
-      const handleRemoveClick = () => {
-         deleteElements({ nodes: [{ id }] })
-      }
+   const handleRemoveClick = () => {
+      deleteElements({ nodes: [{ id }] })
+   }
 
-      const handleSaveChanges = () => {
-         if (titleRef.current && descRef.current) {
-            const title = titleRef.current.value
-            const description = descRef.current.value
-            updateNodeData(id, { title, description })
-         }
-      }
+   const handleSaveChanges = () => {
+      const title = getValues("title")
+      const description = getValues("desc")
+      updateNodeData(id, { title, description })
+   }
 
-      const handleClose = () => {
-         handleSaveChanges()
-         closeModal()
-      }
+   const handleClose = () => {
+      handleSaveChanges()
+      closeModal()
+   }
 
-      return (
-         <Modal
-            modalContent={modalContent}
-            className={styles.modal}
-            onClose={handleSaveChanges}
-         >
-            <div className={styles.wrap}>
-               <div className={styles.content}>
-                  <header className={styles.header}>
-                     <h3 className={styles.title}>Scene</h3>
-                     <div className={styles.buttons}>
-                        {hasDeleteBtn && (
-                           <Button
-                              variant="filled"
-                              leftIcon={<TrashIcon />}
-                              onClick={handleRemoveClick}
-                              className={styles.removeBtn}
-                           />
-                        )}
+   return (
+      <Modal
+         modalContent={modalContent}
+         className={styles.modal}
+         onClose={handleSaveChanges}
+      >
+         <div className={styles.wrap}>
+            <div className={styles.content}>
+               <header className={styles.header}>
+                  <h3 className={styles.title}>Scene</h3>
+                  <div className={styles.buttons}>
+                     {hasDeleteBtn && (
                         <Button
                            variant="filled"
-                           leftIcon={<CrossIcon />}
-                           onClick={handleClose}
-                           className={styles.closeBtn}
+                           leftIcon={<TrashIcon />}
+                           onClick={handleRemoveClick}
+                           className={styles.removeBtn}
                         />
-                     </div>
-                  </header>
-
-                  <form className={styles.form}>
-                     <TextInput
-                        ref={titleRef}
-                        className={styles.titleInput}
-                        counter
-                        maxLength={100}
-                        placeholder="Title"
-                        onChange={handleTitleInput}
-                        value={data.title}
+                     )}
+                     <Button
+                        variant="filled"
+                        leftIcon={<CrossIcon />}
+                        onClick={handleClose}
+                        className={styles.closeBtn}
                      />
+                  </div>
+               </header>
 
-                     <Textarea
-                        ref={descRef}
-                        className={styles.descInput}
-                        counter
-                        maxLength={300}
-                        placeholder="Description"
-                        onChange={handleDescInput}
-                        value={data.description}
-                     />
+               <form className={styles.form}>
+                  <TextInput
+                     {...titleInput}
+                     className={styles.titleInput}
+                     counter
+                     maxLength={100}
+                     placeholder="Title"
+                     value={data.title}
+                  />
 
-                     <ImageLoad label="Illustration" className={styles.illustration} />
-                  </form>
-               </div>
+                  <Textarea
+                     {...descInput}
+                     className={styles.descInput}
+                     counter
+                     maxLength={300}
+                     placeholder="Description"
+                     value={data.description}
+                  />
+
+                  <ImageLoad label="Illustration" className={styles.illustration} />
+               </form>
             </div>
-         </Modal>
-      )
-   },
-)
+         </div>
+      </Modal>
+   )
+}

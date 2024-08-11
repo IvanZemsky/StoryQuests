@@ -35,7 +35,8 @@ export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>)
             position,
             data: {
                title: "",
-               description: ""
+               description: "",
+               img: "",
             },
          }
 

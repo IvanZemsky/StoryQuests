@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from "mobx";
 import { Edge, Node } from "@xyflow/react";
-import { ISceneData, ISceneNode } from '@/src/entities/Scene';
+import { ISceneNodeData, ISceneNode } from '@/src/entities/Scene';
 
 class StoryCreationStore {
    story: {scenes: any[]} = {scenes: []}
@@ -13,14 +13,15 @@ class StoryCreationStore {
 
    saveNodes = (nodes: ISceneNode[]): void => {
       this.nodes = nodes
-      //console.log(toJS(this.nodes))
+      console.log(toJS(this.nodes))
    }
 
    saveEdges = (edges: Edge[]): void => {
       this.edges = edges
+      console.log(toJS(this.edges))
    }
 
-   saveOneNode = (id: string, data: ISceneData) => {
+   saveOneNode = (id: string, data: ISceneNodeData) => {
       const scene = this.nodes.find(scene => scene.id === id)!
       scene.data = data
    }

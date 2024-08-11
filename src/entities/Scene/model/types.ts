@@ -10,11 +10,12 @@ export interface IScene {
    answers: IAnswer[]
 }
 
-export interface ISceneNode extends Node<ISceneData> {}
-
-export interface ISceneData extends Record<string, unknown> {
+export interface ISceneNodeData extends Record<string, unknown> {
    title: string
    description: string
+   img: string
 }
 
-export interface SceneProps extends NodeProps<ISceneNode> {}
+export interface ISceneNode extends Node<ISceneNodeData> {}
+
+export interface SceneNodeProps extends NodeProps<ISceneNode> {}

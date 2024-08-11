@@ -1,8 +1,19 @@
-import { Button } from "@/src/shared/ui"
-import { BaseEdge, EdgeLabelRenderer, EdgeProps, getBezierPath } from "@xyflow/react"
-import styles from "./AnswerEdge.module.scss"
+'use client'
 
-export const AnswerEdge = ({ id, sourceX, sourceY, targetX, targetY }: EdgeProps) => {
+import { Button } from "@/src/shared/ui"
+import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
+import styles from "./AnswerEdge.module.scss"
+import { AnswerEdgeProps } from "../../model/types"
+import { AnswerModal } from './../AnswerModal/AnswerModal';
+import { setModal } from "@/src/shared/lib";
+
+
+
+export const AnswerEdge = ({ id, data, sourceX, sourceY, targetX, targetY }: AnswerEdgeProps) => {
+   const text = data.text || 'Answer'
+
+   const handleModalOpen = setModal('sceneAnswer', id)
+
    const [edgePath, labelX, labelY] = getBezierPath({
       sourceX,
       sourceY,
@@ -18,6 +29,7 @@ export const AnswerEdge = ({ id, sourceX, sourceY, targetX, targetY }: EdgeProps
                variant="filled"
                color="secondary"
                defaultHover={false}
+               onClick={handleModalOpen}
                style={{
                   position: "absolute",
                   transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,
@@ -27,9 +39,10 @@ export const AnswerEdge = ({ id, sourceX, sourceY, targetX, targetY }: EdgeProps
                   " ",
                )}
             >
-               Answer
+               {text}
             </Button>
          </EdgeLabelRenderer>
+         <AnswerModal id={id} data={data}/>
       </>
    )
 }

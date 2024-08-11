@@ -27,12 +27,13 @@ const initialNodes: ISceneNode[] = [
       id: "1",
       type: "startScene",
       position: { x: 0, y: 0 },
-      data: { title: "Title of scene", description: "" },
+      data: { title: "", description: "", img: "" },
    },
 ]
 
+const {saveNodes, saveEdges} = storyCreationStore
+
 export const StoryField = () => {
-   const {saveNodes, saveEdges} = storyCreationStore
    const [fullScreenMode, setFullScreenMode] = useState(false)
 
    const [nodes, setNodes, onNodesChange] = useNodesState<ISceneNode>(initialNodes)
@@ -50,7 +51,6 @@ export const StoryField = () => {
 
    useEffect(() => {
       saveNodes(nodes)
-      console.log(nodes)
    }, [nodes])
 
    useEffect(() => {
