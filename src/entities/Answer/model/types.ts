@@ -1,8 +1,8 @@
 import { Edge, EdgeProps } from '@xyflow/react';
 
 export interface IAnswer {
-   _id: string
-   title: string
+   id: string
+   text: string
    nextSceneId: string
 }
 

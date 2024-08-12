@@ -3,10 +3,10 @@ import { IAnswer } from "../../Answer"
 import { Node, NodeProps } from "@xyflow/react"
 
 export interface IScene {
-   _id: string
+   id: string
    title: string
    description: string
-   img: StaticImageData
+   img: StaticImageData | string
    answers: IAnswer[]
 }
 

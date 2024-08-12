@@ -1,3 +1,4 @@
+export { storyCreationStore } from "./model/storyCreatingStore"
 export { StoryHeader } from "./ui/StoryHeader/StoryHeader"
 export { MainHeader } from "./ui/MainHeader/MainHeader"
 export { CreateStoryFields } from "./ui/CreateStoryFields/CreateStoryFields"

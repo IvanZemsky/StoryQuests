@@ -3,8 +3,8 @@ import { useReactFlow, Node } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"
 
-let id = 1;
-const getId = () => `node_${id++}`;
+let id = 2;
+const getId = () => `scene_${id++}`;
 
 export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>) => {
    const { screenToFlowPosition } = useReactFlow()

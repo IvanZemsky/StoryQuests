@@ -7,7 +7,6 @@ import {
    addEdge,
    Connection,
    Edge,
-   Node,
    useEdgesState,
    useNodesState,
 } from "@xyflow/react"
@@ -20,11 +19,13 @@ import { FullScreenBtn } from "@/src/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
 import { ScenePanel } from '@/src/entities/Scene/ui/ScenePanel/ScenePanel';
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
-import { ISceneNode, storyCreationStore } from "@/src/entities/Scene"
+import { storyCreationStore } from "@/src/entities/Story"
+import { ISceneNode } from '@/src/entities/Scene/model/types';
+import { IAnswerEdge } from '@/src/entities/Answer';
 
 const initialNodes: ISceneNode[] = [
    {
-      id: "1",
+      id: "scene_1",
       type: "startScene",
       position: { x: 0, y: 0 },
       data: { title: "", description: "", img: "" },
@@ -44,7 +45,7 @@ export const StoryField = () => {
    const onConnect = useCallback(
       (params: Edge | Connection) => 
          setEdges((eds) =>
-            addEdge({ ...params, data: {}, animated: true, type: "storyEdge" }, eds)
+            addEdge({ ...params, data: {text: ""}, animated: true, type: "storyEdge" }, eds)
          ),
       [setEdges],
    )
@@ -54,7 +55,7 @@ export const StoryField = () => {
    }, [nodes])
 
    useEffect(() => {
-      saveEdges(edges)
+      saveEdges(edges as IAnswerEdge[])
    }, [edges])
 
    const handleFullScreenClick = () => {

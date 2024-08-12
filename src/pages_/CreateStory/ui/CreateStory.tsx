@@ -1,12 +1,16 @@
+'use client'
+
 import { Button, Wrapper } from "@/src/shared/ui"
 import styles from "./CreateStory.module.scss"
 import { CreateStoryFields } from "@/src/entities/Story"
 import { StoryCard } from "@/src/entities/Story/"
 import { StoryField } from "@/src/features/story"
 import { ReactFlowProvider } from "@xyflow/react"
+import { storyCreationStore } from "@/src/entities/Story"
 
-type Props = {}
-export const CreateStory = ({}: Props) => {
+const { createScenes } = storyCreationStore
+
+export const CreateStory = () => {
    return (
       <Wrapper className={styles.wrapper}>
          <div className={styles.content}>
@@ -20,8 +24,15 @@ export const CreateStory = ({}: Props) => {
                <ReactFlowProvider>
                   <StoryField />
                </ReactFlowProvider>
-               
-               <Button variant="gradient" className={styles.publishBtn} uppercase>Publish</Button>
+
+               <Button
+                  variant="gradient"
+                  className={styles.publishBtn}
+                  uppercase
+                  onClick={() => createScenes()}
+               >
+                  Publish
+               </Button>
             </form>
          </div>
       </Wrapper>

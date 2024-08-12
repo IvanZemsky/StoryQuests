@@ -1,11 +1,19 @@
 import { makeAutoObservable, toJS } from "mobx";
-import { Edge, Node } from "@xyflow/react";
 import { ISceneNodeData, ISceneNode } from '@/src/entities/Scene';
+import { IStory } from "./types";
+import { IAnswerEdge } from '@/src/entities/Answer';
 
 class StoryCreationStore {
-   story: {scenes: any[]} = {scenes: []}
+   story: IStory = {
+      id: "",
+      name: "",
+      description: "",
+      img: "string",
+      scenes: []
+   }
+
    nodes: ISceneNode[] = []
-   edges: Edge[] = []
+   edges: IAnswerEdge[] = []
 
    constructor() {
       makeAutoObservable(this)
@@ -16,7 +24,7 @@ class StoryCreationStore {
       console.log(toJS(this.nodes))
    }
 
-   saveEdges = (edges: Edge[]): void => {
+   saveEdges = (edges: IAnswerEdge[]): void => {
       this.edges = edges
       console.log(toJS(this.edges))
    }
@@ -28,8 +36,19 @@ class StoryCreationStore {
 
    createScenes = (): void => {
       this.story.scenes = this.nodes.map(node => ({
-         name: node.data.title,
-         answers: [],
+         id: node.id,
+         title: node.data.title,
+         description: node.data.description,
+         img: node.data.img,
+         answers: this.edges.map(edge => {
+            if (edge.source === node.id) {
+               return ({
+                  id: edge.id,
+                  text: edge.data.text,
+                  nextSceneId: edge.target,
+               })
+            }
+         }).filter((answer) => !!answer),
       }))
       console.log(toJS(this.story))
    }

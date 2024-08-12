@@ -5,6 +5,6 @@ export interface IStory {
    id: string
    name: string
    description: string
-   img: StaticImageData
+   img: StaticImageData | string
    scenes: IScene[]
 }
