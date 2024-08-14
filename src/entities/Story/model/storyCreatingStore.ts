@@ -1,16 +1,9 @@
 import { makeAutoObservable, toJS } from "mobx";
-import { ISceneNodeData, ISceneNode } from '@/src/entities/Scene';
-import { IStory } from "./types";
+import { ISceneNodeData, ISceneNode, IScene } from '@/src/entities/Scene';
 import { IAnswerEdge } from '@/src/entities/Answer';
 
 class StoryCreationStore {
-   story: IStory = {
-      id: "",
-      name: "",
-      description: "",
-      img: "string",
-      scenes: []
-   }
+   scenes: IScene[] = []
 
    nodes: ISceneNode[] = []
    edges: IAnswerEdge[] = []
@@ -35,7 +28,7 @@ class StoryCreationStore {
    }
 
    createScenes = (): void => {
-      this.story.scenes = this.nodes.map(node => ({
+      this.scenes = this.nodes.map(node => ({
          id: node.id,
          title: node.data.title,
          description: node.data.description,
@@ -50,7 +43,7 @@ class StoryCreationStore {
             }
          }).filter((answer) => !!answer),
       }))
-      console.log(toJS(this.story))
+      console.log(toJS(this.scenes))
    }
 }
 

@@ -2,22 +2,19 @@ import { storyStore } from "@/src/entities/Story"
 import { Check } from "@/src/shared/ui"
 import { IAnswer } from "../../model/types"
 
-interface Props {
-   answer: IAnswer
-}
-export const Answer = ({ answer }: Props) => {
+export const Answer = ({ id, text, nextSceneId }: IAnswer) => {
    const { setNextSceneId } = storyStore
 
    const handleCheckClick = () => {
-      setNextSceneId(answer.nextSceneId)
+      setNextSceneId(nextSceneId)
    }
 
    return (
       <Check
          fillContainer
          name="answer"
-         id={answer._id + answer.nextSceneId}
-         text={answer.title}
+         id={id + nextSceneId}
+         text={text}
          onClick={handleCheckClick}
       />
    )

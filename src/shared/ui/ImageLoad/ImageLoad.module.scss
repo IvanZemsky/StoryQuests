@@ -1,17 +1,23 @@
 .load{
    display: flex;
-   justify-content: center;
-   align-items: center;
-   padding: 20px;
+   flex-direction: column;
+   padding: 15px;
    border-radius: 20px;
    background-color: var(--secondaryMain);
    color: var(--secondaryText);
+
+   input{
+      background-color: var(--primaryMain);
+   }
 }
 
 .content{
    display: flex;
    flex-direction: column;
+   justify-content: center;
    align-items: center;
+   flex-grow: 1;
+   width: 100%;
    gap: 7px;
    font-size: 14px;
    font-weight: 500;

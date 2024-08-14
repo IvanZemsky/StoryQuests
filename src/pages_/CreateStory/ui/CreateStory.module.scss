@@ -1,38 +1,3 @@
 div.wrapper{
    max-width: 1150px;
 }
-
-.content, .form{
-   display: flex;
-   flex-direction: column;
-   gap: 25px;
-}
-
-.content{
-   padding: 25px 0;
-}
-
-.title{
-   font-size: 30px;
-   font-weight: 700;
-}
-
-.top{
-   position: relative;
-   display: grid;
-   grid-template-columns: 1fr 339px;
-   grid-template-rows: auto;
-   gap: 33px;
-}
-
-.preview{
-   position: sticky;
-   top: 0;
-   left: 0;
-   height: fit-content;
-}
-
-.publishBtn{
-   height: 103px;
-   font-weight: 600;
-}

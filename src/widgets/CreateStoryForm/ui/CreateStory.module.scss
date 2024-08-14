@@ -1,0 +1,19 @@
+.content, .form{
+   display: flex;
+   flex-direction: column;
+   gap: 25px;
+}
+
+.content{
+   padding: 25px 0;
+}
+
+.title{
+   font-size: 30px;
+   font-weight: 700;
+}
+
+.publishBtn{
+   height: 103px;
+   font-weight: 600;
+}

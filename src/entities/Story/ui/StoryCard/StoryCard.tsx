@@ -1,20 +1,29 @@
 import Link from "next/link"
 import styles from "./StoryCard.module.scss"
-import { ButtonLink} from "@/src/shared/ui"
-import Image from "next/image"
 import cardbg from "@/public/cardbg.jpg"
 import { PageRoutes } from "@/src/shared/constants"
+import { HTMLAttributes } from "react"
+import Image from "next/image"
+import { ButtonLink, Button } from "@/src/shared/ui"
 
-interface StoryCard {
+interface Props extends HTMLAttributes<HTMLDivElement> {
    id: string
    name: string
    description: string
    login: string
    imgLink: string
-   className?: string
+   type?: "default" | "preview"
 }
 
-export const StoryCard = ({className}: {className?: string}) => {
+export const StoryCard = ({
+   id,
+   name,
+   description,
+   login,
+   imgLink,
+   type = "default",
+   className,
+}: Props) => {
    return (
       <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
@@ -22,19 +31,20 @@ export const StoryCard = ({className}: {className?: string}) => {
                <Image src={cardbg} alt="" />
             </div>
             <div className={styles.info}>
-               <h2 className={styles.title}>Story Name</h2>
-               <p className={styles.desc}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat
-               </p>
+               {name && <h2 className={styles.title}>{name}</h2>}
+               <p className={styles.desc}>{description}</p>
                <div className={styles.links}>
-                  <ButtonLink href={`${PageRoutes.Stories}/1233423`} color="primary">
-                     Start
-                  </ButtonLink>
+                  {type === "default" ? (
+                     <ButtonLink href={`${PageRoutes.Stories}/${id}`} color="primary">
+                        Start
+                     </ButtonLink>
+                  ) : (
+                     <Button color="primary">
+                        Start
+                     </Button>
+                  )}
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>
-                     #AuthorNickname
+                     #{login}
                   </Link>
                </div>
             </div>

@@ -16,7 +16,7 @@ export const SelectAnswer = ({ answers }: Props) => {
       <>
          <SwitcherGroup variant="column" className={styles.select}>
             {answers.map((answer) => (
-               <Answer key={answer._id + answer.nextSceneId} answer={answer}/>
+               <Answer key={answer.id + answer.nextSceneId} {...answer}/>
             ))}
          </SwitcherGroup>
          <Button

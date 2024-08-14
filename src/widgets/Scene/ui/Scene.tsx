@@ -16,7 +16,7 @@ export const Scene = observer(({ storyData }: Props) => {
    const { currentSceneId } = storyStore
 
    const sceneData = useMemo(
-      () => storyData.scenes.find((scene) => scene._id === currentSceneId),
+      () => storyData.scenes.find((scene) => scene.id === currentSceneId),
       [storyData.scenes, currentSceneId],
    )
 
