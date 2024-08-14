@@ -1,15 +1,9 @@
-"use client"
-
-import { StoryCard, storyCreationStore } from "@/src/entities/Story"
 import { StoryField } from "@/src/features/story"
-import { Button, ImageLoad, Textarea, TextInput } from "@/src/shared/ui"
+import { Button, } from "@/src/shared/ui"
 import { ReactFlowProvider } from "@xyflow/react"
 import styles from "./CreateStory.module.scss"
-import { observer } from "mobx-react"
-import { useForm, useWatch } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { TopFields } from "./TopFields/TopFields"
-
-const { createScenes } = storyCreationStore
 
 export const CreateStoryForm = () => {
    const { register, control } = useForm()
@@ -32,6 +26,10 @@ export const CreateStoryForm = () => {
             <ReactFlowProvider>
                <StoryField />
             </ReactFlowProvider>
+
+            <Button variant="outlined" className={styles.previewBtn} uppercase>
+               Preview
+            </Button>
 
             <Button variant="gradient" className={styles.publishBtn} uppercase>
                Publish

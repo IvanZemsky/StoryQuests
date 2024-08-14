@@ -28,7 +28,11 @@ export const StoryCard = ({
       <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               <Image src={cardbg} alt="" />
+               {type === "default" ? (
+                  <Image src={imgLink} alt="" />
+               ) : (
+                  <img src={imgLink} />
+               )}
             </div>
             <div className={styles.info}>
                {name && <h2 className={styles.title}>{name}</h2>}
@@ -39,9 +43,7 @@ export const StoryCard = ({
                         Start
                      </ButtonLink>
                   ) : (
-                     <Button color="primary">
-                        Start
-                     </Button>
+                     <Button color="primary">Start</Button>
                   )}
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>
                      #{login}

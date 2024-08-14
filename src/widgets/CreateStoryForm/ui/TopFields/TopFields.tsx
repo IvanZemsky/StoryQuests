@@ -19,7 +19,7 @@ export const TopFields = ({ nameInput, descInput, imgInput, control }: Props) =>
       <div className={styles.top}>
          <div className={styles.inputs}>
             <TextInput {...nameInput} placeholder="Story name" counter maxLength={50} />
-            <Textarea {...descInput} placeholder="Description" counter maxLength={115} />
+            <Textarea {...descInput} placeholder="Description" counter maxLength={200} />
             <ImageLoad {...imgInput} label="Illustration" className={styles.imageLoad} />
          </div>
          <StoryCard
@@ -28,9 +28,11 @@ export const TopFields = ({ nameInput, descInput, imgInput, control }: Props) =>
             name={name}
             description={description}
             login={"Yourlogin"}
-            imgLink={""}
+            imgLink={img}
             type="preview"
          />
       </div>
    )
 }
+
+
