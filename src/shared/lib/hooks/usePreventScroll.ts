@@ -1,8 +1,6 @@
 import { useEffect } from "react"
 
 export const usePreventScroll = (condition: boolean): void => {
-   if (typeof window === 'undefined') return
-   
    const currentYScroll = window.scrollY
 
    const preventScroll = () => {
@@ -10,7 +8,7 @@ export const usePreventScroll = (condition: boolean): void => {
    }
 
    useEffect(() => {
-      if (condition) {
+      if (condition && typeof window !== 'undefined') {
          window.addEventListener("scroll", preventScroll)
       }
 
