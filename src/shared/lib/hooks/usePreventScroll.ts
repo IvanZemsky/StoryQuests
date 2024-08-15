@@ -17,5 +17,5 @@ export const usePreventScroll = (condition: boolean): void => {
       return () => {
          window.removeEventListener("scroll", preventScroll)
       }
-   }, [condition])
+   }, [condition, window])
 }
