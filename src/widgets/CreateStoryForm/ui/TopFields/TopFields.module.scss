@@ -27,6 +27,10 @@
 
 .imageLoad{
    height: 320px;
+
+   img {
+      max-height: 225px;
+   }
 }
 
 .preview{

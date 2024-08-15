@@ -5,7 +5,7 @@ class StoryStore{
    selectedSceneId: string | null
 
    constructor() {
-      this.currentSceneId = '1'
+      this.currentSceneId = 'scene_1'
       this.selectedSceneId = null
       makeAutoObservable(this);
    }

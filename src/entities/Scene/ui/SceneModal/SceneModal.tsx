@@ -33,6 +33,7 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    })
 
    const descInput = register("desc")
+   const imgInput = register("img")
 
    const modalContent = `storyScene-${id}`
 
@@ -43,7 +44,9 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    const handleSaveChanges = () => {
       const title = getValues("title")
       const description = getValues("desc")
-      updateNodeData(id, { title, description })
+      const img = getValues("img")
+      console.log(img)
+      updateNodeData(id, { title, description, img })
    }
 
    const handleClose = () => {
@@ -98,7 +101,12 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
                      value={data.description}
                   />
 
-                  <ImageLoad label="Illustration" className={styles.illustration} />
+                  <ImageLoad
+                     {...imgInput}
+                     defaultValue={getValues("img")}
+                     label="Illustration"
+                     className={styles.illustration}
+                  />
                </form>
             </div>
          </div>

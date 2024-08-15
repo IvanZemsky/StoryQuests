@@ -55,6 +55,10 @@
 
    .illustration {
       flex-grow: 1;
+      
+      img{
+         max-height: 165px;
+      }
    }
 }
 

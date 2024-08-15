@@ -1,9 +1,7 @@
 import Link from "next/link"
 import styles from "./StoryCard.module.scss"
-import cardbg from "@/public/cardbg.jpg"
 import { PageRoutes } from "@/src/shared/constants"
 import { HTMLAttributes } from "react"
-import Image from "next/image"
 import { ButtonLink, Button } from "@/src/shared/ui"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -28,11 +26,7 @@ export const StoryCard = ({
       <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               {type === "default" ? (
-                  <Image src={imgLink} alt="" />
-               ) : (
-                  <img src={imgLink} />
-               )}
+               <img src={imgLink} alt=""/>
             </div>
             <div className={styles.info}>
                {name && <h2 className={styles.title}>{name}</h2>}

@@ -1,6 +1,6 @@
 import { Wrapper } from "@/src/shared/ui"
 import styles from "./Story.module.scss"
-import { Scene } from "@/src/widgets/Scene"
+import { Scene } from "@/src/features/scene"
 import { story } from "../data/story"
 
 export const Story = () => {

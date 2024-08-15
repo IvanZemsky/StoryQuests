@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
-export const useImgLoad = () => {
-   const [imgLink, setImgLink] = useState("");
+export const useImgLoad = (defaultValue = "") => {
+   const [imgLink, setImgLink] = useState(defaultValue);
    const [isError, setIsError] = useState(false);
 
    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {

@@ -6,7 +6,7 @@ export interface IScene {
    id: string
    title: string
    description: string
-   img: StaticImageData | string
+   img: string | undefined
    answers: IAnswer[]
 }
 
