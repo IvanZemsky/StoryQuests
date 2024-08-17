@@ -1,21 +1,66 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react"
 
-export const useImgLoad = (defaultValue = "") => {
-   const [imgLink, setImgLink] = useState(defaultValue);
-   const [isError, setIsError] = useState(false);
+/** */
+export const useImgLoad = (
+   defaultValue = "",
+   onError: ((...args: any) => any) | undefined,
+   onChange: ((...args: any) => any) | undefined,
+) => {
+   const [imgLink, setImgLink] = useState(defaultValue)
+   const [isError, setIsError] = useState(false)
+   const [isImageLoaded, setIsImageLoaded] = useState(false)
+   const [pendingLoad, setPendingLoad] = useState(false)
 
    const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-      setImgLink(event.target.value);
-      setIsError(false);
-   };
+      setImgLink(event.target.value)
+      setIsError(false)
+      setIsImageLoaded(false)
+      setPendingLoad(true)
+   }
+
+   console.log(pendingLoad)
 
    const handleImageLoad = () => {
-      setIsError(false);
-   };
+      setIsError(false)
+      setIsImageLoaded(true)
+      setPendingLoad(false)
+   }
 
    const handleImageError = () => {
-      setIsError(true);
-   };
+      setIsError(true)
+      setIsImageLoaded(false)
+      setPendingLoad(false)
+      onError && onError()
+   }
 
-   return {imgLink, isError, handleInputChange, handleImageLoad, handleImageError}
+   const resetStateIfPending = () => {
+      if (pendingLoad) {
+         console.log("reset")
+         onError && onError()
+      }
+   }
+
+   useEffect(() => {
+      resetStateIfPending()
+   }, [])
+
+   useEffect(() => {
+      if (isImageLoaded) {
+         onChange &&
+            onChange({
+               target: { value: imgLink } as EventTarget & HTMLInputElement,
+            } as ChangeEvent<HTMLInputElement>)
+      }
+   }, [isImageLoaded, imgLink, onChange])
+
+   return {
+      setImgLink,
+      imgLink,
+      isError,
+      isImageLoaded,
+      handleInputChange,
+      handleImageLoad,
+      handleImageError,
+      resetStateIfPending,
+   }
 }

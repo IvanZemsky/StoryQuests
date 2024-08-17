@@ -13,7 +13,8 @@ import {
 import { modalStore } from "@/src/shared/model"
 import { ISceneNodeData, ISceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
+import { useEffect } from "react"
 
 interface Props {
    id: string
@@ -25,15 +26,14 @@ const { closeModal } = modalStore
 
 export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    const { updateNodeData, deleteElements } = useReactFlow<ISceneNode>()
-   const { getValues, register } = useForm()
+   const { getValues, register, setValue, control, reset } = useForm()
 
    const titleInput = register("title", {
       required: true,
-      minLength: 1,
+      minLength: 5,
    })
 
    const descInput = register("desc")
-   const imgInput = register("img")
 
    const modalContent = `storyScene-${id}`
 
@@ -52,6 +52,19 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    const handleClose = () => {
       handleSaveChanges()
       closeModal()
+   }
+
+   useEffect(() => {
+      // Сбрасываем значения при каждом открытии модалки, чтобы актуализировать данные
+      reset({
+        title: data.title,
+        desc: data.description,
+        img: data.img,
+      });
+    }, [data, reset]);
+
+   const handleImgError = () => {
+      setValue("img", "")
    }
 
    return (
@@ -101,11 +114,18 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
                      value={data.description}
                   />
 
-                  <ImageLoad
-                     {...imgInput}
-                     defaultValue={getValues("img")}
-                     label="Illustration"
-                     className={styles.illustration}
+                  <Controller
+                     control={control}
+                     name="img"
+                     render={({ field }) => (
+                        <ImageLoad
+                           label="Illustration"
+                           defaultValue={data.img}
+                           onError={handleImgError}
+                           className={styles.illustration}
+                           {...field}
+                        />
+                     )}
                   />
                </form>
             </div>

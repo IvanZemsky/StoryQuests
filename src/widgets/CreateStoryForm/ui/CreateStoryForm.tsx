@@ -8,7 +8,7 @@ import { TopFields } from "./TopFields/TopFields"
 import { MainSection } from './MainSection/MainSection';
 
 export const CreateStoryForm = () => {
-   const { register, control } = useForm()
+   const { register } = useForm()
 
    const nameInput = register("name")
    const descInput = register("desc")
@@ -22,7 +22,6 @@ export const CreateStoryForm = () => {
                nameInput={nameInput}
                descInput={descInput}
                imgInput={imgInput}
-               control={control}
             />
 
             <ReactFlowProvider>

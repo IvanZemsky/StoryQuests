@@ -2,20 +2,28 @@
 
 import styles from "./ImageLoad.module.scss"
 import { UploadIcon } from "./../icons/UploadIcon"
-import { ChangeEvent, forwardRef, HTMLAttributes, Ref } from "react"
+import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref, useEffect } from "react"
 import { TextInput } from "../TextInput/TextInput"
 import { useDebounce, useImgLoad } from "../../lib"
 
-interface Props extends HTMLAttributes<HTMLInputElement> {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
    label?: string
+   value?: string;
+   onError?: (...args: any) => any
 }
 
 export const ImageLoad = forwardRef(
-   ({ label, className, onChange, defaultValue, ...attributes }: Props, ref: Ref<HTMLInputElement>) => {
-      const { imgLink, isError, handleInputChange, handleImageLoad, handleImageError } =
-         useImgLoad(defaultValue as string)
-
-         console.log(imgLink)
+   (
+      { label, className, onChange, onError, defaultValue, ...attributes }: Props,
+      ref: Ref<HTMLInputElement>,
+   ) => {
+      const {
+         imgLink,
+         isError,
+         handleInputChange,
+         handleImageLoad,
+         handleImageError,
+      } = useImgLoad(defaultValue as string, onError, onChange)
 
       const isImg = imgLink && !isError
       const isDefault = !imgLink || isError
@@ -51,7 +59,7 @@ export const ImageLoad = forwardRef(
                {isImg && (
                   <img
                      src={imgLink}
-                     alt={label && ""}
+                     alt={label || ""}
                      onLoad={handleImageLoad}
                      onError={handleImageError}
                   />
@@ -61,5 +69,3 @@ export const ImageLoad = forwardRef(
       )
    },
 )
-
-ImageLoad.displayName = "ImageLoad"
