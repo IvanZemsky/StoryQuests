@@ -2,20 +2,20 @@ import { useEffect } from "react"
 
 export const usePreventScroll = (condition: boolean): void => {
    useEffect(() => {
-      if (typeof window === 'undefined') return
-   
-      const currentYScroll = window.scrollY
-   
-      const preventScroll = () => {
-         scrollTo({ top: currentYScroll })
-      }
+      if (typeof window !== "undefined") {
+         const currentYScroll = window.scrollY
 
-      if (condition) {
-         window.addEventListener("scroll", preventScroll)
-      }
+         const preventScroll = () => {
+            window.scrollTo({ top: currentYScroll })
+         }
 
-      return () => {
-         window.removeEventListener("scroll", preventScroll)
+         if (condition) {
+            window.addEventListener("scroll", preventScroll)
+         }
+
+         return () => {
+            window.removeEventListener("scroll", preventScroll)
+         }
       }
-   }, [condition, window])
+   }, [condition])
 }

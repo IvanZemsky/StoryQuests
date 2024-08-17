@@ -8,6 +8,8 @@ class StoryCreationStore {
    nodes: ISceneNode[] = []
    edges: IAnswerEdge[] = []
 
+   isValid = false
+
    constructor() {
       makeAutoObservable(this)
    }
@@ -25,6 +27,21 @@ class StoryCreationStore {
    saveOneNode = (id: string, data: ISceneNodeData) => {
       const scene = this.nodes.find(scene => scene.id === id)!
       scene.data = data
+   }
+
+   validate = () => {
+      const isNodesValid = this.nodes.reduce((bool, { data }) => {
+         console.log(toJS(data))
+         return bool && !!data.title && !!data.img
+      }, true)
+
+      const isEdgesValid = this.edges.reduce((bool, { data }) => {
+         console.log(toJS(data))
+         return bool && !!data.text
+      }, true)
+
+      this.isValid = isNodesValid && isEdgesValid
+      console.log(isNodesValid && isEdgesValid)
    }
 
    createScenes = (): void => {

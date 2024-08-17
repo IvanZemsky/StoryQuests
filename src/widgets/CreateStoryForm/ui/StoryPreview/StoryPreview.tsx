@@ -7,14 +7,19 @@ import { observer } from "mobx-react"
 import { IStory, storyCreationStore } from "@/src/entities/Story"
 import { useEffect } from "react"
 import { modalStore } from "@/src/shared/model"
+import { Button } from "@/src/shared/ui"
 
 type Props = {}
+
+const { closeModal } = modalStore
+
 export const StoryPreview = observer(({}: Props) => {
-   const { scenes, createScenes } = storyCreationStore
-   const {opened} = modalStore
+   const {validate, scenes, createScenes } = storyCreationStore
+   const { opened } = modalStore
 
    useEffect(() => {
-      if (opened === 'storyPreview') {
+      if (opened === "storyPreview") {
+         validate()
          createScenes()
       }
    }, [opened])
@@ -33,7 +38,12 @@ export const StoryPreview = observer(({}: Props) => {
             <p>Loading...</p>
          ) : (
             <div className={styles.content}>
-               <Scene storyData={storyData} />
+               <Button variant="filled" className={styles.closeBtn} onClick={closeModal}>
+                  Close preview
+               </Button>
+               <div className={styles.sceneWrap}>
+                  <Scene storyData={storyData} />
+               </div>
             </div>
          )}
       </Modal>
