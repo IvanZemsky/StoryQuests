@@ -1,3 +1,4 @@
+export { Modal } from "./Modal/Modal"
 export { SwitchFade } from "./Transitions/SwitchFade/SwitchFade"
 export { Fade } from "./Transitions/Fade/Fade"
 export { TrashIcon } from "./icons/TrashIcon"

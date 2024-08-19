@@ -1,3 +1,5 @@
+export { NotValidStoryModal } from "./ui/NotValidStoryModal/NotValidStoryModal"
+export { PreviewModal } from "./ui/PreviewModal/PreviewModal"
 export { storyCreationStore } from "./model/storyCreatingStore"
 export { StoryHeader } from "./ui/StoryHeader/StoryHeader"
 export { MainHeader } from "./ui/MainHeader/MainHeader"
