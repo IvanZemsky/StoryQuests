@@ -1,14 +1,35 @@
 .content{
    display: flex;
+   flex-direction: column;
    align-items: center;
    justify-content: center;
+   gap: 3px;
    width: 81px;
-   height: 63px;
-   padding: 3px;
+   min-height: 63px;
+   max-height: 160px;
+   padding: 5px;
    border: 2px solid var(--thirdLight);
    border-radius: 7.5px;
    background-color: var(--primaryMain);
    cursor: pointer;
+
+   img{
+      object-fit: contain;
+      border-radius: 5px;
+   }
+}
+
+.title{
+   width: 100%;
+   font-size: 7px;
+   font-weight: 600;
+   text-align: center;
+   display: -webkit-box;
+   line-clamp: 2;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   word-wrap: break-word;
+   overflow: hidden;
 }
 
 .title{

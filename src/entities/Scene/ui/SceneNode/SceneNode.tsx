@@ -14,7 +14,9 @@ export const SceneNode = ({id, data}: SceneNodeProps) => {
    return (
       <div onClick={handleModalOpen}>
          <Handle type="target" position={Position.Top} className={styles.targetHandle} />
+         
          <div className={styles.content}>
+            {data.img && <img src={data.img} alt="illustration" />}
             <p className={styles.title}>{title}</p>
          </div>
          <Handle type="source" position={Position.Bottom} className={styles.sourceHandle} />

@@ -16,27 +16,23 @@ class StoryCreationStore {
 
    saveNodes = (nodes: ISceneNode[]): void => {
       this.nodes = nodes
-      console.log(toJS(this.nodes))
    }
 
    saveEdges = (edges: IAnswerEdge[]): void => {
       this.edges = edges
-      console.log(toJS(this.edges))
    }
 
    saveOneNode = (id: string, data: ISceneNodeData) => {
-      const scene = this.nodes.find(scene => scene.id === id)!
+      const scene = this.nodes.find(scene => scene.id === id)! // если нода имеется в поле - имеется и в сторе
       scene.data = data
    }
 
    validate = () => {
       const isNodesValid = this.nodes.reduce((bool, { data }) => {
-         console.log(toJS(data))
          return bool && !!data.title && !!data.img
       }, true)
 
       const isEdgesValid = this.edges.reduce((bool, { data }) => {
-         console.log(toJS(data))
          return bool && !!data.text
       }, true)
 
@@ -60,7 +56,6 @@ class StoryCreationStore {
             }
          }).filter((answer) => !!answer),
       }))
-      console.log(toJS(this.scenes))
    }
 }
 

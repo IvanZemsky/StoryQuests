@@ -69,3 +69,5 @@ export const ImageLoad = forwardRef(
       )
    },
 )
+
+ImageLoad.displayName = "ImageLoad"

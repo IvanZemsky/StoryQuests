@@ -16,6 +16,7 @@ export const EndSceneNode = ({id, data}: SceneNodeProps) => {
          <Handle type="target" position={Position.Top} className={styles.handle} />
          <div className={styles.topBorder}></div>
          <div className={styles.content}>
+            {data.img && <img src={data.img} alt="illustration" />}
             <p className={styles.title}>{title}</p>
          </div>
 

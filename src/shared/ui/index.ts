@@ -1,3 +1,5 @@
+export { SwitchFade } from "./Transitions/SwitchFade/SwitchFade"
+export { Fade } from "./Transitions/Fade/Fade"
 export { TrashIcon } from "./icons/TrashIcon"
 export { ClientPortal } from "./ClientPortal/ClientPortal"
 export { MainLink } from "./MainLink/MainLink"
