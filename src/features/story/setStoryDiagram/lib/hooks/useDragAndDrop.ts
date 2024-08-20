@@ -37,6 +37,7 @@ export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>)
                title: "",
                description: "",
                img: "",
+               type: type === 'scene' ? 'default' : 'end'
             },
          }
 

@@ -1,4 +1,6 @@
-.content{
+@import "/src/shared/lib/styles/mixins.scss";
+
+.content {
    display: flex;
    flex-direction: column;
    gap: 15px;
@@ -6,44 +8,60 @@
    width: 100%;
 }
 
-.title{
-   font-family: 'Philosopher';
+.title {
+   font-family: "Philosopher";
    font-size: 21px;
    font-weight: 700;
    letter-spacing: 1px;
 }
 
-.desc{
+.desc {
    font-size: 16px;
 }
 
-.controls{
+.controls {
    display: flex;
    justify-content: center;
    gap: 10px;
    flex-grow: 1;
 }
 
-.illustration{
-   width: 100%;
+.illustration {
+   width: 67%;
    object-fit: cover;
    max-width: 595px;
    max-height: 400px;
    border-radius: 15px;
    border: 2px solid var(--primaryDark);
+   flex-shrink: 1;
 }
 
-.fadeEnter{
-   opacity: 0;
+.endBtn {
+   align-self: stretch;
+
+   span {
+      width: 100%;
+   }
+
+   svg {
+      width: 10px;
+      transition: 0.15s stroke linear;
+   }
+
+   @include hoverEffect("&:hover") {
+      svg {
+         stroke: var(--thirdLight);
+      }
+   }
 }
-.fadeExit{
-   opacity: 1;
-}
-.fadeEnterActive{
-   opacity: 1;
-   transition: opacity 300ms;
-}
-.fadeExitActive{
-   opacity: 0;
-   transition: opacity 300ms;
+
+@media screen and (max-width: 700px) {
+   .illustration{
+      max-width: 100%;
+      width: 100%;
+   }
+
+   .controls{
+      flex-direction: column;
+   }
 }

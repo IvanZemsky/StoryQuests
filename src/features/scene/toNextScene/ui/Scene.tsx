@@ -4,8 +4,10 @@ import styles from "./Scene.module.scss"
 import { SelectAnswer } from "@/src/features/scene"
 import { observer } from "mobx-react"
 import { IStory, storyStore } from "@/src/entities/Story"
-import { useEffect, useMemo, useRef } from "react"
+import { useEffect, useMemo } from "react"
 import { SwitchFade } from "@/src/shared/ui/Transitions/SwitchFade/SwitchFade"
+import { ArrowRightIcon, ButtonLink } from "@/src/shared/ui"
+import { PageRoutes } from "@/src/shared/constants"
 
 interface Props {
    storyData: IStory
@@ -41,7 +43,17 @@ export const Scene = observer(({ storyData }: Props) => {
                   className={styles.illustration}
                   alt="illustration"
                />
-               <SelectAnswer answers={sceneData.answers} />
+               {sceneData.type === 'default' ? (
+                  <SelectAnswer answers={sceneData.answers} />
+               ) : (
+                  <ButtonLink
+                     variant="filled"
+                     href={PageRoutes.Home}
+                     className={styles.endBtn}
+                     leftIcon={<ArrowRightIcon />}
+                     defaultHover={false}
+                  />
+               )}
             </div>
          </div>
       </SwitchFade>

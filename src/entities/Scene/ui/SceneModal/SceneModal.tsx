@@ -11,7 +11,7 @@ import {
    ImageLoad,
 } from "@/src/shared/ui"
 import { modalStore } from "@/src/shared/model"
-import { ISceneNodeData, ISceneNode } from "../../model/types"
+import { ISceneNodeData, ISceneNode, SceneType } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
 import { Controller, useForm } from "react-hook-form"
 import { useEffect } from "react"
@@ -46,7 +46,7 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
       const description = getValues("desc")
       const img = getValues("img")
       console.log(img)
-      updateNodeData(id, { title, description, img })
+      updateNodeData(id, { title, description, img, type: data.type })
    }
 
    const handleClose = () => {
@@ -55,7 +55,6 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    }
 
    useEffect(() => {
-      // Сбрасываем значения при каждом открытии модалки, чтобы актуализировать данные
       reset({
         title: data.title,
         desc: data.description,

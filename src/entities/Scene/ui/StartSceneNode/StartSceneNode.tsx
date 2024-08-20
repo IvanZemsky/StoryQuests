@@ -3,7 +3,7 @@
 import { Handle, Position } from "@xyflow/react"
 import styles from "./StartSceneNode.module.scss"
 import { setModal } from "@/src/shared/lib"
-import { SceneNodeProps } from "../../model/types"
+import { SceneNodeProps, } from "../../model/types"
 import { SceneModal } from "../SceneModal/SceneModal"
 
 export const StartSceneNode = ({ id, data }: SceneNodeProps) => {

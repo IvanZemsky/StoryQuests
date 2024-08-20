@@ -16,6 +16,7 @@ class StoryCreationStore {
 
    saveNodes = (nodes: ISceneNode[]): void => {
       this.nodes = nodes
+      console.log(toJS(nodes))
    }
 
    saveEdges = (edges: IAnswerEdge[]): void => {
@@ -46,6 +47,7 @@ class StoryCreationStore {
          title: node.data.title,
          description: node.data.description,
          img: node.data.img,
+         type: node.data.type,
          answers: this.edges.map(edge => {
             if (edge.source === node.id) {
                return ({

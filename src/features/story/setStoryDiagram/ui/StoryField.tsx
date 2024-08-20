@@ -28,7 +28,7 @@ const initialNodes: ISceneNode[] = [
       id: "scene_1",
       type: "startScene",
       position: { x: 0, y: 0 },
-      data: { title: "", description: "", img: "" },
+      data: { title: "", description: "", img: "", type: 'default' },
    },
 ]
 
