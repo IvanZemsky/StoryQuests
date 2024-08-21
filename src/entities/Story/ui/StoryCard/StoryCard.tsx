@@ -26,7 +26,7 @@ export const StoryCard = ({
       <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               <img src={imgLink} alt=""/>
+               {imgLink && <img src={imgLink} alt=""/>}
             </div>
             <div className={styles.info}>
                {name && <h2 className={styles.title}>{name}</h2>}

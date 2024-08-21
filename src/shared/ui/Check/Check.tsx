@@ -13,12 +13,13 @@ export const Check = ({
    fillContainer = false,
    checked = false,
    text,
+   className,
    ...attributes
 }: Props) => {
    const [isChecked, setIsChecked] = useState(checked)
 
    return (
-      <div className={[styles.wrap, fillContainer && styles.fillContainer].join(" ")}>
+      <div className={[styles.wrap, fillContainer && styles.fillContainer, className].join(" ")}>
          <input
             type="radio"
             defaultChecked={isChecked}

@@ -13,11 +13,11 @@ export const Select = ({ className, children, ...attributes }: HTMLAttributes<HT
 
    const handleOpenClick = () => {
       console.log('12312312')
-      setIsOpen((prev) => !prev);
+      setIsOpen(!isOpen);
    };
 
    return (
-      <div className={[styles.wrap, className].join(" ")} {...attributes}>
+      <div className={[styles.wrap, className, isOpen && styles.opened].join(" ")} {...attributes}>
          <Button
             onClick={handleOpenClick}
             defaultHover={false}

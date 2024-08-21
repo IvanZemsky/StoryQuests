@@ -13,7 +13,7 @@ export const SelectAnswer = ({ answers }: Props) => {
    console.log(JSON.stringify(answers))
 
    return (
-      <>
+      <div className={styles.wrap}>
          <SwitcherGroup variant="column" className={styles.select}>
             {answers.map((answer) => (
                <Answer key={answer.id + answer.nextSceneId} className={styles.answer} {...answer}/>
@@ -26,6 +26,6 @@ export const SelectAnswer = ({ answers }: Props) => {
             defaultHover={false}
             onClick={setScene}
          />
-      </>
+      </div>
    )
 }

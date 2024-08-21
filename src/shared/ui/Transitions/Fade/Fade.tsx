@@ -13,8 +13,6 @@ type Props = CSSTransitionProps & {
 export const Fade = ({ inProp, children, timeout, ...props }: Props) => {
    const nodeRef = useRef<HTMLDivElement>(null)
 
-   console.log(inProp)
-
    const classNames = {
       enter: styles.fadeEnter,
       enterActive: styles.fadeEnterActive,
@@ -28,9 +26,10 @@ export const Fade = ({ inProp, children, timeout, ...props }: Props) => {
          in={inProp}
          timeout={timeout}
          classNames={classNames}
+         unmountOnExit
          {...props}
       >
-         <div ref={nodeRef}>{children}</div>
+         <div ref={nodeRef} className={styles.node}>{children}</div>
       </CSSTransition>
    )
 }
