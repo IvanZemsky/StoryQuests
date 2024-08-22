@@ -32,6 +32,7 @@ export const Scene = observer(({ storyData }: Props) => {
    return (
       <SwitchFade switchKey={currentSceneId} timeout={300}>
          <div className={styles.content}>
+            {sceneData.type === 'end' && <div className={styles.topLine}></div>}
             <h2 className={styles.title}>{sceneData.title}</h2>
             {!!sceneData.description && (
                <p className={styles.desc}>{sceneData.description}</p>
@@ -55,6 +56,7 @@ export const Scene = observer(({ storyData }: Props) => {
                   />
                )}
             </div>
+            {sceneData.type === 'end' && <div className={styles.bottomLine}></div>}
          </div>
       </SwitchFade>
    )

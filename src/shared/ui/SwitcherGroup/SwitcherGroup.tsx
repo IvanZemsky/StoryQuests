@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react"
+import { HTMLAttributes, } from "react"
 import styles from "./SwitcherGroup.module.scss"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -10,6 +10,7 @@ export const SwitcherGroup = ({
    className,
    ...attributes
 }: Props) => {
+
    return (
       <div className={[styles.content, className, styles[variant]].join(" ")} {...attributes}>
          {children}
