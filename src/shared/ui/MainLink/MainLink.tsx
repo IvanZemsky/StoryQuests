@@ -11,7 +11,7 @@ interface Props extends PropsWithChildren<LinkProps> {
 
 export const MainLink = ({ href, children }: Props) => {
    const pathname = usePathname()
-   const isActive = pathname.startsWith(href)
+   const isActive = href === '/' ? pathname === href : pathname.startsWith(href)
    
    const activeStyle = isActive ? styles.active : ''
 

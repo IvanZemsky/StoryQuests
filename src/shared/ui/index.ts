@@ -1,3 +1,4 @@
+export { LongArrowRightIcon } from "./icons/LongArrowRightIcon"
 export { Modal } from "./Modal/Modal"
 export { SwitchFade } from "./Transitions/SwitchFade/SwitchFade"
 export { Fade } from "./Transitions/Fade/Fade"

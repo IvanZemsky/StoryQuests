@@ -2,7 +2,7 @@ import { Logo, MainLink } from "@/src/shared/ui"
 import styles from "./MainHeader.module.scss"
 import { PageRoutes } from "@/src/shared/constants"
 
-const { Stories, Create } = PageRoutes
+const { Stories, Create, Home } = PageRoutes
 
 export const MainHeader = () => {
    return (
@@ -10,6 +10,7 @@ export const MainHeader = () => {
          <Logo />
          <nav className={styles.nav}>
             <ul>
+            <MainLink href={Home}>Home</MainLink>
                <MainLink href={Stories}>Stories</MainLink>
                <MainLink href={Create}>Create</MainLink>
             </ul>

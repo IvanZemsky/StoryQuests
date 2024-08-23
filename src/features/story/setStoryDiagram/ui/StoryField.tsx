@@ -1,7 +1,6 @@
 "use client"
 
 import {
-   ReactFlow,
    Controls,
    Background,
    addEdge,
@@ -17,22 +16,22 @@ import "@xyflow/react/dist/style.css"
 import { nodeTypes } from "../model/customNodes"
 import { FullScreenBtn } from "@/src/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
-import { ScenePanel } from '@/src/entities/Scene/ui/ScenePanel/ScenePanel';
+import { ScenePanel } from "@/src/entities/Scene/ui/ScenePanel/ScenePanel"
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
-import { storyCreationStore } from "@/src/entities/Story"
-import { ISceneNode } from '@/src/entities/Scene/model/types';
-import { IAnswerEdge } from '@/src/entities/Answer';
+import { BaseStoryField, storyCreationStore } from "@/src/entities/Story"
+import { ISceneNode } from "@/src/entities/Scene/model/types"
+import { IAnswerEdge } from "@/src/entities/Answer"
 
 const initialNodes: ISceneNode[] = [
    {
       id: "scene_1",
       type: "startScene",
       position: { x: 0, y: 0 },
-      data: { title: "", description: "", img: "", type: 'default' },
+      data: { title: "", description: "", img: "", type: "default" },
    },
 ]
 
-const {saveNodes, saveEdges} = storyCreationStore
+const { saveNodes, saveEdges } = storyCreationStore
 
 export const StoryField = () => {
    const [fullScreenMode, setFullScreenMode] = useState(false)
@@ -43,9 +42,12 @@ export const StoryField = () => {
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)
 
    const onConnect = useCallback(
-      (params: Edge | Connection) => 
+      (params: Edge | Connection) =>
          setEdges((eds) =>
-            addEdge({ ...params, data: {text: ""}, animated: true, type: "storyEdge" }, eds)
+            addEdge(
+               { ...params, data: { text: "" }, animated: true, type: "storyEdge" },
+               eds,
+            ),
          ),
       [setEdges],
    )
@@ -63,30 +65,25 @@ export const StoryField = () => {
    }
 
    return (
-      <div
+      <BaseStoryField
          className={[styles.content, fullScreenMode && styles.fullScreenMode].join(" ")}
+         title="Tree"
+         scenePanel={<ScenePanel />}
+         onNodesChange={onNodesChange}
+         onEdgesChange={onEdgesChange}
+         onConnect={onConnect}
+         nodes={nodes}
+         nodeTypes={nodeTypes}
+         edgeTypes={edgeTypes}
+         edges={edges}
+         onDrop={onDrop}
+         onDragOver={onDragOver}
+         fitView
       >
-         <h2 className={styles.title}>Tree</h2>
-         <div className={styles.field}>
-            <ScenePanel/>
-            <ReactFlow
-               onNodesChange={onNodesChange}
-               onEdgesChange={onEdgesChange}
-               onConnect={onConnect}
-               nodes={nodes}
-               nodeTypes={nodeTypes}
-               edgeTypes={edgeTypes}
-               edges={edges}
-               onDrop={onDrop}
-               onDragOver={onDragOver}
-               fitView
-            >
-               <Controls className={styles.controls} showInteractive={false}>
-                  <FullScreenBtn onClick={handleFullScreenClick} />
-               </Controls>
-               <Background className={styles.background} />
-            </ReactFlow>
-         </div>
-      </div>
+         <Controls className={styles.controls} showInteractive={false}>
+            <FullScreenBtn onClick={handleFullScreenClick} />
+         </Controls>
+         <Background className={styles.background} />
+      </BaseStoryField>
    )
 }

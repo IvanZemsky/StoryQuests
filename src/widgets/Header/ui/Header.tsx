@@ -4,7 +4,8 @@ import { Wrapper } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants";
 import { usePathname } from "next/navigation";
 import styles from './Header.module.scss'
-import { StoryHeader, MainHeader } from "@/src/entities/Story";
+import { MainHeader } from "../ui/MainHeader/MainHeader";
+import { StoryHeader } from "../ui/StoryHeader/StoryHeader";
 
 const {Stories} = PageRoutes
 
