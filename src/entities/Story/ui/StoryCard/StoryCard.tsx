@@ -29,7 +29,7 @@ export const StoryCard = ({
                {imgLink && <img src={imgLink} alt=""/>}
             </div>
             <div className={styles.info}>
-               {name && <h2 className={styles.title}>{name}</h2>}
+               <h2 className={styles.title}>{name}</h2>
                <p className={styles.desc}>{description}</p>
                <div className={styles.links}>
                   {type === "default" ? (

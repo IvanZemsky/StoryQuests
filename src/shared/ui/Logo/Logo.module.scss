@@ -11,3 +11,18 @@ a.logo{
       }
    }
 }
+
+@media screen and (max-width: 800px) {
+   a.logo{
+      font-size: 14px;
+
+      span{
+         gap: 5px;
+         padding: 10px;
+
+         svg{
+            width: 12px;
+         }
+      }
+   }
+}

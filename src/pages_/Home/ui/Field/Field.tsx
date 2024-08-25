@@ -5,7 +5,7 @@ import { edgeTypes, nodeTypes } from "@/src/features/story"
 import { ButtonLink } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants"
 import { initialNodes } from "../../lib/initialNodes"
-import { initialEdges } from "../../lib/InitialEdges"
+import { initialEdges } from "../../lib/initialEdges"
 
 export const Field = () => {
    return (

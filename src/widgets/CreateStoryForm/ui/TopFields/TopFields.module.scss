@@ -39,3 +39,16 @@
    left: 0;
    height: fit-content;
 }
+
+@media screen and (max-width: 800px) {
+   .top{
+      grid-template-rows: auto auto;
+      grid-template-columns: 1fr;
+   }
+
+   .preview{
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+   }
+}

@@ -4,26 +4,29 @@ import { ImageLoad, Textarea, TextInput } from "@/src/shared/ui"
 import styles from "./TopFields.module.scss"
 import { StoryCard } from "@/src/entities/Story"
 import {
-   Control,
-   FieldValues,
    useWatch,
    UseFormRegisterReturn,
    useForm,
    Controller,
+   Control,
+   FieldValues,
 } from "react-hook-form"
 
 interface Props {
+   control: Control<FieldValues, any>
    nameInput: UseFormRegisterReturn<"name">
    descInput: UseFormRegisterReturn<"desc">
    imgInput: UseFormRegisterReturn<"img">
 }
 
-export const TopFields = ({ nameInput, descInput, imgInput }: Props) => {
-   const { control, setValue } = useForm()
+export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) => {
+   const { setValue } = useForm()
 
    const name = useWatch({ control, name: "name" })
    const description = useWatch({ control, name: "desc" })
    const img = useWatch({ control, name: "img" })
+
+   console.log(name)
 
    const handleImgError = () => {
       setValue("img", "")

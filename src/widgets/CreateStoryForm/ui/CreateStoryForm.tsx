@@ -8,7 +8,7 @@ import { TopFields } from "./TopFields/TopFields"
 import { MainSection } from './MainSection/MainSection';
 
 export const CreateStoryForm = () => {
-   const { register } = useForm()
+   const { register, control } = useForm()
 
    const nameInput = register("name")
    const descInput = register("desc")
@@ -19,6 +19,7 @@ export const CreateStoryForm = () => {
          <h1 className={styles.title}>Quest creation</h1>
          <form className={styles.form}>
             <TopFields
+               control={control}
                nameInput={nameInput}
                descInput={descInput}
                imgInput={imgInput}

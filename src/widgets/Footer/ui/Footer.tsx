@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { PageRoutes } from "@/src/shared/constants";
 import { usePathname } from "next/navigation";
 
-const {Stories, Create} = PageRoutes
+const {Stories, Create, Home} = PageRoutes
 
 export const Footer = () => {
    const pathname = usePathname()
@@ -27,6 +27,7 @@ export const Footer = () => {
                   </p>
                </div>
                <nav className={styles.links}>
+                  <Link href={Home}>Home</Link>
                   <Link href={Stories}>Stories</Link>
                   <Link href={Create}>Create</Link>
                </nav>

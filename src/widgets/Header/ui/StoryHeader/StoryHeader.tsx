@@ -7,7 +7,7 @@ const { Stories, Home } = PageRoutes
 export const StoryHeader = () => {
    return ( 
       <div className={styles.content}>
-         <h1><Link href={Home}>StoryQuests</Link> - Story name</h1>
+         <h1><Link className={styles.link} href={Home}>StoryQuests</Link> <span>-</span> Story name</h1>
          <nav className={styles.nav}>
             <ul>
                <Link href={Stories}>Exit</Link>
