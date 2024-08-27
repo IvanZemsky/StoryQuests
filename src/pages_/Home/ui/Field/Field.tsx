@@ -19,6 +19,7 @@ export const Field = () => {
             edgeTypes={edgeTypes}
             minZoom={2}
             maxZoom={2}
+            fitView
          >
             <Background className={styles.background} />
          </BaseStoryField>
