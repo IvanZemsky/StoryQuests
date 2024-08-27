@@ -89,3 +89,12 @@
 .form{
    flex-grow: 1;
 }
+
+@media screen and (max-width: 650px) {
+   .modal{
+      padding: 15px;
+   }
+   .content{
+      padding: 15px;
+   }
+}
