@@ -2,7 +2,7 @@
 
 import { Scene } from "@/src/features/scene"
 import { observer } from "mobx-react"
-import { IStory, NotValidStoryModal, PreviewModal, storyCreationStore } from "@/src/entities/Story"
+import { NotValidStoryModal, PreviewModal, storyCreationStore } from "@/src/entities/Story"
 import { useEffect } from "react"
 import { modalStore } from "@/src/shared/model"
 
@@ -24,19 +24,11 @@ export const StoryPreview = observer(({}: Props) => {
       }
    }, [isValid])
 
-   const storyData: IStory = {
-      id: "1",
-      name: "",
-      description: "",
-      img: "",
-      scenes,
-   }
-
    if (!isValid) {
       return (
          <NotValidStoryModal />
       )
    }
 
-   return <PreviewModal scene={<Scene storyData={storyData} />} />
+   return <PreviewModal scene={<Scene scenes={scenes} />} />
 })

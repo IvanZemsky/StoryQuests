@@ -3,13 +3,10 @@ import styles from "./StoryCard.module.scss"
 import { PageRoutes } from "@/src/shared/constants"
 import { HTMLAttributes } from "react"
 import { ButtonLink, Button } from "@/src/shared/ui"
+import { IStory } from "../../model/types"
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLDivElement>, IStory {
    id: string
-   name: string
-   description: string
-   login: string
-   imgLink: string
    type?: "default" | "preview"
 }
 
@@ -17,8 +14,8 @@ export const StoryCard = ({
    id,
    name,
    description,
-   login,
-   imgLink,
+   author,
+   img,
    type = "default",
    className,
 }: Props) => {
@@ -26,7 +23,7 @@ export const StoryCard = ({
       <li className={[styles.wrap, className].join(" ")}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               {imgLink && <img src={imgLink} alt=""/>}
+               {img && <img src={img} alt=""/>}
             </div>
             <div className={styles.info}>
                <h2 className={styles.title}>{name}</h2>
@@ -40,7 +37,7 @@ export const StoryCard = ({
                      <Button color="primary">Start</Button>
                   )}
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>
-                     #{login}
+                     #{author.login}
                   </Link>
                </div>
             </div>

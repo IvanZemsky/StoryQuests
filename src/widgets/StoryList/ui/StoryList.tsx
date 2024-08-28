@@ -1,19 +1,30 @@
+'use client'
+
+import { useQuery } from "@tanstack/react-query"
 import styles from "./StoryList.module.scss"
-import { StoryCard } from "@/src/entities/Story/"
+import { IStory, StoryCard } from "@/src/entities/Story/"
+import { fetchAllStories } from "@/src/entities/Story"
+import Loading from "@/app/loading"
 
 export const StoryList = () => {
+   const { data: stories, isError, isLoading } = useQuery<IStory[]>({
+      queryKey: ['story'],
+      queryFn: fetchAllStories,
+    });
+
+    if (isError) {
+      return <p>Error</p>
+    }
+
+    if (isLoading) {
+      return <Loading />
+    }
+
    return (
       <div className={styles.list}>
-         <StoryCard
-            id={"12123"}
-            name={"Story name"}
-            description={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                  veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                  commodo consequat`}
-            login={"AuthorNickname"}
-            imgLink={"https://images.unsplash.com/photo-1723474549831-0d70d6c5f2b5?q=80&w=740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
-         />
+         {stories?.map(story => (
+            <StoryCard {...story} key={story.id}/>
+         ))}
       </div>
    )
 }

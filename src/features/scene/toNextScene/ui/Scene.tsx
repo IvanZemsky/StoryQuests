@@ -8,17 +8,18 @@ import { useEffect, useMemo } from "react"
 import { SwitchFade } from "@/src/shared/ui/Transitions/SwitchFade/SwitchFade"
 import { ArrowRightIcon, ButtonLink } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants"
+import { IScene } from "@/src/entities/Scene"
 
 interface Props {
-   storyData: IStory
+   scenes: IScene[]
 }
 
-export const Scene = observer(({ storyData }: Props) => {
+export const Scene = observer(({ scenes }: Props) => {
    const { currentSceneId, reset } = storyStore
 
    const sceneData = useMemo(
-      () => storyData.scenes.find((scene) => scene.id === currentSceneId),
-      [storyData.scenes, currentSceneId],
+      () => scenes.find((scene) => scene.id === currentSceneId),
+      [scenes, currentSceneId],
    )
 
    useEffect(() => {

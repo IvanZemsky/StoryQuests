@@ -56,9 +56,10 @@ export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) =>
             id={""}
             name={name}
             description={description}
-            login={"Yourlogin"}
-            imgLink={img}
+            author={{id: '123', login: 'YourLogin'}}
+            img={img}
             type="preview"
+            sceneCount={0}
          />
       </div>
    )
