@@ -1,12 +1,16 @@
 import axios from "axios"
-import { IApiScenes } from "../types"
-import { scenesAdapter } from "../scenesAdapter"
+import { IApiScene } from "../types"
+import { sceneAdapter } from "../adapters/sceneAdapter"
+import { API, APIEndpoints } from "@/src/shared/api"
+
+const {Scenes} = APIEndpoints
 
 export const fetchScenesByStoryId = async (storyId: string) => {
-   const {data} = await axios.get<IApiScenes>("https://story-quests-backend.onrender.com/scenes", {
+   const {data} = await axios.get<IApiScene[]>(`${API}${Scenes}`, {
       params: {
          storyId
       }
    })
-   return scenesAdapter(data)
+   console.log(data.map(scene => sceneAdapter(scene)))
+   return data.map(scene => sceneAdapter(scene))
 }

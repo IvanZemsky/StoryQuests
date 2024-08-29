@@ -1,2 +1,1 @@
-import { Home } from "@/src/pages_/Home";
-export default Home
+export {Home as default} from '@/src/pages_/Home'

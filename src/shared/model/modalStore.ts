@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 
-
 class ModalStore {
    opened: null | string
 

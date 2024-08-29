@@ -10,8 +10,8 @@ import {
    TrashIcon,
    ImageLoad,
 } from "@/src/shared/ui"
-import { modalStore } from "@/src/shared/model"
-import { ISceneNodeData, ISceneNode, SceneType } from "../../model/types"
+import { Modals, modalStore } from "@/src/shared/model"
+import { ISceneNodeData, ISceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
 import { Controller, useForm } from "react-hook-form"
 import { useEffect } from "react"
@@ -35,7 +35,7 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
 
    const descInput = register("desc")
 
-   const modalContent = `storyScene-${id}`
+   const modalContent = `${Modals.StoryScene}-${id}`
 
    const handleRemoveClick = () => {
       deleteElements({ nodes: [{ id }] })
@@ -45,7 +45,6 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
       const title = getValues("title")
       const description = getValues("desc")
       const img = getValues("img")
-      console.log(img)
       updateNodeData(id, { title, description, img, type: data.type })
    }
 

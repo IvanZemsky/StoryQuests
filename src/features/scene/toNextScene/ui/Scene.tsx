@@ -3,7 +3,7 @@
 import styles from "./Scene.module.scss"
 import { SelectAnswer } from "@/src/features/scene"
 import { observer } from "mobx-react"
-import { IStory, storyStore } from "@/src/entities/Story"
+import { storyStore } from "@/src/entities/Story"
 import { useEffect, useMemo } from "react"
 import { SwitchFade } from "@/src/shared/ui/Transitions/SwitchFade/SwitchFade"
 import { ArrowRightIcon, ButtonLink } from "@/src/shared/ui"

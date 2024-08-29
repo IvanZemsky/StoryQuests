@@ -5,11 +5,12 @@ import styles from "./SceneNode.module.scss"
 import { SceneModal } from "./../SceneModal/SceneModal"
 import { setModal } from "@/src/shared/lib"
 import { SceneNodeProps, } from "../../model/types"
+import { Modals } from "@/src/shared/model"
 
 export const SceneNode = ({ id, data }: SceneNodeProps) => {
    const title = data.title || "Title of scene"
 
-   const handleModalOpen = setModal("storyScene", id)
+   const handleModalOpen = setModal(Modals.StoryScene, id)
 
    return (
       <div onClick={handleModalOpen}>

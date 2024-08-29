@@ -12,8 +12,6 @@ type Props = {}
 export const SceneWrap = ({}: Props) => {
    const {id} = useParams()
 
-   console.log(id)
-
    const { data: scenes, isError, isLoading } = useQuery<IScene[]>({
       queryKey: ['scene'],
       queryFn: () => fetchScenesByStoryId(id as string),

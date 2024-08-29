@@ -6,6 +6,7 @@ import { observer } from "mobx-react"
 import { storyCreationStore } from "../../model/storyCreatingStore"
 import { ReactNode } from "react"
 import { modalStore } from "@/src/shared/model"
+import { Modals } from "@/src/shared/model/modals"
 
 interface Props {
    scene: ReactNode
@@ -15,7 +16,7 @@ export const PreviewModal = observer(({ scene }: Props) => {
    const { closeModal } = modalStore
 
    return (
-      <Modal modalContent="storyPreview" className={styles.modal}>
+      <Modal modalContent={Modals.StoryPreview} className={styles.modal}>
          {!scenes.length ? (
             <p>Loading...</p>
          ) : (

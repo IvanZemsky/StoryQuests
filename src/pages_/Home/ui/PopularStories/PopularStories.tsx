@@ -1,29 +1,14 @@
-"use client"
-
 import { ButtonLink, LongArrowRightIcon } from "@/src/shared/ui"
 import styles from "./PopularStories.module.scss"
-import { fetchAllStories, IStory, StoryCard } from "@/src/entities/Story"
+import { StoryCard } from "@/src/entities/Story"
 import { PageRoutes } from "@/src/shared/constants"
-import Loading from "@/app/loading"
-import { useQuery } from "@tanstack/react-query"
+import { getStories } from "../../api/getStories"
 
-type Props = {}
-export const PopularStories = ({}: Props) => {
-   const {
-      data: stories,
-      isError,
-      isLoading,
-   } = useQuery<IStory[]>({
-      queryKey: ["story"],
-      queryFn: fetchAllStories,
-   })
-
-   if (isError) {
+export const PopularStories = async () => {
+   const {stories, error} = await getStories()
+   
+   if (error) {
       return <p>Error</p>
-   }
-
-   if (isLoading) {
-      return <Loading />
    }
 
    return (
