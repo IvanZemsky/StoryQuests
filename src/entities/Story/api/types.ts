@@ -8,4 +8,6 @@ export interface IApiStory {
       login: string
    }
    sceneCount: number
+   passes: number
+   date: string
 }

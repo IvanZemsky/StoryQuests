@@ -8,4 +8,6 @@ export interface IStory {
       login: string
    }
    sceneCount: number
+   passes: number
+   date: string
 }

@@ -5,7 +5,7 @@ import { PageRoutes } from "@/src/shared/constants"
 import { getStories } from "../../api/getStories"
 
 export const PopularStories = async () => {
-   const {stories, error} = await getStories()
+   const {stories, error} = await getStories(4)
    
    if (error) {
       return <p>Error</p>

@@ -5,7 +5,11 @@ import { API, APIEndpoints } from "@/src/shared/api"
 
 const {Stories} = APIEndpoints
 
-export const fetchAllStories = async () => {
-   const {data} = await axios.get<IApiStory[]>(`${API}${Stories}`)
+export const fetchAllStories = async (limit?: number, page?: number) => {
+   const {data} = await axios.get<IApiStory[]>(`${API}${Stories}`, {
+      params: {
+         limit
+      }
+   })
    return data.map(story => storyAdapter(story))
 }

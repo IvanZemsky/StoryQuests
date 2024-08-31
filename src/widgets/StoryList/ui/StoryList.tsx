@@ -9,8 +9,10 @@ import Loading from "@/app/loading"
 export const StoryList = () => {
    const { data: stories, isError, isLoading } = useQuery<IStory[]>({
       queryKey: ['story'],
-      queryFn: fetchAllStories,
+      queryFn: () => fetchAllStories(10),
     });
+
+    console.log(stories)
 
     if (isError) {
       return <p>Error</p>

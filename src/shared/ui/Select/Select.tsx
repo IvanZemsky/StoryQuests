@@ -12,7 +12,6 @@ export const Select = ({ className, children, ...attributes }: HTMLAttributes<HT
    console.log(isOpen)
 
    const handleOpenClick = () => {
-      console.log('12312312')
       setIsOpen(!isOpen);
    };
 
