@@ -5,6 +5,8 @@
 }
 
 .card{
+   display: flex;
+   flex-direction: column;
    height: 100%;
    background-color: var(--secondaryMain);
    border-radius: 15px 15px 15px 15px;
@@ -13,6 +15,7 @@
 
 .imgWrap{
    aspect-ratio: 1 / 0.7;
+   overflow: hidden;
 
    img{
       width: 100%;

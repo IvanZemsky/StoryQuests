@@ -6,3 +6,9 @@
    height: 103px;
    font-weight: 600;
 }
+
+@media screen and (max-width: 750px) {
+   .content{
+      height: 500px;
+   }
+}

@@ -26,8 +26,6 @@ export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) =>
    const description = useWatch({ control, name: "desc" })
    const img = useWatch({ control, name: "img" })
 
-   console.log(name)
-
    const handleImgError = () => {
       setValue("img", "")
    }

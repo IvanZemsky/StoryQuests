@@ -17,7 +17,7 @@ export const StoriesFilters = () => {
          <form className={styles.content}>
             <SwitcherGroup className={styles.sort}>
                <Check text="New" name="sort" id="sort1" />
-               <Check text="Tranding" name="sort" id="sort2" />
+               <Check text="Popular" name="sort" id="sort2" />
                <Check text="Best" name="sort" id="sort3" />
             </SwitcherGroup>
 

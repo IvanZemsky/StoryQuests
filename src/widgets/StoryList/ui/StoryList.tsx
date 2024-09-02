@@ -3,13 +3,13 @@
 import { useQuery } from "@tanstack/react-query"
 import styles from "./StoryList.module.scss"
 import { IStory, StoryCard } from "@/src/entities/Story/"
-import { fetchAllStories } from "@/src/entities/Story"
+import { fetchStories } from "@/src/entities/Story"
 import Loading from "@/app/loading"
 
 export const StoryList = () => {
    const { data: stories, isError, isLoading } = useQuery<IStory[]>({
       queryKey: ['story'],
-      queryFn: () => fetchAllStories(10),
+      queryFn: () => fetchStories(8),
     });
 
     console.log(stories)

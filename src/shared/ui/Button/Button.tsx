@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
-import styles from "../styles/container.module.scss"
+import styles from "../styles/button.module.scss"
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: "outlined" | "filled" | "gradient"

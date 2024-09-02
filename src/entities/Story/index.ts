@@ -1,4 +1,4 @@
-export { fetchAllStories } from "./api/queries/fetchAllStories"
+export { fetchStories } from "./api/queries/fetchStories"
 export { BaseStoryField } from "./ui/BaseField/BaseStoryField"
 export { NotValidStoryModal } from "./ui/NotValidStoryModal/NotValidStoryModal"
 export { PreviewModal } from "./ui/PreviewModal/PreviewModal"
