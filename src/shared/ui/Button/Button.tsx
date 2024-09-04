@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 import styles from "../styles/button.module.scss"
+import cn from "classnames"
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
    variant?: "outlined" | "filled" | "gradient"
@@ -24,23 +25,24 @@ export const Button = ({
 }: Props) => {
    return (
       <button
-         className={[
+         className={cn(
             styles.container,
             styles[variant],
             styles[color],
-            defaultHover && styles.defaultHover,
-            children && styles.minWidth,
-            uppercase && styles.uppercase,
+            {
+               [styles.defaultHover]: defaultHover,
+               [styles.minWidth]: children,
+               [styles.uppercase]: uppercase,
+            },
             className,
-         ].join(" ")}
+         )}
          type={type}
          {...attributes}
       >
          <span
-            className={[
-               styles.content,
-               (leftIcon || rightIcon) && !children && styles.icon,
-            ].join(" ")}
+            className={cn(styles.content, {
+               [styles.icon]: (leftIcon || rightIcon) && !children,
+            })}
          >
             {leftIcon}
             {children}

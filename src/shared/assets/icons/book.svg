@@ -1,6 +1,4 @@
-export const BookIcon = () => {
-   return (
-      <svg
+<svg
          viewBox="0 0 17 22"
          fill="none"
          xmlns="http://www.w3.org/2000/svg"
@@ -16,12 +14,10 @@ export const BookIcon = () => {
                y1="11"
                x2="13.769"
                y2="17.6699"
-               gradientUnits="userSpaceOnUse"
+               gradient-units="userSpaceOnUse"
             >
-               <stop offset="0.5" stopColor="#B14BF4" />
-               <stop offset="1" stopColor="#C82CCB" />
+               <stop offset="0.5" stop-color="#B14BF4" />
+               <stop offset="1" stop-color="#C82CCB" />
             </linearGradient>
          </defs>
       </svg>
-   )
-}

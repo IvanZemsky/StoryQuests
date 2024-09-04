@@ -1,4 +1,5 @@
-import { ButtonLink, LongArrowRightIcon } from "@/src/shared/ui"
+import { ButtonLink}  from "@/src/shared/ui"
+import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import styles from "./PopularStories.module.scss"
 import { StoryCard } from "@/src/entities/Story"
 import { PageRoutes } from "@/src/shared/constants"

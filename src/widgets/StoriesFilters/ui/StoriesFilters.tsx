@@ -2,14 +2,14 @@
 
 import {
    Button,
-   CrossIcon,
-   SearchIcon,
    TextInput,
    SwitcherGroup,
    Check,
    Select,
 } from "@/src/shared/ui"
 import styles from "./StoriesFilters.module.scss"
+import CrossIcon from '@/src/shared/assets/icons/cross.svg'
+import SearchIcon from '@/src/shared/assets/icons/search.svg'
 
 export const StoriesFilters = () => {
    return (

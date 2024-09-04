@@ -1,2 +1,1 @@
-import { RootLayout } from "@/src/app/layout";
-export default RootLayout
+export { RootLayout as default } from "@/src/app/layout";

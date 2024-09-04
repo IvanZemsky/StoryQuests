@@ -3,7 +3,7 @@
 import { HTMLAttributes, useState } from "react";
 import { Button } from "../Button/Button";
 import {Fade} from "../Transitions/Fade/Fade"
-import { OpenArrowBottomIcon } from "../icons/OpenArrowBottomIcon";
+import OpenArrowBottomIcon from "@/src/shared/assets/icons/arrow-bottom.svg";
 import styles from "./Select.module.scss";
 
 export const Select = ({ className, children, ...attributes }: HTMLAttributes<HTMLDivElement>) => {

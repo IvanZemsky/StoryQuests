@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "./Intro.module.scss"
-import { LongArrowRightIcon } from "@/src/shared/ui"
+import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 
 type Props = {}
 export const Intro = ({}: Props) => {

@@ -5,6 +5,7 @@ import styles from "./Modal.module.scss"
 import { ClientPortal } from "../ClientPortal/ClientPortal"
 import { modalStore, usePreventScroll } from "../../model"
 import { observer } from "mobx-react"
+import cn from "classnames"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    modalContent: string
@@ -34,7 +35,7 @@ export const Modal = observer(
       return (
          <ClientPortal selector="#modal">
             <div
-               className={[styles.modal, className].join(" ")}
+               className={cn(styles.modal, className)}
                {...attributes}
                onClick={handleClose}
             >

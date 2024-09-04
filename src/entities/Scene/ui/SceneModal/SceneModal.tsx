@@ -4,10 +4,8 @@ import { Modal } from "@/src/shared/ui/Modal/Modal"
 import styles from "./SceneModal.module.scss"
 import {
    Button,
-   CrossIcon,
    Textarea,
    TextInput,
-   TrashIcon,
    ImageLoad,
 } from "@/src/shared/ui"
 import { Modals, modalStore } from "@/src/shared/model"
@@ -15,6 +13,8 @@ import { ISceneNodeData, ISceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
 import { Controller, useForm } from "react-hook-form"
 import { useEffect } from "react"
+import CrossIcon from "@/src/shared/assets/icons/cross.svg"
+import TrashIcon from "@/src/shared/assets/icons/trash.svg"
 
 interface Props {
    id: string

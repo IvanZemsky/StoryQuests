@@ -1,4 +1,5 @@
-import { SwitcherGroup, Button, ArrowRightIcon } from "@/src/shared/ui"
+import { SwitcherGroup, Button } from "@/src/shared/ui"
+import ArrowRightIcon from '@/src/shared/assets/icons/arrow-right.svg'
 import styles from "./SelectAnswer.module.scss"
 import { storyStore } from "@/src/entities/Story"
 import { Answer, IAnswer } from "@/src/entities/Answer"

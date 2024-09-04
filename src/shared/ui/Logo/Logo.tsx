@@ -1,4 +1,5 @@
-import { ButtonLink, BookIcon } from "..";
+import { ButtonLink } from "..";
+import BookIcon from '@/src/shared/assets/icons/book.svg'
 import { PageRoutes } from "../../constants";
 import styles from "./Logo.module.scss";
 

@@ -6,9 +6,10 @@ import { observer } from "mobx-react"
 import { storyStore } from "@/src/entities/Story"
 import { useEffect, useMemo } from "react"
 import { SwitchFade } from "@/src/shared/ui/Transitions/SwitchFade/SwitchFade"
-import { ArrowRightIcon, ButtonLink } from "@/src/shared/ui"
+import { ButtonLink } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants"
 import { IScene } from "@/src/entities/Scene"
+import ArrowRightIcon from '@/src/shared/assets/icons/arrow-right.svg'
 
 interface Props {
    scenes: IScene[]

@@ -12,6 +12,7 @@
     "@tanstack/react-query": "^5.52.2",
     "@xyflow/react": "^12.0.4",
     "axios": "^1.7.5",
+    "classnames": "^2.5.1",
     "mobx": "^6.13.0",
     "mobx-react": "^9.1.1",
     "next": "14.2.5",
@@ -22,6 +23,7 @@
     "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

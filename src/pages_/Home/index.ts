@@ -1,1 +1,1 @@
-export { Home } from "./ui/Home";
+export { Home, metadata } from "./ui/Home";

@@ -9,11 +9,6 @@ import Loading from "@/app/loading"
 import { Footer } from "@/src/widgets/Footer"
 import { ReactQueryProvider } from "./ReactQueryProvider"
 
-export const metadata: Metadata = {
-   title: "Story Quests",
-   description: "Web site with story quests",
-}
-
 type RootLayoutType = Readonly<{ children: ReactNode }>
 
 export const RootLayout = ({ children }: RootLayoutType) => {

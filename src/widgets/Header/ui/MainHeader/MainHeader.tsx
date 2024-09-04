@@ -1,9 +1,11 @@
 "use client"
 
-import { BurgerIcon, Button, Logo, MainLink } from "@/src/shared/ui"
+import { Logo, MainLink } from "@/src/shared/ui"
 import styles from "./MainHeader.module.scss"
 import { PageRoutes } from "@/src/shared/constants"
 import { useState } from "react"
+import BurgerIcon from "@/src/shared/assets/icons/burger.svg"
+import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 
 const { Stories, Create, Home } = PageRoutes
 
@@ -24,8 +26,8 @@ export const MainHeader = () => {
                <MainLink href={Stories}>Stories</MainLink>
                <MainLink href={Create}>Create</MainLink>
                
-               <button className={styles.burger} onClick={handleBurgerClick}>
-                  <BurgerIcon />
+               <button className={styles.closeBtn} onClick={handleBurgerClick}>
+                  <CrossIcon />
                </button>
             </ul>
 

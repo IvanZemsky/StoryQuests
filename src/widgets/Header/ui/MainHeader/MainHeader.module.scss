@@ -18,6 +18,16 @@
    }
 }
 
+.closeBtn{
+   display: none;
+   background: none;
+
+   svg{
+      width: 25px;
+      fill: var(--secondaryText);
+   }
+}
+
 .burger {
    display: none;
    background: none;
@@ -29,7 +39,7 @@
 }
 
 @media screen and (max-width: 550px) {
-   .burger {
+   .burger, .closeBtn {
       display: block;
    }
 
@@ -56,6 +66,13 @@
          position: absolute;
          top: 20px;
          right: 15px;
+         z-index: 999;
+      }
+
+      .closeBtn{
+         position: absolute;
+         top: 20px;
+         right: 20px;
          z-index: 999;
       }
    }
