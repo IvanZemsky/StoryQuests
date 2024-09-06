@@ -1,3 +1,4 @@
+export {PageBtns} from "./PageBtns/PageBtns"
 export { Modal } from "./Modal/Modal"
 export { SwitchFade } from "./Transitions/SwitchFade/SwitchFade"
 export { Fade } from "./Transitions/Fade/Fade"
@@ -14,3 +15,4 @@ export { TextInput } from "./TextInput/TextInput"
 export { Wrapper } from "./Wrapper/Wrapper"
 export { Button } from "./Button/Button"
 export { ButtonLink } from "./ButtonLink/ButtonLink"
+export type {CheckProps} from './Check/Check'

@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { Scene } from "@/src/features/scene"
 import styles from "./SceneWrap.module.scss"
@@ -10,24 +10,30 @@ import Loading from "@/app/loading"
 
 type Props = {}
 export const SceneWrap = ({}: Props) => {
-   const {id} = useParams()
+   const { id } = useParams()
 
-   const { data: scenes, isError, isLoading } = useQuery<IScene[]>({
-      queryKey: ['scene'],
+   const {
+      data: scenes,
+      isError,
+      isLoading,
+   } = useQuery<IScene[]>({
+      queryKey: ["scene"],
       queryFn: () => fetchScenesByStoryId(id as string),
-    });
+   })
 
-    if (isError || !scenes) {
+   if (isError || (!scenes && !isLoading)) {
       return <p>Error</p>
-    }
+   }
 
-    if (isLoading) {
+   if (isLoading) {
       return <Loading />
-    }
+   }
 
    return (
-      <div className={styles.content}>
-         <Scene scenes={scenes} />
-      </div>
+      scenes && (
+         <div className={styles.content}>
+            <Scene scenes={scenes} />
+         </div>
+      )
    )
 }

@@ -1,0 +1,19 @@
+.pageBtns {
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 10px;
+
+   button.button {
+      min-width: 0;
+
+      span {
+         min-width: 46px;
+         height: 46px;
+      }
+   
+      &.active span {
+         background-color: rgba(0, 0, 0, 0);
+      }
+   }
+}

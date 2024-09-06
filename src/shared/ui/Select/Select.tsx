@@ -1,33 +1,54 @@
-"use client";
+"use client"
 
-import { HTMLAttributes, useState } from "react";
-import { Button } from "../Button/Button";
-import {Fade} from "../Transitions/Fade/Fade"
-import OpenArrowBottomIcon from "@/src/shared/assets/icons/arrow-bottom.svg";
-import styles from "./Select.module.scss";
+import { forwardRef, HTMLAttributes, Ref, useState } from "react"
+import { Button } from "../Button/Button"
+import { Fade } from "../Transitions/Fade/Fade"
+import OpenArrowBottomIcon from "@/src/shared/assets/icons/arrow-bottom.svg"
+import styles from "./Select.module.scss"
+import { Check, CheckProps } from "../Check/Check"
 
-export const Select = ({ className, children, ...attributes }: HTMLAttributes<HTMLDivElement>) => {
-   const [isOpen, setIsOpen] = useState(false);
+interface Props extends HTMLAttributes<HTMLDivElement> {
+   group: CheckProps[]
+   title: string
+}
 
-   console.log(isOpen)
+export const Select = forwardRef(
+   (
+      { title, group, className, children, ...attributes }: Props,
+      ref: Ref<HTMLInputElement>,
+   ) => {
+      const [isOpen, setIsOpen] = useState(false)
 
-   const handleOpenClick = () => {
-      setIsOpen(!isOpen);
-   };
+      console.log(isOpen)
 
-   return (
-      <div className={[styles.wrap, className, isOpen && styles.opened].join(" ")} {...attributes}>
-         <Button
-            onClick={handleOpenClick}
-            defaultHover={false}
-            variant="filled"
-            rightIcon={<OpenArrowBottomIcon />}
+      const handleOpenClick = () => {
+         setIsOpen(!isOpen)
+      }
+
+      return (
+         <div
+            className={[styles.wrap, className, isOpen && styles.opened].join(" ")}
+            {...attributes}
          >
-            Length
-         </Button>
-         <Fade inProp={isOpen} timeout={300}>
-            <div className={styles.options}>{children}</div>
-         </Fade>
-      </div>
-   );
-};
+            <Button
+               onClick={handleOpenClick}
+               defaultHover={false}
+               variant="filled"
+               rightIcon={<OpenArrowBottomIcon />}
+            >
+               {title}
+            </Button>
+            <Fade inProp={isOpen} timeout={300}>
+               <div className={styles.options}>
+                  {group?.map((check) => (
+                     <Check key={check.id} {...check} {...attributes} ref={ref} />
+                  ))}
+                  {children}
+               </div>
+            </Fade>
+         </div>
+      )
+   },
+)
+
+Select.displayName = "Select"

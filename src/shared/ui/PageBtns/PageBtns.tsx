@@ -9,7 +9,7 @@ interface PageBtnsProps {
    handleClick: (page: number) => MouseEventHandler<HTMLButtonElement> | undefined
 }
 
-const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps) => {
+export const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps) => {
    const pages = Array.from({ length: pageAmount }, (_, item) => item + 1)
 
    return (
@@ -18,7 +18,7 @@ const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps) => {
             <Button
                key={page}
                onClick={handleClick(page)}
-               className={cn(styles.button, { [styles.active]: currentPage === page })}
+               className={cn(styles.button, { [styles.active]: currentPage === page - 1 })}
             >
                {page}
             </Button>
@@ -26,5 +26,3 @@ const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps) => {
       </div>
    )
 }
-
-export default PageBtns
