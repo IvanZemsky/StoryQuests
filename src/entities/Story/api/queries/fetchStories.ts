@@ -1,6 +1,6 @@
 import axios from "axios"
 import { storyAdapter } from "../adapters/storyAdapter"
-import { IApiStory } from "../types"
+import { IApiStory, OrderBy, SortByScenesAmount } from "../types"
 import { API, APIEndpoints } from "@/src/shared/api"
 
 const { Stories } = APIEndpoints
@@ -9,16 +9,16 @@ export const fetchStories = async (
    limit: number,
    page: number,
    search: string,
-   order: string,
-   filter: string,
+   order: OrderBy,
+   length: SortByScenesAmount,
 ) => {
    const response = await axios.get<IApiStory[]>(`${API}${Stories}`, {
       params: {
          limit,
          page,
          search,
+         length,
          order,
-         filter,
       },
    })
 

@@ -33,6 +33,13 @@
    padding: 15px 15px 20px 15px;
 }
 
+.controls{
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   margin-top: auto;
+}
+
 .title{
    color: var(--thirdLight);
    font-family: Philosopher;
@@ -44,11 +51,23 @@
    font-size: 14px;
 }
 
-.links{
+.stats, .statsItem{
    display: flex;
    align-items: center;
-   gap: 15px;
-   margin-top: auto;
+   gap: 10px;
+
+   button{
+      height: 26px;
+   }
+
+   p{
+      min-width: 50px;
+   }
+
+   svg{
+      width: 30px;
+      stroke: var(--secondaryText);
+   }
 }
 
 .authorLink{

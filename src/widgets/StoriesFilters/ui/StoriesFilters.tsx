@@ -1,25 +1,31 @@
 "use client"
 
-import { Button, TextInput, SwitcherGroup, Check, Select } from "@/src/shared/ui"
+import { Button, TextInput, SwitcherGroup, Select } from "@/src/shared/ui"
 import styles from "./StoriesFilters.module.scss"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 import SearchIcon from "@/src/shared/assets/icons/search.svg"
-import { IStory, fetchStories } from "@/src/entities/Story"
-import { useQueryClient, UseQueryOptions } from "@tanstack/react-query"
-import { AxiosError } from "axios"
 import { filterData, orderData } from "./model/formData"
-import { ChangeEvent, useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
+import { storyFiltersStore } from "@/src/entities/Story"
+
+const {setFilters} = storyFiltersStore
 
 export const StoriesFilters = () => {
-   //const queryClient = useQueryClient();
-   const { register, handleSubmit, reset, watch, getValues } = useForm()
+   const { register, handleSubmit, reset, getValues } = useForm();
 
    const onSubmit = (data: any) => {
-      console.log(getValues("order"), getValues("filters"), getValues("search"))
-   }
+      const search = getValues("search");
+      const order = getValues("order");
+      const length = getValues("length");
 
-   const handleReset = () => reset()
+      setFilters(order, length, search)
+
+      console.log("order: ", order)
+      console.log("length: ", length)
+      console.log("search: ", search)
+   };
+
+   const handleReset = () => reset();
 
    return (
       <header>
@@ -34,7 +40,7 @@ export const StoriesFilters = () => {
                className={styles.selectLength}
                title="Length"
                group={filterData}
-               {...register("filters")}
+               {...register("length")}
             />
 
             <div className={styles.searchWrap}>

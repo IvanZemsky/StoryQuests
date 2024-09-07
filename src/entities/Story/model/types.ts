@@ -9,5 +9,6 @@ export interface IStory {
    }
    sceneCount: number
    passes: number
+   likes: number
    date: string
 }

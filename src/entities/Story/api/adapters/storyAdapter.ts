@@ -13,6 +13,7 @@ export const storyAdapter = (apiData: IApiStory): IStory => {
       },
       sceneCount: apiData.sceneCount,
       passes: apiData.passes,
+      likes: apiData.likes,
       date: apiData.date,
    }
 }

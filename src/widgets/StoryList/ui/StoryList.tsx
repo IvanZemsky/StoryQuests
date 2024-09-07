@@ -1,49 +1,45 @@
-'use client'
+"use client"
 
-import { useQuery, UseQueryOptions } from "@tanstack/react-query"
 import styles from "./StoryList.module.scss"
-import { IStory, StoryCard } from "@/src/entities/Story/"
-import { fetchStories } from "@/src/entities/Story"
+import { StoryCard, useFetchStoriesQuery } from "@/src/entities/Story/"
 import Loading from "@/app/loading"
-import { useCallback, useState } from "react"
+import { useCallback }  from "react"
 import { PageBtns } from "@/src/shared/ui"
-import { AxiosError } from "axios"
+import { observer } from "mobx-react"
 
-export const StoryList = () => {
-   const [currentPage, setCurrentPage] = useState(0);
-   const limit = 8;
+export const StoryList = observer(() => {
+   const limit = 8
 
-   const queryOptions: UseQueryOptions<{ stories: IStory[], totalCount: number }, AxiosError> = {
-      queryKey: ['story', currentPage],
-      queryFn: () => fetchStories(limit, currentPage, "", "", ""),
-   };
+   const [page, setPage, { data, isError, isLoading }] =
+      useFetchStoriesQuery(limit)
 
-   const handlePageClick = useCallback((page: number) => () => {
-      setCurrentPage(page - 1)
-   }, [])
+   const handlePageClick = useCallback(
+      (page: number) => () => {
+         setPage(page - 1)
+      },
+      [],
+   )
 
-   const { data, isError, isLoading } = useQuery(queryOptions);
+   if (isError) return <p>Error</p>
+   if (isLoading) return <Loading />
+   if (!data) return <p>No stories found</p>
 
-   if (isError) return <p>Error</p>;
-   if (isLoading) return <Loading />;
-   if (!data) return <p>No stories found</p>;
-
-   const { stories, totalCount } = data;
-   const pageAmount = Math.ceil(totalCount / limit);
+   const { stories, totalCount } = data
+   const pageAmount = Math.ceil(totalCount / limit)
 
    return (
       <div className={styles.wrap}>
          <div className={styles.list}>
-            {stories.map(story => (
+            {stories.map((story) => (
                <StoryCard {...story} key={story.id} />
             ))}
          </div>
 
          <PageBtns
-            currentPage={currentPage}
+            currentPage={page}
             pageAmount={pageAmount}
             handleClick={handlePageClick}
          />
       </div>
-   );
-};
+   )
+})

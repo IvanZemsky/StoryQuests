@@ -7,7 +7,7 @@ export const Stories = () => {
    return ( 
       <Wrapper className={styles.wrap}>
          <StoriesFilters />
-         <StoryList/>
+         <StoryList />
       </Wrapper>
     );
 }

@@ -24,7 +24,7 @@ class StoryCreationStore {
    }
 
    saveOneNode = (id: string, data: ISceneNodeData) => {
-      const scene = this.nodes.find(scene => scene.id === id)! // если нода имеется в поле - имеется и в сторе
+      const scene = this.nodes.find(scene => scene.id === id)! // если сцена имеется в поле - имеется и в сторе
       scene.data = data
    }
 

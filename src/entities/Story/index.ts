@@ -1,3 +1,5 @@
+export { storyFiltersStore } from "./model/storyFiltersStore"
+export { useFetchStoriesQuery } from "./lib/hooks/useFetchStoriesQuery"
 export { fetchStories } from "./api/queries/fetchStories"
 export { BaseStoryField } from "./ui/BaseField/BaseStoryField"
 export { NotValidStoryModal } from "./ui/NotValidStoryModal/NotValidStoryModal"
@@ -6,3 +8,4 @@ export { storyCreationStore } from "./model/storyCreatingStore"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
 export { storyStore } from "./model/storyStore"
 export type { IStory } from "./model/types"
+export type {SortByScenesAmount, OrderBy} from './api/types'
