@@ -58,8 +58,9 @@ export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) =>
             img={img}
             type="preview"
             sceneCount={0}
-            passes={0}
+            passes={345}
             date={""}
+            likes={100}
          />
       </div>
    )
