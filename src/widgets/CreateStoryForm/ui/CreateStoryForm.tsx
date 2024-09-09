@@ -2,12 +2,17 @@
 
 import { StoryField } from "@/src/features/story"
 import { ReactFlowProvider } from "@xyflow/react"
-import styles from "./CreateStory.module.scss"
+import styles from "./CreateStoryForm.module.scss"
 import { useForm } from "react-hook-form"
 import { TopFields } from "./TopFields/TopFields"
 import { MainSection } from './MainSection/MainSection';
+import { ReactNode } from "react"
 
-export const CreateStoryForm = () => {
+interface Props {
+   storyPreview: ReactNode
+}
+
+export const CreateStoryForm = ({storyPreview}: Props) => {
    const { register, control } = useForm()
 
    const nameInput = register("name")
@@ -28,6 +33,8 @@ export const CreateStoryForm = () => {
             <ReactFlowProvider>
                <StoryField />
             </ReactFlowProvider>
+
+            {storyPreview}
 
             <MainSection/>
          </form>

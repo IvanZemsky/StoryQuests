@@ -11,8 +11,6 @@ interface Props {
 export const SelectAnswer = ({ answers }: Props) => {
    const { setScene } = storyStore
 
-   console.log(JSON.stringify(answers))
-
    return (
       <div className={styles.wrap}>
          <SwitcherGroup variant="column" className={styles.select}>

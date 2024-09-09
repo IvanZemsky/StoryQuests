@@ -1,3 +1,4 @@
+export { BaseScene } from "./ui/BaseScene/BaseScene";
 export { ScenePanel } from "./ui/ScenePanel/ScenePanel";
 export { SceneNode } from "./ui/SceneNode/SceneNode";
 export { EndSceneNode } from "./ui/EndSceneNode/EndSceneNode";

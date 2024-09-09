@@ -1,5 +1,4 @@
 import { Button } from "@/src/shared/ui"
-import { StoryPreview } from "../StoryPreview/StoryPreview"
 import styles from './MainSection.module.scss'
 import { modalStore } from "@/src/shared/model"
 
@@ -22,8 +21,6 @@ export const MainSection = ({}: Props) => {
          >
             Preview
          </Button>
-
-         <StoryPreview />
 
          <Button variant="gradient" className={styles.publishBtn} uppercase>
             Publish

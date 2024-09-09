@@ -6,7 +6,7 @@ import axios from "axios"
 
 const {Stories} = APIEndpoints
 
-export const getStories = async (limit: number): Promise<{
+export const getPopularStories = async (limit: number): Promise<{
    stories: IStory[] | null
    error: string | null
 }> => {
@@ -15,7 +15,8 @@ export const getStories = async (limit: number): Promise<{
          `${API}${Stories}`,
          {
             params: {
-               limit
+               limit,
+               order: "popular"
             }
          }
       )

@@ -3,10 +3,10 @@ import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import styles from "./PopularStories.module.scss"
 import { StoryCard } from "@/src/entities/Story"
 import { PageRoutes } from "@/src/shared/constants"
-import { getStories } from "../../api/getStories"
+import { getPopularStories } from "../../api/getPopularStories"
 
 export const PopularStories = async () => {
-   const {stories, error} = await getStories(4)
+   const {stories, error} = await getPopularStories(4)
    
    if (error) {
       return <p>Error</p>
