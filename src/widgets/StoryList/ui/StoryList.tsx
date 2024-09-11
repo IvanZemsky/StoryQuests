@@ -6,15 +6,17 @@ import Loading from "@/app/loading"
 import { useCallback }  from "react"
 import { PageBtns } from "@/src/shared/ui"
 import { observer } from "mobx-react"
+import { scrollToTop } from "@/src/shared/lib"
 
 export const StoryList = observer(() => {
    const limit = 8
 
    const [page, setPage, { data, isError, isLoading }] =
-      useFetchStoriesQuery(limit)
+      useFetchStoriesQuery()
 
    const handlePageClick = useCallback(
       (page: number) => () => {
+         scrollToTop()
          setPage(page - 1)
       },
       [],

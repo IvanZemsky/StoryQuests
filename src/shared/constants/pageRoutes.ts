@@ -3,4 +3,5 @@ export enum PageRoutes {
    Home = '/',
    Profile = '/profile',
    Create = '/create',
+   Login = '/login'
 }

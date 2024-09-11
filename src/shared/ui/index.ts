@@ -1,3 +1,5 @@
+export { ProfileLink } from "./ProfileLink/ProfileLink"
+export { LogInLink } from "./LogInLink/LogInLink"
 export {PageBtns} from "./PageBtns/PageBtns"
 export { Modal } from "./Modal/Modal"
 export { SwitchFade } from "./Transitions/SwitchFade/SwitchFade"

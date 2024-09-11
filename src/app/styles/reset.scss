@@ -15,10 +15,7 @@ body {
    color: var(--primaryText);
 }
 
-.app {
-   display: grid;
-   grid-template-rows: auto 1fr auto;
-   width: 100%;
+.root{
    min-height: 100vh;
 }
 

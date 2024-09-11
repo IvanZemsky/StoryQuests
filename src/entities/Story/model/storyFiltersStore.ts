@@ -1,4 +1,4 @@
-import { makeAutoObservable, toJS } from "mobx"
+import { makeAutoObservable } from "mobx"
 import { OrderBy, SortByScenesAmount } from "../api/types"
 
 class StoryFiltersStore {
@@ -6,6 +6,7 @@ class StoryFiltersStore {
       makeAutoObservable(this)
    }
 
+   limit = 8
    page = 0
    order: OrderBy = ""
    length: SortByScenesAmount = ""
@@ -20,9 +21,6 @@ class StoryFiltersStore {
       this.order = order
       this.length = length
       this.search = search
-      console.log("order: ", order)
-      console.log("length: ", length)
-      console.log("search: ", search)
    }
 }
 

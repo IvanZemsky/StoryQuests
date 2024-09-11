@@ -3,7 +3,7 @@
 @font-face {
    font-family: 'Montserrat';
    src: local('Montserrat-Regular'),
-      url('../fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+      url('../../shared/assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
    font-weight: 400;
    font-style: normal;
 }
@@ -11,7 +11,7 @@
 @font-face {
    font-family: 'Montserrat';
    src: local('Montserrat-Medium'),
-      url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+      url('../../shared/assets/fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
    font-weight: 500;
    font-style: normal;
 }
@@ -19,7 +19,7 @@
 @font-face {
    font-family: 'Montserrat';
    src: local('Montserrat-SemiBold'),
-      url('../fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+      url('../../shared/assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
    font-weight: 600;
    font-style: normal;
 }
@@ -27,7 +27,7 @@
 @font-face {
    font-family: 'Montserrat';
    src: local('Montserrat-Bold'),
-      url('../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+      url('../../shared/assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
    font-weight: 700;
    font-style: normal;
 }
@@ -37,7 +37,7 @@
 @font-face {
    font-family: 'Philosopher';
    src: local('Philosopher-Regular'),
-      url('../fonts/Philosopher/Philosopher-Regular.ttf') format('truetype');
+      url('../../shared/assets/fonts/Philosopher/Philosopher-Regular.ttf') format('truetype');
    font-weight: 400;
    font-style: normal;
 }
@@ -45,7 +45,7 @@
 @font-face {
    font-family: 'Philosopher';
    src: local('Philosopher-Regular'),
-      url('../fonts/Philosopher/Philosopher-Italic.ttf') format('truetype');
+      url('../../shared/assets/fonts/Philosopher/Philosopher-Italic.ttf') format('truetype');
    font-weight: 400;
    font-style: italic;
 }
@@ -53,7 +53,7 @@
 @font-face {
    font-family: 'Philosopher';
    src: local('Philosopher-Bold'),
-      url('../fonts/Philosopher/Philosopher-Bold.ttf') format('truetype');
+      url('../../shared/assets/fonts/Philosopher/Philosopher-Bold.ttf') format('truetype');
    font-weight: 700;
    font-style: normal;
 }
@@ -61,7 +61,7 @@
 @font-face {
    font-family: 'Philosopher';
    src: local('Philosopher-Bolditalic'),
-      url('../fonts/Philosopher/Philosopher-BoldItalic.ttf') format('truetype');
+      url('../../shared/assets/fonts/Philosopher/Philosopher-BoldItalic.ttf') format('truetype');
    font-weight: 700;
    font-style: italic;
 }
