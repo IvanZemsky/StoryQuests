@@ -9,10 +9,14 @@
    width: 514px;
    padding: 40px;
    background-color: var(--secondaryMain);
-}
 
-.homeLink{
-   align-self: flex-start;
+   .homeLink{
+      align-self: flex-start;
+   
+      svg{
+         width: 22px;
+      }
+   }
 }
 
 .form{

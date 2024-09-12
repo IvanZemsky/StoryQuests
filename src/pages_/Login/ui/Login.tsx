@@ -14,8 +14,8 @@ export const Login = () => {
             />
             <form className={styles.form}>
                <h1>Authorization</h1>
-               <TextInput placeholder="Login" />
-               <TextInput placeholder="Password" />
+               <TextInput variant="outlined" counter maxLength={50} placeholder="Login" />
+               <TextInput variant="outlined" placeholder="Password" />
                <Button>Log in</Button>
             </form>
          </div>

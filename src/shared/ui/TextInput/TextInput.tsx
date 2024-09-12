@@ -3,8 +3,10 @@
 import { forwardRef, InputHTMLAttributes, Ref } from "react"
 import styles from "./TextInput.module.scss"
 import { useInput } from "../../lib"
+import cn from "classnames"
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
+   variant?: "outlined" | "filled"
    counter?: boolean
    value?: string
    onChange?: (...args: any) => any
@@ -12,17 +14,25 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 export const TextInput = forwardRef(
    (
-      { counter, className, maxLength, onChange, value, ...attributes }: Props,
+      {
+         variant = "filled",
+         counter,
+         className,
+         maxLength,
+         onChange,
+         value,
+         ...attributes
+      }: Props,
       ref: Ref<HTMLInputElement>,
    ) => {
-      const [inputValue, handleChange, symbolsLeft] = useInput(
-         maxLength,
-         value,
-         onChange,
-      )
+      const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
 
       return (
-         <div className={[styles.wrap, className].join(" ")}>
+         <div
+            className={cn(styles.wrap, styles[variant], className, {
+               [styles.withCounter]: counter,
+            })}
+         >
             <input
                className={styles.input}
                type="text"
@@ -37,4 +47,4 @@ export const TextInput = forwardRef(
    },
 )
 
-TextInput.displayName = "TextInput";
+TextInput.displayName = "TextInput"
