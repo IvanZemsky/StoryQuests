@@ -1,38 +1,112 @@
-.content{
+.content {
    display: flex;
    min-height: 100vh;
 }
 
-.auth{
+.auth {
    display: flex;
    flex-direction: column;
    width: 514px;
    padding: 40px;
    background-color: var(--secondaryMain);
 
-   .homeLink{
+   .homeLink {
       align-self: flex-start;
-   
-      svg{
+
+      svg {
          width: 22px;
       }
    }
 }
 
-.form{
+.form {
    display: flex;
    flex-direction: column;
    gap: 20px;
    margin: auto 0;
 
-   h1{
+   h2 {
       text-align: center;
       font-size: 25px;
       font-weight: 700;
       text-transform: uppercase;
    }
 
-   input{
+   input {
       height: 50px;
+   }
+}
+
+.rightWrap {
+   flex-grow: 1;
+   padding-right: 20px;
+   background: url("https://svgur.com/i/18k4.svg") right bottom no-repeat;
+}
+
+.rightContent {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 83%;
+   height: 100%;
+   padding-left: 20px;
+}
+
+.titleWrap {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+   max-width: 505px;
+   text-align: center;
+
+   h1,
+   p {
+      font-size: 35px;
+      font-family: "Philosopher";
+      font-weight: 600;
+   }
+
+   hr {
+      width: 149px;
+      height: 4px;
+      margin: 0 auto;
+      background-image: var(--gradientMain);
+   }
+}
+
+@media screen and (max-width: 1135px) {
+   .rightContent {
+      width: 100%;
+   }
+}
+
+@media screen and (max-width: 870px) {
+   .auth {
+      padding: 20px;
+   }
+   .titleWrap {
+      h1,
+      p {
+         font-size: 25px;
+      }
+      hr{
+         width: 90px;
+      }
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .auth{
+      width: 100%;
+   }
+   .rightWrap{
+      display: none;
+   }
+}
+
+@media screen and (max-width: 370px) {
+   .form h2{
+      font-size: 21px;
    }
 }

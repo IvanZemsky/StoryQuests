@@ -1,8 +1,7 @@
 import { IStory } from "@/src/entities/Story"
 import { storyAdapter } from "@/src/entities/Story/api/adapters/storyAdapter"
 import { IApiStory } from "@/src/entities/Story/api/types"
-import { API, APIEndpoints } from "@/src/shared/api"
-import axios from "axios"
+import { api, APIEndpoints } from "@/src/shared/api"
 
 const {Stories} = APIEndpoints
 
@@ -11,8 +10,8 @@ export const getPopularStories = async (limit: number): Promise<{
    error: string | null
 }> => {
    try {
-      const { data } = await axios.get<IApiStory[]>(
-         `${API}${Stories}`,
+      const { data } = await api.get<IApiStory[]>(
+         Stories,
          {
             params: {
                limit,

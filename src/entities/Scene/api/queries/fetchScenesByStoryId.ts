@@ -1,12 +1,11 @@
-import axios from "axios"
 import { IApiScene } from "../types"
 import { sceneAdapter } from "../adapters/sceneAdapter"
-import { API, APIEndpoints } from "@/src/shared/api"
+import { api, APIEndpoints } from "@/src/shared/api"
 
 const {Scenes} = APIEndpoints
 
 export const fetchScenesByStoryId = async (storyId: string) => {
-   const {data} = await axios.get<IApiScene[]>(`${API}${Scenes}`, {
+   const {data} = await api.get<IApiScene[]>(Scenes, {
       params: {
          storyId
       }

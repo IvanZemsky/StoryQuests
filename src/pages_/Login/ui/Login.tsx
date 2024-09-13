@@ -13,11 +13,21 @@ export const Login = () => {
                leftIcon={<ArrowLeftLongIcon />}
             />
             <form className={styles.form}>
-               <h1>Authorization</h1>
-               <TextInput variant="outlined" counter maxLength={50} placeholder="Login" />
+               <h2>Authorization</h2>
+               <TextInput variant="outlined" placeholder="Login" />
                <TextInput variant="outlined" placeholder="Password" />
                <Button>Log in</Button>
             </form>
+         </div>
+
+         <div className={styles.rightWrap}>
+            <div className={styles.rightContent}>
+               <div className={styles.titleWrap}>
+                  <h1>Story quests</h1>
+                  <hr />
+                  <p>A website with interactive text story quests</p>
+               </div>
+            </div>
          </div>
       </div>
    )
