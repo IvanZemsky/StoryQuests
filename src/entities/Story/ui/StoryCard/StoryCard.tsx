@@ -1,11 +1,12 @@
 import Link from "next/link"
-import styles from "./StoryCard.module.scss"
+import styles from "./styles.module.scss"
 import { PageRoutes } from "@/src/shared/constants"
 import { HTMLAttributes } from "react"
 import { ButtonLink, Button } from "@/src/shared/ui"
 import { IStory } from "../../model/types"
 import HeartIcon from "@/src/shared/assets/icons/heart.svg"
 import EyeIcon from "@/src/shared/assets/icons/eye.svg"
+import cn from "classnames"
 
 interface Props extends HTMLAttributes<HTMLDivElement>, IStory {
    id: string
@@ -24,7 +25,7 @@ export const StoryCard = ({
    className,
 }: Props) => {
    return (
-      <li className={[styles.wrap, className].join(" ")}>
+      <li className={cn(styles.wrap, className)}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>{img && <img src={img} alt="" />}</div>
             <div className={styles.info}>

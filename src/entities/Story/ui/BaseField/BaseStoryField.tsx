@@ -4,7 +4,7 @@ import {
    ReactFlow,
    ReactFlowProps,
 } from "@xyflow/react"
-import styles from "./BaseStoryField.module.scss"
+import styles from "./styles.module.scss"
 import { ReactNode } from "react"
 
 import "@xyflow/react/dist/style.css"

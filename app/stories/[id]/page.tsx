@@ -1,2 +1,1 @@
-import { Story } from "@/src/pages_/Story";
-export default Story
+export { Story as default, generateMetadata  } from "@/src/pages_/Story";

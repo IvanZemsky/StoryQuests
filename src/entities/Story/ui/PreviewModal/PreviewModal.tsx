@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Modal } from "@/src/shared/ui"
-import styles from "./PreviewModal.module.scss"
+import styles from "./styles.module.scss"
 import { observer } from "mobx-react"
 import { storyCreationStore } from "../../model/storyCreatingStore"
 import { ReactNode } from "react"

@@ -1,3 +1,4 @@
+export { StoriesSkeleton } from "./ui/StoriesSkeleton/StoriesSkeleton"
 export { storyFiltersStore } from "./model/storyFiltersStore"
 export { useFetchStoriesQuery } from "./lib/hooks/useFetchStoriesQuery"
 export { fetchStories } from "./api/queries/fetchStories"

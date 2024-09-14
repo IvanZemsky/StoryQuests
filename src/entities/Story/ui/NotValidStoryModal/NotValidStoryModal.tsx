@@ -1,7 +1,7 @@
 'use client'
 
 import { Button, Modal } from "@/src/shared/ui"
-import styles from "./NotValidStoryModal.module.scss"
+import styles from "./styles.module.scss"
 import { modalStore } from "@/src/shared/model"
 import { Modals } from "@/src/shared/model/modals"
 

@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./StoryList.module.scss"
-import { StoryCard, useFetchStoriesQuery } from "@/src/entities/Story/"
+import { StoriesSkeleton, StoryCard, useFetchStoriesQuery } from "@/src/entities/Story/"
 import Loading from "@/app/loading"
 import { useCallback }  from "react"
 import { PageBtns } from "@/src/shared/ui"
@@ -11,8 +11,7 @@ import { scrollToTop } from "@/src/shared/lib"
 export const StoryList = observer(() => {
    const limit = 8
 
-   const [page, setPage, { data, isError, isLoading }] =
-      useFetchStoriesQuery()
+   const [page, setPage, { data, isError, isLoading }] = useFetchStoriesQuery()
 
    const handlePageClick = useCallback(
       (page: number) => () => {
@@ -23,7 +22,7 @@ export const StoryList = observer(() => {
    )
 
    if (isError) return <p>Error</p>
-   if (isLoading) return <Loading />
+   if (isLoading) return <StoriesSkeleton limit={8}/>
    if (!data) return <p>No stories found</p>
 
    const { stories, totalCount } = data

@@ -5,7 +5,7 @@ import ArrowLeftLongIcon from "@/src/shared/assets/icons/arrow-left-long.svg"
 
 export const Login = () => {
    return (
-      <div className={styles.content}>
+      <main className={styles.content}>
          <div className={styles.auth}>
             <ButtonLink
                href={PageRoutes.Home}
@@ -29,6 +29,6 @@ export const Login = () => {
                </div>
             </div>
          </div>
-      </div>
+      </main>
    )
 }

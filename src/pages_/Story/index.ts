@@ -1,1 +1,1 @@
-export { Story } from "./ui/Story";
+export { Story, generateMetadata } from "./ui/Story";

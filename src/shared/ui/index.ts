@@ -1,3 +1,4 @@
+export { Loading } from "./Loading/Loading"
 export { ProfileLink } from "./ProfileLink/ProfileLink"
 export { LogInLink } from "./LogInLink/LogInLink"
 export {PageBtns} from "./PageBtns/PageBtns"
