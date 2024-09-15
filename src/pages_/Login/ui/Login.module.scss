@@ -3,39 +3,6 @@
    flex-grow: 1;
 }
 
-.auth {
-   display: flex;
-   flex-direction: column;
-   width: 514px;
-   padding: 40px;
-   background-color: var(--secondaryMain);
-
-   .homeLink {
-      align-self: flex-start;
-
-      svg {
-         width: 22px;
-      }
-   }
-}
-
-.form {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   margin: auto 0;
-
-   h2 {
-      text-align: center;
-      font-size: 25px;
-      font-weight: 700;
-      text-transform: uppercase;
-   }
-
-   input {
-      height: 50px;
-   }
-}
 
 .rightWrap {
    flex-grow: 1;
@@ -60,7 +27,7 @@
    max-width: 505px;
    text-align: center;
 
-   h1,
+   h2,
    p {
       font-size: 35px;
       font-family: "Philosopher";
@@ -82,11 +49,8 @@
 }
 
 @media screen and (max-width: 870px) {
-   .auth {
-      padding: 20px;
-   }
    .titleWrap {
-      h1,
+      h2,
       p {
          font-size: 25px;
       }
@@ -97,16 +61,7 @@
 }
 
 @media screen and (max-width: 600px) {
-   .auth{
-      width: 100%;
-   }
    .rightWrap{
       display: none;
-   }
-}
-
-@media screen and (max-width: 370px) {
-   .form h2{
-      font-size: 21px;
    }
 }

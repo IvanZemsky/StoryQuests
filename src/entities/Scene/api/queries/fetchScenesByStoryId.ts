@@ -10,6 +10,5 @@ export const fetchScenesByStoryId = async (storyId: string) => {
          storyId
       }
    })
-   console.log(data.map(scene => sceneAdapter(scene)))
    return data.map(scene => sceneAdapter(scene))
 }

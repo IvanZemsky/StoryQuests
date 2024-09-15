@@ -19,10 +19,6 @@ export const StoriesFilters = () => {
       const length = getValues("length");
 
       setFilters(order, length, search)
-
-      console.log("order: ", order)
-      console.log("length: ", length)
-      console.log("search: ", search)
    };
 
    const handleReset = () => reset();

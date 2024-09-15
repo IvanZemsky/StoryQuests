@@ -1,3 +1,4 @@
-export { api } from "./main";
-export { API_URL } from "./config";
+export { api } from "./client";
 export { APIEndpoints } from "./APIEndpoints";
+export type {IUserLogin} from './types'
+export { API_URL } from "./client"

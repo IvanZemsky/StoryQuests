@@ -1,5 +1,7 @@
 export enum APIEndpoints {
    Users = '/users',
    Stories = '/stories',
-   Scenes = '/scenes'
+   Scenes = '/scenes',
+   Auth = "/auth",
+   Login = '/login',
 }
