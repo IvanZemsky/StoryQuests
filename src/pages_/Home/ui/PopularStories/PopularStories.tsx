@@ -1,16 +1,18 @@
 import { ButtonLink}  from "@/src/shared/ui"
 import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
 import styles from "./PopularStories.module.scss"
-import { StoryCard } from "@/src/entities/Story"
+import { StoryCard, storyService } from "@/src/entities/Story"
 import { PageRoutes } from "@/src/shared/constants"
-import { getPopularStories } from "../../api/getPopularStories"
 
 export const PopularStories = async () => {
-   const {stories, error} = await getPopularStories(4)
-   
-   if (error) {
+   const result = await storyService.fetchStories({
+      limit: 4,
+      order: "popular",
+    });
+    
+    if (!result || !result.stories) {
       return <p>Error</p>
-   }
+    }
 
    return (
       <>
@@ -21,7 +23,7 @@ export const PopularStories = async () => {
             </ButtonLink>
          </div>
          <div className={styles.stories}>
-            {stories?.map((story) => (
+            {result.stories?.map((story) => (
                <StoryCard {...story} key={story.id} />
             ))}
          </div>

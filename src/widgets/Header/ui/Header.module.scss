@@ -1,3 +1,83 @@
+@import "/src/shared/ui/styles/mixins.scss";
+
 .header{
    background-color: var(--secondaryMain);
+}
+
+.content {
+   @include flex-spb-y;
+   gap: 15px;
+   padding: 10px 0;
+}
+
+.nav {
+   position: relative;
+   ul {
+      @include flex-center-x;
+      gap: 15px;
+   }
+
+   a {
+      color: var(--secondaryText);
+   }
+}
+
+.closeBtn{
+   display: none;
+   background: none;
+
+   svg{
+      width: 25px;
+      fill: var(--secondaryText);
+   }
+}
+
+.burger {
+   display: none;
+   background: none;
+
+   svg {
+      width: 30px;
+      fill: var(--primaryText);
+   }
+}
+
+@media screen and (max-width: 625px) {
+   .burger, .closeBtn {
+      display: block;
+   }
+
+   .nav ul {
+      position: fixed;
+      top: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      width: auto;
+      padding: 18px 65px 30px 30px;
+      background-color: var(--primaryMain);
+      border-left: 2px solid var(--primaryText);
+      border-bottom: 2px solid var(--primaryText);
+      transform: translateX(100%);
+      transition: 0.15s transform linear;
+      z-index: 998;
+
+      &.opened {
+         transform: translateX(0);
+      }
+
+      .burger{
+         position: absolute;
+         top: 20px;
+         right: 15px;
+         z-index: 999;
+      }
+
+      .closeBtn{
+         position: absolute;
+         top: 20px;
+         right: 20px;
+         z-index: 999;
+      }
+   }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { BaseScene, IScene } from "@/src/entities/Scene"
 import { storyStore } from "@/src/entities/Story"
 import { SelectAnswer } from "@/src/features/scene"

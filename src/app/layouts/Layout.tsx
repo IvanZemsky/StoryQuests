@@ -5,7 +5,7 @@ import "@/src/shared/ui/styles/vars.scss"
 import "@/src/shared/ui/styles/mixins.scss"
 import "@/src/app/styles/reset.scss"
 import "@/src/app/styles/fonts.scss"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { PageRoutes } from "@/src/shared/constants"
 import { MainLayout } from "./MainLayout/MainLayout"
 import { NoLayout } from "./NoLayout/NoLayout"
@@ -13,7 +13,7 @@ import { NoLayout } from "./NoLayout/NoLayout"
 export const Layout = ({ children }: PropsWithChildren) => {
    const pathname = usePathname()
 
-   const noLayoutPaths = [PageRoutes.Login]
+   const noLayoutPaths = [PageRoutes.Login, PageRoutes.Stories + '/']
 
    const isNoLayout = noLayoutPaths.some((path) => pathname.startsWith(path))
 

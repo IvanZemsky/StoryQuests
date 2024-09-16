@@ -6,28 +6,27 @@ import styles from "./styles.module.scss"
 import ArrowLeftLongIcon from "@/src/shared/assets/icons/arrow-left-long.svg"
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query"
-import { IUserLogin, api, APIEndpoints } from "@/src/shared/api"
-import { IUser } from "@/src/entities/User"
-import { AxiosResponse } from "axios"
+import { IUserLogin } from "@/src/shared/api"
+import { userService } from "@/src/shared/services"
+import { authStore } from "@/src/shared/model/authStore"
+import { observer } from "mobx-react"
+import { useState } from "react"
+import cn from "classnames"
 
-const {Login, Auth} = APIEndpoints
-
-const login = async (loginData: IUserLogin): Promise<IUser> => {
-   const response: AxiosResponse<IUser> = await api.post(Auth + Login, loginData)
-   return response.data
-}
-
-export const LoginForm = () => {
+export const LoginForm = observer(() => {
    const { register, handleSubmit, getValues } = useForm()
+   const { setToken } = authStore
+   const [isError, setIsError] = useState(false)
 
    const loginMutation = useMutation({
-      mutationFn: (loginData: IUserLogin) => login(loginData),
-      onSuccess(data: IUser) {
-         console.log('Login successful', data)
+      mutationFn: (loginData: IUserLogin) => userService.login(loginData),
+      onSuccess(data: { token: string }) {
+         setIsError(false)
+         setToken(data.token)
       },
       onError(error) {
-         console.error('Login failed', error)
-      }
+         setIsError(true)
+      },
    })
 
    const onSubmit = (data: any) => {
@@ -47,10 +46,18 @@ export const LoginForm = () => {
          />
          <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             <h1>Authorization</h1>
-            <TextInput variant="outlined" placeholder="Login" {...register("login")}/>
-            <TextInput variant="outlined" placeholder="Password" {...register("password")}/>
+            <TextInput variant="outlined" placeholder="Login" {...register("login")} />
+            <TextInput
+               variant="outlined"
+               placeholder="Password"
+               {...register("password")}
+            />
             <Button type="submit">Log in</Button>
          </form>
+
+         <p className={cn(styles.error, { [styles.opened]: isError })}>
+            Incorrect login or password
+         </p>
       </div>
    )
-}
+})

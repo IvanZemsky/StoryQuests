@@ -1,26 +1,27 @@
-"use client"
-
 import { makeAutoObservable } from "mobx"
 
 class AuthStore {
-   token: string | null = null
+   token: string = ""
 
    constructor() {
       makeAutoObservable(this)
       if (typeof window !== "undefined") {
-         this.token = localStorage.getItem("token")
+         this.token = localStorage.getItem("token") || ""
       }
    }
 
-   setToken(token: string) {
+   setToken = (token: string) => {
+      if (!token) {
+         throw new Error("Token must be provided")
+      }
       this.token = token
       if (typeof window !== "undefined") {
          localStorage.setItem("token", token)
       }
    }
 
-   logout() {
-      this.token = null
+   logout = () => {
+      this.token = ""
       if (typeof window !== "undefined") {
          localStorage.removeItem("token")
       }

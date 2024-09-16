@@ -2,7 +2,6 @@
 
 import styles from "./StoryList.module.scss"
 import { StoriesSkeleton, StoryCard, useFetchStoriesQuery } from "@/src/entities/Story/"
-import Loading from "@/app/loading"
 import { useCallback }  from "react"
 import { PageBtns } from "@/src/shared/ui"
 import { observer } from "mobx-react"

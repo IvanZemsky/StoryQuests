@@ -1,21 +1,11 @@
-'use client'
-
 import { Logo, Wrapper } from "@/src/shared/ui"
 import styles from "./Footer.module.scss"
 import Link from 'next/link';
 import { PageRoutes } from "@/src/shared/constants";
-import { usePathname } from "next/navigation";
 
 const {Stories, Create, Home} = PageRoutes
 
 export const Footer = () => {
-   const pathname = usePathname()
-   const shouldNotShowFooter = pathname.startsWith(Stories + '/')
-
-   if (shouldNotShowFooter) {
-      return null
-   }
-
    return (
       <footer className={styles.footer}>
          <Wrapper>

@@ -32,6 +32,21 @@
    }
 }
 
+.error{
+   position: absolute;
+   bottom: 15px;
+   left: 15px;
+   display: none;
+   padding: 15px;
+   border-radius: 15px;
+   background-color: rgb(208, 18, 18);
+   z-index: 1;
+
+   &.opened{
+      display: block;
+   }
+}
+
 @media screen and (max-width: 870px) {
    .auth {
       padding: 20px;
