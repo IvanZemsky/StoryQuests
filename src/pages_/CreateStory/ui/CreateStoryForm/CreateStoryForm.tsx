@@ -4,8 +4,8 @@ import { StoryField } from "@/src/features/story"
 import { ReactFlowProvider } from "@xyflow/react"
 import styles from "./CreateStoryForm.module.scss"
 import { useForm } from "react-hook-form"
-import { TopFields } from "./TopFields/TopFields"
-import { MainSection } from './MainSection/MainSection';
+import { TopFields } from "../TopFields/TopFields"
+import { MainSection } from '../MainSection/MainSection';
 import { ReactNode } from "react"
 
 interface Props {

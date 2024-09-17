@@ -1,1 +1,1 @@
-export {Stories} from "./ui/Stories";
+export {Stories, metadata} from "./ui/Stories";

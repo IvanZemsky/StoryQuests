@@ -1,9 +1,9 @@
 import Link from "next/link"
 import styles from "./Intro.module.scss"
 import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
+import { PageRoutes } from "@/src/shared/constants"
 
-type Props = {}
-export const Intro = ({}: Props) => {
+export const Intro = () => {
    return (
       <div className={styles.items}>
          <div className={styles.itemWrap}>
@@ -13,7 +13,7 @@ export const Intro = ({}: Props) => {
                </h1>
             </div>
          </div>
-         <Link href="" className={styles.itemWrap}>
+         <Link href={PageRoutes.Login} className={styles.itemWrap}>
             <div className={styles.item}>
                <h3 className={styles.text}>Log in to create your story <LongArrowRightIcon /></h3>
             </div>

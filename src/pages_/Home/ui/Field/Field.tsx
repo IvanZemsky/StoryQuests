@@ -4,8 +4,8 @@ import styles from "./Field.module.scss"
 import { edgeTypes, nodeTypes } from "@/src/features/story"
 import { ButtonLink } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants"
-import { initialNodes } from "../../lib/initialNodes"
-import { initialEdges } from "../../lib/initialEdges"
+import { initialNodes } from "../../model/initialNodes"
+import { initialEdges } from "../../model/initialEdges"
 
 export const Field = () => {
    return (
