@@ -1,5 +1,6 @@
-import { PageRoutes } from "../../constants";
-import { ButtonLink } from "../ButtonLink/ButtonLink";
+import { PageRoutes } from "@/src/shared/constants";
+import { ButtonLink } from "@/src/shared/ui";
+
 
 const {  Login } = PageRoutes
 

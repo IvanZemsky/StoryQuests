@@ -7,11 +7,11 @@ import ArrowLeftLongIcon from "@/src/shared/assets/icons/arrow-left-long.svg"
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query"
 import { IUserLogin } from "@/src/shared/api"
-import { userService } from "@/src/shared/services"
-import { authStore } from "@/src/shared/model/authStore"
+import { authStore } from "@/src/entities/User/model/authStore"
 import { observer } from "mobx-react"
 import { useState } from "react"
 import cn from "classnames"
+import { userService } from "@/src/entities/User"
 
 export const LoginForm = observer(() => {
    const { register, handleSubmit, getValues } = useForm()

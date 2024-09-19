@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { PageRoutes } from "../../constants"
-import ProfileIcon from "../../assets/icons/profile.svg"
+import ProfileIcon from "@/src/shared/assets/icons/profile.svg"
 import styles from './ProfileLink.module.scss'
+import { PageRoutes } from "@/src/shared/constants"
 
 export const ProfileLink = () => {
    return (

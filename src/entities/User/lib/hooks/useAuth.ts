@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { api, APIEndpoints, IUserLogin } from "../../api"
+import { api, APIEndpoints, IUserLogin } from "@/src/shared/api"
 
 const login = (loginData: IUserLogin) => {
    const data = api.post(APIEndpoints.Login, loginData)

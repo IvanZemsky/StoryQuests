@@ -1,12 +1,13 @@
 "use client"
 
-import { LogInLink, Logo, MainLink, ProfileLink, Wrapper } from "@/src/shared/ui"
+import { Logo, MainLink, Wrapper } from "@/src/shared/ui"
 import { PageRoutes } from "@/src/shared/constants"
 import styles from "./Header.module.scss"
 import BurgerIcon from "@/src/shared/assets/icons/burger.svg"
 import CrossIcon from "@/src/shared/assets/icons/cross.svg"
 import cn from "classnames"
 import { useState } from "react"
+import { ProfileLink, LogInLink } from "@/src/entities/User"
 
 const { Stories, Create, Home } = PageRoutes
 
