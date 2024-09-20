@@ -1,8 +1,8 @@
-import { ButtonLink, SwitchFade } from "@/src/shared/ui"
+import { ButtonLink, SwitchFade } from "@/shared/ui"
 import { IScene } from "../../model/types"
 import styles from "./BaseScene.module.scss"
-import { PageRoutes } from "@/src/shared/constants"
-import ArrowRightIcon from "@/src/shared/assets/icons/arrow-right.svg"
+import { PageRoutes } from "@/shared/constants"
+import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
 import { ReactNode } from "react"
 
 interface Props extends Omit<IScene, "answers"> {

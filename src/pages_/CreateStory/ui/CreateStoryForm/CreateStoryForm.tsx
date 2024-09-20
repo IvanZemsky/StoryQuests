@@ -1,6 +1,6 @@
 "use client"
 
-import { StoryField } from "@/src/features/story"
+import { StoryField } from "@/features/story"
 import { ReactFlowProvider } from "@xyflow/react"
 import styles from "./CreateStoryForm.module.scss"
 import { useForm } from "react-hook-form"

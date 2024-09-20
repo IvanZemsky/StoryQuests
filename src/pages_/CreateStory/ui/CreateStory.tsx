@@ -1,4 +1,4 @@
-import { Wrapper } from "@/src/shared/ui"
+import { Wrapper } from "@/shared/ui"
 import styles from "./CreateStory.module.scss"
 import { StoryPreview } from "./StoryPreview/StoryPreview"
 import { CreateStoryForm } from "./CreateStoryForm/CreateStoryForm"

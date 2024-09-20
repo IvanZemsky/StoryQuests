@@ -14,13 +14,13 @@ import { useCallback, useEffect, useState } from "react"
 
 import "@xyflow/react/dist/style.css"
 import { nodeTypes } from "../model/customNodes"
-import { FullScreenBtn } from "@/src/shared/ui/FullScreenBtn/FullScreenBtn"
+import { FullScreenBtn } from "@/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
-import { ScenePanel } from "@/src/entities/Scene/ui/ScenePanel/ScenePanel"
+import { ScenePanel } from "@/entities/Scene/ui/ScenePanel/ScenePanel"
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
-import { BaseStoryField, storyCreationStore } from "@/src/entities/Story"
-import { ISceneNode } from "@/src/entities/Scene/model/types"
-import { IAnswerEdge } from "@/src/entities/Answer"
+import { BaseStoryField, storyCreationStore } from "@/entities/Story"
+import { ISceneNode } from "@/entities/Scene/model/types"
+import { IAnswerEdge } from "@/entities/Answer"
 
 const initialNodes: ISceneNode[] = [
    {

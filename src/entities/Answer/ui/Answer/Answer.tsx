@@ -1,5 +1,5 @@
-import { storyStore } from "@/src/entities/Story"
-import { Check } from "@/src/shared/ui"
+import { storyStore } from "@/entities/Story"
+import { Check } from "@/shared/ui"
 import { IAnswer } from "../../model/types"
 import { HTMLAttributes } from "react"
 

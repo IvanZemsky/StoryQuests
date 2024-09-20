@@ -1,5 +1,5 @@
 import styles from './Home.module.scss'
-import { Wrapper } from "@/src/shared/ui";
+import { Wrapper } from "@/shared/ui";
 import { Intro } from "./Intro/Intro";
 import { PopularStories } from "./PopularStories/PopularStories";
 import { Field } from "./Field/Field";

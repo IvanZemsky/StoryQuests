@@ -1,6 +1,6 @@
 import { IApiScene } from "../types"
 import { sceneAdapter } from "../adapters/sceneAdapter"
-import { api, APIEndpoints } from "@/src/shared/api"
+import { api, APIEndpoints } from "@/shared/api"
 
 const {Scenes} = APIEndpoints
 

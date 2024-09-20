@@ -1,15 +1,15 @@
 "use client"
 
-import { Modal } from "@/src/shared/ui/Modal/Modal"
+import { Modal } from "@/shared/ui/Modal/Modal"
 import styles from "./AnswerModal.module.scss"
 import { useForm } from "react-hook-form"
-import { Button, TextInput } from "@/src/shared/ui"
+import { Button, TextInput } from "@/shared/ui"
 import { IAnswerEdge, IAnswerEdgeData } from "../../model/types"
-import { modalStore } from "@/src/shared/model"
+import { modalStore } from "@/shared/model"
 import { useReactFlow } from "@xyflow/react"
-import { ISceneNode } from "@/src/entities/Scene"
-import CrossIcon from "@/src/shared/assets/icons/cross.svg"
-import TrashIcon from "@/src/shared/assets/icons/trash.svg"
+import { ISceneNode } from "@/entities/Scene"
+import CrossIcon from "@/shared/assets/icons/cross.svg"
+import TrashIcon from "@/shared/assets/icons/trash.svg"
 
 const { closeModal } = modalStore
 

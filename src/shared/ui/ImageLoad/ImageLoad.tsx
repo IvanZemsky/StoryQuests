@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "./ImageLoad.module.scss"
-import UploadIcon from "@/src/shared/assets/icons/upload.svg"
+import UploadIcon from "@/shared/assets/icons/upload.svg"
 import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref } from "react"
 import { TextInput } from "../TextInput/TextInput"
 import { useDebounce, useImgLoad } from "../../lib"

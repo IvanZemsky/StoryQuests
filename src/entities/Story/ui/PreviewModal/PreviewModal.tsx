@@ -1,12 +1,12 @@
 'use client'
 
-import { Button, Modal } from "@/src/shared/ui"
+import { Button, Modal } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import { observer } from "mobx-react"
 import { storyCreationStore } from "../../model/storyCreatingStore"
 import { ReactNode } from "react"
-import { modalStore } from "@/src/shared/model"
-import { Modals } from "@/src/shared/model/modals"
+import { modalStore } from "@/shared/model"
+import { Modals } from "@/shared/model/modals"
 
 interface Props {
    scene: ReactNode

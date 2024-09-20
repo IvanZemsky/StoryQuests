@@ -1,8 +1,8 @@
-import { ButtonLink}  from "@/src/shared/ui"
-import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
+import { ButtonLink}  from "@/shared/ui"
+import LongArrowRightIcon from "@/shared/assets/icons/arrow-right-long.svg"
 import styles from "./PopularStories.module.scss"
-import { StoryCard, storyService } from "@/src/entities/Story"
-import { PageRoutes } from "@/src/shared/constants"
+import { StoryCard, storyService } from "@/entities/Story"
+import { PageRoutes } from "@/shared/constants"
 
 export const PopularStories = async () => {
    const result = await storyService.fetchStories({

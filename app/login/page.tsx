@@ -1,1 +1,1 @@
-export {Login as default} from '@/src/pages_/Login'
+export {Login as default} from '@/pages_/Login'

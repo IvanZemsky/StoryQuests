@@ -1,8 +1,8 @@
-import { SwitcherGroup, Button } from "@/src/shared/ui"
-import ArrowRightIcon from '@/src/shared/assets/icons/arrow-right.svg'
+import { SwitcherGroup, Button } from "@/shared/ui"
+import ArrowRightIcon from '@/shared/assets/icons/arrow-right.svg'
 import styles from "./SelectAnswer.module.scss"
-import { storyStore } from "@/src/entities/Story"
-import { Answer, IAnswer } from "@/src/entities/Answer"
+import { storyStore } from "@/entities/Story"
+import { Answer, IAnswer } from "@/entities/Answer"
 
 interface Props {
    answers: IAnswer[]

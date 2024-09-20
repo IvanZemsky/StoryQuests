@@ -1,17 +1,17 @@
 "use client"
 
-import { PageRoutes } from "@/src/shared/constants"
-import { ButtonLink, TextInput, Button } from "@/src/shared/ui"
+import { PageRoutes } from "@/shared/constants"
+import { ButtonLink, TextInput, Button } from "@/shared/ui"
 import styles from "./styles.module.scss"
-import ArrowLeftLongIcon from "@/src/shared/assets/icons/arrow-left-long.svg"
+import ArrowLeftLongIcon from "@/shared/assets/icons/arrow-left-long.svg"
 import { useForm } from "react-hook-form"
 import { useMutation } from "@tanstack/react-query"
-import { IUserLogin } from "@/src/shared/api"
-import { authStore } from "@/src/entities/User/model/authStore"
+import { IUserLogin } from "@/shared/api"
+import { authStore } from "@/entities/User/model/authStore"
 import { observer } from "mobx-react"
 import { useState } from "react"
 import cn from "classnames"
-import { userService } from "@/src/entities/User"
+import { userService } from "@/entities/User"
 
 export const LoginForm = observer(() => {
    const { register, handleSubmit, getValues } = useForm()

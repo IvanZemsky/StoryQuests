@@ -1,3 +1,5 @@
+import path from "path";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
    images: {
@@ -13,6 +15,11 @@ const nextConfig = {
       const fileLoaderRule = config.module.rules.find((rule) =>
         rule.test?.test?.('.svg'),
       )
+
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(import.meta.url, 'src'),
+      }
   
       config.module.rules.push(
         {

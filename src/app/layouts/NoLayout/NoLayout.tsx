@@ -1,4 +1,4 @@
-import Loading from "@/app/loading"
+import { Loading } from "@/shared/ui"
 import { PropsWithChildren, Suspense } from "react"
 
 export const NoLayout = ({ children }: PropsWithChildren) => {

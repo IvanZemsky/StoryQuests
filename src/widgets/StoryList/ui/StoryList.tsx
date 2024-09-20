@@ -1,11 +1,11 @@
 "use client"
 
 import styles from "./StoryList.module.scss"
-import { StoriesSkeleton, StoryCard, useFetchStoriesQuery } from "@/src/entities/Story/"
+import { StoriesSkeleton, StoryCard, useFetchStoriesQuery } from "@/entities/Story/"
 import { useCallback }  from "react"
-import { PageBtns } from "@/src/shared/ui"
+import { PageBtns } from "@/shared/ui"
 import { observer } from "mobx-react"
-import { scrollToTop } from "@/src/shared/lib"
+import { scrollToTop } from "@/shared/lib"
 
 export const StoryList = observer(() => {
    const limit = 8

@@ -1,9 +1,9 @@
-import { BaseStoryField } from "@/src/entities/Story"
+import { BaseStoryField } from "@/entities/Story"
 import { Background } from "@xyflow/react"
 import styles from "./Field.module.scss"
-import { edgeTypes, nodeTypes } from "@/src/features/story"
-import { ButtonLink } from "@/src/shared/ui"
-import { PageRoutes } from "@/src/shared/constants"
+import { edgeTypes, nodeTypes } from "@/features/story"
+import { ButtonLink } from "@/shared/ui"
+import { PageRoutes } from "@/shared/constants"
 import { initialNodes } from "../../model/initialNodes"
 import { initialEdges } from "../../model/initialEdges"
 

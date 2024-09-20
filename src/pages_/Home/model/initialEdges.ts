@@ -1,4 +1,4 @@
-import { IAnswerEdge } from "@/src/entities/Answer";
+import { IAnswerEdge } from "@/entities/Answer";
 
 export const initialEdges: IAnswerEdge[] = [
    {

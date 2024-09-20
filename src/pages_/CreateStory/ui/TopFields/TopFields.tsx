@@ -1,8 +1,8 @@
 "use client"
 
-import { ImageLoad, Textarea, TextInput } from "@/src/shared/ui"
+import { ImageLoad, Textarea, TextInput } from "@/shared/ui"
 import styles from "./TopFields.module.scss"
-import { StoryCard } from "@/src/entities/Story"
+import { StoryCard } from "@/entities/Story"
 import {
    useWatch,
    UseFormRegisterReturn,

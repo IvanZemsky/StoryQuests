@@ -1,11 +1,11 @@
 import Link from "next/link"
 import styles from "./styles.module.scss"
-import { PageRoutes } from "@/src/shared/constants"
+import { PageRoutes } from "@/shared/constants"
 import { HTMLAttributes } from "react"
-import { ButtonLink, Button } from "@/src/shared/ui"
+import { ButtonLink, Button } from "@/shared/ui"
 import { IStory } from "../../model/types"
-import HeartIcon from "@/src/shared/assets/icons/heart.svg"
-import EyeIcon from "@/src/shared/assets/icons/eye.svg"
+import HeartIcon from "@/shared/assets/icons/heart.svg"
+import EyeIcon from "@/shared/assets/icons/eye.svg"
 import cn from "classnames"
 
 interface Props extends HTMLAttributes<HTMLDivElement>, IStory {

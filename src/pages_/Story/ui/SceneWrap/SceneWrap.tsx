@@ -2,11 +2,11 @@
 
 import { useParams } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
-import { IScene } from "@/src/entities/Scene"
-import { fetchScenesByStoryId } from "@/src/entities/Scene/api/queries/fetchScenesByStoryId"
-import Loading from "@/app/loading"
-import { Scene } from "@/src/widgets/Scene"
+import { IScene } from "@/entities/Scene"
+import { fetchScenesByStoryId } from "@/entities/Scene/api/queries/fetchScenesByStoryId"
+import { Scene } from "@/widgets/Scene"
 import styles from './SceneWrap.module.scss'
+import { Loading } from "@/shared/ui"
 
 type Props = {}
 

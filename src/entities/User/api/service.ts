@@ -1,5 +1,5 @@
 import { AxiosResponse } from "axios";
-import { api, APIEndpoints, IUserLogin } from "@/src/shared/api";
+import { api, APIEndpoints, IUserLogin } from "@/shared/api";
 
 const { Login, Auth } = APIEndpoints;
 

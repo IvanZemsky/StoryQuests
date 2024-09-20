@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "./Intro.module.scss"
-import LongArrowRightIcon from "@/src/shared/assets/icons/arrow-right-long.svg"
-import { PageRoutes } from "@/src/shared/constants"
+import LongArrowRightIcon from "@/shared/assets/icons/arrow-right-long.svg"
+import { PageRoutes } from "@/shared/constants"
 
 export const Intro = () => {
    return (

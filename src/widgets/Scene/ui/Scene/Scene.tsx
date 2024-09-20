@@ -1,8 +1,8 @@
 'use client'
 
-import { BaseScene, IScene } from "@/src/entities/Scene"
-import { storyStore } from "@/src/entities/Story"
-import { SelectAnswer } from "@/src/features/scene"
+import { BaseScene, IScene } from "@/entities/Scene"
+import { storyStore } from "@/entities/Story"
+import { SelectAnswer } from "@/features/scene"
 import { observer } from "mobx-react"
 import { useMemo, useEffect } from "react"
 

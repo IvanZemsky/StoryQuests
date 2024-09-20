@@ -1,7 +1,9 @@
-import { ButtonLink } from "..";
-import BookIcon from '@/src/shared/assets/icons/book.svg'
-import { PageRoutes } from "../../constants";
+
+import BookIcon from '@/shared/assets/icons/book.svg'
+
 import styles from "./Logo.module.scss";
+import { PageRoutes } from "@/shared/constants";
+import { ButtonLink } from "../ButtonLink/ButtonLink";
 
 export const Logo = () => {
    return (

@@ -1,8 +1,8 @@
-import { Wrapper } from "@/src/shared/ui"
+import { Wrapper } from "@/shared/ui"
 import styles from "./Story.module.scss"
 import { SceneWrap } from "./SceneWrap/SceneWrap"
 import { Metadata } from "next"
-import { storyService } from "@/src/entities/Story"
+import { storyService } from "@/entities/Story"
 
 interface Page {
    params: {

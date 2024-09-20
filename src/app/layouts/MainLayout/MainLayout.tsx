@@ -1,8 +1,8 @@
 import { PropsWithChildren, Suspense } from "react"
-import { Header } from "@/src/widgets/Header"
-import Loading from "@/app/loading"
-import { Footer } from "@/src/widgets/Footer"
+import { Header } from "@/widgets/Header"
+import { Footer } from "@/widgets/Footer"
 import styles from './styles.module.scss'
+import { Loading } from "@/shared/ui"
 
 export const MainLayout = ({ children }: PropsWithChildren) => {
    return (

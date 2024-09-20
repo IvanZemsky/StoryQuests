@@ -1,4 +1,4 @@
-import { ISceneNode } from "@/src/entities/Scene";
+import { ISceneNode } from "@/entities/Scene";
 import { useReactFlow, Node } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"

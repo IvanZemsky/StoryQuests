@@ -1,20 +1,20 @@
 "use client"
 
-import { Modal } from "@/src/shared/ui/Modal/Modal"
+import { Modal } from "@/shared/ui/Modal/Modal"
 import styles from "./SceneModal.module.scss"
 import {
    Button,
    Textarea,
    TextInput,
    ImageLoad,
-} from "@/src/shared/ui"
-import { Modals, modalStore } from "@/src/shared/model"
+} from "@/shared/ui"
+import { Modals, modalStore } from "@/shared/model"
 import { ISceneNodeData, ISceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
 import { Controller, useForm } from "react-hook-form"
 import { useEffect } from "react"
-import CrossIcon from "@/src/shared/assets/icons/cross.svg"
-import TrashIcon from "@/src/shared/assets/icons/trash.svg"
+import CrossIcon from "@/shared/assets/icons/cross.svg"
+import TrashIcon from "@/shared/assets/icons/trash.svg"
 
 interface Props {
    id: string

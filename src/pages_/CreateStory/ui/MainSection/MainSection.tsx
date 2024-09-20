@@ -1,6 +1,6 @@
-import { Button } from "@/src/shared/ui"
+import { Button } from "@/shared/ui"
 import styles from './MainSection.module.scss'
-import { modalStore } from "@/src/shared/model"
+import { modalStore } from "@/shared/model"
 
 type Props = {}
 

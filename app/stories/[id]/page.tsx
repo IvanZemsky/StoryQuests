@@ -1,1 +1,1 @@
-export { Story as default, generateMetadata  } from "@/src/pages_/Story";
+export { Story as default, generateMetadata  } from "@/pages_/Story";

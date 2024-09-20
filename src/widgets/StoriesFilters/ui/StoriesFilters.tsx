@@ -1,12 +1,12 @@
 "use client"
 
-import { Button, TextInput, SwitcherGroup, Select } from "@/src/shared/ui"
+import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
 import styles from "./StoriesFilters.module.scss"
-import CrossIcon from "@/src/shared/assets/icons/cross.svg"
-import SearchIcon from "@/src/shared/assets/icons/search.svg"
+import CrossIcon from "@/shared/assets/icons/cross.svg"
+import SearchIcon from "@/shared/assets/icons/search.svg"
 import { filterData, orderData } from "./model/formData"
 import { useForm } from "react-hook-form"
-import { storyFiltersStore } from "@/src/entities/Story"
+import { storyFiltersStore } from "@/entities/Story"
 
 const {setFilters} = storyFiltersStore
 

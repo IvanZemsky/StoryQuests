@@ -1,4 +1,4 @@
-import { EndSceneNode, SceneNode, StartSceneNode } from "@/src/entities/Scene"
+import { EndSceneNode, SceneNode, StartSceneNode } from "@/entities/Scene"
 import { NodeTypes } from "@xyflow/react"
 
 export const nodeTypes: NodeTypes = {

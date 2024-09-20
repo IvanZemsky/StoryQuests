@@ -1,9 +1,9 @@
 "use client"
 
-import { PageRoutes } from "@/src/shared/constants"
+import { PageRoutes } from "@/shared/constants"
 import Link from "next/link"
 import styles from "./StoryHeader.module.scss"
-import { Wrapper } from "@/src/shared/ui"
+import { Wrapper } from "@/shared/ui"
 
 const { Stories, Home } = PageRoutes
 

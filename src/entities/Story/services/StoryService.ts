@@ -1,8 +1,7 @@
-import { api, APIEndpoints } from "@/src/shared/api"
+import { api, APIEndpoints } from "@/shared/api"
 import { storyAdapter } from "../api/adapters/storyAdapter"
 import { OrderBy, SortByScenesAmount, IApiStory } from "../api/types"
 import { IStory } from "../model/types"
-import { AxiosError } from "axios"
 
 const { Stories } = APIEndpoints
 
@@ -27,7 +26,7 @@ interface IStorySearchResult {
        });
  
        const totalCount = +response.headers["x-total-count"];
-       const stories = response.data.map((story) => storyAdapter(story));
+       const stories = response.data.map((story: IApiStory) => storyAdapter(story));
  
        return {
          stories,

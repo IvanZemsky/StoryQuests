@@ -1,7 +1,7 @@
 import { ReactNode, Suspense } from "react"
-import Loading from "@/app/loading"
 import styles from './styles.module.scss'
-import { StoryHeader, storyService } from "@/src/entities/Story"
+import { StoryHeader, storyService } from "@/entities/Story"
+import { Loading } from "@/shared/ui"
 
 interface Props {
    children: ReactNode,

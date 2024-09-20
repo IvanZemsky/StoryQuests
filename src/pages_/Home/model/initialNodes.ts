@@ -1,4 +1,4 @@
-import { ISceneNode } from "@/src/entities/Scene"
+import { ISceneNode } from "@/entities/Scene"
 
 export const initialNodes: ISceneNode[] = [
    {

@@ -3,7 +3,7 @@
 import { forwardRef, HTMLAttributes, Ref, useState } from "react"
 import { Button } from "../Button/Button"
 import { Fade } from "../Transitions/Fade/Fade"
-import OpenArrowBottomIcon from "@/src/shared/assets/icons/arrow-bottom.svg"
+import OpenArrowBottomIcon from "@/shared/assets/icons/arrow-bottom.svg"
 import styles from "./Select.module.scss"
 import { Check, CheckProps } from "../Check/Check"
 

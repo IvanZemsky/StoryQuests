@@ -1,6 +1,6 @@
-import { Wrapper } from "@/src/shared/ui";
-import { StoriesFilters } from '@/src/widgets/StoriesFilters';
-import { StoryList } from "@/src/widgets/StoryList";
+import { Wrapper } from "@/shared/ui";
+import { StoriesFilters } from '@/widgets/StoriesFilters';
+import { StoryList } from "@/widgets/StoryList";
 import styles from './Stories.module.scss'
 import { Metadata } from "next";
 

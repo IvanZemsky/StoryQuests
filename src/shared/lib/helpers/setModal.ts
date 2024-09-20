@@ -1,4 +1,4 @@
-import { modalStore } from "@/src/shared/model"
+import { modalStore } from "@/shared/model"
 
 const {openModal} = modalStore
 

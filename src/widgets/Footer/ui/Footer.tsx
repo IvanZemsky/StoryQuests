@@ -1,7 +1,7 @@
-import { Logo, Wrapper } from "@/src/shared/ui"
+import { Logo, Wrapper } from "@/shared/ui"
 import styles from "./Footer.module.scss"
 import Link from 'next/link';
-import { PageRoutes } from "@/src/shared/constants";
+import { PageRoutes } from "@/shared/constants";
 
 const {Stories, Create, Home} = PageRoutes
 

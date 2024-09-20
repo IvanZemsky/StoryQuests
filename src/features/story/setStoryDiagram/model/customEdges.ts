@@ -1,4 +1,4 @@
-import { AnswerEdge } from "@/src/entities/Answer"
+import { AnswerEdge } from "@/entities/Answer"
 import { EdgeTypes } from "@xyflow/react"
 
 export const edgeTypes: EdgeTypes = {

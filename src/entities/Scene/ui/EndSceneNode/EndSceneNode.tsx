@@ -2,10 +2,10 @@
 
 import { Handle, Position } from "@xyflow/react"
 import styles from "./EndSceneNode.module.scss"
-import { setModal } from "@/src/shared/lib/helpers/setModal"
+import { setModal } from "@/shared/lib/helpers/setModal"
 import { SceneModal } from "../SceneModal/SceneModal"
 import { SceneNodeProps, } from "../../model/types"
-import { Modals } from "@/src/shared/model"
+import { Modals } from "@/shared/model"
 
 export const EndSceneNode = ({ id, data }: SceneNodeProps) => {
    const title = data.title || "Title of ending"

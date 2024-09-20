@@ -1,11 +1,11 @@
 'use client'
 
-import { Button } from "@/src/shared/ui"
+import { Button } from "@/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
 import styles from "./AnswerEdge.module.scss"
 import { AnswerEdgeProps } from "../../model/types"
 import { AnswerModal } from './../AnswerModal/AnswerModal';
-import { setModal } from "@/src/shared/lib";
+import { setModal } from "@/shared/lib";
 
 
 
