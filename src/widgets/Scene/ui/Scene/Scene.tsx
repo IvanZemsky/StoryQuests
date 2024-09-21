@@ -3,6 +3,7 @@
 import { BaseScene, IScene } from "@/entities/Scene"
 import { storyStore } from "@/entities/Story"
 import { SelectAnswer } from "@/features/scene"
+import { scrollToTop } from "@/shared/lib"
 import { observer } from "mobx-react"
 import { useMemo, useEffect } from "react"
 
@@ -21,6 +22,10 @@ export const Scene = observer(({ scenes }: Props) => {
       () => scenes.find((scene) => scene.id === currentSceneId),
       [scenes, currentSceneId],
    )
+
+   useEffect(() => {
+      scrollToTop()
+   }, [sceneData])
 
    if (!sceneData) {
       return <p>Error</p>

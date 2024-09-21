@@ -1,1 +1,1 @@
-export {StoryLayout as default} from '@/src/app'
+export {StoryLayout as default} from '@/app'
