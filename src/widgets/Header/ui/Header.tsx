@@ -7,14 +7,14 @@ import BurgerIcon from "@/shared/assets/icons/burger.svg"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import cn from "classnames"
 import { useState } from "react"
-import { ProfileLink, LogInLink } from "@/entities/User"
+import { ProfileLink, LogInLink, useAuthCheck, authStore } from "@/entities/User"
+import { observer } from "mobx-react"
 
 const { Stories, Create, Home } = PageRoutes
 
-export const Header = () => {
+export const Header = observer(() => {
   const [isMenuOpened, setIsMenuOpened] = useState(false)
-
-  const isAuth = false
+  const {isAuth} = useAuthCheck()
 
   const handleBurgerClick = () => {
      setIsMenuOpened(!isMenuOpened)
@@ -46,4 +46,4 @@ export const Header = () => {
          </Wrapper>
       </header>
    )
-}
+})

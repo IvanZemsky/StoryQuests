@@ -9,6 +9,8 @@ export const PopularStories = async () => {
       limit: 4,
       order: "popular",
     });
+
+    console.log(result)
     
     if (!result || !result.stories) {
       return <p>Error</p>

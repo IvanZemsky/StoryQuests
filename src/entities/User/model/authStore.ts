@@ -2,12 +2,14 @@ import { makeAutoObservable } from "mobx"
 
 class AuthStore {
    token: string = ""
+   isAuth = false
 
    constructor() {
       makeAutoObservable(this)
       if (typeof window !== "undefined") {
          this.token = localStorage.getItem("token") || ""
       }
+      this.isAuth = !!this.token
    }
 
    setToken = (token: string) => {
@@ -15,6 +17,7 @@ class AuthStore {
          throw new Error("Token must be provided")
       }
       this.token = token
+      this.isAuth = true
       if (typeof window !== "undefined") {
          localStorage.setItem("token", token)
       }
@@ -22,13 +25,10 @@ class AuthStore {
 
    logout = () => {
       this.token = ""
+      this.isAuth = false
       if (typeof window !== "undefined") {
          localStorage.removeItem("token")
       }
-   }
-
-   get isAuthenticated() {
-      return !!this.token
    }
 }
 

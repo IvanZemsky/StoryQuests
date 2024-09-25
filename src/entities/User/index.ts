@@ -1,3 +1,4 @@
+export { useAuthCheck } from "./lib/hooks/useAuthCheck";
 export { userService } from "./api/service";
 export { authStore } from "./model/authStore";
 export { LogInLink } from "./ui/LogInLink/LogInLink";

@@ -4,4 +4,5 @@ export enum APIEndpoints {
    Scenes = '/scenes',
    Auth = "/auth",
    Login = '/login',
+   CheckAuth = '/check',
 }

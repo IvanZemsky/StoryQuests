@@ -1,5 +1,4 @@
 import axios from "axios";
-import { authStore } from "../../entities/User/model/authStore";
 
 export const API_URL = process.env.NEXT_PUBLIC_API
 
@@ -10,7 +9,7 @@ export const api = axios.create({
 
 
 api.interceptors.request.use((config) => {
-   const token = authStore.token;
+   const token = localStorage.getItem("token") || ""
    config.headers.Authorization = `Bearer ${token}`;
    config.withCredentials = true;
    
