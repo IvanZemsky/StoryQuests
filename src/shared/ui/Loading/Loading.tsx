@@ -1,10 +1,11 @@
 import styles from './styles.module.scss'
-import TubeSpinner from '../../assets/animated/tube-spinner.svg'
+import TubeSpinner from '../../assets/animated/tube-spinner.svg?url'
+import Image from "next/image";
 
 export const Loading = () => {
    return ( 
       <div className={styles.loading}>
-         <TubeSpinner/>
+         <Image src={TubeSpinner} alt="Loading..." />
       </div>
    );
 }

@@ -9,12 +9,12 @@ import cn from "classnames"
 import { useState } from "react"
 import { ProfileLink, LogInLink, useAuthCheck, authStore } from "@/entities/User"
 import { observer } from "mobx-react"
+import { storyService } from "@/entities/Story"
 
 const { Stories, Create, Home } = PageRoutes
 
 export const Header = observer(() => {
   const [isMenuOpened, setIsMenuOpened] = useState(false)
-  const {isAuth} = useAuthCheck()
 
   const handleBurgerClick = () => {
      setIsMenuOpened(!isMenuOpened)
@@ -31,7 +31,7 @@ export const Header = observer(() => {
                      <MainLink href={Stories}>Stories</MainLink>
                      <MainLink href={Create}>Create</MainLink>
 
-                     {isAuth ? <ProfileLink /> : <LogInLink />}
+                      <LogInLink />
 
                      <button className={styles.closeBtn} onClick={handleBurgerClick}>
                         <CrossIcon />

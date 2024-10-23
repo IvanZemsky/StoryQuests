@@ -22,7 +22,7 @@ interface IStorySearchResult {
    async fetchStories(params: IStorySearchParams): Promise<IStorySearchResult | null> {
      try {
        const response = await api.get<IApiStory[]>(Stories, {
-         params: { ...params },
+         params: { ...params},
        });
  
        const totalCount = +response.headers["x-total-count"];
