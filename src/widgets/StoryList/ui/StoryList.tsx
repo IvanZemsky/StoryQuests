@@ -31,7 +31,7 @@ export const StoryList = observer(() => {
       <div className={styles.wrap}>
          <div className={styles.list}>
             {stories.map((story) => (
-               <StoryCard {...story} key={story.id} />
+               <StoryCard data={story} key={story.id} />
             ))}
          </div>
 

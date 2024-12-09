@@ -11,6 +11,7 @@ export const storyAdapter = (apiData: IApiStory): IStory => {
          id: apiData.author._id,
          login: apiData.author.login,
       },
+      tags: apiData.tags,
       sceneCount: apiData.sceneCount,
       passes: apiData.passes,
       likes: apiData.likes,

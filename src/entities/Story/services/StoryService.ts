@@ -14,38 +14,40 @@ interface IStorySearchParams {
 }
 
 interface IStorySearchResult {
-   stories: IStory[];
-   totalCount: number;
- }
- 
- class StoryService {
+   stories: IStory[]
+   totalCount: number
+}
+
+class StoryService {
    async fetchStories(params: IStorySearchParams): Promise<IStorySearchResult | null> {
-     try {
-       const response = await api.get<IApiStory[]>(Stories, {
-         params: { ...params},
-       });
- 
-       const totalCount = +response.headers["x-total-count"];
-       const stories = response.data.map((story: IApiStory) => storyAdapter(story));
- 
-       return {
-         stories,
-         totalCount,
-       };
-     } catch (error) {
-       return null;
-     }
+      try {
+         const response = await api.get<IApiStory[]>(Stories, {
+            params: { ...params },
+         })
+
+         const totalCount = +response.headers["x-total-count"]
+         const stories = response.data.map((story: IApiStory) => storyAdapter(story))
+
+         console.log("Stories", stories)
+
+         return {
+            stories,
+            totalCount,
+         }
+      } catch (error) {
+         return null
+      }
    }
 
    async fetchStoryById(id: string): Promise<IStory | null> {
-    try {
-      const response = await api.get<IApiStory>(Stories + `/${id}`);
-      const story = storyAdapter(response.data);
-      return story;
-    } catch (error) {
-      return null
-    }
-  }
+      try {
+         const response = await api.get<IApiStory>(Stories + `/${id}`)
+         const story = storyAdapter(response.data)
+         return story
+      } catch (error) {
+         return null
+      }
+   }
 }
 
 export const storyService = new StoryService()

@@ -6,7 +6,7 @@ export const useFetchStoriesQuery = () => {
    const { limit, page, setPage, search, order, length } = storyFiltersStore
 
    const queryKey = ["stories", page, search, order, length]
-   const queryFn = () => storyService.fetchStories({limit, page, search, order, length})
+   const queryFn = async () => await storyService.fetchStories({limit, page, search, order, length})
 
    const data = useQuery({
       queryKey,
