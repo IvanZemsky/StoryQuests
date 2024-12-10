@@ -34,7 +34,7 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
                   {!!tags.length && (
                      <div className={styles.tags}>
                         {tags.map((tag) => (
-                           <div>{tag}</div>
+                           <div key={tag}>{tag}</div>
                         ))}
                      </div>
                   )}
