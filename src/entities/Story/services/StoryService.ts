@@ -28,8 +28,6 @@ class StoryService {
          const totalCount = +response.headers["x-total-count"]
          const stories = response.data.map((story: IApiStory) => storyAdapter(story))
 
-         console.log("Stories", stories)
-
          return {
             stories,
             totalCount,

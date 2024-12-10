@@ -1,8 +1,8 @@
 import { Wrapper } from "@/shared/ui";
-import { StoriesFilters } from '@/widgets/StoriesFilters';
-import { StoryList } from "@/widgets/StoryList";
 import styles from './Stories.module.scss'
 import { Metadata } from "next";
+import { StoriesFilters } from "./StoriesFilters";
+import { StoryList } from "./StoryList";
 
 export const metadata: Metadata = {
    title: 'Story Quests'

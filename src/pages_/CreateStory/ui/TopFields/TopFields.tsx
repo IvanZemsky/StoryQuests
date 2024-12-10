@@ -2,7 +2,7 @@
 
 import { ImageLoad, Textarea, TextInput } from "@/shared/ui"
 import styles from "./TopFields.module.scss"
-import { StoryCard } from "@/entities/Story"
+import { IStory, StoryCard } from "@/entities/Story"
 import {
    useWatch,
    UseFormRegisterReturn,
@@ -26,9 +26,26 @@ export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) =>
    const description = useWatch({ control, name: "desc" })
    const img = useWatch({ control, name: "img" })
 
+   const cardData: IStory = {
+      id: "",
+      name: name || "Name of the story",
+      description: description || "Description",
+      img,
+      author: {
+         id: "",
+         login: "YourLogin"
+      },
+      tags: [],
+      sceneCount: 0,
+      passes: 345,
+      likes: 100,
+      date: ""
+   }
+
    const handleImgError = () => {
       setValue("img", "")
    }
+
 
    return (
       <div className={styles.top}>
@@ -51,16 +68,8 @@ export const TopFields = ({ control, nameInput, descInput, imgInput }: Props) =>
          </div>
          <StoryCard
             className={styles.preview}
-            id={""}
-            name={name}
-            description={description}
-            author={{ id: "123", login: "YourLogin" }}
-            img={img}
+            data={cardData}
             type="preview"
-            sceneCount={0}
-            passes={345}
-            date={""}
-            likes={100}
          />
       </div>
    )
