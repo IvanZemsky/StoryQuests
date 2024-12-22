@@ -6,6 +6,7 @@ import { IStory } from "../../model/types"
 import HeartIcon from "@/shared/assets/icons/heart.svg"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import cn from "classnames"
+import Image from "next/image"
 
 type Props = {
    data: IStory
@@ -20,7 +21,7 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
       <li className={cn(styles.wrap, className)}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               {img && <img src={img} alt={`Cover of the story "${name}"`} />}
+               {img && <Image src={img} fill alt={`Cover of the story "${name}"`} />}
             </div>
             <div className={styles.info}>
                <h2 className={styles.title}>{name}</h2>
