@@ -7,7 +7,7 @@ import { Button, TextInput } from "@/shared/ui"
 import { IAnswerEdge, IAnswerEdgeData } from "../../model/types"
 import { modalStore } from "@/shared/model"
 import { useReactFlow } from "@xyflow/react"
-import { ISceneNode } from "@/entities/Scene"
+import { SceneNode } from "@/entities/Scene"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import TrashIcon from "@/shared/assets/icons/trash.svg"
 
@@ -21,7 +21,7 @@ interface Props {
 export const AnswerModal = ({ id, data }: Props) => {
    const { getValues, register } = useForm()
 
-   const { updateEdgeData, deleteElements } = useReactFlow<ISceneNode, IAnswerEdge>()
+   const { updateEdgeData, deleteElements } = useReactFlow<SceneNode, IAnswerEdge>()
 
    const textInput = register("text", {
       required: true,

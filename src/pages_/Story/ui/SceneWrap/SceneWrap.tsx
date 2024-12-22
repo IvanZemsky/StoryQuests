@@ -2,11 +2,11 @@
 
 import { useParams } from "next/navigation"
 import { useQuery } from "@tanstack/react-query"
-import { IScene } from "@/entities/Scene"
 import { fetchScenesByStoryId } from "@/entities/Scene/api/queries/fetchScenesByStoryId"
-import { Scene } from "@/widgets/Scene"
+import { StoryScene } from "@/widgets/StoryScene"
 import styles from './SceneWrap.module.scss'
 import { Loading } from "@/shared/ui"
+import { Scene } from "@/entities/Scene"
 
 type Props = {}
 
@@ -17,7 +17,7 @@ export const SceneWrap = ({}: Props) => {
       data: scenes,
       isError,
       isLoading,
-   } = useQuery<IScene[]>({
+   } = useQuery<Scene[]>({
       queryKey: ["scene"],
       queryFn: () => fetchScenesByStoryId(id as string),
    })
@@ -28,7 +28,7 @@ export const SceneWrap = ({}: Props) => {
 
    return (
       <div className={styles.content}>
-         <Scene scenes={scenes}/>
+         <StoryScene scenes={scenes}/>
       </div>
    )
 }

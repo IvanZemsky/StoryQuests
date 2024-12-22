@@ -1,6 +1,6 @@
 "use client"
 
-import { Scene } from "@/widgets/Scene"
+import { StoryScene } from "@/widgets/StoryScene"
 import { observer } from "mobx-react"
 import { NotValidStoryModal, PreviewModal, storyCreationStore } from "@/entities/Story"
 import { useEffect } from "react"
@@ -24,10 +24,8 @@ export const StoryPreview = observer(() => {
    }, [isValid])
 
    if (!isValid) {
-      return (
-         <NotValidStoryModal />
-      )
+      return <NotValidStoryModal />
    }
 
-   return <PreviewModal scene={<Scene scenes={scenes} />} />
+   return <PreviewModal scene={<StoryScene scenes={scenes} />} />
 })

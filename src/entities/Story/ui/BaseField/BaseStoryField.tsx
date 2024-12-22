@@ -8,9 +8,9 @@ import styles from "./styles.module.scss"
 import { ReactNode } from "react"
 
 import "@xyflow/react/dist/style.css"
-import { ISceneNode } from "@/entities/Scene"
+import { SceneNode } from "@/entities/Scene"
 
-interface Props extends ReactFlowProps<ISceneNode> {
+interface Props extends ReactFlowProps<SceneNode> {
    title: string
    scenePanel?: ReactNode
 }

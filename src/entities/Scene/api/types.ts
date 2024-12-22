@@ -1,7 +1,7 @@
 import { IAnswer } from "../../Answer"
 import { SceneType } from "../model/types"
 
-export interface IApiScene {
+export interface IApScene {
    _id: string
    sceneId: string
    storyId: string

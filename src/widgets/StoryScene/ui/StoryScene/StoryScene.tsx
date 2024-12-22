@@ -1,17 +1,17 @@
 'use client'
 
-import { BaseScene, IScene } from "@/entities/Scene"
+import { BaseScene, Scene } from "@/entities/Scene"
 import { storyStore } from "@/entities/Story"
 import { SelectAnswer } from "@/features/scene"
 import { scrollToTop } from "@/shared/lib"
 import { observer } from "mobx-react"
 import { useMemo, useEffect } from "react"
 
-interface Props {
-   scenes: IScene[]
+type Props = {
+   scenes: Scene[]
 }
 
-export const Scene = observer(({ scenes }: Props) => {
+export const StoryScene = observer(({ scenes }: Props) => {
    const { currentSceneId, reset } = storyStore
 
    useEffect(() => {

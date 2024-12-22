@@ -1,4 +1,4 @@
-import { ISceneNode } from "@/entities/Scene";
+import { SceneNode } from "@/entities/Scene";
 import { useReactFlow, Node } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"
@@ -6,7 +6,7 @@ import { DragEvent } from "react"
 let id = 2;
 const getId = () => `scene_${id++}`;
 
-export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>) => {
+export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<SceneNode[]>>) => {
    const { screenToFlowPosition } = useReactFlow()
 
    const onDragOver = useCallback((event: DragEvent<HTMLDivElement>) => {
@@ -29,7 +29,7 @@ export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>)
             y: event.clientY,
          })
 
-         const newNode: ISceneNode = {
+         const newNode: SceneNode = {
             id: getId(),
             type,
             position,
@@ -41,7 +41,7 @@ export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<ISceneNode[]>>)
             },
          }
 
-         setNodes((nds: ISceneNode[]) => nds.concat(newNode))
+         setNodes((nds: SceneNode[]) => nds.concat(newNode))
       },
       [screenToFlowPosition],
    )

@@ -1,11 +1,11 @@
 import { makeAutoObservable, toJS } from "mobx";
-import { ISceneNodeData, ISceneNode, IScene } from '../../Scene';
+import { SceneNodeData, SceneNode, Scene } from '../../Scene';
 import { IAnswerEdge } from '../../Answer';
 
 class StoryCreationStore {
-   scenes: IScene[] = []
+   scenes: Scene[] = []
 
-   nodes: ISceneNode[] = []
+   nodes: SceneNode[] = []
    edges: IAnswerEdge[] = []
 
    isValid = false
@@ -14,7 +14,7 @@ class StoryCreationStore {
       makeAutoObservable(this)
    }
 
-   saveNodes = (nodes: ISceneNode[]): void => {
+   saveNodes = (nodes: SceneNode[]): void => {
       this.nodes = nodes
       console.log(toJS(nodes))
    }
@@ -23,7 +23,7 @@ class StoryCreationStore {
       this.edges = edges
    }
 
-   saveOneNode = (id: string, data: ISceneNodeData) => {
+   saveOneNode = (id: string, data: SceneNodeData) => {
       const scene = this.nodes.find(scene => scene.id === id)! // if the scene exists in field, it exists in node array as well
       scene.data = data
    }

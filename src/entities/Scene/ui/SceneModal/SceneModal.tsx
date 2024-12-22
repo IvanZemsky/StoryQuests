@@ -9,23 +9,23 @@ import {
    ImageLoad,
 } from "@/shared/ui"
 import { Modals, modalStore } from "@/shared/model"
-import { ISceneNodeData, ISceneNode } from "../../model/types"
+import { SceneNodeData, SceneNode } from "../../model/types"
 import { useReactFlow } from "@xyflow/react"
 import { Controller, useForm } from "react-hook-form"
 import { useEffect } from "react"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import TrashIcon from "@/shared/assets/icons/trash.svg"
 
-interface Props {
+type Props = {
    id: string
-   data: ISceneNodeData
+   data: SceneNodeData
    hasDeleteBtn?: boolean
 }
 
 const { closeModal } = modalStore
 
 export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
-   const { updateNodeData, deleteElements } = useReactFlow<ISceneNode>()
+   const { updateNodeData, deleteElements } = useReactFlow<SceneNode>()
    const { getValues, register, setValue, control, reset } = useForm()
 
    const titleInput = register("title", {
@@ -36,10 +36,6 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
    const descInput = register("desc")
 
    const modalContent = `${Modals.StoryScene}-${id}`
-
-   const handleRemoveClick = () => {
-      deleteElements({ nodes: [{ id }] })
-   }
 
    const handleSaveChanges = () => {
       const title = getValues("title")
@@ -80,7 +76,7 @@ export const SceneModal = ({ id, data, hasDeleteBtn = true }: Props) => {
                         <Button
                            variant="filled"
                            leftIcon={<TrashIcon />}
-                           onClick={handleRemoveClick}
+                           onClick={() => deleteElements({ nodes: [{ id }] })}
                            className={styles.removeBtn}
                         />
                      )}

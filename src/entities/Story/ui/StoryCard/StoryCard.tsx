@@ -21,7 +21,7 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
       <li className={cn(styles.wrap, className)}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               {img && <Image src={img} fill alt={`Cover of the story "${name}"`} />}
+               {img && <Image src={img} fill sizes="auto" alt={`Cover of the story "${name}"`}/>}
             </div>
             <div className={styles.info}>
                <h2 className={styles.title}>{name}</h2>
@@ -31,14 +31,6 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
                   <Link href={PageRoutes.Profile} className={styles.authorLink}>
                      #{author.login}
                   </Link>
-
-                  {!!tags.length && (
-                     <div className={styles.tags}>
-                        {tags.map((tag) => (
-                           <div key={tag}>{tag}</div>
-                        ))}
-                     </div>
-                  )}
 
                   <div className={styles.stats}>
                      <div className={styles.statsItem}>

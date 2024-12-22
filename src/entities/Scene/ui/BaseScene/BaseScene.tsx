@@ -1,17 +1,17 @@
 import { ButtonLink, SwitchFade } from "@/shared/ui"
-import { IScene } from "../../model/types"
-import styles from "./BaseScene.module.scss"
+import { Scene } from "../../model/types"
+import styles from "./styles.module.scss"
 import { PageRoutes } from "@/shared/constants"
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
 import { ReactNode } from "react"
+import Image from "next/image"
 
-interface Props extends Omit<IScene, "answers"> {
+type Props = {
    selectAnswer: ReactNode
    currentSceneId: string | null
-}
+} & Omit<Scene, "answers">
 
 export const BaseScene = ({
-   id,
    currentSceneId,
    title,
    description,
@@ -27,7 +27,9 @@ export const BaseScene = ({
             {!!description && <p className={styles.desc}>{description}</p>}
 
             <div className={styles.controls}>
-               <img src={img} className={styles.illustration} alt="illustration" />
+               <div className={styles.imgWrap}>
+                  <Image src={img} fill sizes="auto" className={styles.illustration} alt="illustration" />
+               </div>
 
                {type === "default" ? (
                   selectAnswer
@@ -40,7 +42,6 @@ export const BaseScene = ({
                      defaultHover={false}
                   />
                )}
-               
             </div>
             {type === "end" && <div className={styles.bottomLine}></div>}
          </div>

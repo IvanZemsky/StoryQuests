@@ -3,22 +3,22 @@ import { Node, NodeProps } from "@xyflow/react"
 
 export type SceneType = "default" | "end"
 
-export interface IScene {
+export type Scene = {
    id: string
    title: string
    description: string
-   img: string | undefined
+   img: string 
    type: SceneType
    answers: IAnswer[]
 }
 
-export interface ISceneNodeData extends Record<string, unknown> {
+export type SceneNodeData = {
    title: string
    description: string
    img: string
    type: SceneType
-}
+} & Record<string, unknown>
 
-export interface ISceneNode extends Node<ISceneNodeData> {}
+export type SceneNode = {} & Node<SceneNodeData>
 
-export interface SceneNodeProps extends NodeProps<ISceneNode> {}
+export type SceneNodeProps = {} & NodeProps<SceneNode>

@@ -8,7 +8,7 @@ import { ReactNode } from "react"
 import { modalStore } from "@/shared/model"
 import { Modals } from "@/shared/model/modals"
 
-interface Props {
+type Props = {
    scene: ReactNode
 }
 export const PreviewModal = observer(({ scene }: Props) => {

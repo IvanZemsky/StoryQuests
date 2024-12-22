@@ -19,10 +19,10 @@ import { edgeTypes } from "../model/customEdges"
 import { ScenePanel } from "@/entities/Scene/ui/ScenePanel/ScenePanel"
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
 import { BaseStoryField, storyCreationStore } from "@/entities/Story"
-import { ISceneNode } from "@/entities/Scene/model/types"
+import { SceneNode } from "@/entities/Scene/model/types"
 import { IAnswerEdge } from "@/entities/Answer"
 
-const initialNodes: ISceneNode[] = [
+const initialNodes: SceneNode[] = [
    {
       id: "scene_1",
       type: "startScene",
@@ -36,7 +36,7 @@ const { saveNodes, saveEdges } = storyCreationStore
 export const StoryField = () => {
    const [fullScreenMode, setFullScreenMode] = useState(false)
 
-   const [nodes, setNodes, onNodesChange] = useNodesState<ISceneNode>(initialNodes)
+   const [nodes, setNodes, onNodesChange] = useNodesState<SceneNode>(initialNodes)
    const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
 
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)

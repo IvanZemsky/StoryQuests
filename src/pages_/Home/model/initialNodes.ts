@@ -1,6 +1,6 @@
-import { ISceneNode } from "@/entities/Scene"
+import { SceneNode } from "@/entities/Scene"
 
-export const initialNodes: ISceneNode[] = [
+export const initialNodes: SceneNode[] = [
    {
       id: "scene_1",
       type: "startScene",
