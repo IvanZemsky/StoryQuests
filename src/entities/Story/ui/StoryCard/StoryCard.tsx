@@ -21,7 +21,18 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
       <li className={cn(styles.wrap, className)}>
          <div className={styles.card}>
             <div className={styles.imgWrap}>
-               {img && <Image src={img} fill sizes="auto" alt={`Cover of the story "${name}"`}/>}
+               {img && type === "default" && (
+                  <Image
+                     src={img}
+                     fill
+                     sizes="auto"
+                     alt={`Cover of the story "${name}"`}
+                  />
+               )}
+
+               {img && type === "preview" && (
+                  <img src={img} alt={`Cover of the story "${name}"`} />
+               )}
             </div>
             <div className={styles.info}>
                <h2 className={styles.title}>{name}</h2>

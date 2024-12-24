@@ -1,13 +1,13 @@
 "use client"
 
-import { forwardRef, InputHTMLAttributes, Ref, useEffect, useState } from "react"
+import { forwardRef, InputHTMLAttributes, Ref, useState } from "react"
 import styles from "./Check.module.scss"
 import { Button } from ".."
 
-export interface CheckProps extends InputHTMLAttributes<HTMLInputElement> {
+export type CheckProps =  {
    text: string
    fillContainer?: boolean
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const Check = forwardRef(
    (

@@ -3,7 +3,7 @@ import styles from "../styles/button.module.scss"
 import Link from "next/link"
 import cn from "classnames"
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+type Props = {
    variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
@@ -11,7 +11,7 @@ interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
    uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
-}
+} & AnchorHTMLAttributes<HTMLAnchorElement>
 
 export const ButtonLink = ({
    variant = "outlined",
