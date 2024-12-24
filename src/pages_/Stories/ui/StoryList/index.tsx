@@ -2,7 +2,6 @@
 
 import styles from "./StoryList.module.scss"
 import { StoriesSkeleton, StoryCard, useFetchStoriesQuery } from "@/entities/Story/"
-import { useCallback }  from "react"
 import { PageBtns } from "@/shared/ui"
 import { observer } from "mobx-react"
 import { scrollToTop } from "@/shared/lib"
@@ -12,17 +11,14 @@ export const StoryList = observer(() => {
 
    const [page, setPage, { data, isError, isLoading }] = useFetchStoriesQuery()
 
-   const handlePageClick = useCallback(
-      (page: number) => () => {
-         scrollToTop()
-         setPage(page - 1)
-      },
-      [],
-   )
+   const handlePageClick = (page: number) => () => {
+      scrollToTop()
+      setPage(page - 1)
+   }
 
    if (isError) return <p>Error</p>
-   if (isLoading) return <StoriesSkeleton limit={8}/>
-   if (!data) return <p>No stories found</p>
+   if (isLoading) return <StoriesSkeleton limit={8} />
+   if (!data || !data.stories.length) return <p>No stories found</p>
 
    const { stories, totalCount } = data
    const pageAmount = Math.ceil(totalCount / limit)

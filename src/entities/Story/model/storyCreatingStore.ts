@@ -4,10 +4,8 @@ import { IAnswerEdge } from '../../Answer';
 
 class StoryCreationStore {
    scenes: Scene[] = []
-
    nodes: SceneNode[] = []
    edges: IAnswerEdge[] = []
-
    isValid = false
 
    constructor() {

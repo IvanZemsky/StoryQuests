@@ -6,11 +6,11 @@ import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref } from "react"
 import { TextInput } from "../TextInput/TextInput"
 import { useDebounce, useImgLoad } from "../../lib"
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+type Props = {
    label?: string
    value?: string;
    onError?: (...args: any) => any
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
 export const ImageLoad = forwardRef(
    (

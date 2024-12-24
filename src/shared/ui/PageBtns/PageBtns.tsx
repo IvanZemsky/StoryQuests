@@ -6,7 +6,7 @@ import cn from "classnames"
 interface PageBtnsProps {
    currentPage: number
    pageAmount: number
-   handleClick: (page: number) => MouseEventHandler<HTMLButtonElement> | undefined
+   handleClick: (page: number) => MouseEventHandler<HTMLButtonElement>
 }
 
 export const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps) => {
