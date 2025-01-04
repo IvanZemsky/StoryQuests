@@ -1,26 +1,40 @@
 import { makeAutoObservable } from "mobx"
-import { OrderBy, SortByScenesAmount } from "../api/types"
+import { OrderBy, SortByScenesAmount, StorySearchParams } from "../model/types"
+import { STORIES_SEARCH_LIMIT } from "./constants"
 
 class StoryFiltersStore {
    constructor() {
       makeAutoObservable(this)
    }
 
-   limit = 8
-   page = 0
-   order: OrderBy = ""
-   length: SortByScenesAmount = ""
-   search = ""
-
-   setPage = (page: number) => {
-      this.page = page
+   filters: StorySearchParams = {
+      limit: STORIES_SEARCH_LIMIT,
+      page: 0,
+      search: "",
+      order: "",
+      length: "",
    }
 
-   setFilters = (order: OrderBy, length: SortByScenesAmount, search: string) => {
-      this.page = 0
-      this.order = order
-      this.length = length
-      this.search = search
+   setPage = (page: number) => {
+      this.filters.page = page
+   }
+
+   setFilters = ({
+      order,
+      length,
+      search,
+   }: {
+      order: OrderBy
+      length: SortByScenesAmount
+      search: string
+   }) => {
+      this.filters = {
+         ...this.filters,
+         page: 0,
+         order,
+         length,
+         search,
+      }
    }
 }
 

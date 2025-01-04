@@ -13,6 +13,3 @@ export interface IApiStory {
    likes: number
    date: string
 }
-
-export type SortByScenesAmount = "" | "short" | "medium" | "long"
-export type OrderBy = "" | "best" | "popular" | "new"

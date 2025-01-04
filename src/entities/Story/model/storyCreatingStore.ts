@@ -22,7 +22,10 @@ class StoryCreationStore {
    }
 
    saveOneNode = (id: string, data: SceneNodeData) => {
-      const scene = this.nodes.find(scene => scene.id === id)! // if the scene exists in field, it exists in node array as well
+      const scene = this.nodes.find(scene => scene.id === id)
+      if (!scene) {
+         throw new Error("Scene not found") // if the scene exists in field, it must exist in node array as well
+      }
       scene.data = data
    }
 

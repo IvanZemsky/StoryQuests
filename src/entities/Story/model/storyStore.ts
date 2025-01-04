@@ -1,17 +1,18 @@
 import { makeAutoObservable } from "mobx";
+import { STORY_FIRST_SCENE } from "./constants";
 
 class StoryStore{
    currentSceneId: string | null
    selectedSceneId: string | null
 
    constructor() {
-      this.currentSceneId = 'scene_1'
+      this.currentSceneId = STORY_FIRST_SCENE
       this.selectedSceneId = null
       makeAutoObservable(this);
    }
 
    reset = () => {
-      this.currentSceneId = 'scene_1'
+      this.currentSceneId = STORY_FIRST_SCENE
       this.selectedSceneId = null
    }
 

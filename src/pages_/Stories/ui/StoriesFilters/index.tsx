@@ -13,12 +13,12 @@ const {setFilters} = storyFiltersStore
 export const StoriesFilters = () => {
    const { register, handleSubmit, reset, getValues } = useForm();
 
-   const onSubmit = (data: any) => {
+   const onSubmit = () => {
       const search = getValues("search");
       const order = getValues("order");
       const length = getValues("length");
 
-      setFilters(order, length, search)
+      setFilters({order, length, search})
    };
 
    const handleReset = () => reset();

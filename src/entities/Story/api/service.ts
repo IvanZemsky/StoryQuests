@@ -1,25 +1,12 @@
 import { api, APIEndpoints } from "@/shared/api"
-import { storyAdapter } from "../api/adapters/storyAdapter"
-import { OrderBy, SortByScenesAmount, IApiStory } from "../api/types"
-import { IStory } from "../model/types"
+import { storyAdapter } from "./adapters/storyAdapter"
+import { IApiStory } from "./types"
+import { StorySearchParams } from "../model/types"
 
 const { Stories } = APIEndpoints
 
-interface IStorySearchParams {
-   limit?: number
-   page?: number
-   search?: string
-   order?: OrderBy
-   length?: SortByScenesAmount
-}
-
-interface IStorySearchResult {
-   stories: IStory[]
-   totalCount: number
-}
-
-class StoryService {
-   async fetchStories(params: IStorySearchParams): Promise<IStorySearchResult | null> {
+export const storyService = {
+   async fetchStories(params: Partial<StorySearchParams>) {
       try {
          const response = await api.get<IApiStory[]>(Stories, {
             params: { ...params },
@@ -35,9 +22,9 @@ class StoryService {
       } catch (error) {
          return null
       }
-   }
+   },
 
-   async fetchStoryById(id: string): Promise<IStory | null> {
+   async fetchStoryById(id: string) {
       try {
          const response = await api.get<IApiStory>(Stories + `/${id}`)
          const story = storyAdapter(response.data)
@@ -47,5 +34,3 @@ class StoryService {
       }
    }
 }
-
-export const storyService = new StoryService()
