@@ -1,19 +1,8 @@
-@import "/src/shared/ui/styles/mixins.scss";
-
-.header{
-   background-color: var(--secondaryMain);
-}
-
-.content {
-   @include flex-spb-y;
-   gap: 15px;
-   padding: 10px 0;
-}
-
 .nav {
    position: relative;
    ul {
-      @include flex-center-x;
+      display: flex;
+      align-items: center;
       gap: 15px;
    }
 

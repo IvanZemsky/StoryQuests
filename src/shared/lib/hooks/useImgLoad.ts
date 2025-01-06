@@ -1,6 +1,5 @@
 import { ChangeEvent, useState, useEffect } from "react"
 
-/** */
 export const useImgLoad = (
    defaultValue = "",
    onError: ((...args: any) => any) | undefined,
@@ -18,8 +17,6 @@ export const useImgLoad = (
       setPendingLoad(true)
    }
 
-   console.log(pendingLoad)
-
    const handleImageLoad = () => {
       setIsError(false)
       setIsImageLoaded(true)
@@ -34,9 +31,8 @@ export const useImgLoad = (
    }
 
    const resetStateIfPending = () => {
-      if (pendingLoad) {
-         console.log("reset")
-         onError && onError()
+      if (pendingLoad && onError) {
+         onError()
       }
    }
 
@@ -45,11 +41,10 @@ export const useImgLoad = (
    }, [])
 
    useEffect(() => {
-      if (isImageLoaded) {
-         onChange &&
-            onChange({
-               target: { value: imgLink } as EventTarget & HTMLInputElement,
-            } as ChangeEvent<HTMLInputElement>)
+      if (isImageLoaded && onChange) {
+         onChange({
+            target: { value: imgLink } as EventTarget & HTMLInputElement,
+         } as ChangeEvent<HTMLInputElement>)
       }
    }, [isImageLoaded, imgLink, onChange])
 
