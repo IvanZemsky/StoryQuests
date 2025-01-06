@@ -9,16 +9,12 @@ import Image from "next/image"
 type Props = {
    selectAnswer: ReactNode
    currentSceneId: string | null
-} & Omit<Scene, "answers">
+   data: Omit<Scene, "answers">
+}
 
-export const BaseScene = ({
-   currentSceneId,
-   title,
-   description,
-   img,
-   type,
-   selectAnswer,
-}: Props) => {
+export const BaseScene = ({ currentSceneId, data, selectAnswer }: Props) => {
+   const { title, description, type, img } = data
+   
    return (
       <SwitchFade switchKey={currentSceneId} timeout={300}>
          <div className={styles.content}>
@@ -28,7 +24,13 @@ export const BaseScene = ({
 
             <div className={styles.controls}>
                <div className={styles.imgWrap}>
-                  <Image src={img} fill sizes="auto" className={styles.illustration} alt="illustration" />
+                  <Image
+                     src={img}
+                     fill
+                     sizes="auto"
+                     className={styles.illustration}
+                     alt="illustration"
+                  />
                </div>
 
                {type === "default" ? (

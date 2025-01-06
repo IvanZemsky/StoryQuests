@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { StoryHeader, storyService } from "@/entities/Story"
 import { Loading } from "@/shared/ui"
 
-interface Props {
+type Props = {
    children: ReactNode,
    params: {
       id: string

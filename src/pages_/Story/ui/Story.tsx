@@ -1,34 +1,22 @@
 import { Wrapper } from "@/shared/ui"
 import styles from "./Story.module.scss"
-import { SceneWrap } from "./SceneWrap/SceneWrap"
-import { Metadata } from "next"
-import { storyService } from "@/entities/Story"
+import { sceneService } from "@/entities/Scene"
+import { StoryScene } from "@/widgets/StoryScene"
+import { Page } from "../model/types"
 
-interface Page {
-   params: {
-      id: string
+export const Story = async ({ params }: Page) => {
+   const scenes = await sceneService.fetchScenesByStoryId(params.id)
+
+   if (!scenes) {
+      return <p>Error</p>
    }
-}
 
-export const generateMetadata = async ({ params }: Page): Promise<Metadata> => {
-   try {
-      const data = await storyService.fetchStoryById(params.id);
-      return {
-         title: data?.name || 'Story not found',
-      };
-   } catch (error) {
-      return {
-         title: 'Story not found',
-      };
-   }
-};
-
-export const Story = ({ params }: Page) => {
-   console.log(params.id)
    return (
       <div className={styles.page}>
          <Wrapper>
-            <SceneWrap/>
+            <div className={styles.content}>
+               <StoryScene scenes={scenes} />
+            </div>
          </Wrapper>
       </div>
    )

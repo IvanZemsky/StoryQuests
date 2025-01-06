@@ -1,18 +1,13 @@
-import { storyStore } from "@/entities/Story"
 import { Check } from "@/shared/ui"
 import { IAnswer } from "../../model/types"
 import { HTMLAttributes } from "react"
 
-interface Props extends IAnswer, HTMLAttributes<HTMLDivElement> {
-   id: string
-}
+type Props = {
+   data: IAnswer
+} & HTMLAttributes<HTMLDivElement>
 
-export const Answer = ({ id, text, nextSceneId, className, ...attributes }: Props) => {
-   const { setNextSceneId } = storyStore
-
-   const handleCheckClick = () => {
-      setNextSceneId(nextSceneId)
-   }
+export const Answer = ({ data, className, ...attributes }: Props) => {
+   const { text, nextSceneId, id } = data
 
    return (
       <Check
@@ -20,7 +15,6 @@ export const Answer = ({ id, text, nextSceneId, className, ...attributes }: Prop
          name="answer"
          id={id + nextSceneId}
          text={text}
-         onClick={handleCheckClick}
          className={className}
          {...attributes}
       />

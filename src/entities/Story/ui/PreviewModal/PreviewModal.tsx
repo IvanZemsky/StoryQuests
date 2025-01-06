@@ -11,6 +11,7 @@ import { Modals } from "@/shared/model/modals"
 type Props = {
    scene: ReactNode
 }
+
 export const PreviewModal = observer(({ scene }: Props) => {
    const { scenes } = storyCreationStore
    const { closeModal } = modalStore

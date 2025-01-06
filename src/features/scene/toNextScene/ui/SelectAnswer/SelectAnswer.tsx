@@ -1,21 +1,32 @@
 import { SwitcherGroup, Button } from "@/shared/ui"
-import ArrowRightIcon from '@/shared/assets/icons/arrow-right.svg'
+import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
 import styles from "./SelectAnswer.module.scss"
-import { storyStore } from "@/entities/Story"
 import { Answer, IAnswer } from "@/entities/Answer"
+import { useRef } from "react"
+import { SetStateFn } from "@/shared/model"
 
-interface Props {
+type Props = {
    answers: IAnswer[]
+   setScene: SetStateFn<string>
 }
 
-export const SelectAnswer = ({ answers }: Props) => {
-   const { setScene } = storyStore
+export const SelectAnswer = ({ answers, setScene }: Props) => {
+   const nextSceneId = useRef<null | string>(null)
+
+   const handleSetSceneCLick = () => {
+      if (nextSceneId.current) setScene(nextSceneId.current)
+   }
 
    return (
       <div className={styles.wrap}>
          <SwitcherGroup variant="column" className={styles.select}>
             {answers.map((answer) => (
-               <Answer key={answer.id + answer.nextSceneId} className={styles.answer} {...answer}/>
+               <Answer
+                  key={answer.id + answer.nextSceneId}
+                  className={styles.answer}
+                  onClick={() => (nextSceneId.current = answer.nextSceneId)}
+                  data={answer}
+               />
             ))}
          </SwitcherGroup>
          <Button
@@ -23,7 +34,7 @@ export const SelectAnswer = ({ answers }: Props) => {
             className={styles.nextSceneBtn}
             leftIcon={<ArrowRightIcon />}
             defaultHover={false}
-            onClick={setScene}
+            onClick={handleSetSceneCLick}
          />
       </div>
    )

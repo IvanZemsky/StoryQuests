@@ -1,18 +1,18 @@
 "use client"
 
 import { BaseScene, Scene } from "@/entities/Scene"
-import { storyStore } from "@/entities/Story"
+import { STORY_FIRST_SCENE } from "@/entities/Story/model/constants"
 import { SelectAnswer } from "@/features/scene"
-import { observer } from "mobx-react"
+import {  useState } from "react"
 
 type Props = {
    scenes: Scene[]
 }
 
-export const StoryScene = observer(({ scenes }: Props) => {
-   const { currentSceneId } = storyStore
+export const StoryScene = ({ scenes }: Props) => {
+   const [sceneId, setSceneId] = useState(STORY_FIRST_SCENE)
 
-   const sceneData = scenes.find((scene) => scene.id === currentSceneId)
+   const sceneData = scenes.find((scene) => scene.id === sceneId)
 
    if (!sceneData) {
       return <p>Error</p>
@@ -20,9 +20,9 @@ export const StoryScene = observer(({ scenes }: Props) => {
 
    return (
       <BaseScene
-         currentSceneId={currentSceneId}
+         currentSceneId={sceneId}
          data={sceneData}
-         selectAnswer={<SelectAnswer answers={sceneData.answers} />}
+         selectAnswer={<SelectAnswer answers={sceneData.answers} setScene={setSceneId} />}
       />
    )
-})
+}

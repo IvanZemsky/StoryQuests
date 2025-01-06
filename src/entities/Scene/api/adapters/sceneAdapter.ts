@@ -1,7 +1,7 @@
 import { Scene } from "../../model/types"
-import { IApScene } from "../types"
+import { IApiScene } from "../types"
 
-export const sceneAdapter = (apiData: IApScene): Scene => {
+export const sceneAdapter = (apiData: IApiScene): Scene => {
    return {
       id: apiData.sceneId,
       title: apiData.title,

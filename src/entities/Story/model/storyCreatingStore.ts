@@ -39,7 +39,10 @@ class StoryCreationStore {
       }, true)
 
       this.isValid = isNodesValid && isEdgesValid
-      console.log(isNodesValid && isEdgesValid)
+
+      if (this.isValid) {
+         this.createScenes()
+      }
    }
 
    createScenes = (): void => {
