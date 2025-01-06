@@ -1,26 +1,21 @@
 "use client"
 
 import { useParams } from "next/navigation"
-import { useQuery } from "@tanstack/react-query"
-import { fetchScenesByStoryId } from "@/entities/Scene/api/queries/fetchScenesByStoryId"
 import { StoryScene } from "@/widgets/StoryScene"
-import styles from './SceneWrap.module.scss'
+import styles from "./SceneWrap.module.scss"
 import { Loading } from "@/shared/ui"
-import { Scene } from "@/entities/Scene"
+import { storyStore } from "@/entities/Story"
+import { useScenes } from "@/entities/Scene/lib/hooks/useScenes"
 
-type Props = {}
+export const SceneWrap = () => {
+   const { reset } = storyStore
+   const { id } = useParams<{ id: string }>()
 
-export const SceneWrap = ({}: Props) => {
-   const { id } = useParams()
+   const { data: scenes, isError, isLoading, isSuccess } = useScenes(id)
 
-   const {
-      data: scenes,
-      isError,
-      isLoading,
-   } = useQuery<Scene[]>({
-      queryKey: ["scene"],
-      queryFn: () => fetchScenesByStoryId(id as string),
-   })
+   if (isSuccess) {
+      reset()
+   }
 
    if (isError) return <p>Error</p>
    if (isLoading) return <Loading />
@@ -28,7 +23,7 @@ export const SceneWrap = ({}: Props) => {
 
    return (
       <div className={styles.content}>
-         <StoryScene scenes={scenes}/>
+         <StoryScene scenes={scenes} />
       </div>
    )
 }
