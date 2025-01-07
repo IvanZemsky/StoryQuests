@@ -1,11 +1,11 @@
-import { forwardRef, HTMLAttributes, Ref } from "react"
+import { ComponentProps, forwardRef, Ref } from "react"
 import styles from "./SwitcherGroup.module.scss"
 import { Check, CheckProps } from "../Check/Check"
 
-interface Props extends HTMLAttributes<HTMLInputElement> {
+type Props = {
    variant?: "row" | "column"
    group?: CheckProps[]
-}
+} & ComponentProps<"input">
 
 export const SwitcherGroup = forwardRef(
    (

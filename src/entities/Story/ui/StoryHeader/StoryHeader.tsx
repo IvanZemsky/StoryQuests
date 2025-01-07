@@ -7,7 +7,7 @@ import { Wrapper } from "@/shared/ui"
 
 const { Stories, Home } = PageRoutes
 
-interface Props {
+type Props = {
    storyName?: string | null
 }
 

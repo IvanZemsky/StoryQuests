@@ -1,4 +1,4 @@
-import styles from "./ScenePanel.module.scss"
+import styles from "./styles.module.scss"
 import { DragEvent } from "react"
 
 export const ScenePanel = () => {

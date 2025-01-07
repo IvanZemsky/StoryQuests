@@ -3,9 +3,9 @@
 import { useEffect, useState, PropsWithChildren } from "react"
 import { createPortal } from "react-dom"
 
-interface Props extends PropsWithChildren {
+type Props = {
    selector: string
-}
+} & PropsWithChildren
 
 export const ClientPortal = ({ children, selector }: Props) => {
    const [mounted, setMounted] = useState(false)

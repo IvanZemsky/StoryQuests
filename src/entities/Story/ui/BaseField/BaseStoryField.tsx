@@ -10,10 +10,10 @@ import { ReactNode } from "react"
 import "@xyflow/react/dist/style.css"
 import { SceneNode } from "@/entities/Scene"
 
-interface Props extends ReactFlowProps<SceneNode> {
+type Props = {
    title: string
    scenePanel?: ReactNode
-}
+} & ReactFlowProps<SceneNode>
 
 export const BaseStoryField = ({title, scenePanel, className, children, ...attributes}: Props) => {
    return (

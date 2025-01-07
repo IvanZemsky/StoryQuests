@@ -1,7 +1,7 @@
 "use client"
 
 import { ImageLoad, Textarea, TextInput } from "@/shared/ui"
-import styles from "./TopFields.module.scss"
+import styles from "./styles.module.scss"
 import { IStory, StoryCard } from "@/entities/Story"
 import {
    useWatch,
@@ -12,7 +12,7 @@ import {
    FieldValues,
 } from "react-hook-form"
 
-interface Props {
+type Props = {
    control: Control<FieldValues, any>
    nameInput: UseFormRegisterReturn<"name">
    descInput: UseFormRegisterReturn<"desc">

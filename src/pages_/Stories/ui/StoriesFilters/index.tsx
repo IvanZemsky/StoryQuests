@@ -1,27 +1,27 @@
 "use client"
 
 import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
-import styles from "./StoriesFilters.module.scss"
+import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
 import { filterData, orderData } from "../../model/formData"
 import { useForm } from "react-hook-form"
 import { storyFiltersStore } from "@/entities/Story"
 
-const {setFilters} = storyFiltersStore
+const { setFilters } = storyFiltersStore
 
 export const StoriesFilters = () => {
-   const { register, handleSubmit, reset, getValues } = useForm();
+   const { register, handleSubmit, reset, getValues } = useForm()
 
    const onSubmit = () => {
-      const search = getValues("search");
-      const order = getValues("order");
-      const length = getValues("length");
+      const search = getValues("search")
+      const order = getValues("order")
+      const length = getValues("length")
 
-      setFilters({order, length, search})
-   };
+      setFilters({ order, length, search })
+   }
 
-   const handleReset = () => reset();
+   const handleReset = () => reset()
 
    return (
       <header>

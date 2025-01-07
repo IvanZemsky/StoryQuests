@@ -1,8 +1,11 @@
 .page {
    height: 100%;
-   background: url("https://svgur.com/i/18js.svg") left center no-repeat,
-      url("https://svgur.com/i/18kz.svg") center center no-repeat,
-      url("https://svgur.com/i/18k4.svg") right center no-repeat;
+   background: url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-1.svg")
+         left center no-repeat,
+      url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/dots.svg")
+         center center no-repeat,
+      url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-2.svg")
+         right center no-repeat;
    background-size: auto 100%, auto 90%, auto 100%;
 }
 
@@ -15,7 +18,7 @@
 }
 
 @media screen and (max-width: 700px) {
-   .page{
+   .page {
       background: none;
    }
 }

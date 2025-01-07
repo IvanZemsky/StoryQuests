@@ -1,7 +1,7 @@
 "use client"
 
 import { Modal } from "@/shared/ui/Modal/Modal"
-import styles from "./SceneModal.module.scss"
+import styles from "./styles.module.scss"
 import {
    Button,
    Textarea,

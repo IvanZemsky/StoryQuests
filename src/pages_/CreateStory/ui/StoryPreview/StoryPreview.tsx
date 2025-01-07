@@ -8,8 +8,7 @@ import {
    storyCreationStore,
 } from "@/entities/Story"
 import { useEffect } from "react"
-import { modalStore } from "@/shared/model"
-import { Modals } from "@/shared/model/modals"
+import { modalStore, Modals } from "@/shared/model"
 
 export const StoryPreview = observer(() => {
    const { isValid, validate, scenes } = storyCreationStore

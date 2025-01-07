@@ -1,5 +1,5 @@
 import { Wrapper } from "@/shared/ui"
-import styles from "./CreateStory.module.scss"
+import styles from "./styles.module.scss"
 import { StoryPreview } from "./StoryPreview/StoryPreview"
 import { CreateStoryForm } from "./CreateStoryForm/CreateStoryForm"
 import { Metadata } from "next"

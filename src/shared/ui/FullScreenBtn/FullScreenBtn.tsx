@@ -6,9 +6,9 @@ import FullScreenIcon from "@/shared/assets/icons/full-screen.svg"
 import FullScreenExitIcon from "@/shared/assets/icons/full-screen-exit.svg"
 import { MouseEvent } from 'react'
 
-interface FullScreenBtnProps extends ControlButtonProps {
+type FullScreenBtnProps =  {
    onClick: MouseEventHandler<HTMLButtonElement>;
-}
+} & ControlButtonProps
 
 export const FullScreenBtn = ({onClick}: FullScreenBtnProps) => {
    const [isFullScreen, setIsFullScreen] = useState(false)

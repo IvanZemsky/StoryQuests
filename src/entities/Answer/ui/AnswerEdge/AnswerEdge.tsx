@@ -2,12 +2,10 @@
 
 import { Button } from "@/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
-import styles from "./AnswerEdge.module.scss"
+import styles from "./styles.module.scss"
 import { AnswerEdgeProps } from "../../model/types"
 import { AnswerModal } from './../AnswerModal/AnswerModal';
 import { setModal } from "@/shared/lib";
-
-
 
 export const AnswerEdge = ({ id, data, sourceX, sourceY, targetX, targetY }: AnswerEdgeProps) => {
    const text = data.text || 'Answer'
@@ -42,7 +40,7 @@ export const AnswerEdge = ({ id, data, sourceX, sourceY, targetX, targetY }: Ans
                {text}
             </Button>
          </EdgeLabelRenderer>
-         <AnswerModal id={id} data={data}/>
+         <AnswerModal id={id}/>
       </>
    )
 }

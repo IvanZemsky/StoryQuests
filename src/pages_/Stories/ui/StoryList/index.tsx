@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "./StoryList.module.scss"
+import styles from "./styles.module.scss"
 import { StoriesSkeleton, StoryCard, useStories } from "@/entities/Story"
 import { PageBtns } from "@/shared/ui"
 import { observer } from "mobx-react"

@@ -1,4 +1,4 @@
-import { AnchorHTMLAttributes, ReactNode } from "react"
+import { ComponentProps, ReactNode } from "react"
 import styles from "../styles/button.module.scss"
 import Link from "next/link"
 import cn from "classnames"
@@ -11,7 +11,7 @@ type Props = {
    uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
-} & AnchorHTMLAttributes<HTMLAnchorElement>
+} & ComponentProps<"a">
 
 export const ButtonLink = ({
    variant = "outlined",

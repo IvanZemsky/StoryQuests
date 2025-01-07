@@ -2,7 +2,7 @@
 
 import styles from "./ImageLoad.module.scss"
 import UploadIcon from "@/shared/assets/icons/upload.svg"
-import { ChangeEvent, forwardRef, InputHTMLAttributes, Ref } from "react"
+import { ChangeEvent, ComponentProps, forwardRef, Ref } from "react"
 import { TextInput } from "../TextInput/TextInput"
 import { useDebounce, useImgLoad } from "../../lib"
 
@@ -10,7 +10,7 @@ type Props = {
    label?: string
    value?: string;
    onError?: (...args: any) => any
-} & InputHTMLAttributes<HTMLInputElement>
+} & ComponentProps<"input">
 
 export const ImageLoad = forwardRef(
    (

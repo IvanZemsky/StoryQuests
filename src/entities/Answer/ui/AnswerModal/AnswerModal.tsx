@@ -1,38 +1,34 @@
 "use client"
 
 import { Modal } from "@/shared/ui/Modal/Modal"
-import styles from "./AnswerModal.module.scss"
+import styles from "./styles.module.scss"
 import { useForm } from "react-hook-form"
-import { Button, TextInput } from "@/shared/ui"
-import { IAnswerEdge, IAnswerEdgeData } from "../../model/types"
+import { Button } from "@/shared/ui"
+import { IAnswerEdge } from "../../model/types"
 import { modalStore } from "@/shared/model"
 import { useReactFlow } from "@xyflow/react"
 import { SceneNode } from "@/entities/Scene"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import TrashIcon from "@/shared/assets/icons/trash.svg"
+import { AnswerForm } from "../AnswerForm/AnswerForm"
 
 const { closeModal } = modalStore
 
-interface Props {
+type Props = {
    id: string
-   data: IAnswerEdgeData
 }
 
-export const AnswerModal = ({ id, data }: Props) => {
+export const AnswerModal = ({ id }: Props) => {
    const { getValues, register } = useForm()
-
-   const { updateEdgeData, deleteElements } = useReactFlow<SceneNode, IAnswerEdge>()
 
    const textInput = register("text", {
       required: true,
       minLength: 1,
    })
 
-   const modalContent = `sceneAnswer-${id}`
+   const { updateEdgeData, deleteElements } = useReactFlow<SceneNode, IAnswerEdge>()
 
-   const handleRemoveClick = () => {
-      deleteElements({ edges: [{ id }] })
-   }
+   const modalContent = `sceneAnswer-${id}`
 
    const handleSaveChanges = () => {
       const text = getValues("text")
@@ -58,7 +54,7 @@ export const AnswerModal = ({ id, data }: Props) => {
                      <Button
                         variant="filled"
                         leftIcon={<TrashIcon />}
-                        onClick={handleRemoveClick}
+                        onClick={() => deleteElements({ edges: [{ id }] })}
                         className={styles.removeBtn}
                      />
                      <Button
@@ -70,16 +66,8 @@ export const AnswerModal = ({ id, data }: Props) => {
                   </div>
                </header>
 
-               <form className={styles.form}>
-                  <TextInput
-                     {...textInput}
-                     className={styles.titleInput}
-                     counter
-                     maxLength={35}
-                     placeholder="Title"
-                     value={data.text}
-                  />
-               </form>
+               <AnswerForm textInput={textInput} />
+
             </div>
          </div>
       </Modal>

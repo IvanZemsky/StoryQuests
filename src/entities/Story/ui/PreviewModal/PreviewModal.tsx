@@ -6,7 +6,7 @@ import { observer } from "mobx-react"
 import { storyCreationStore } from "../../model/storyCreatingStore"
 import { ReactNode } from "react"
 import { modalStore } from "@/shared/model"
-import { Modals } from "@/shared/model/modals"
+import { Modals } from "@/shared/model/modals/modals"
 
 type Props = {
    scene: ReactNode

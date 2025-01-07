@@ -1,5 +1,5 @@
 import { Button } from "@/shared/ui"
-import styles from './MainSection.module.scss'
+import styles from "./styles.module.scss"
 import { modalStore } from "@/shared/model"
 
 type Props = {}

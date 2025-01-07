@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ComponentProps, ReactNode } from "react"
 import styles from "../styles/button.module.scss"
 import cn from "classnames"
 
@@ -9,7 +9,7 @@ type Props = {
    uppercase?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
-} & ButtonHTMLAttributes<HTMLButtonElement>
+} & ComponentProps<"button">
 
 export const Button = ({
    variant = "outlined",

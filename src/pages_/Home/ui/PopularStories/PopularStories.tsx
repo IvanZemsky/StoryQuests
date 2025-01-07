@@ -1,6 +1,6 @@
 import { ButtonLink } from "@/shared/ui"
 import LongArrowRightIcon from "@/shared/assets/icons/arrow-right-long.svg"
-import styles from "./PopularStories.module.scss"
+import styles from './styles.module.scss'
 import { StoryCard, storyService } from "@/entities/Story"
 import { PageRoutes } from "@/shared/constants"
 

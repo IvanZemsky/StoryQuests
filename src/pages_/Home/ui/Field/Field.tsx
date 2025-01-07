@@ -1,6 +1,6 @@
 import { BaseStoryField } from "@/entities/Story"
 import { Background } from "@xyflow/react"
-import styles from "./Field.module.scss"
+import styles from './styles.module.scss'
 import { edgeTypes, nodeTypes } from "@/features/story"
 import { ButtonLink } from "@/shared/ui"
 import { PageRoutes } from "@/shared/constants"

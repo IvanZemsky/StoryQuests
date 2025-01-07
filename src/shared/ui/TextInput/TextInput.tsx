@@ -1,16 +1,16 @@
 "use client"
 
-import { forwardRef, InputHTMLAttributes, Ref } from "react"
+import { ComponentProps, forwardRef, Ref } from "react"
 import styles from "./TextInput.module.scss"
 import { useInput } from "../../lib"
 import cn from "classnames"
 
-interface Props extends InputHTMLAttributes<HTMLInputElement> {
+type Props = {
    variant?: "outlined" | "filled"
    counter?: boolean
    value?: string
    onChange?: (...args: any) => any
-}
+} & ComponentProps<"input">
 
 export const TextInput = forwardRef(
    (

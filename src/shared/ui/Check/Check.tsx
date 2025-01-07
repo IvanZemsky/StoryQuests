@@ -1,13 +1,13 @@
 "use client"
 
-import { forwardRef, InputHTMLAttributes, Ref, useState } from "react"
+import { ComponentProps, forwardRef, Ref, useState } from "react"
 import styles from "./Check.module.scss"
 import { Button } from ".."
 
 export type CheckProps =  {
    text: string
    fillContainer?: boolean
-} & InputHTMLAttributes<HTMLInputElement>
+} & ComponentProps<"input">
 
 export const Check = forwardRef(
    (
@@ -22,6 +22,10 @@ export const Check = forwardRef(
    ) => {
       const [isChecked, setIsChecked] = useState(checked)
 
+      const handleInput = () => {
+         setIsChecked(checked)
+      }
+
       return (
          <div
             className={[
@@ -33,7 +37,7 @@ export const Check = forwardRef(
             <input
                type="radio"
                defaultChecked={isChecked}
-               onInput={() => setIsChecked(checked)}
+               onInput={handleInput}
                {...attributes}
                ref={ref}
             />

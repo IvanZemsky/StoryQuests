@@ -3,7 +3,7 @@ import styles from "./PageBtns.module.scss"
 import { Button } from "../Button/Button"
 import cn from "classnames"
 
-interface PageBtnsProps {
+type PageBtnsProps = {
    currentPage: number
    pageAmount: number
    handleClick: (page: number) => MouseEventHandler<HTMLButtonElement>
@@ -18,7 +18,9 @@ export const PageBtns = ({ currentPage, pageAmount, handleClick }: PageBtnsProps
             <Button
                key={page}
                onClick={handleClick(page)}
-               className={cn(styles.button, { [styles.active]: currentPage === page - 1 })}
+               className={cn(styles.button, {
+                  [styles.active]: currentPage === page - 1,
+               })}
             >
                {page}
             </Button>

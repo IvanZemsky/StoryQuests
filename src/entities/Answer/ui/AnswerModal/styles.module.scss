@@ -35,32 +35,12 @@
          }
       }
    }
-
-   .titleInput,
-   .descInput {
-      font-size: 16px;
-   }
-
-   .titleInput {
-      height: 42px;
-   }
-
-   .descInput{
-      height: 230px;
-   }
-
-   .illustration {
-      flex-grow: 1;
-   }
-}
-
-.content, .form{
-   display: flex;
-   flex-direction: column;
-   gap: 15px;
 }
 
 .content {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
    height: 100%;
    padding: 25px;
    border-radius: 24px;

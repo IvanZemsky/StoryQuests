@@ -1,16 +1,16 @@
 "use client"
 
-import { HTMLAttributes, MouseEvent } from "react"
+import { ComponentProps, MouseEvent } from "react"
 import styles from "./Modal.module.scss"
 import { ClientPortal } from "../ClientPortal/ClientPortal"
 import { modalStore, usePreventScroll } from "../../model"
 import { observer } from "mobx-react"
 import cn from "classnames"
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+type Props = {
    modalContent: string
    onClose?: (...args: any) => any
-}
+} & ComponentProps<"div">
 
 export const Modal = observer(
    ({ modalContent, children, className, onClose, ...attributes }: Props) => {

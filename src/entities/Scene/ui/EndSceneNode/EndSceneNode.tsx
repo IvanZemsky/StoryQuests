@@ -1,7 +1,7 @@
 "use client"
 
 import { Handle, Position } from "@xyflow/react"
-import styles from "./EndSceneNode.module.scss"
+import styles from "./styles.module.scss"
 import { setModal } from "@/shared/lib/helpers/setModal"
 import { SceneModal } from "../SceneModal/SceneModal"
 import { SceneNodeProps, } from "../../model/types"

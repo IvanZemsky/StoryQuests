@@ -1,5 +1,5 @@
 import { Wrapper } from "@/shared/ui";
-import styles from './Stories.module.scss'
+import styles from './styles.module.scss'
 import { Metadata } from "next";
 import { StoriesFilters } from "./StoriesFilters";
 import { StoryList } from "./StoryList";

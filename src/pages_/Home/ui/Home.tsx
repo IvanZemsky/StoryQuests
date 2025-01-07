@@ -1,4 +1,4 @@
-import styles from './Home.module.scss'
+import styles from './styles.module.scss'
 import { Wrapper } from "@/shared/ui";
 import { Intro } from "./Intro/Intro";
 import { PopularStories } from "./PopularStories/PopularStories";

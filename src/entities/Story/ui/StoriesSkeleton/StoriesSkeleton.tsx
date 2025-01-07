@@ -1,6 +1,6 @@
 import styles from './styles.module.scss'
 
-interface Props {
+type Props = {
   limit: number
 }
 

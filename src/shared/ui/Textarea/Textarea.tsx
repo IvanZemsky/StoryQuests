@@ -1,14 +1,14 @@
 "use client"
 
-import { forwardRef, Ref, TextareaHTMLAttributes } from "react"
+import { ComponentProps, forwardRef, Ref } from "react"
 import styles from "./Textarea.module.scss"
 import { useInput } from "../../lib"
 
-interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+type Props = {
    counter?: boolean
    value?: string
    onChange?: (...args: any) => any
-}
+} & ComponentProps<"textarea">
 
 export const Textarea = forwardRef(
    (
