@@ -7,7 +7,7 @@ export type Scene = {
    id: string
    title: string
    description: string
-   img: string 
+   img: string
    type: SceneType
    answers: IAnswer[]
 }

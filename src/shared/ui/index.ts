@@ -1,3 +1,5 @@
+export { BaseEditModal } from "./EditModal/BaseEditModal"
+export { EditModalHeader } from "./EditModal/EditModalHeader"
 export { Loading } from "./Loading/Loading"
 export {PageBtns} from "./PageBtns/PageBtns"
 export { Modal } from "./Modal/Modal"

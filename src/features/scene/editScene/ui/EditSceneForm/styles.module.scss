@@ -1,0 +1,27 @@
+.form {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   flex-grow: 1;
+}
+
+.titleInput,
+.descInput {
+   font-size: 16px;
+}
+
+.titleInput {
+   height: 42px;
+}
+
+.descInput {
+   height: 230px;
+}
+
+.illustration {
+   flex-grow: 1;
+
+   img {
+      max-height: 165px;
+   }
+}

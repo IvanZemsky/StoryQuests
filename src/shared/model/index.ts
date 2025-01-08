@@ -1,4 +1,4 @@
 export { Modals } from "./modals/modals"
 export { usePreventScroll } from "../lib/hooks/usePreventScroll"
 export { modalStore } from "./modals/modalStore"
-export type {SetStateFn} from './types'
+export type { SetStateFn, NarrowedRegisterOptions } from "./types"
