@@ -1,7 +1,6 @@
-import { ReactNode, Suspense } from "react"
+import { ReactNode } from "react"
 import styles from './styles.module.scss'
 import { StoryHeader, storyService } from "@/entities/Story"
-import { Loading } from "@/shared/ui"
 
 type Props = {
    children: ReactNode,
@@ -17,7 +16,7 @@ export const StoryLayout = async ({ children, params }: Props) => {
       <div className={styles.app}>
          <StoryHeader storyName={story?.name}/>
          <main>
-            <Suspense fallback={<Loading />}>{children}</Suspense>
+            {children}
          </main>
       </div>
    )

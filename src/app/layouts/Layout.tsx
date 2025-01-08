@@ -1,10 +1,6 @@
 "use client"
 
 import { PropsWithChildren, } from "react"
-import "@/shared/ui/styles/vars.scss"
-import "@/shared/ui/styles/mixins.scss"
-import "@/app/styles/reset.scss"
-import "@/app/styles/fonts.scss"
 import { usePathname } from "next/navigation"
 import { PageRoutes } from "@/shared/constants"
 import { MainLayout } from "./MainLayout/MainLayout"
