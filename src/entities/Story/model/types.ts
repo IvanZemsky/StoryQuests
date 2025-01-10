@@ -14,8 +14,8 @@ export interface IStory {
    date: string
 }
 
-export type SortByScenesAmount = "short" | "medium" | "long"
-export type OrderBy = "best" | "popular" | "new"
+export type SortByScenesAmount = "" | "short" | "medium" | "long"
+export type OrderBy = "" |"best" | "popular" | "new"
 
 export type StorySearchParams  = {
    limit: number
