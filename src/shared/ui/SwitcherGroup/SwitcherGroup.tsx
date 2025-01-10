@@ -1,10 +1,11 @@
 import { ComponentProps, forwardRef, Ref } from "react"
 import styles from "./SwitcherGroup.module.scss"
-import { Check, CheckProps } from "../Check/Check"
+import { Check } from "../Check/Check"
+import { CheckData } from "@/shared/model"
 
 type Props = {
    variant?: "row" | "column"
-   group?: CheckProps[]
+   group?: CheckData[]
 } & ComponentProps<"input">
 
 export const SwitcherGroup = forwardRef(
