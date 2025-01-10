@@ -6,10 +6,11 @@ import { StorySearchParams } from "../model/types"
 const { Stories } = APIEndpoints
 
 export const storyService = {
-   async fetchStories(params: Partial<StorySearchParams>) {
+   async fetchStories(params: StorySearchParams) {
+      const page = params.page <= 0 ? 0 : params.page - 1
       try {
          const response = await api.get<IApiStory[]>(Stories, {
-            params: { ...params },
+            params: { ...params, page },
          })
 
          const totalCount = +response.headers["x-total-count"]

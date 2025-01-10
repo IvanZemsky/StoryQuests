@@ -4,24 +4,28 @@ import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
-import { filterData, orderData } from "../../model/formData"
+import { baseParams, filterData, orderData } from "../../model/formData"
 import { useForm } from "react-hook-form"
-import { storyFiltersStore } from "@/entities/Story"
-
-const { setFilters } = storyFiltersStore
+import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
 
 export const StoriesFilters = () => {
-   const { register, handleSubmit, reset, getValues } = useForm()
+   const { filters, setParams } = useStoriesFilterParams()
+   const { register, handleSubmit, getValues } = useForm()
 
    const onSubmit = () => {
       const search = getValues("search")
       const order = getValues("order")
       const length = getValues("length")
 
-      setFilters({ order, length, search })
+      setParams({ search, order, length, page: 1 })
    }
 
-   const handleReset = () => reset()
+   const handleResetClick = () => {
+      setParams(baseParams)
+   }
+
+   const selectLengthSortTitle =
+      filterData.find((item) => item.value === filters?.length)?.text || "Length"
 
    return (
       <header>
@@ -29,21 +33,21 @@ export const StoriesFilters = () => {
             <SwitcherGroup
                className={styles.sort}
                group={orderData}
-               {...register("order")}
+               {...register("order", { value: filters?.order })}
             />
 
             <Select
                className={styles.selectLength}
-               title="Length"
+               title={selectLengthSortTitle}
                group={filterData}
-               {...register("length")}
+               {...register("length", { value: filters?.length })}
             />
 
             <div className={styles.searchWrap}>
                <TextInput
                   className={styles.search}
                   placeholder="Search"
-                  {...register("search")}
+                  {...register("search", { value: filters?.search })}
                />
 
                <Button
@@ -52,7 +56,7 @@ export const StoriesFilters = () => {
                   type="submit"
                   className={styles.searchBtn}
                />
-               <Button variant="filled" rightIcon={<CrossIcon />} onClick={handleReset} />
+               <Button variant="filled" rightIcon={<CrossIcon />} onClick={handleResetClick} />
             </div>
          </form>
       </header>

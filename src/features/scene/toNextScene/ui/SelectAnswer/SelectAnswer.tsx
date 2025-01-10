@@ -4,6 +4,7 @@ import styles from "./SelectAnswer.module.scss"
 import { Answer, IAnswer } from "@/entities/Answer"
 import { useRef } from "react"
 import { SetStateFn } from "@/shared/model"
+import { scrollToTop } from "@/shared/lib"
 
 type Props = {
    answers: IAnswer[]
@@ -14,7 +15,10 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
    const nextSceneId = useRef<null | string>(null)
 
    const handleSetSceneCLick = () => {
-      if (nextSceneId.current) setScene(nextSceneId.current)
+      if (nextSceneId.current) {
+         setScene(nextSceneId.current)
+         scrollToTop()
+      }
    }
 
    return (

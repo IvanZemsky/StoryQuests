@@ -3,22 +3,20 @@
 import styles from "./styles.module.scss"
 import { StoriesSkeleton, StoryCard, useStories } from "@/entities/Story"
 import { PageBtns } from "@/shared/ui"
-import { observer } from "mobx-react"
-import { scrollToTop } from "@/shared/lib"
 import { STORIES_SEARCH_LIMIT } from "@/entities/Story/model/constants"
+import { useStoriesFilterParams } from "../../lib/hooks/useStoriesFilterParams"
 
-export const StoryList = observer(() => {
-   const {
-      page,
-      setPage,
-      data: { data, isError, isPending },
-   } = useStories()
+export const StoryList = () => {
+   const { filters, setParams, parseError } = useStoriesFilterParams()
+   const { data, isError, isPending } = useStories(filters)
 
    const handlePageClick = (page: number) => () => {
-      scrollToTop()
-      setPage(page - 1)
+      setParams({ ...filters, page: page.toString() })
    }
 
+   if (parseError) {
+      return <p>Error: invalid search params</p>
+   }
    if (isError) return <p>Error</p>
    if (isPending) return <StoriesSkeleton limit={STORIES_SEARCH_LIMIT} />
    if (!data || !data.stories.length) return <p>No stories found</p>
@@ -35,10 +33,10 @@ export const StoryList = observer(() => {
          </div>
 
          <PageBtns
-            currentPage={page}
+            currentPage={Number(filters?.page)}
             pageAmount={pageAmount}
             handleClick={handlePageClick}
          />
       </div>
    )
-})
+}

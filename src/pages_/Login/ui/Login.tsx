@@ -1,4 +1,4 @@
-import styles from "./Login.module.scss"
+import styles from "./styles.module.scss"
 import { LoginForm } from "./LoginForm/LoginForm"
 
 export const Login = () => {

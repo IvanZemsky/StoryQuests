@@ -1,3 +1,4 @@
+export { createQueryParamsString } from "./utils/createQueryParamsString"
 export { useActiveLink } from "./hooks/useActiveLink"
 export { scrollToTop } from "./utils/scrollToTop"
 export { useDebounce } from "./hooks/useDebounce"

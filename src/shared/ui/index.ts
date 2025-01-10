@@ -18,4 +18,3 @@ export { TextInput } from "./TextInput/TextInput"
 export { Wrapper } from "./Wrapper/Wrapper"
 export { Button } from "./Button/Button"
 export { ButtonLink } from "./ButtonLink/ButtonLink"
-export type {CheckProps} from './Check/Check'

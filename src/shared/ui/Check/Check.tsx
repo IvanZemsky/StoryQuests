@@ -1,13 +1,13 @@
 "use client"
 
-import { ComponentProps, forwardRef, Ref, useState } from "react"
+import { ChangeEvent, ComponentProps, forwardRef, Ref, useState } from "react"
 import styles from "./Check.module.scss"
 import { Button } from ".."
 
-export type CheckProps =  {
+type Props = ComponentProps<"input"> & {
    text: string
    fillContainer?: boolean
-} & ComponentProps<"input">
+}
 
 export const Check = forwardRef(
    (
@@ -16,13 +16,15 @@ export const Check = forwardRef(
          checked = false,
          text,
          className,
+         onInput,
          ...attributes
-      }: CheckProps,
+      }: Props,
       ref: Ref<HTMLInputElement>,
    ) => {
       const [isChecked, setIsChecked] = useState(checked)
 
-      const handleInput = () => {
+      const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+         onInput && onInput(event)
          setIsChecked(checked)
       }
 

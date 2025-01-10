@@ -7,3 +7,14 @@ export type NarrowedRegisterOptions<TFieldName extends string> = RegisterOptions
    FieldValues,
    TFieldName
 > & { maxLength: number }
+
+export type CheckData = {
+   text: string
+   name: string
+   value: string
+   id: string
+}
+
+export type PageSearchParams = {
+   [key: string]: string | null
+}

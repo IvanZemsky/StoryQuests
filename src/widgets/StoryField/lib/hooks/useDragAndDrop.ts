@@ -1,5 +1,5 @@
 import { SceneNode } from "@/entities/Scene";
-import { useReactFlow, Node } from "@xyflow/react"
+import { useReactFlow } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"
 
