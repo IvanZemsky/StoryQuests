@@ -1,9 +1,8 @@
 'use client'
 
 import { Button, Modal } from "@/shared/ui"
+import { modalStore, Modals } from "@/shared/model"
 import styles from "./styles.module.scss"
-import { modalStore } from "@/shared/model"
-import { Modals } from "@/shared/model/modals/modals"
 
 export const NotValidStoryModal = () => {
    const {closeModal} = modalStore

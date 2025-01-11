@@ -9,48 +9,43 @@ type Props = ComponentProps<"input"> & {
    fillContainer?: boolean
 }
 
-export const Check = forwardRef(
-   (
-      {
-         fillContainer = false,
-         checked = false,
-         text,
-         className,
-         onInput,
-         ...attributes
-      }: Props,
-      ref: Ref<HTMLInputElement>,
-   ) => {
-      const [isChecked, setIsChecked] = useState(checked)
+export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+   const {
+      fillContainer = false,
+      checked = false,
+      text,
+      className,
+      onInput,
+      ...attributes
+   } = props
 
-      const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-         onInput && onInput(event)
-         setIsChecked(checked)
-      }
+   const [isChecked, setIsChecked] = useState(checked)
 
-      return (
-         <div
-            className={[
-               styles.wrap,
-               fillContainer && styles.fillContainer,
-               className,
-            ].join(" ")}
-         >
-            <input
-               type="radio"
-               defaultChecked={isChecked}
-               onInput={handleInput}
-               {...attributes}
-               ref={ref}
-            />
-            <label htmlFor={attributes.id}>
-               <Button variant="filled" type="button">
-                  {text}
-               </Button>
-            </label>
-         </div>
-      )
-   },
-)
+   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
+      onInput && onInput(event)
+      setIsChecked(checked)
+   }
+
+   return (
+      <div
+         className={[styles.wrap, fillContainer && styles.fillContainer, className].join(
+            " ",
+         )}
+      >
+         <input
+            type="radio"
+            defaultChecked={isChecked}
+            onInput={handleInput}
+            {...attributes}
+            ref={ref}
+         />
+         <label htmlFor={attributes.id}>
+            <Button variant="filled" type="button">
+               {text}
+            </Button>
+         </label>
+      </div>
+   )
+})
 
 Check.displayName = "Check"

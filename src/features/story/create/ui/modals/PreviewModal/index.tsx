@@ -3,7 +3,7 @@
 import { Button, Modal } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import { observer } from "mobx-react"
-import { storyCreationStore } from "../../model/storyCreationStore"
+import { storyCreationStore } from "@/features/story"
 import { ReactNode } from "react"
 import { modalStore } from "@/shared/model"
 import { Modals } from "@/shared/model/modals/modals"

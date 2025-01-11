@@ -1,1 +1,1 @@
-export { CreateStory, metadata } from "./ui/CreateStory";
+export { CreateStory, metadata } from "./ui";

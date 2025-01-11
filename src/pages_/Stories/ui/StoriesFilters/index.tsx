@@ -7,21 +7,29 @@ import SearchIcon from "@/shared/assets/icons/search.svg"
 import { baseParams, filterData, orderData } from "../../model/formData"
 import { useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
+import { OrderBy, SortByScenesAmount } from "@/entities/Story"
 
 export const StoriesFilters = () => {
    const { filters, setParams } = useStoriesFilterParams()
-   const { register, handleSubmit, getValues } = useForm()
+   const { register, handleSubmit, getValues, reset } = useForm({
+      defaultValues: {
+         search: filters?.search || "",
+         order: filters?.order || "",
+         length: filters?.length || "",
+      },
+   })
 
    const onSubmit = () => {
       const search = getValues("search")
-      const order = getValues("order")
-      const length = getValues("length")
+      const order = getValues("order") as OrderBy
+      const length = getValues("length") as SortByScenesAmount
 
       setParams({ search, order, length, page: 1 })
    }
 
    const handleResetClick = () => {
       setParams(baseParams)
+      reset()
    }
 
    const selectLengthSortTitle =
@@ -33,21 +41,21 @@ export const StoriesFilters = () => {
             <SwitcherGroup
                className={styles.sort}
                group={orderData}
-               {...register("order", { value: filters?.order })}
+               {...register("order")}
             />
 
             <Select
                className={styles.selectLength}
                title={selectLengthSortTitle}
                group={filterData}
-               {...register("length", { value: filters?.length })}
+               {...register("length")}
             />
 
             <div className={styles.searchWrap}>
                <TextInput
                   className={styles.search}
                   placeholder="Search"
-                  {...register("search", { value: filters?.search })}
+                  {...register("search")}
                />
 
                <Button
@@ -56,7 +64,11 @@ export const StoriesFilters = () => {
                   type="submit"
                   className={styles.searchBtn}
                />
-               <Button variant="filled" rightIcon={<CrossIcon />} onClick={handleResetClick} />
+               <Button
+                  variant="filled"
+                  rightIcon={<CrossIcon />}
+                  onClick={handleResetClick}
+               />
             </div>
          </form>
       </header>

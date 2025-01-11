@@ -1,1 +1,1 @@
-export { StoryScene } from "./ui/StoryScene/StoryScene";
+export { StoryScene } from "./ui/StoryScene";

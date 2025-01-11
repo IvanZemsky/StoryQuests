@@ -1,14 +1,10 @@
 "use client"
 
-import { StoryScene } from "@/widgets/StoryScene"
 import { observer } from "mobx-react"
-import {
-   NotValidStoryModal,
-   PreviewModal,
-   storyCreationStore,
-} from "@/entities/Story"
 import { useEffect } from "react"
 import { modalStore, Modals } from "@/shared/model"
+import { storyCreationStore, NotValidStoryModal, PreviewModal } from "@/features/story"
+import { StoryScene } from "@/widgets/StoryScene"
 
 export const StoryPreview = observer(() => {
    const { isValid, validate, scenes } = storyCreationStore

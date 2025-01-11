@@ -13,53 +13,50 @@ type Props = ComponentProps<"div"> & {
    title: string
 }
 
-export const Select = forwardRef(
-   (
-      { title, group, className, children, ...attributes }: Props,
-      ref: Ref<HTMLInputElement>,
-   ) => {
-      const [current, setCurrent] = useState(title)
-      const [isOpen, setIsOpen] = useState(false)
+export const Select = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+   const { title, group, className, children, ...attributes } = props
 
-      const handleOpenClick = () => {
-         setIsOpen(!isOpen)
-      }
+   const [current, setCurrent] = useState(title)
+   const [isOpen, setIsOpen] = useState(false)
 
-      const handleCheck = (text: string) => () => {
-         setCurrent(text)
-         setIsOpen(false)
-      }
+   const handleOpenClick = () => {
+      setIsOpen(!isOpen)
+   }
 
-      return (
-         <div
-            className={[styles.wrap, className, isOpen && styles.opened].join(" ")}
-            {...attributes}
+   const handleCheck = (text: string) => () => {
+      setCurrent(text)
+      setIsOpen(false)
+   }
+
+   return (
+      <div
+         className={[styles.wrap, className, isOpen && styles.opened].join(" ")}
+         {...attributes}
+      >
+         <Button
+            onClick={handleOpenClick}
+            defaultHover={false}
+            variant="filled"
+            rightIcon={<OpenArrowBottomIcon />}
          >
-            <Button
-               onClick={handleOpenClick}
-               defaultHover={false}
-               variant="filled"
-               rightIcon={<OpenArrowBottomIcon />}
-            >
-               {current}
-            </Button>
-            <Fade inProp={isOpen} timeout={300}>
-               <div className={styles.options}>
-                  {group?.map((check) => (
-                     <Check
-                        key={check.id}
-                        onInput={handleCheck(check.text)}
-                        {...check}
-                        {...attributes}
-                        ref={ref}
-                     />
-                  ))}
-                  {children}
-               </div>
-            </Fade>
-         </div>
-      )
-   },
-)
+            {current}
+         </Button>
+         <Fade inProp={isOpen} timeout={300}>
+            <div className={styles.options}>
+               {group?.map((check) => (
+                  <Check
+                     key={check.id}
+                     onInput={handleCheck(check.text)}
+                     {...check}
+                     {...attributes}
+                     ref={ref}
+                  />
+               ))}
+               {children}
+            </div>
+         </Fade>
+      </div>
+   )
+})
 
 Select.displayName = "Select"

@@ -3,25 +3,24 @@
 import {
    Controls,
    Background,
-   addEdge,
-   Connection,
-   Edge,
-   useEdgesState,
-   useNodesState,
+   NodeChange,
+   EdgeChange,
 } from "@xyflow/react"
-import styles from "./StoryField.module.scss"
-import { useCallback, useEffect, useState } from "react"
-
+import styles from "./styles.module.scss"
 import "@xyflow/react/dist/style.css"
+
 import { nodeTypes } from "../model/customNodes"
-import { FullScreenBtn } from "@/shared/ui/FullScreenBtn/FullScreenBtn"
 import { edgeTypes } from "../model/customEdges"
-import { ScenePanel } from "@/entities/Scene/ui/ScenePanel/ScenePanel"
+import { createCustomEdge } from "../lib/helpers/createCustomEdge"
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
-import { BaseStoryField, storyCreationStore } from "@/entities/Story"
-import { SceneNode } from "@/entities/Scene/model/types"
+
+import { ScenePanel, SceneNode } from "@/entities/Scene"
+import { BaseStoryField, STORY_FIRST_SCENE } from "@/entities/Story"
 import { IAnswerEdge } from "@/entities/Answer"
-import { STORY_FIRST_SCENE } from "@/entities/Story/model/constants"
+
+import { storyCreationStore } from "@/features/story"
+import { useReactFlowField } from "@/shared/lib"
+import { FullScreenBtn } from "@/shared/ui"
 
 const initialNodes: SceneNode[] = [
    {
@@ -35,34 +34,27 @@ const initialNodes: SceneNode[] = [
 const { saveNodes, saveEdges } = storyCreationStore
 
 export const StoryField = () => {
-   const [fullScreenMode, setFullScreenMode] = useState(false)
-
-   const [nodes, setNodes, onNodesChange] = useNodesState<SceneNode>(initialNodes)
-   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([])
+   const {
+      nodes,
+      onEdgesChange,
+      onNodesChange,
+      edges,
+      setNodes,
+      onConnect,
+      fullScreenMode,
+      handleFullScreenClick,
+   } = useReactFlowField<SceneNode, IAnswerEdge>(createCustomEdge, initialNodes)
 
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)
 
-   const onConnect = useCallback(
-      (params: Edge | Connection) =>
-         setEdges((eds) =>
-            addEdge(
-               { ...params, data: { text: "" }, animated: true, type: "storyEdge" },
-               eds,
-            ),
-         ),
-      [setEdges],
-   )
-
-   useEffect(() => {
+   const handleNodesChange = (nodesChange: NodeChange<SceneNode>[]) => {
+      onNodesChange(nodesChange)
       saveNodes(nodes)
-   }, [nodes])
+   }
 
-   useEffect(() => {
-      saveEdges(edges as IAnswerEdge[])
-   }, [edges])
-
-   const handleFullScreenClick = () => {
-      setFullScreenMode(!fullScreenMode)
+   const handleEdgesChange = (edgesChange: EdgeChange<any>[]) => { // error with AnswerEdge
+      onEdgesChange(edgesChange)
+      saveEdges(edges)
    }
 
    return (
@@ -70,8 +62,8 @@ export const StoryField = () => {
          className={[styles.content, fullScreenMode && styles.fullScreenMode].join(" ")}
          title="Tree"
          scenePanel={<ScenePanel />}
-         onNodesChange={onNodesChange}
-         onEdgesChange={onEdgesChange}
+         onNodesChange={handleNodesChange}
+         onEdgesChange={handleEdgesChange}
          onConnect={onConnect}
          nodes={nodes}
          nodeTypes={nodeTypes}

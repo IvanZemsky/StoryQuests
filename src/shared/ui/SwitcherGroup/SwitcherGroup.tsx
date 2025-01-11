@@ -8,20 +8,17 @@ type Props = {
    group?: CheckData[]
 } & ComponentProps<"input">
 
-export const SwitcherGroup = forwardRef(
-   (
-      { variant = "row", group, className, onClick, children, ...attributes }: Props,
-      ref: Ref<HTMLInputElement>,
-   ) => {
-      return (
-         <div className={[styles.content, className, styles[variant]].join(" ")}>
-            {group?.map((check) => (
-               <Check key={check.id} {...check} {...attributes}  ref={ref} />
-            ))}
-            {children}
-         </div>
-      )
-   },
-)
+export const SwitcherGroup = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+   const { variant = "row", group, className, onClick, children, ...attributes } = props
+
+   return (
+      <div className={[styles.content, className, styles[variant]].join(" ")}>
+         {group?.map((check) => (
+            <Check key={check.id} {...check} {...attributes} ref={ref} />
+         ))}
+         {children}
+      </div>
+   )
+})
 
 SwitcherGroup.displayName = "SwitcherGroup"

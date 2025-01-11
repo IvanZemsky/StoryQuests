@@ -1,6 +1,6 @@
 import { makeAutoObservable, toJS } from "mobx";
-import { SceneNodeData, SceneNode, Scene } from '../../Scene';
-import { IAnswerEdge } from '../../Answer';
+import { SceneNodeData, SceneNode, Scene } from '@/entities/Scene';
+import { IAnswerEdge } from '@/entities/Answer';
 
 class StoryCreationStore {
    scenes: Scene[] = []

@@ -5,7 +5,7 @@ import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
 import styles from "./styles.module.scss"
 import { setModal } from "@/shared/lib";
 import { AnswerEdgeProps } from "@/entities/Answer";
-import { EditAnswerModal } from "@/features/answer/editAnswer/ui/EditAnswerModal";
+import { EditAnswerModal } from "@/features/answer";
 
 export const AnswerEdge = ({ id, data, sourceX, sourceY, targetX, targetY }: AnswerEdgeProps) => {
    const text = data.text || 'Answer'

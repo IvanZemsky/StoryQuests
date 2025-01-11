@@ -12,39 +12,36 @@ type Props = {
    onChange?: (...args: any) => any
 } & ComponentProps<"input">
 
-export const TextInput = forwardRef(
-   (
-      {
-         variant = "filled",
-         counter,
-         className,
-         maxLength,
-         onChange,
-         value,
-         ...attributes
-      }: Props,
-      ref: Ref<HTMLInputElement>,
-   ) => {
-      const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+   const {
+      variant = "filled",
+      counter,
+      className,
+      maxLength,
+      onChange,
+      value,
+      ...attributes
+   } = props
 
-      return (
-         <div
-            className={cn(styles.wrap, styles[variant], className, {
-               [styles.withCounter]: counter,
-            })}
-         >
-            <input
-               className={styles.input}
-               type="text"
-               value={inputValue}
-               onChange={handleChange}
-               ref={ref}
-               {...attributes}
-            />
-            {counter && <div className={styles.counter}>{symbolsLeft}</div>}
-         </div>
-      )
-   },
-)
+   const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+
+   return (
+      <div
+         className={cn(styles.wrap, styles[variant], className, {
+            [styles.withCounter]: counter,
+         })}
+      >
+         <input
+            className={styles.input}
+            type="text"
+            value={inputValue}
+            onChange={handleChange}
+            ref={ref}
+            {...attributes}
+         />
+         {counter && <div className={styles.counter}>{symbolsLeft}</div>}
+      </div>
+   )
+})
 
 TextInput.displayName = "TextInput"

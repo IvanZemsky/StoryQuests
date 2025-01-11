@@ -1,14 +1,16 @@
+"use client"
+
 import { Button } from "@/shared/ui"
 import styles from "./styles.module.scss"
-import { modalStore } from "@/shared/model"
+import { Modals, modalStore } from "@/shared/model"
 
 type Props = {}
 
 const { openModal } = modalStore
 
-export const MainSection = ({}: Props) => {
+export const CreateStoryFormButtons = ({}: Props) => {
    const handlePreviewClick = () => {
-      openModal("storyPreview")
+      openModal(Modals.StoryPreview)
    }
 
    return (
