@@ -5,7 +5,8 @@ import { ButtonLink } from "@/shared/ui"
 import { PageRoutes } from "@/shared/constants"
 import { initialNodes } from "../../model/initialNodes"
 import { initialEdges } from "../../model/initialEdges"
-import { edgeTypes, nodeTypes } from "@/widgets/StoryField"
+import { nodeTypes } from "../../model/customNodes"
+import { edgeTypes } from "../../model/customEdges"
 
 export const Field = () => {
    return (

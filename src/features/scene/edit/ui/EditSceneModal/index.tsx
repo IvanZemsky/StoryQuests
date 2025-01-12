@@ -3,7 +3,7 @@
 import { EditSceneForm } from "../EditSceneForm"
 import { FormProvider, useForm } from "react-hook-form"
 import { BaseEditModal, EditModalHeader } from "@/shared/ui"
-import { Modals } from "@/shared/constants"
+import { Modals } from "@/shared/model"
 import { useReactFlow } from "@xyflow/react"
 import { SceneNodeData, SceneNode } from "@/entities/Scene"
 

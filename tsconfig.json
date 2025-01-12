@@ -26,7 +26,7 @@
       "**/*.ts",
       "**/*.tsx",
       ".next/types/**/*.ts",
-      "svgr.d.ts",
+      "svgr.d.ts", "src/widgets/StoryField/model/customNodes.ts",
    ],
    "exclude": ["node_modules"]
 }

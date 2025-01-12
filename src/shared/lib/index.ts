@@ -1,3 +1,4 @@
+export { useTypedSearchParams } from "./hooks/useTypedSearchParams"
 export { useReactFlowField } from "./hooks/useReactFlowField"
 export { createQueryParamsString } from "./utils/createQueryParamsString"
 export { useActiveLink } from "./hooks/useActiveLink"

@@ -1,12 +1,12 @@
 import { queryOptions } from "@tanstack/react-query"
-import { StorySearchParams } from "../model/types"
+import { StoryFiltersParams } from "../model/types"
 import { storyService } from "./service"
 import { STORIES_SEARCH_LIMIT } from "../model/constants"
 
 export const storyQueries = {
    baseKey: "stories",
 
-   getStoriesQueryOptions(params: StorySearchParams) {
+   getStoriesQueryOptions(params: StoryFiltersParams) {
       return queryOptions({
          queryKey: [this.baseKey, params],
          queryFn: () =>

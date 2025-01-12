@@ -1,13 +1,26 @@
 {
-  "extends": [
-    "next/core-web-vitals"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "settings": {
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
+   "extends": ["next/core-web-vitals"],
+   "parser": "@typescript-eslint/parser",
+   "plugins": "import",
+   "settings": {
+      "import/resolver": {
+         "typescript": {
+            "alwaysTryTypes": true
+         }
       }
-    }
-  }
+   },
+   "rules": {
+      "import/no-restricted-imports": [
+         "error",
+         {
+            "paths": [
+               {
+                  "name": "next/navigation",
+                  "importNames": ["useSearchParams"],
+                  "message": "Use useTypedSearchParams for search params handling"
+               }
+            ]
+         }
+      ]
+   }
 }

@@ -1,12 +1,12 @@
-.modal{
+.modal {
    z-index: 900;
 
-   & > div{
+   & > div {
       width: 100%;
    }
 }
 
-.content{
+.content {
    display: flex;
    align-items: center;
    flex-direction: column;
@@ -14,7 +14,7 @@
    height: 100vh;
    background-color: var(--primaryMain);
 
-   .closeBtn{
+   .closeBtn {
       width: 100%;
       border-radius: 0;
 
@@ -24,9 +24,17 @@
    }
 }
 
-.sceneWrap{
+.sceneWrap {
    display: flex;
    justify-content: center;
+   align-items: center;
    width: 100%;
-   margin: auto 0;
+   flex-grow: 1;
+   background: url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-1.svg")
+         left center no-repeat,
+      url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/dots.svg")
+         center center no-repeat,
+      url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-2.svg")
+         right center no-repeat;
+   background-size: auto 100%, auto 90%, auto 100%;
 }

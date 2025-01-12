@@ -1,13 +1,13 @@
 import { api, APIEndpoints } from "@/shared/api"
 import { storyAdapter } from "./adapters/storyAdapter"
 import { IApiStory } from "./types"
-import { StorySearchParams } from "../model/types"
+import { StoryFilters } from "../model/types"
 
 const { Stories } = APIEndpoints
 
 export const storyService = {
-   async fetchStories(params: StorySearchParams) {
-      const page = params.page <= 0 ? 0 : params.page - 1
+   async fetchStories(params: StoryFilters) {
+      const page = (params.page ?? 1 <= 0) ? 0 : (params.page ?? 1) - 1;
       try {
          const response = await api.get<IApiStory[]>(Stories, {
             params: { ...params, page },

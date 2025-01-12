@@ -1,10 +1,11 @@
-import { ReadonlyURLSearchParams } from "next/navigation"
+type InitParams = string[][] | Record<string, string> | string | URLSearchParams
 
 export function createQueryParamsString(
    params: { [key: string]: any },
-   initialParams?: ReadonlyURLSearchParams,
+   initialParams?: InitParams,
 ) {
    const urlParams = new URLSearchParams(initialParams?.toString())
+   
    Object.entries(params).forEach(([key, value]) => {
       if (value === null || value === "") {
          urlParams.delete(key)

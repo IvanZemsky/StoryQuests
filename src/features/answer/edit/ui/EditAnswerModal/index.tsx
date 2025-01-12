@@ -6,7 +6,7 @@ import { BaseEditModal, EditModalHeader } from "@/shared/ui"
 import { useReactFlow } from "@xyflow/react"
 import { useForm } from "react-hook-form"
 import { EditAnswerForm } from "../EditAnswerForm"
-import { Modals } from "@/shared/constants"
+import { Modals } from "@/shared/model"
 import { answerOptions } from "../../model/registerOptions"
 
 type Props = {
@@ -31,7 +31,11 @@ export const EditAnswerModal = ({ id }: Props) => {
    }
 
    return (
-      <BaseEditModal modalContent={modalContent} onClose={handleSaveChanges}>
+      <BaseEditModal
+         modalContent={modalContent}
+         onClose={handleSaveChanges}
+         variant="center"
+      >
          <EditModalHeader
             title="Answer"
             hasDeleteBtn={true}

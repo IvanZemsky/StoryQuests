@@ -1,31 +1,18 @@
 "use client"
 
-import { Handle, Position } from "@xyflow/react"
-import styles from "./styles.module.scss"
-import { setModal } from "@/shared/lib/helpers/setModal"
-import { Modals } from "@/shared/model"
-import { SceneNodeProps } from "@/entities/Scene"
+import { BaseEndSceneNode, SceneNodeProps } from "@/entities/Scene"
 import { EditSceneModal } from "@/features/scene"
+import { Modals } from "@/shared/model"
+import { setModal } from "@/shared/lib"
 
-export const EndSceneNode = ({ id, data, }: SceneNodeProps) => {
-   const title = data.title || "Title of ending"
+export const EndSceneNode = (props: SceneNodeProps) => {
+   const { id, data } = props
 
    const handleModalOpen = setModal(Modals.StoryScene, id)
 
    return (
       <div onClick={handleModalOpen}>
-         <Handle type="target" position={Position.Top} className={styles.handle} />
-         <div className={styles.topBorder}></div>
-         <div className={styles.content}>
-            {data.img && (
-               <div className={styles.imgWrap}>
-                  <img src={data.img} alt="illustration" />
-               </div>
-            )}
-            <p className={styles.title}>{title}</p>
-         </div>
-
-         <EditSceneModal id={id} data={data} />
+         <BaseEndSceneNode modal={<EditSceneModal id={id} data={data} />} {...props} />
       </div>
    )
 }

@@ -1,17 +1,12 @@
 import { z } from "zod"
-import { OrderBy, SortByScenesAmount } from "./types"
+
+export const storySortByLengthSchema = z.enum(["", "short", "medium", "long"])
+
+export const storyOrderBySchema = z.enum(["", "best", "popular", "new"])
 
 export const storySearchParamsSchema = z.object({
-   page: z.coerce.number().positive().nullable(),
-   search: z.string().nullable(),
-   order: z
-      .string()
-      .transform((value) => value as OrderBy)
-      .nullable(),
-   length: z
-      .string()
-      .transform((value) => value as SortByScenesAmount)
-      .nullable(),
+   page: z.coerce.number().positive().nullable().default(1),
+   search: z.string().nullable().default(null),
+   order: storyOrderBySchema.nullable().default(null),
+   length: storySortByLengthSchema.nullable().default(null),
 })
-
-export type StoryFiltersParams = z.infer<typeof storySearchParamsSchema>

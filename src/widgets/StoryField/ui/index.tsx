@@ -1,11 +1,6 @@
 "use client"
 
-import {
-   Controls,
-   Background,
-   NodeChange,
-   EdgeChange,
-} from "@xyflow/react"
+import { Controls, Background } from "@xyflow/react"
 import styles from "./styles.module.scss"
 import "@xyflow/react/dist/style.css"
 
@@ -21,6 +16,7 @@ import { IAnswerEdge } from "@/entities/Answer"
 import { storyCreationStore } from "@/features/story"
 import { useReactFlowField } from "@/shared/lib"
 import { FullScreenBtn } from "@/shared/ui"
+import { useEffect } from "react"
 
 const initialNodes: SceneNode[] = [
    {
@@ -43,27 +39,25 @@ export const StoryField = () => {
       onConnect,
       fullScreenMode,
       handleFullScreenClick,
-   } = useReactFlowField<SceneNode, IAnswerEdge>(createCustomEdge, initialNodes)
+   } = useReactFlowField<SceneNode, any>(createCustomEdge, initialNodes) // TODO: working types for AnswerEdge
 
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)
 
-   const handleNodesChange = (nodesChange: NodeChange<SceneNode>[]) => {
-      onNodesChange(nodesChange)
+   useEffect(() => {
       saveNodes(nodes)
-   }
+   }, [nodes])
 
-   const handleEdgesChange = (edgesChange: EdgeChange<any>[]) => { // error with AnswerEdge
-      onEdgesChange(edgesChange)
+   useEffect(() => {
       saveEdges(edges)
-   }
+   }, [edges])
 
    return (
       <BaseStoryField
          className={[styles.content, fullScreenMode && styles.fullScreenMode].join(" ")}
          title="Tree"
          scenePanel={<ScenePanel />}
-         onNodesChange={handleNodesChange}
-         onEdgesChange={handleEdgesChange}
+         onNodesChange={onNodesChange}
+         onEdgesChange={onEdgesChange}
          onConnect={onConnect}
          nodes={nodes}
          nodeTypes={nodeTypes}

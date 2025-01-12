@@ -8,5 +8,9 @@ export { useStories } from "./lib/hooks/useStories"
 export { BaseStoryField } from "./ui/BaseField/BaseStoryField"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
 export type { IStory } from "./model/types"
-export type { StoryFiltersParams } from "./model/schemas"
-export type { SortByScenesAmount, OrderBy, StorySearchParams } from "./model/types"
+export type {
+   SortByScenesAmount,
+   OrderBy,
+   StoryFilters,
+   StoryFiltersParams,
+} from "./model/types"

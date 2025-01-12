@@ -7,15 +7,16 @@ import SearchIcon from "@/shared/assets/icons/search.svg"
 import { baseParams, filterData, orderData } from "../../model/formData"
 import { useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
-import { OrderBy, SortByScenesAmount } from "@/entities/Story"
+import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
 
 export const StoriesFilters = () => {
    const { filters, setParams } = useStoriesFilterParams()
-   const { register, handleSubmit, getValues, reset } = useForm({
+   const { register, handleSubmit, getValues, reset } = useForm<StoryFiltersParams>({
       defaultValues: {
-         search: filters?.search || "",
-         order: filters?.order || "",
-         length: filters?.length || "",
+         search: filters?.search ?? "",
+         order: filters?.order ?? "",
+         length: filters?.length ?? "",
+         page: 1,
       },
    })
 

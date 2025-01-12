@@ -8,7 +8,7 @@ export const PopularStories = async () => {
    const result = await storyService.fetchStories({
       limit: 4,
       order: "popular",
-      page: 0,
+      page: 1,
       search: "",
       length: "",
    })
