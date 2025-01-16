@@ -46,7 +46,7 @@ export const SignInForm = () => {
                </Button>
             </>
          }
-         link={<Link href={PageRoutes.SignUp}>Doesn't have an account? Sign up!</Link>}
+         link={<Link href={PageRoutes.SignUp}>Doesn&apos;t have an account? Sign up!</Link>}
          error={error}
       />
    )
