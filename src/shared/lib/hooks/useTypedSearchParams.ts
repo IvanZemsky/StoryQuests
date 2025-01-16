@@ -10,7 +10,7 @@ export function useTypedSearchParams<T extends z.ZodTypeAny>(
    const searchParams = useSearchParams()
 
    const parsed = schema.safeParse(
-      Object.fromEntries(searchParams.entries())
+      Object.fromEntries(searchParams!.entries())
    )
 
    return parsed
