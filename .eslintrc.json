@@ -1,7 +1,6 @@
 {
    "extends": ["next/core-web-vitals"],
    "parser": "@typescript-eslint/parser",
-   "plugins": "import",
    "settings": {
       "import/resolver": {
          "typescript": {
@@ -10,7 +9,7 @@
       }
    },
    "rules": {
-      "import/no-restricted-imports": [
+      "no-restricted-imports": [
          "error",
          {
             "paths": [

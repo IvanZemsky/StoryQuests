@@ -1,7 +1,4 @@
-export { useAuthCheck } from "./lib/hooks/useAuthCheck";
+export { useSessionQuery } from "./lib/hooks/useSessionQuery";
 export { userService } from "./api/service";
-export { authStore } from "./model/authStore";
-export { LogInLink } from "./ui/LogInLink/LogInLink";
-export { ProfileLink } from "./ui/ProfileLink/ProfileLink";
-export type {IApiUser, IUserLogin} from './api/types'
 export type {IUser} from './model/types'
+export type {SignInDto, SignUpDto} from './api/dto'

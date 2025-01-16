@@ -1,4 +1,3 @@
-export { api } from "./client";
+export { api } from "./instance";
 export { APIEndpoints } from "./APIEndpoints";
-export type {IUserLogin, IApiUser} from '../../entities/User/api/types'
-export { API_URL } from "./client"
+export { API_URL } from "./instance"

@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, ChangeEvent } from "react"
 
 export const useInput = (

@@ -1,30 +1,46 @@
-import { AxiosResponse } from "axios";
-import { api, APIEndpoints, IUserLogin } from "@/shared/api";
+import { AxiosResponse } from "axios"
+import { api, APIEndpoints } from "@/shared/api"
+import { GetSessionInfoDto, SignInDto, SignUpDto } from "./dto"
+import { setPath } from "@/shared/lib"
 
-const { Login, Auth, CheckAuth} = APIEndpoints;
+const { SignIn, SignUp, SignOut, Auth, GetSessionInfo } = APIEndpoints
 
-class UserService {
-   async login(loginData: IUserLogin): Promise<{ token: string }> {
+export const userService = {
+   async signUp(dto: SignUpDto) {
       try {
-         const response: AxiosResponse<{ token: string }> = await api.post(Auth + Login, loginData);
-         return response.data;
+         const response: AxiosResponse<void> = await api.post(setPath(Auth, SignUp), dto)
+         return response.data
       } catch (error) {
-         throw error;
+         throw error
       }
-   }
+   },
 
-   async checkAuth(): Promise<Boolean> {
+   async signIn(dto: SignInDto) {
       try {
-         const response: AxiosResponse<{message: string}>  = await api.get(Auth + CheckAuth)
-         if (response.status === 200) {
-            return true
-         } else {
-            return false
-         }
+         const response: AxiosResponse<void> = await api.post(setPath(Auth, SignIn), dto)
+         return response.data
       } catch (error) {
-         throw (error)
+         throw error
       }
-   }
+   },
+
+   async signOut() {
+      try {
+         const response: AxiosResponse<void> = await api.post(setPath(Auth, SignOut))
+         return response.data
+      } catch (error) {
+         throw error
+      }
+   },
+
+   async getSessionInfo() {
+      try {
+         const response: AxiosResponse<GetSessionInfoDto> = await api.get(
+            setPath(Auth, GetSessionInfo),
+         )
+         return response.data
+      } catch (error) {
+         throw error
+      }
+   },
 }
-
-export const userService = new UserService();

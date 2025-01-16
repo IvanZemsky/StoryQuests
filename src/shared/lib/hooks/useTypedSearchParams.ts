@@ -1,3 +1,6 @@
+"use client"
+
+// eslint-disable-next-line no-restricted-imports
 import { useSearchParams } from "next/navigation"
 import { SafeParseReturnType, z } from "zod"
 

@@ -1,3 +1,5 @@
+"use client"
+
 import { ChangeEvent, useState, useEffect } from "react"
 
 export const useImgLoad = (

@@ -1,3 +1,4 @@
+export { setPath } from "./utils/setPath"
 export { useTypedSearchParams } from "./hooks/useTypedSearchParams"
 export { useReactFlowField } from "./hooks/useReactFlowField"
 export { createQueryParamsString } from "./utils/createQueryParamsString"

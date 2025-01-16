@@ -1,0 +1,67 @@
+.content {
+   display: flex;
+   flex-grow: 1;
+}
+
+.rightWrap {
+   flex-grow: 1;
+   padding-right: 20px;
+   background: url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-2.svg")
+      right bottom no-repeat;
+}
+
+.rightContent {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 83%;
+   height: 100%;
+   padding-left: 20px;
+}
+
+.titleWrap {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 20px;
+   max-width: 505px;
+   text-align: center;
+
+   h2,
+   p {
+      font-size: 35px;
+      font-family: "Philosopher";
+      font-weight: 600;
+   }
+
+   hr {
+      width: 149px;
+      height: 4px;
+      margin: 0 auto;
+      background-image: var(--gradientMain);
+   }
+}
+
+@media screen and (max-width: 1135px) {
+   .rightContent {
+      width: 100%;
+   }
+}
+
+@media screen and (max-width: 870px) {
+   .titleWrap {
+      h2,
+      p {
+         font-size: 25px;
+      }
+      hr {
+         width: 90px;
+      }
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .rightWrap {
+      display: none;
+   }
+}

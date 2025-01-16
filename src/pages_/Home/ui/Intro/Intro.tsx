@@ -13,7 +13,7 @@ export const Intro = () => {
                </h1>
             </div>
          </div>
-         <Link href={PageRoutes.Login} className={styles.itemWrap}>
+         <Link href={PageRoutes.SignIn} className={styles.itemWrap}>
             <div className={styles.item}>
                <h3 className={styles.text}>Log in to create your story <LongArrowRightIcon /></h3>
             </div>
