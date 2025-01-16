@@ -1,3 +1,4 @@
+export { AuthFormLayout } from "./ui/AuthFormLayout";
 export { useSessionQuery } from "./lib/hooks/useSessionQuery";
 export { userService } from "./api/service";
 export type {IUser} from './model/types'

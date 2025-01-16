@@ -1,0 +1,140 @@
+.content {
+   max-width: 550px;
+   width: 100%;
+}
+
+.header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 15px;
+   padding: 15px 0;
+   color: var(--primaryText);
+}
+
+.wrap {
+   border-radius: 15px;
+   padding: 2px 2px 5px 2px;
+   background: var(--gradientMain);
+}
+
+.card {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   background-color: var(--secondaryMain);
+   border-radius: 15px 15px 15px 15px;
+   overflow: hidden;
+}
+
+.loader {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   display: none;
+   background-color: rgba(0, 0, 0, 0);
+   border-radius: 15px;
+   transition: background-color 0.15s linear;
+   z-index: 1;
+
+   &.pending {
+      display: block;
+      background-color: rgba(0, 0, 0, 0.6);
+   }
+}
+
+.imgWrap {
+   position: relative;
+   aspect-ratio: 1 / 0.65;
+   overflow: hidden;
+
+   img {
+      width: 100%;
+      height: 100%;
+      filter: brightness(87%);
+      object-fit: cover;
+   }
+}
+
+.info {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+   flex-grow: 1;
+   text-align: center;
+   padding: 25px 18px 25px 18px;
+}
+
+.title {
+   color: var(--thirdLight);
+   font-family: Philosopher;
+   font-weight: 700;
+   font-size: 27px;
+}
+
+.sceneCount {
+   font-size: 16px;
+}
+
+.desc {
+   max-width: 380px;
+   font-size: 16px;
+}
+
+.infoItems {
+   display: flex;
+   align-items: center;
+   height: 50px;
+}
+
+.infoItem {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 7px;
+   height: 100%;
+   padding: 8px 14px;
+   background-color: var(--primaryMain);
+   border-right: 1px solid var(--primaryDark);
+
+   a {
+      align-self: center;
+      justify-self: center;
+   }
+
+   &:first-child {
+      border-radius: 15px 0 0 15px;
+   }
+
+   &:last-child {
+      border-radius: 0 15px 15px 0;
+      border-right: none;
+   }
+
+   button {
+      height: 25px;
+   }
+
+   svg {
+      height: 25px;
+      stroke: var(--secondaryText);
+   }
+}
+
+.authorLink {
+   align-self: flex-start;
+   font-size: 16px;
+   color: var(--secondaryLight);
+
+   &:hover {
+      text-decoration: underline;
+   }
+}
+
+.startBtn {
+   width: 100%;
+   height: 65px;
+   font-weight: 600;
+}

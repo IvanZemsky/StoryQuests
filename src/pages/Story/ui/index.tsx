@@ -1,13 +1,14 @@
 import { Wrapper } from "@/shared/ui"
-import styles from "./Story.module.scss"
-import { sceneService } from "@/entities/Scene"
-import { StoryScene } from "@/widgets/StoryScene"
+import styles from "./styles.module.scss"
 import { Page } from "../model/types"
+import { StoryWrap } from "./StoryWrap"
+import { storyService } from "@/entities/Story"
+
 
 export const Story = async ({ params }: Page) => {
-   const scenes = await sceneService.fetchScenesByStoryId(params.id)
+   const story = await storyService.fetchStoryById(params.id)
 
-   if (!scenes) {
+   if (!story) {
       return <p>Error</p>
    }
 
@@ -15,7 +16,7 @@ export const Story = async ({ params }: Page) => {
       <div className={styles.page}>
          <Wrapper>
             <div className={styles.content}>
-               <StoryScene scenes={scenes} />
+               <StoryWrap story={story}/>
             </div>
          </Wrapper>
       </div>

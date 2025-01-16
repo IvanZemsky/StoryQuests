@@ -11,7 +11,6 @@ type Props = {
 
 export const PageBtns = ({ currentPage, pageAmount, handleClick }: Props) => {
    const pages = Array.from({ length: pageAmount }, (_, item) => item + 1)
-   console.log(currentPage)
 
    return (
       <div className={styles.pageBtns}>

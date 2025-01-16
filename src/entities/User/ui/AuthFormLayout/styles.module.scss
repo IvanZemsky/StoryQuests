@@ -17,6 +17,7 @@
 .form {
    display: flex;
    flex-direction: column;
+   justify-content: center;
    gap: 20px;
    margin: auto 0;
 
@@ -29,6 +30,15 @@
 
    input {
       height: 50px;
+   }
+
+   a{
+      text-align: center;
+      color: var(--primaryText);
+
+      &:hover{
+         text-decoration: underline;
+      }
    }
 }
 

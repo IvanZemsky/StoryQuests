@@ -1,5 +1,3 @@
-"use client"
-
 import { PageRoutes } from "@/shared/constants"
 import Link from "next/link"
 import styles from "./StoryHeader.module.scss"
