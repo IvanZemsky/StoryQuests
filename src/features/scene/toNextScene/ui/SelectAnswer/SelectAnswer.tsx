@@ -21,6 +21,10 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
       }
    }
 
+   const handleAnswerClick = (answer: IAnswer) => () => {
+      nextSceneId.current = answer.nextSceneId
+   }
+
    return (
       <div className={styles.wrap}>
          <SwitcherGroup variant="column" className={styles.select}>
@@ -28,7 +32,8 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
                <Answer
                   key={answer.id + answer.nextSceneId}
                   className={styles.answer}
-                  onClick={() => (nextSceneId.current = answer.nextSceneId)}
+                  onClick={handleAnswerClick(answer)}
+                  onDoubleClick={() => setScene(answer.nextSceneId)}
                   data={answer}
                />
             ))}

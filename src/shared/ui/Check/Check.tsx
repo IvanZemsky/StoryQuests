@@ -1,12 +1,14 @@
 "use client"
 
-import { ChangeEvent, ComponentProps, forwardRef, Ref, useState } from "react"
+import { ChangeEvent, ComponentProps, forwardRef, MouseEventHandler, Ref, useState } from "react"
 import styles from "./Check.module.scss"
 import { Button } from ".."
+import cn from "classnames"
 
 type Props = ComponentProps<"input"> & {
    text: string
    fillContainer?: boolean
+   onDoubleClick?: MouseEventHandler<HTMLDivElement>
 }
 
 export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
@@ -16,6 +18,7 @@ export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
       text,
       className,
       onInput,
+      onDoubleClick,
       ...attributes
    } = props
 
@@ -28,9 +31,8 @@ export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
 
    return (
       <div
-         className={[styles.wrap, fillContainer && styles.fillContainer, className].join(
-            " ",
-         )}
+         className={cn(styles.wrap, { [styles.fillContainer]: fillContainer }, className)}
+         onDoubleClick={onDoubleClick}
       >
          <input
             type="radio"

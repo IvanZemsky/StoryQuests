@@ -1,12 +1,13 @@
 import { Check } from "@/shared/ui"
 import { IAnswer } from "../../model/types"
-import { HTMLAttributes } from "react"
+import { ComponentProps, MouseEventHandler } from "react"
 
-type Props = {
+type Props = ComponentProps<"input"> & {
    data: IAnswer
-} & HTMLAttributes<HTMLDivElement>
+   onDoubleClick?: MouseEventHandler<HTMLDivElement>
+}
 
-export const Answer = ({ data, className, ...attributes }: Props) => {
+export const Answer = ({ data, className, onDoubleClick, ...attributes }: Props) => {
    const { text, nextSceneId, id } = data
 
    return (
@@ -16,6 +17,7 @@ export const Answer = ({ data, className, ...attributes }: Props) => {
          id={id + nextSceneId}
          text={text}
          className={className}
+         onDoubleClick={onDoubleClick}
          {...attributes}
       />
    )

@@ -6,7 +6,7 @@ import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
 import { baseParams, filterData, orderData } from "../../model/formData"
 import { useForm } from "react-hook-form"
-import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
+import { useStoriesFilterParams } from "@/pages/Stories/lib/hooks/useStoriesFilterParams"
 import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
 
 export const StoriesFilters = () => {
