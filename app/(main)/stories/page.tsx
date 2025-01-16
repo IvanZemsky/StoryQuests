@@ -1,1 +1,1 @@
-export { Stories as default, metadata } from "@/pages/Stories";
+export { Stories as default, metadata } from "@/pages_/Stories";
