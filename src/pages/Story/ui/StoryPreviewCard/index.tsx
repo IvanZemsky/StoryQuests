@@ -18,7 +18,7 @@ type Props = {
 }
 
 export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) => {
-   const { name, img, author, description, tags, sceneCount, passes, likes } = data
+   const { name, img, author, description, sceneCount, passes, likes } = data
 
    const handleStartBtnClick = () => {
       setIsStoryStarted(true)
@@ -75,7 +75,7 @@ export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) 
                      onClick={handleStartBtnClick}
                      disabled={isPending}
                   >
-                     Let's go!
+                     Let&apos;s go!
                   </Button>
                </div>
             </div>
