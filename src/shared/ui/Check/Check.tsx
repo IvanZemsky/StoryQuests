@@ -1,6 +1,13 @@
 "use client"
 
-import { ChangeEvent, ComponentProps, forwardRef, MouseEventHandler, Ref, useState } from "react"
+import {
+   ChangeEvent,
+   ComponentProps,
+   forwardRef,
+   MouseEventHandler,
+   Ref,
+   useState,
+} from "react"
 import styles from "./Check.module.scss"
 import { Button } from ".."
 import cn from "classnames"
@@ -42,7 +49,7 @@ export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
             ref={ref}
          />
          <label htmlFor={attributes.id}>
-            <Button variant="filled" type="button">
+            <Button variant="filled" type="button" className={styles.checkBtn}>
                {text}
             </Button>
          </label>

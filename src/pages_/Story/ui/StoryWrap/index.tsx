@@ -1,11 +1,11 @@
 "use client"
 
-import {  useState } from "react"
+import { useState } from "react"
 import { StoryPreviewCard } from "../StoryPreviewCard"
-import { StoryScene } from "@/widgets/StoryScene"
 import { IStory } from "@/entities/Story"
 import { useQuery } from "@tanstack/react-query"
 import { sceneService } from "@/entities/Scene"
+import { PageScenes } from "../PageScenes"
 
 type Props = {
    story: IStory
@@ -24,7 +24,7 @@ export const StoryWrap = ({ story }: Props) => {
    }
 
    if (data && isStoryStarted) {
-      return <StoryScene scenes={data} />
+      return <PageScenes data={data} />
    }
 
    return (

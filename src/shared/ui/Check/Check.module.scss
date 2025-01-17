@@ -1,42 +1,46 @@
-.wrap{
+.wrap {
    display: inline-block;
 
-   &.fillContainer{
+   &.fillContainer {
       flex-grow: 1;
-      
+
       label {
          width: 100%;
          height: 100%;
       }
 
-      button{
+      button {
          width: 100%;
       }
    }
 
-   input{
+   input {
       display: none;
    }
 
-   label{
+   label {
       display: inline-block;
       height: 100%;
       user-select: none;
       cursor: pointer;
 
-      button, button span{
+      &:hover > .checkBtn > span {
+         color: var(--thirdLight);
+      }
+
+      & > button,
+      button span {
          height: 100%;
       }
    }
 
-   input:checked + label{
-      button{
-         box-shadow: 0 0 0 5px rgba(0,0,0,0) inset;
+   input:checked + label {
+      button {
+         box-shadow: 0 0 0 5px rgba(0, 0, 0, 0) inset;
       }
    }
 
-   button{
+   button {
       pointer-events: none;
    }
 }
-

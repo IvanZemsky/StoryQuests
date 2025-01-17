@@ -1,4 +1,4 @@
-.page {
+.scenesWrapper {
    height: 100%;
    background: url("https://raw.githubusercontent.com/IvanZemsky/files/refs/heads/main/StoryQuests/svg/shape-1.svg")
          left center no-repeat,
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 700px) {
-   .page {
+   .storyWrapper {
       background: none;
    }
 }

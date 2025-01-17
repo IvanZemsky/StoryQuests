@@ -23,7 +23,7 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
       ...attributes
    } = props
 
-   const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+   const [_, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
 
    return (
       <div
@@ -34,7 +34,6 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
          <input
             className={styles.input}
             type="text"
-            value={inputValue}
             onChange={handleChange}
             ref={ref}
             {...attributes}

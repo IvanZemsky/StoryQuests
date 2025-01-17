@@ -5,20 +5,21 @@ import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
 import { baseParams, filterData, orderData } from "../../model/formData"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
 import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
 
 export const StoriesFilters = () => {
    const { filters, setParams } = useStoriesFilterParams()
-   const { register, handleSubmit, getValues, reset } = useForm<StoryFiltersParams>({
-      defaultValues: {
-         search: filters?.search ?? "",
-         order: filters?.order ?? "",
-         length: filters?.length ?? "",
-         page: 1,
-      },
-   })
+   const { register, handleSubmit, getValues, reset, control } =
+      useForm<StoryFiltersParams>({
+         defaultValues: {
+            search: filters?.search ?? "",
+            order: filters?.order ?? "",
+            length: filters?.length ?? "",
+            page: 1,
+         },
+      })
 
    const onSubmit = () => {
       const search = getValues("search")
@@ -30,7 +31,12 @@ export const StoriesFilters = () => {
 
    const handleResetClick = () => {
       setParams(baseParams)
-      reset()
+      reset({
+         search: "",
+         order: "",
+         length: "",
+         page: 1,
+      })
    }
 
    const selectLengthSortTitle =
@@ -45,11 +51,18 @@ export const StoriesFilters = () => {
                {...register("order")}
             />
 
-            <Select
-               className={styles.selectLength}
-               title={selectLengthSortTitle}
-               group={filterData}
-               {...register("length")}
+            <Controller
+               control={control}
+               name="length"
+               render={({ field }) => (
+                  <Select
+                     className={styles.selectLength}
+                     title={selectLengthSortTitle}
+                     group={filterData}
+                     value={field.value as string}
+                     onChange={field.onChange}
+                  />
+               )}
             />
 
             <div className={styles.searchWrap}>

@@ -32,7 +32,7 @@ export function HeaderMenu() {
          <ul className={cn({ [styles.opened]: isMenuOpened })}>
             <MainLink href={Home}>Home</MainLink>
             <MainLink href={Stories}>Stories</MainLink>
-            <MainLink href={Create}>Create</MainLink>
+            {session.data && <MainLink href={Create}>Create</MainLink>}
 
             {session.data ? <ProfileLink /> : <LogInLink />}
 
