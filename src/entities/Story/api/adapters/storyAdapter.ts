@@ -1,7 +1,7 @@
 import { IStory } from "../../model/types"
-import { IApiStory } from "../types"
+import { ApiStory } from "../types"
 
-export const storyAdapter = (apiData: IApiStory): IStory => {
+export const storyAdapter = (apiData: ApiStory): IStory => {
    return {
       id: apiData._id,
       name: apiData.name,

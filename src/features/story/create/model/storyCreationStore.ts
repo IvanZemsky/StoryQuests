@@ -52,6 +52,7 @@ class StoryCreationStore {
          description: node.data.description,
          img: node.data.img,
          type: node.data.type,
+         storyId: "",
          answers: this.edges.map(edge => {
             if (edge.source === node.id) {
                return ({
