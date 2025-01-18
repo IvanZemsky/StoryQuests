@@ -10,11 +10,17 @@ type Props = {
    selectAnswer: ReactNode
    currentSceneId: string | null
    data: Omit<Scene, "answers">
+   disabledLink?: boolean
 }
 
-export const BaseScene = ({ currentSceneId, data, selectAnswer }: Props) => {
+export const BaseScene = ({
+   currentSceneId,
+   data,
+   selectAnswer,
+   disabledLink = false,
+}: Props) => {
    const { title, description, type, img } = data
-   
+
    return (
       <SwitchFade switchKey={currentSceneId} timeout={300}>
          <div className={styles.content}>
@@ -42,6 +48,7 @@ export const BaseScene = ({ currentSceneId, data, selectAnswer }: Props) => {
                      className={styles.endBtn}
                      leftIcon={<ArrowRightIcon />}
                      defaultHover={false}
+                     disabled={disabledLink}
                   />
                )}
             </div>

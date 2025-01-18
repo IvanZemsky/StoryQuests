@@ -8,7 +8,7 @@ import {
    Ref,
    useState,
 } from "react"
-import styles from "./Check.module.scss"
+import styles from "./styles.module.scss"
 import { Button } from ".."
 import cn from "classnames"
 
@@ -32,7 +32,7 @@ export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
    const [isChecked, setIsChecked] = useState(checked)
 
    const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-      onInput && onInput(event)
+      onInput?.(event)
       setIsChecked(checked)
    }
 

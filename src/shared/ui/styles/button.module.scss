@@ -9,6 +9,12 @@
 
    &:disabled {
       filter: brightness(0.7);
+      pointer-events: none;
+   }
+
+   &.disabled {
+      filter: brightness(0.7);
+      pointer-events: none;
    }
 
    &.minWidth {
@@ -76,8 +82,14 @@
 }
 
 .gradient {
-   .content{
+   .content {
       color: var(--primaryText);
+   }
+
+   @include hoverEffect("&.defaultHover:hover:not(:disabled)") {
+      span {
+         background-color: var(--primaryDark);
+      }
    }
 }
 

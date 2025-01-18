@@ -1,7 +1,7 @@
 "use client"
 
 import { ComponentProps, forwardRef, Ref } from "react"
-import styles from "./Textarea.module.scss"
+import styles from "./styles.module.scss"
 import { useInput } from "../../lib"
 
 type Props = {

@@ -5,6 +5,10 @@
    padding: 25px 0;
 }
 
+.sort{
+   flex-wrap: nowrap;
+}
+
 .sort,
 .selectLength {
    flex-shrink: 0;
@@ -52,14 +56,15 @@ button.searchBtn {
    }
 
    .sort {
-      order: 1;
-      gap: 5px;
-
       button,
       label {
          width: 100%;
          border-radius: 20px;
       }
+   }
+
+   .selectLength {
+      max-width: 100%;
    }
 
    .search {
@@ -69,7 +74,6 @@ button.searchBtn {
 
 @media screen and (max-width: 695px) {
    .content,
-   .sort,
    .searchWrap {
       gap: 10px;
    }
@@ -82,31 +86,24 @@ button.searchBtn {
 
    .content {
       .sort {
-         display: contents;
+         gap: 1px;
          flex-shrink: 1;
+         order: 3;
 
-         & > div {
-            flex-shrink: 1;
-            order: 2;
-         }
+         button{
+            min-width: 0;
+            font-size: 16px;
 
-         & > div:nth-child(2) {
-            display: none;
-         }
-
-         button,
-         button > span {
-            &:not(:first-child),
-            &:first-child,
-            &:last-child {
-               border-radius: 20px;
+            span {
+               padding: 13px 10px;
             }
          }
       }
+
+      .selectLength{
+         flex-grow: 1;
+         order: 4;
+      }
    }
 
-   .selectLength {
-      max-width: unset;
-      order: 3;
-   }
 }

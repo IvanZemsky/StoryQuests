@@ -1,3 +1,5 @@
+@import "/src/shared/ui/styles/mixins.scss";
+
 .wrap {
    display: inline-block;
 
@@ -23,14 +25,16 @@
       height: 100%;
       user-select: none;
       cursor: pointer;
-
-      &:hover > .checkBtn > span {
-         color: var(--thirdLight);
-      }
-
+      
       & > button,
       button span {
          height: 100%;
+      }
+
+      @include hoverEffect("&:hover") {
+         > .checkBtn > span {
+            color: var(--thirdLight);
+         }
       }
    }
 

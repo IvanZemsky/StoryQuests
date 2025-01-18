@@ -1,8 +1,8 @@
 "use client"
 
 import { ComponentProps, MouseEvent } from "react"
-import styles from "./Modal.module.scss"
-import { ClientPortal } from "../ClientPortal/ClientPortal"
+import styles from "./styles.module.scss"
+import { ClientPortal } from "../ClientPortal"
 import { modalStore, usePreventScroll } from "../../model"
 import { observer } from "mobx-react"
 import cn from "classnames"
@@ -22,7 +22,7 @@ export const Modal = observer(
 
       const handleClose = (event: MouseEvent<HTMLDivElement>) => {
          event.stopPropagation()
-         onClose && onClose()
+         onClose?.()
          closeModal()
       }
 

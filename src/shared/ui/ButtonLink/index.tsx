@@ -9,6 +9,7 @@ type Props = {
    defaultHover?: boolean
    href: string
    uppercase?: boolean
+   disabled?: boolean
    leftIcon?: ReactNode
    rightIcon?: ReactNode
 } & ComponentProps<"a">
@@ -20,6 +21,7 @@ export const ButtonLink = ({
    defaultHover = true,
    leftIcon,
    rightIcon,
+   disabled = false,
    children,
    className,
    uppercase = false,
@@ -36,6 +38,7 @@ export const ButtonLink = ({
                [styles.defaultHover]: defaultHover,
                [styles.minWidth]: children,
                [styles.uppercase]: uppercase,
+               [styles.disabled]: disabled,
             },
             className,
          )}

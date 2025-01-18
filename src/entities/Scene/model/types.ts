@@ -9,6 +9,7 @@ export type Scene = {
    description: string
    img: string
    type: SceneType
+   storyId: string
    answers: IAnswer[]
 }
 

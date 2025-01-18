@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef, Ref } from "react"
-import styles from "./SwitcherGroup.module.scss"
-import { Check } from "../Check/Check"
+import styles from "./styles.module.scss"
+import { Check } from "../Check"
 import { CheckData } from "@/shared/model"
 
 type Props = {

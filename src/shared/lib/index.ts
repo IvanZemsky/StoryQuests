@@ -1,3 +1,4 @@
+export { useOutsideClick } from "./hooks/useOutsideClick"
 export { setPath } from "./utils/setPath"
 export { useTypedSearchParams } from "./hooks/useTypedSearchParams"
 export { useReactFlowField } from "./hooks/useReactFlowField"

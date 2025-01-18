@@ -1,8 +1,8 @@
 import styles from './styles.module.scss'
 import { Wrapper } from "@/shared/ui";
-import { Intro } from "./Intro/Intro";
-import { PopularStories } from "./PopularStories/PopularStories";
-import { Field } from "./Field/Field";
+import { Intro } from "./Intro";
+import { PopularStories } from "./PopularStories";
+import { Field } from "./Field";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

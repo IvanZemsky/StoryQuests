@@ -6,14 +6,20 @@ import { StoryCard } from "@/entities/Story"
 import { useWatch, useForm, Controller } from "react-hook-form"
 import { getCardData } from "../../model/lib/getCardData"
 
-export const CreateStoryForm = () => {
-   const { register, control, setValue } = useForm()
+type FormValues = {
+   name: string
+   desc: string
+   img: string
+}
+
+export const CreateStoryForm = ({ authorLogin }: { authorLogin: string }) => {
+   const { register, control, setValue } = useForm<FormValues>()
 
    const name = useWatch({ control, name: "name" })
    const description = useWatch({ control, name: "desc" })
    const img = useWatch({ control, name: "img" })
 
-   const cardData = getCardData(name, description, img)
+   const cardData = getCardData({ name, description, img, authorLogin })
 
    const handleImgError = () => {
       setValue("img", "")
@@ -23,13 +29,13 @@ export const CreateStoryForm = () => {
       <div className={styles.top}>
          <div className={styles.inputs}>
             <TextInput
-               {...register("name")}
+               {...register("name", { maxLength: 50 })}
                placeholder="Story name"
                counter
                maxLength={50}
             />
             <Textarea
-               {...register("desc")}
+               {...register("desc", { maxLength: 200 })}
                placeholder="Description"
                counter
                maxLength={200}

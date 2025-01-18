@@ -20,5 +20,5 @@ export const StoryPreview = observer(() => {
       return <NotValidStoryModal />
    }
 
-   return <PreviewModal scene={<StoryScene scenes={scenes} />} />
+   return <PreviewModal scene={<StoryScene scenes={scenes} isPreview />} />
 })

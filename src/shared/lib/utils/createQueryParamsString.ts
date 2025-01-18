@@ -7,7 +7,6 @@ export function createQueryParamsString(
    const urlParams = new URLSearchParams(initialParams)
    
    Object.entries(params).forEach(([key, value]) => {
-      console.log(key, value)
       if (value === null || value === "") {
          urlParams.delete(key)
       } else if (value !== undefined) {

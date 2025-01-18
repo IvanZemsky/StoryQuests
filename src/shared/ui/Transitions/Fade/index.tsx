@@ -1,7 +1,7 @@
 "use client"
 
 import { ReactNode, useRef } from "react"
-import styles from "./Fade.module.scss"
+import styles from "./styles.module.scss"
 import { CSSTransition } from "react-transition-group"
 import { CSSTransitionProps } from "react-transition-group/CSSTransition"
 

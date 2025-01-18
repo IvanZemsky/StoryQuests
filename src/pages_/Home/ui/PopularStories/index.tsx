@@ -18,7 +18,7 @@ export const PopularStories = async () => {
    }
 
    return (
-      <>
+      <section className={styles.content}>
          <div className={styles.header}>
             <h2>Popular</h2>
             <ButtonLink href={PageRoutes.Stories} rightIcon={<LongArrowRightIcon />}>
@@ -30,6 +30,6 @@ export const PopularStories = async () => {
                <StoryCard data={story} key={story.id} />
             ))}
          </div>
-      </>
+      </section>
    )
 }

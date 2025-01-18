@@ -4,7 +4,7 @@ export const initialNodes: SceneNode[] = [
    {
       id: "scene_1",
       type: "startScene",
-      position: { x: 120, y: 25 },
+      position: { x: 320, y: 25 },
       data: { title: "Create a scene", description: "", img: "", type: "default" },
    },
    {
@@ -16,7 +16,7 @@ export const initialNodes: SceneNode[] = [
    {
       id: "scene_3",
       type: "endScene",
-      position: { x: 520, y: 225 },
+      position: { x: 320, y: 225 },
       data: { title: "Add endings", description: "", img: "", type: "default" },
    },
 ]

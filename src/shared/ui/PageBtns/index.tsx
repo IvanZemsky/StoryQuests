@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react"
-import styles from "./PageBtns.module.scss"
-import { Button } from "../Button/Button"
+import styles from "./styles.module.scss"
+import { Button } from "../Button"
 import cn from "classnames"
 
 type Props = {

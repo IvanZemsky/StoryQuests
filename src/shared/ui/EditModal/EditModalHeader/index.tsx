@@ -1,4 +1,4 @@
-import { Button } from "../../Button/Button"
+import { Button } from "../../Button"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import TrashIcon from "@/shared/assets/icons/trash.svg"
 import styles from "./styles.module.scss"

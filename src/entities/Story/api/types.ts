@@ -1,4 +1,4 @@
-export interface IApiStory {
+export type ApiStory = {
    _id: string
    name: string
    description: string
@@ -12,4 +12,9 @@ export interface IApiStory {
    passes: number
    likes: number
    date: string
+}
+
+export type StoryPassesUpdateDto = {
+   readonly storyId: string
+   readonly passes: number
 }

@@ -1,9 +1,9 @@
 "use client"
 
-import styles from "./ImageLoad.module.scss"
+import styles from "./styles.module.scss"
 import UploadIcon from "@/shared/assets/icons/upload.svg"
 import { ChangeEvent, ComponentProps, forwardRef, Ref } from "react"
-import { TextInput } from "../TextInput/TextInput"
+import { TextInput } from "../TextInput"
 import { useDebounce, useImgLoad } from "../../lib"
 
 type Props = {

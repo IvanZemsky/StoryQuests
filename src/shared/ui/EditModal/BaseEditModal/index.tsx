@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react"
-import { Modal } from "../../Modal/Modal"
+import { Modal } from "../../Modal"
 import styles from "./styles.module.scss"
 import cn from "classnames"
 

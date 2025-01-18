@@ -1,5 +1,5 @@
 import { Logo, Wrapper } from "@/shared/ui"
-import styles from "./Footer.module.scss"
+import styles from "./styles.module.scss"
 import Link from 'next/link';
 import { PageRoutes } from "@/shared/constants";
 

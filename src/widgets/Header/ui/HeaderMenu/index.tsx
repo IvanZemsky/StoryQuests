@@ -15,7 +15,6 @@ const { Stories, Create, Home } = PageRoutes
 
 export function HeaderMenu() {
    const session = useSessionQuery()
-   console.log(session.data)
 
    const [isMenuOpened, setIsMenuOpened] = useState(false)
 

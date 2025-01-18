@@ -1,15 +1,11 @@
 .content{
+   max-width: 1100px;
    height: 667px;
+   margin: 0 auto;
    pointer-events: none;
 }
 
 .link{
    height: 103px;
    font-weight: 600;
-}
-
-@media screen and (max-width: 750px) {
-   .content{
-      height: 500px;
-   }
 }

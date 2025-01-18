@@ -42,7 +42,7 @@ export const SignInForm = () => {
                   {...register("password")}
                />
                <Button type="submit" disabled={signUpMutation.isPending}>
-                  Sign up
+                  Sign in
                </Button>
             </>
          }

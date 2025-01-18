@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react"
-import styles from "./Wrapper.module.scss"
+import styles from "./styles.module.scss"
 
 export const Wrapper = ({
    children,

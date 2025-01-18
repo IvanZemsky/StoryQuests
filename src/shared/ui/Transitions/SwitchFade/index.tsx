@@ -1,7 +1,7 @@
 "use client"
 
 import { ReactNode, useRef } from "react"
-import styles from "./SwitchFade.module.scss"
+import styles from "./styles.module.scss"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 type Props = {

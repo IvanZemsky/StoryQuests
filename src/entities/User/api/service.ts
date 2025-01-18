@@ -1,4 +1,4 @@
-import { AxiosResponse } from "axios"
+import { AxiosResponse, RawAxiosRequestHeaders } from "axios"
 import { api, APIEndpoints } from "@/shared/api"
 import { GetSessionInfoDto, SignInDto, SignUpDto } from "./dto"
 import { setPath } from "@/shared/lib"
@@ -33,14 +33,23 @@ export const userService = {
       }
    },
 
-   async getSessionInfo() {
+   async getSessionInfo(options?: { cookie?: string }) {
+      const headers: RawAxiosRequestHeaders = {}
+
+      if (options?.cookie) {
+         headers["Cookie"] = options.cookie
+      }
+
       try {
          const response: AxiosResponse<GetSessionInfoDto> = await api.get(
             setPath(Auth, GetSessionInfo),
+            {
+               headers,
+            },
          )
          return response.data
       } catch (error) {
-         throw error
+         return null
       }
    },
 }

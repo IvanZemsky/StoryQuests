@@ -1,7 +1,7 @@
 "use client"
 
 import { useActiveLink } from "../../lib"
-import styles from "./MainLink.module.scss"
+import styles from "./styles.module.scss"
 import Link, { LinkProps } from "next/link"
 import { PropsWithChildren } from "react"
 

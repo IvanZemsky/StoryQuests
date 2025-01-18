@@ -8,6 +8,7 @@ export const sceneAdapter = (apiData: IApiScene): Scene => {
       description: apiData.description,
       img: apiData.img,
       type: apiData.type,
+      storyId: apiData.storyId,
       answers: apiData.answers,
    }
 }
