@@ -1,6 +1,6 @@
-import { IAnswerEdge } from "@/entities/Answer";
+import { AnswerEdge } from "@/entities/Answer";
 
-export const createCustomEdge = (params: any): IAnswerEdge => {
+export const createCustomEdge = (params: any): AnswerEdge => {
    return {
      ...params,
      data: { text: "" },

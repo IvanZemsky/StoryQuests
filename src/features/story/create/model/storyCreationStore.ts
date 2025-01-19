@@ -1,11 +1,11 @@
 import { makeAutoObservable, toJS } from "mobx";
 import { SceneNodeData, SceneNode, Scene } from '@/entities/Scene';
-import { IAnswerEdge } from '@/entities/Answer';
+import { AnswerEdge } from '@/entities/Answer';
 
 class StoryCreationStore {
    scenes: Scene[] = []
    nodes: SceneNode[] = []
-   edges: IAnswerEdge[] = []
+   edges: AnswerEdge[] = []
    isValid = false
 
    constructor() {
@@ -17,7 +17,7 @@ class StoryCreationStore {
       console.log(toJS(nodes))
    }
 
-   saveEdges = (edges: IAnswerEdge[]): void => {
+   saveEdges = (edges: AnswerEdge[]): void => {
       this.edges = edges
    }
 

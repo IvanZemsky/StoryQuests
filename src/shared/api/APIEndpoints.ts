@@ -7,5 +7,6 @@ export enum APIEndpoints {
    SignUp = 'sign-up',
    SignOut = 'sign-out',
    Passes = 'passes',
+   Like = 'like',
    GetSessionInfo = 'session',
 }

@@ -1,3 +1,4 @@
+export { LikeStoryBtn } from "./like/ui"
 export { CreateStoryFormButtons } from "./create/ui/CreateStoryFormButtons"
 export { CreateStoryForm } from "./create/ui/CreateStoryForm"
 export { storyCreationStore } from "./create/model/storyCreationStore"

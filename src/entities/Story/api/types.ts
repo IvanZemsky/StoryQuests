@@ -11,10 +11,17 @@ export type ApiStory = {
    sceneCount: number
    passes: number
    likes: number
+   isLiked: boolean
    date: string
 }
 
 export type StoryPassesUpdateDto = {
    readonly storyId: string
    readonly passes: number
+}
+
+export type StoryLikeUpdateDto = {
+   readonly storyId: string
+   readonly isLiked: boolean
+   readonly likes: number
 }

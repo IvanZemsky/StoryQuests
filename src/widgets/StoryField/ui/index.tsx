@@ -11,7 +11,7 @@ import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
 
 import { ScenePanel, SceneNode } from "@/entities/Scene"
 import { BaseStoryField, STORY_FIRST_SCENE } from "@/entities/Story"
-import { IAnswerEdge } from "@/entities/Answer"
+import { AnswerEdge } from "@/entities/Answer"
 
 import { storyCreationStore } from "@/features/story"
 import { useReactFlowField } from "@/shared/lib"

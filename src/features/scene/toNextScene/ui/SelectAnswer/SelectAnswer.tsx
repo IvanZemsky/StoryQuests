@@ -1,13 +1,13 @@
 import { SwitcherGroup, Button } from "@/shared/ui"
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
 import styles from "./SelectAnswer.module.scss"
-import { Answer, IAnswer } from "@/entities/Answer"
+import { Answer, AnswerCheck } from "@/entities/Answer"
 import { useRef } from "react"
 import { SetStateFn } from "@/shared/model"
 import { scrollToTop } from "@/shared/lib"
 
 type Props = {
-   answers: IAnswer[]
+   answers: Answer[]
    setScene: SetStateFn<string>
 }
 
@@ -21,7 +21,7 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
       }
    }
 
-   const handleAnswerClick = (answer: IAnswer) => () => {
+   const handleAnswerClick = (answer: Answer) => () => {
       nextSceneId.current = answer.nextSceneId
    }
 
@@ -29,7 +29,7 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
       <div className={styles.wrap}>
          <SwitcherGroup variant="column" className={styles.select}>
             {answers.map((answer) => (
-               <Answer
+               <AnswerCheck
                   key={answer.id + answer.nextSceneId}
                   className={styles.answer}
                   onClick={handleAnswerClick(answer)}

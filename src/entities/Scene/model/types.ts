@@ -1,4 +1,4 @@
-import { IAnswer } from "../../Answer"
+import { Answer } from "../../Answer"
 import { Node, NodeProps } from "@xyflow/react"
 
 export type SceneType = "default" | "end"
@@ -10,7 +10,7 @@ export type Scene = {
    img: string
    type: SceneType
    storyId: string
-   answers: IAnswer[]
+   answers: Answer[]
 }
 
 export type SceneNodeData = {

@@ -1,7 +1,7 @@
-import { IStory } from "../../model/types"
+import { Story } from "../../model/types"
 import { ApiStory } from "../types"
 
-export const storyAdapter = (apiData: ApiStory): IStory => {
+export const storyAdapter = (apiData: ApiStory): Story => {
    return {
       id: apiData._id,
       name: apiData.name,
@@ -11,6 +11,7 @@ export const storyAdapter = (apiData: ApiStory): IStory => {
          id: apiData.author._id,
          login: apiData.author.login,
       },
+      isLiked: apiData.isLiked,
       tags: apiData.tags,
       sceneCount: apiData.sceneCount,
       passes: apiData.passes,

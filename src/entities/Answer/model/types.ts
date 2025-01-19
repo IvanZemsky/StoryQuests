@@ -1,17 +1,17 @@
 import { Edge, EdgeProps } from '@xyflow/react';
 
-export interface IAnswer {
+export type Answer = {
    id: string
    text: string
    nextSceneId: string
 }
 
-export interface IAnswerEdgeData extends Record<string, unknown> {
+export type AnswerEdgeData = {} & Record<string, unknown> & {
    text: string
 }
 
-export interface IAnswerEdge extends Edge<IAnswerEdgeData> {
-   data: IAnswerEdgeData
+export type AnswerEdge = Edge<AnswerEdgeData> & {
+   data: AnswerEdgeData
 }
 
-export interface AnswerEdgeProps extends EdgeProps<IAnswerEdge> {}
+export type AnswerEdgeProps =  EdgeProps<AnswerEdge> & {}

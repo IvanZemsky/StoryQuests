@@ -1,3 +1,3 @@
 export { BaseAnswerEdge } from "./ui/BaseAnswerEdge"
-export { Answer} from "./ui/Answer/Answer"
-export type { IAnswer, IAnswerEdgeData, IAnswerEdge, AnswerEdgeProps } from "./model/types"
+export { AnswerCheck } from "./ui/Answer/Answer"
+export type { Answer, AnswerEdgeData, AnswerEdge, AnswerEdgeProps } from "./model/types"

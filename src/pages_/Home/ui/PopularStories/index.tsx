@@ -3,6 +3,7 @@ import LongArrowRightIcon from "@/shared/assets/icons/arrow-right-long.svg"
 import styles from "./styles.module.scss"
 import { StoryCard, storyService } from "@/entities/Story"
 import { PageRoutes } from "@/shared/constants"
+import { LikeStoryBtn } from "@/features/story"
 
 export const PopularStories = async () => {
    const result = await storyService.fetchStories({
@@ -27,7 +28,13 @@ export const PopularStories = async () => {
          </div>
          <div className={styles.stories}>
             {result.stories?.map((story) => (
-               <StoryCard data={story} key={story.id} />
+               <StoryCard
+                  data={story}
+                  key={story.id}
+                  likeBtn={
+                     <LikeStoryBtn likes={story.likes} disabled storyId={story.id} />
+                  }
+               />
             ))}
          </div>
       </section>

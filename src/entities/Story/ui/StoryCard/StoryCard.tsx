@@ -2,20 +2,21 @@ import Link from "next/link"
 import styles from "./styles.module.scss"
 import { PageRoutes } from "@/shared/constants"
 import { ButtonLink, Button } from "@/shared/ui"
-import { IStory } from "../../model/types"
-import HeartIcon from "@/shared/assets/icons/heart.svg"
+import { Story } from "../../model/types"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import cn from "classnames"
 import Image from "next/image"
+import { ReactNode } from "react"
 
 type Props = {
-   data: IStory
+   data: Story
    type?: "default" | "preview"
    className?: string
+   likeBtn: ReactNode
 }
 
-export const StoryCard = ({ data, type = "default", className }: Props) => {
-   const { id, name, description, author, tags, img, passes, likes } = data
+export const StoryCard = ({ data, type = "default", likeBtn, className }: Props) => {
+   const { id, name, description, author, img, passes } = data
 
    return (
       <li className={cn(styles.wrap, className)}>
@@ -31,6 +32,7 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
                )}
 
                {img && type === "preview" && (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img src={img} alt={`Cover of the story "${name}"`} />
                )}
             </div>
@@ -44,12 +46,7 @@ export const StoryCard = ({ data, type = "default", className }: Props) => {
                   </Link>
 
                   <div className={styles.stats}>
-                     <div className={styles.statsItem}>
-                        <button className={styles.likeBtn}>
-                           <HeartIcon />
-                        </button>
-                        <p>{likes}</p>
-                     </div>
+                     <div className={styles.statsItem}>{likeBtn}</div>
                      <div className={styles.statsItem}>
                         <EyeIcon />
                         <p>{passes}</p>

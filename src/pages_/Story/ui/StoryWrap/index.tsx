@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import { StoryPreviewCard } from "../StoryPreviewCard"
-import { IStory } from "@/entities/Story"
+import { Story } from "@/entities/Story"
 import { PageScenes } from "../PageScenes"
 import { useScenes } from "@/entities/Scene/lib/hooks/useScenes"
 
 type Props = {
-   story: IStory
+   story: Story
 }
 
 export const StoryWrap = ({ story }: Props) => {

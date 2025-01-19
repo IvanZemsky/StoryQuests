@@ -7,7 +7,7 @@ export { StoriesSkeleton } from "./ui/StoriesSkeleton/StoriesSkeleton"
 export { useStories } from "./lib/hooks/useStories"
 export { BaseStoryField } from "./ui/BaseField/BaseStoryField"
 export { StoryCard } from "./ui/StoryCard/StoryCard"
-export type { IStory } from "./model/types"
+export type { Story } from "./model/types"
 export type {
    SortByScenesAmount,
    OrderBy,

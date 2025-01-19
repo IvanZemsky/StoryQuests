@@ -1,4 +1,4 @@
-import { IAnswer } from "../../Answer"
+import { Answer } from "../../Answer"
 import { SceneType } from "../model/types"
 
 export interface IApiScene {
@@ -9,5 +9,5 @@ export interface IApiScene {
    description: string
    img: string
    type: SceneType
-   answers: IAnswer[]
+   answers: Answer[]
 }

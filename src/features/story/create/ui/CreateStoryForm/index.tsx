@@ -5,6 +5,7 @@ import styles from "./styles.module.scss"
 import { StoryCard } from "@/entities/Story"
 import { useWatch, useForm, Controller } from "react-hook-form"
 import { getCardData } from "../../model/lib/getCardData"
+import { LikeStoryBtn } from "@/features/story/like/ui"
 
 type FormValues = {
    name: string
@@ -54,7 +55,12 @@ export const CreateStoryForm = ({ authorLogin }: { authorLogin: string }) => {
                )}
             />
          </div>
-         <StoryCard className={styles.preview} data={cardData} type="preview" />
+         <StoryCard
+            className={styles.preview}
+            data={cardData}
+            type="preview"
+            likeBtn={<LikeStoryBtn storyId="" likes={cardData.likes} disabled />}
+         />
       </div>
    )
 }

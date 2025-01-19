@@ -1,13 +1,13 @@
-import { IStory } from "@/entities/Story"
+import { Story } from "@/entities/Story"
 
 export const getCardData = ({
    name,
    description,
    img,
    authorLogin,
-}: Pick<IStory, "name" | "description" | "img"> & {
+}: Pick<Story, "name" | "description" | "img"> & {
    authorLogin: string
-}): IStory => ({
+}): Story => ({
    id: "",
    name: name || "Name of the story",
    description: description || "Description",
@@ -20,5 +20,6 @@ export const getCardData = ({
    sceneCount: 0,
    passes: 345,
    likes: 100,
+   isLiked: false,
    date: "",
 })

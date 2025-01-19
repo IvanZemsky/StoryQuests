@@ -1,6 +1,6 @@
-import { IAnswerEdge } from "@/entities/Answer";
+import { AnswerEdge } from "@/entities/Answer";
 
-export const initialEdges: IAnswerEdge[] = [
+export const initialEdges: AnswerEdge[] = [
    {
       id: "answer_1",
       type: "storyEdge",

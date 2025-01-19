@@ -1,6 +1,6 @@
 "use client"
 
-import { IAnswerEdge } from "@/entities/Answer"
+import { AnswerEdge } from "@/entities/Answer"
 import { SceneNode } from "@/entities/Scene"
 import { BaseEditModal, EditModalHeader } from "@/shared/ui"
 import { useReactFlow } from "@xyflow/react"
@@ -17,7 +17,7 @@ export const EditAnswerModal = ({ id }: Props) => {
 
    const textInput = register("text", answerOptions)
 
-   const { updateEdgeData, deleteElements } = useReactFlow<SceneNode, IAnswerEdge>()
+   const { updateEdgeData, deleteElements } = useReactFlow<SceneNode, AnswerEdge>()
 
    const modalContent = `${Modals.SceneAnswer}-${id}`
 

@@ -1,7 +1,7 @@
 import { z } from "zod"
 import { storyOrderBySchema, storySearchParamsSchema, storySortByLengthSchema } from "./schemas"
 
-export interface IStory {
+export type Story = {
    id: string
    name: string
    description: string
@@ -14,6 +14,7 @@ export interface IStory {
    sceneCount: number
    passes: number
    likes: number
+   isLiked: boolean
    date: string
 }
 
@@ -27,6 +28,6 @@ export type StoryFilters = StoryFiltersParams &{
 }
 
 export type StorySearchResult = {
-   stories: IStory[]
+   stories: Story[]
    totalCount: number
 }

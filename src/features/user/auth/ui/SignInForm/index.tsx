@@ -7,6 +7,7 @@ import { AuthFormLayout, userService } from "@/entities/User"
 import { useMutation } from "@tanstack/react-query"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { queryClient } from "@/shared/model"
 
 type SignInForm = {
    login: string
@@ -17,16 +18,19 @@ export const SignInForm = () => {
    const router = useRouter()
    const { register, handleSubmit } = useForm<SignInForm>()
 
-   const signUpMutation = useMutation({
+   const signInMutation = useMutation({
       mutationFn: userService.signIn,
-      onSuccess: () => router.replace(PageRoutes.Stories),
+      onSuccess: async () => {
+         await queryClient.refetchQueries({ queryKey: ["stories"] })
+         router.replace(PageRoutes.Stories)
+      }
    })
 
    const onSubmit = (data: SignInForm) => {
-      signUpMutation.mutate(data)
+      signInMutation.mutate(data)
    }
 
-   const error = signUpMutation.error
+   const error = signInMutation.error
 
    return (
       <AuthFormLayout
@@ -41,7 +45,7 @@ export const SignInForm = () => {
                   placeholder="Password"
                   {...register("password")}
                />
-               <Button type="submit" disabled={signUpMutation.isPending}>
+               <Button type="submit" disabled={signInMutation.isPending}>
                   Sign in
                </Button>
             </>

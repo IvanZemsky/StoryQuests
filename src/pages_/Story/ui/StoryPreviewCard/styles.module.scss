@@ -101,6 +101,14 @@
    flex-grow: 1;
    text-align: center;
    padding: 25px 18px 25px 18px;
+
+   .likeBtn {
+      gap: 5px;
+
+      & > p{
+         min-width: 0;
+      }
+   }
 }
 
 .title {
