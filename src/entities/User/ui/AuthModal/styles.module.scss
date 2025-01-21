@@ -1,0 +1,18 @@
+.modal{
+   background-color: rgba(0,0,0,0.5);
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   padding: 15px;
+   background-color: var(--primaryMain);
+   border-radius: 20px;
+}
+
+.buttons{
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}

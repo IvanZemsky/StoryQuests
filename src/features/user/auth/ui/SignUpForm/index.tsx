@@ -7,6 +7,7 @@ import { useMutation } from "@tanstack/react-query"
 import { AuthFormLayout, userService } from "@/entities/User"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { queryClient } from "@/shared/model"
 
 type SignUpForm = {
    login: string
@@ -19,7 +20,10 @@ export const SignUpForm = () => {
 
    const signUpMutation = useMutation({
       mutationFn: userService.signUp,
-      onSuccess: () => router.replace(PageRoutes.Stories),
+      onSuccess: async () => {
+         await queryClient.invalidateQueries({ queryKey: ["session"] })
+         router.replace(PageRoutes.Stories)
+      }
    })
 
    const onSubmit = (data: SignUpForm) => {

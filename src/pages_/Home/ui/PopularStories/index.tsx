@@ -1,20 +1,18 @@
 import { ButtonLink } from "@/shared/ui"
 import LongArrowRightIcon from "@/shared/assets/icons/arrow-right-long.svg"
 import styles from "./styles.module.scss"
-import { StoryCard, storyService } from "@/entities/Story"
+import { StoryCard } from "@/entities/Story"
 import { PageRoutes } from "@/shared/constants"
 import { LikeStoryBtn } from "@/features/story"
+import { cookies } from "next/headers"
+import { fetchPopularStories } from "../../lib/fetchPopularStories"
 
 export const PopularStories = async () => {
-   const result = await storyService.fetchStories({
-      limit: 4,
-      order: "popular",
-      page: 1,
-      search: "",
-      length: "",
-   })
+   const accessToken = cookies().get("access-token")
 
-   if (!result || !result.stories) {
+   const popular = await fetchPopularStories(accessToken)
+
+   if (!popular || !popular.stories) {
       return <p>Error</p>
    }
 
@@ -27,12 +25,16 @@ export const PopularStories = async () => {
             </ButtonLink>
          </div>
          <div className={styles.stories}>
-            {result.stories?.map((story) => (
+            {popular.stories?.map((story) => (
                <StoryCard
                   data={story}
                   key={story.id}
                   likeBtn={
-                     <LikeStoryBtn likes={story.likes} disabled storyId={story.id} />
+                     <LikeStoryBtn
+                        likes={story.likes}
+                        isLiked={story.isLiked}
+                        storyId={story.id}
+                     />
                   }
                />
             ))}

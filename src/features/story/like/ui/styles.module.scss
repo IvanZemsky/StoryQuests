@@ -1,21 +1,21 @@
-.wrap{
+.wrap {
    display: flex;
    align-items: center;
    gap: 10px;
 
-   button{
+   button {
       height: 26px;
    }
 
-   button.liked svg{
+   button.liked svg {
       fill: var(--secondaryText);
    }
 
-   p{
+   p {
       min-width: 50px;
    }
 
-   svg{
+   svg {
       width: 30px;
       stroke: var(--secondaryText);
    }

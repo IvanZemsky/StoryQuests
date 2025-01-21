@@ -2,8 +2,8 @@ import { modalStore } from "@/shared/model"
 
 const {openModal} = modalStore
 
-export const setModal = (type: string, id?: string): () => void => {
-   let modalContent = !!id ? `${type}-${id}` : `${type}`
+export const setModal = (name: string, id?: string): () => void => {
+   let modalContent = !!id ? `${name}-${id}` : `${name}`
 
    const handleModalOpen = () => {
       openModal(modalContent)

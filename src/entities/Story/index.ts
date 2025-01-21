@@ -3,10 +3,10 @@ export { storySearchParamsSchema } from "./model/schemas"
 export { storyQueries } from "./api/queries"
 export { storyService } from "./api/service"
 export { StoryHeader } from "./ui/StoryHeader/StoryHeader"
-export { StoriesSkeleton } from "./ui/StoriesSkeleton/StoriesSkeleton"
+export { StoriesSkeleton } from "./ui/StoriesSkeleton"
 export { useStories } from "./lib/hooks/useStories"
-export { BaseStoryField } from "./ui/BaseField/BaseStoryField"
-export { StoryCard } from "./ui/StoryCard/StoryCard"
+export { BaseStoryField } from "./ui/BaseField"
+export { StoryCard } from "./ui/StoryCard"
 export type { Story } from "./model/types"
 export type {
    SortByScenesAmount,

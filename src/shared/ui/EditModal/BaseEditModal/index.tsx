@@ -16,7 +16,11 @@ export const BaseEditModal = ({
    children,
 }: PropsWithChildren<Props>) => {
    return (
-      <Modal modalContent={modalContent} onClose={onClose} className={cn(styles.modal, styles[variant])}>
+      <Modal
+         modalContent={modalContent}
+         onClose={onClose}
+         className={cn(styles.modal, styles[variant])}
+      >
          <div className={styles.wrap}>
             <div className={styles.content}>{children}</div>
          </div>

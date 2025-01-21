@@ -4,6 +4,9 @@ import HeartIcon from "@/shared/assets/icons/heart.svg"
 import styles from "./styles.module.scss"
 import cn from "classnames"
 import { useToggleLike } from "../lib/useToggleLike"
+import { AuthModal, useSessionQuery } from "@/entities/User"
+import { setModal } from "@/shared/lib"
+import { Modals } from "@/shared/model"
 
 type Props = {
    storyId: string
@@ -20,26 +23,36 @@ export const LikeStoryBtn = ({
    isLiked = false,
    className,
 }: Props) => {
+   const { data, isError } = useSessionQuery()
    const { toggleLikeMutation, likeBtnState, toggleLikeState } = useToggleLike(storyId, {
       likes,
       isLiked,
    })
 
+   const openModal = setModal(Modals.AuthModal, storyId)
+
    const handleLikeBtnClick = () => {
+      if (!data) {
+         openModal()
+         return
+      }
       toggleLikeMutation.mutate()
       toggleLikeState()
    }
+
+   const disabledBtn = disabled || toggleLikeMutation.isPending
 
    return (
       <div className={cn(styles.wrap, className)}>
          <button
             className={cn({ [styles.liked]: likeBtnState.isLiked })}
-            disabled={disabled || toggleLikeMutation.isPending}
+            disabled={disabledBtn}
             onClick={handleLikeBtnClick}
          >
             <HeartIcon />
          </button>
          <p>{likeBtnState.likes}</p>
+         <AuthModal id={storyId}/>
       </div>
    )
 }

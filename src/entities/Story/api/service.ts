@@ -8,10 +8,17 @@ import { RawAxiosRequestHeaders } from "axios"
 const { Stories, Passes, Like } = APIEndpoints
 
 export const storyService = {
-   async fetchStories(params: StoryFilters) {
+   async fetchStories(params: StoryFilters, options?: { cookie?: string }) {
+      const headers: RawAxiosRequestHeaders = {}
+
+      if (options?.cookie) {
+         headers["Cookie"] = options.cookie
+      }
+
       try {
          const response = await api.get<ApiStory[]>(Stories, {
             params: { ...params },
+            headers,
          })
 
          const totalCount = +response.headers["x-total-count"]
@@ -55,7 +62,9 @@ export const storyService = {
 
    async toggleLike(storyId: string) {
       try {
-         const response = await api.patch<StoryLikeUpdateDto>(setPath(Stories, storyId, Like))
+         const response = await api.patch<StoryLikeUpdateDto>(
+            setPath(Stories, storyId, Like),
+         )
          return response.data
       } catch (error) {
          return null
