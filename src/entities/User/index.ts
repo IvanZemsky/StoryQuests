@@ -1,3 +1,6 @@
+export { ProfileCard } from "./ui/ProfileCard";
+export { ProfileHeader } from "./ui/ProfileHeader";
+export { UserPagelayout } from "./ui/UserPageLayout";
 export { AuthModal } from "./ui/AuthModal";
 export { AuthFormLayout } from "./ui/AuthFormLayout";
 export { useSessionQuery } from "./lib/hooks/useSessionQuery";

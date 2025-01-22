@@ -3,7 +3,7 @@ import { api, APIEndpoints } from "@/shared/api"
 import { GetSessionInfoDto, SignInDto, SignUpDto } from "./dto"
 import { setPath } from "@/shared/lib"
 
-const { SignIn, SignUp, SignOut, Auth, GetSessionInfo } = APIEndpoints
+const { SignIn, SignUp, SignOut, Auth, GetSessionInfo, Users } = APIEndpoints
 
 export const userService = {
    async signUp(dto: SignUpDto) {
@@ -29,6 +29,18 @@ export const userService = {
          const response: AxiosResponse<void> = await api.post(setPath(Auth, SignOut))
          return response.data
       } catch (error) {
+         throw error
+      }
+   },
+
+   async getUserById(userId: string) {
+      try {
+         const response: AxiosResponse<GetSessionInfoDto> = await api.get(
+            setPath(Users, userId),
+         )
+         return response.data
+      } catch (error) {
+         console.log(error)
          throw error
       }
    },

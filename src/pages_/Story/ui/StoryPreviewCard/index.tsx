@@ -4,7 +4,6 @@ import Link from "next/link"
 import { PageRoutes } from "@/shared/constants"
 import Image from "next/image"
 import { Button, Loading, Wrapper } from "@/shared/ui"
-import HeartIcon from "@/shared/assets/icons/heart.svg"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import { SetStateFn } from "@/shared/model"
 import cn from "classnames"
@@ -12,6 +11,7 @@ import ArrowLeftLongIcon from "@/shared/assets/icons/arrow-left-long.svg"
 import Diagram from "@/shared/assets/icons/diagram.svg"
 import Bookmark from "@/shared/assets/icons/bookmark.svg"
 import { LikeStoryBtn } from "@/features/story"
+import { setPath } from "@/shared/lib"
 
 const { Stories } = PageRoutes
 
@@ -66,7 +66,10 @@ export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) 
 
                      <div className={styles.infoItems}>
                         <div className={styles.infoItem}>
-                           <Link href={PageRoutes.Profile} className={styles.authorLink}>
+                           <Link
+                              href={setPath(PageRoutes.Users, author.id)}
+                              className={styles.authorLink}
+                           >
                               #{author.login}
                            </Link>
                         </div>

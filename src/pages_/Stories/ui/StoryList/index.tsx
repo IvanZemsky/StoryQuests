@@ -1,15 +1,18 @@
 "use client"
 
 import styles from "./styles.module.scss"
-import { StoriesSkeleton, StoryCard, useStories } from "@/entities/Story"
+import { StoriesSkeleton, useStories } from "@/entities/Story"
 import { PageBtns } from "@/shared/ui"
 import { STORIES_SEARCH_LIMIT } from "@/entities/Story/model/constants"
 import { useStoriesFilterParams } from "../../lib/hooks/useStoriesFilterParams"
-import { LikeStoryBtn } from "@/features/story"
+import { BaseStoriesList } from "@/widgets/StoriesList"
 
 export const StoryList = () => {
    const { filters, setParams, parseError } = useStoriesFilterParams()
-   const { data, isError, isPending } = useStories(filters)
+   const { data, isError, isPending } = useStories({
+      ...filters,
+      limit: STORIES_SEARCH_LIMIT,
+   })
 
    if (parseError || !filters) {
       return <p>Error: invalid search params</p>
@@ -21,29 +24,14 @@ export const StoryList = () => {
 
    if (isError) return <p>Error</p>
    if (isPending) return <StoriesSkeleton limit={STORIES_SEARCH_LIMIT} />
-   if (!data || !data.stories.length) return <p>No stories found</p>
+   if (!data?.stories.length) return <p>No stories found</p>
 
    const { stories, totalCount } = data
    const pageAmount = Math.ceil(totalCount / STORIES_SEARCH_LIMIT)
 
    return (
       <div className={styles.wrap}>
-         <div className={styles.list}>
-            {stories.map((story) => (
-               <StoryCard
-                  data={story}
-                  key={story.id}
-                  likeBtn={
-                     <LikeStoryBtn
-                        storyId={story.id}
-                        likes={story.likes}
-                        isLiked={story.isLiked}
-                     />
-                  }
-               />
-            ))}
-         </div>
-
+         <BaseStoriesList data={stories} />
          <PageBtns
             currentPage={Number(filters.page)}
             pageAmount={pageAmount}

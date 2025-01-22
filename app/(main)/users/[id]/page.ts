@@ -1,0 +1,1 @@
+export {User as default, generateMetadata} from '@/pages_/User'

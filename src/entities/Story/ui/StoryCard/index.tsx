@@ -6,7 +6,8 @@ import { Story } from "../../model/types"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import cn from "classnames"
 import Image from "next/image"
-import { ReactNode } from "react"
+import { memo, ReactNode } from "react"
+import { setPath } from "@/shared/lib"
 
 type Props = {
    data: Story
@@ -15,7 +16,7 @@ type Props = {
    likeBtn: ReactNode
 }
 
-export const StoryCard = ({ data, type = "default", likeBtn, className }: Props) => {
+export const StoryCard = memo(({ data, type = "default", likeBtn, className }: Props) => {
    const { id, name, description, author, img, passes } = data
 
    return (
@@ -41,7 +42,10 @@ export const StoryCard = ({ data, type = "default", likeBtn, className }: Props)
                <p className={styles.desc}>{description}</p>
 
                <div className={styles.controls}>
-                  <Link href={PageRoutes.Profile} className={styles.authorLink}>
+                  <Link
+                     href={setPath(PageRoutes.Users, author.id)}
+                     className={styles.authorLink}
+                  >
                      #{author.login}
                   </Link>
 
@@ -65,4 +69,6 @@ export const StoryCard = ({ data, type = "default", likeBtn, className }: Props)
          </div>
       </li>
    )
-}
+})
+
+StoryCard.displayName = "StoryCard"

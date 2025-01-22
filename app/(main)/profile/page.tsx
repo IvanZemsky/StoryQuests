@@ -1,1 +1,1 @@
-export {Profile as default} from '@/pages_/Profile'
+export {Profile as default, metadata} from '@/pages_/Profile'

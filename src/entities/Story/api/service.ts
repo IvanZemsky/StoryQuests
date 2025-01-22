@@ -17,19 +17,31 @@ export const storyService = {
 
       try {
          const response = await api.get<ApiStory[]>(Stories, {
-            params: { ...params },
+            params: { ...params, },
             headers,
          })
 
          const totalCount = +response.headers["x-total-count"]
          const stories = response.data.map((story: ApiStory) => storyAdapter(story))
 
+         let next: number | null = null
+         if (stories.length > 0 && params.limit) {
+            if (params.page === undefined) {
+               next = 2
+            } else if (totalCount > params.limit * params.page) {
+               next = params.page + 1
+            } else {
+               next = null
+            }
+         }
+
          return {
             stories,
             totalCount,
+            next,
          }
       } catch (error) {
-         return null
+         throw new Error()
       }
    },
 

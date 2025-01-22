@@ -5,6 +5,7 @@ import { PageRoutes } from "@/shared/constants"
 import { queryClient } from "@/shared/model"
 import { Button } from "@/shared/ui"
 import { useMutation } from "@tanstack/react-query"
+import styles from "./styles.module.scss"
 
 export const SignOutBtn = () => {
    const signOutMutation = useMutation({
@@ -19,5 +20,9 @@ export const SignOutBtn = () => {
       signOutMutation.mutate()
    }
 
-   return <Button onClick={handleClick}>Sign out</Button>
+   return (
+      <Button onClick={handleClick} className={styles.button}>
+         Sign out
+      </Button>
+   )
 }

@@ -3,9 +3,6 @@ import { CheckData } from "@/shared/model"
 
 export const baseParams: StoryFiltersParams = {
    page: 1,
-   order: null,
-   length: null,
-   search: null,
 }
 
 export const orderData: CheckData[] = [
