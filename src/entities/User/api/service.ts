@@ -49,7 +49,7 @@ export const userService = {
       const headers: RawAxiosRequestHeaders = {}
 
       if (options?.cookie) {
-         headers["Cookie"] = options.cookie
+         headers["Set-Cookie"] = options.cookie
       }
 
       try {
