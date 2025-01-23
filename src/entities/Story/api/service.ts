@@ -12,7 +12,7 @@ export const storyService = {
       const headers: RawAxiosRequestHeaders = {}
 
       if (options?.cookie) {
-         headers["Set-Cookie"] = options.cookie
+         headers["Cookie"] = options.cookie
       }
 
       try {
@@ -49,7 +49,7 @@ export const storyService = {
       const headers: RawAxiosRequestHeaders = {}
 
       if (options?.cookie) {
-         headers["Set-Cookie"] = options.cookie
+         headers["Cookie"] = options.cookie
       }
 
       try {
