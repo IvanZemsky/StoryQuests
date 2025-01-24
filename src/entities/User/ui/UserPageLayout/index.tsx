@@ -1,6 +1,6 @@
-import { Wrapper } from "@/shared/ui";
+import { Wrapper } from "@/shared/ui"
 import styles from "./styles.module.scss"
-import { ReactNode } from "react";
+import { ReactNode } from "react"
 
 type Props = {
    header: ReactNode
@@ -8,8 +8,8 @@ type Props = {
    storiesList: ReactNode
 }
 
-export const UserPagelayout = ({header, userCard,storiesList}: Props) => {
-   return ( 
+export const UserPagelayout = ({ header, userCard, storiesList }: Props) => {
+   return (
       <Wrapper className={styles.wrapper}>
          <div className={styles.content}>
             {header}
@@ -17,5 +17,5 @@ export const UserPagelayout = ({header, userCard,storiesList}: Props) => {
             {storiesList}
          </div>
       </Wrapper>
-   );
+   )
 }

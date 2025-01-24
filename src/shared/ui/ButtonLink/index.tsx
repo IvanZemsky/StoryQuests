@@ -2,12 +2,13 @@ import { ComponentProps, ReactNode } from "react"
 import styles from "../styles/button.module.scss"
 import Link from "next/link"
 import cn from "classnames"
+import { Url } from "next/dist/shared/lib/router/router"
 
 type Props = {
    variant?: "outlined" | "filled" | "gradient"
    color?: "primary" | "secondary"
    defaultHover?: boolean
-   href: string
+   href: Url
    uppercase?: boolean
    disabled?: boolean
    leftIcon?: ReactNode

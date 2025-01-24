@@ -6,6 +6,8 @@ import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
 import { ReactNode } from "react"
 import Image from "next/image"
 
+const { Stories, Results } = PageRoutes
+
 type Props = {
    selectAnswer: ReactNode
    currentSceneId: string | null
@@ -19,7 +21,7 @@ export const BaseScene = ({
    selectAnswer,
    disabledLink = false,
 }: Props) => {
-   const { title, description, type, img } = data
+   const { title, description, type, img, storyId } = data
 
    return (
       <SwitchFade switchKey={currentSceneId} timeout={300}>
@@ -44,7 +46,7 @@ export const BaseScene = ({
                ) : (
                   <ButtonLink
                      variant="filled"
-                     href={PageRoutes.Home}
+                     href={`${Stories}/${storyId}${Results}`}
                      className={styles.endBtn}
                      leftIcon={<ArrowRightIcon />}
                      defaultHover={false}

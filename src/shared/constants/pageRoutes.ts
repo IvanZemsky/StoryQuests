@@ -1,4 +1,5 @@
 export enum PageRoutes {
+   Results = "/results",
    Stories = "/stories",
    Home = "/",
    Profile = "/profile",

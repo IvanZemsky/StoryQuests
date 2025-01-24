@@ -22,8 +22,10 @@ export const SignUpForm = () => {
       mutationFn: userService.signUp,
       onSuccess: async () => {
          await queryClient.invalidateQueries({ queryKey: ["session"] })
+         await queryClient.refetchQueries({ queryKey: ["stories"] })
          router.replace(PageRoutes.Stories)
-      }
+         router.refresh()
+      },
    })
 
    const onSubmit = (data: SignUpForm) => {

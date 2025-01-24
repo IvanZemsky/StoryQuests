@@ -12,7 +12,7 @@ export function middleware(req: NextRequest) {
    const accessToken = req.cookies.get("access-token")
 
    if (
-      (pathname.startsWith("sign-in") || pathname.startsWith("/sign-up")) &&
+      (pathname.startsWith("/sign-in") || pathname.startsWith("/sign-up")) &&
       accessToken
    ) {
       url.pathname = "/profile"
@@ -27,7 +27,7 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(url)
    }
 
-   if (pathname.startsWith("/stories") && !url.searchParams.has("page")) {
+   if (pathname === "/stories" && !url.searchParams.has("page")) {
       url.searchParams.set("page", "1")
       return NextResponse.redirect(url)
    }

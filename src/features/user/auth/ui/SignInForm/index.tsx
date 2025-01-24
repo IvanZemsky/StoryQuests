@@ -24,6 +24,7 @@ export const SignInForm = () => {
          await queryClient.invalidateQueries({ queryKey: ["session"] })
          await queryClient.refetchQueries({ queryKey: ["stories"] })
          router.replace(PageRoutes.Stories)
+         router.refresh()
       },
    })
 
