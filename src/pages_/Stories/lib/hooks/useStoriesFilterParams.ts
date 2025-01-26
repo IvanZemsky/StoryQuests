@@ -1,11 +1,11 @@
-import { StoryFiltersParams, storySearchParamsSchema } from "@/entities/Story"
+import { StoryFiltersParams, StorySearchParamsSchema } from "@/entities/Story"
 import { createQueryParamsString, useTypedSearchParams } from "@/shared/lib"
 import { usePathname, useRouter } from "next/navigation"
 
 export function useStoriesFilterParams() {
    const router = useRouter()
    const pathname = usePathname()
-   const searchParams = useTypedSearchParams(storySearchParamsSchema)
+   const searchParams = useTypedSearchParams(StorySearchParamsSchema)
 
    const setParams = (params: StoryFiltersParams) => {
       const initialParams = searchParams.data as Record<string, string> | undefined

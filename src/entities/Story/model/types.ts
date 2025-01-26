@@ -1,8 +1,8 @@
 import { z } from "zod"
 import {
-   storyOrderBySchema,
-   storySearchParamsSchema,
-   storySortByLengthSchema,
+   StoryOrderBySchema,
+   StorySearchParamsSchema,
+   StorySortByLengthSchema,
 } from "./schemas"
 
 export type Story = {
@@ -22,10 +22,10 @@ export type Story = {
    date: string
 }
 
-export type SortByScenesAmount = z.infer<typeof storySortByLengthSchema>
-export type OrderBy = z.infer<typeof storyOrderBySchema>
+export type SortByScenesAmount = z.infer<typeof StorySortByLengthSchema>
+export type OrderBy = z.infer<typeof StoryOrderBySchema>
 
-export type StoryFiltersParams = z.infer<typeof storySearchParamsSchema>
+export type StoryFiltersParams = z.infer<typeof StorySearchParamsSchema>
 
 export type StoryFilters = StoryFiltersParams & {
    limit?: number

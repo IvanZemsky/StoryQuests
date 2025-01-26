@@ -1,21 +1,12 @@
 import { Story } from "../../model/types"
-import { ApiStory } from "../types"
+import { GetStoryDto } from "../dto"
 
-export const storyAdapter = (apiData: ApiStory): Story => {
+export const storyAdapter = (dto: GetStoryDto): Story => {
+   const { _id, ...story } = dto
+   const { _id: authorId, ...author } = dto.author
    return {
-      id: apiData._id,
-      name: apiData.name,
-      description: apiData.description,
-      img: apiData.img,
-      author: {
-         id: apiData.author._id,
-         login: apiData.author.login,
-      },
-      isLiked: apiData.isLiked,
-      tags: apiData.tags,
-      sceneCount: apiData.sceneCount,
-      passes: apiData.passes,
-      likes: apiData.likes,
-      date: apiData.date,
+      id: _id,
+      ...story,
+      author: { ...author, id: authorId },
    }
 }

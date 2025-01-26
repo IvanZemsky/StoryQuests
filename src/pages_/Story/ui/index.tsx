@@ -1,13 +1,12 @@
 import { cookies } from "next/headers"
 import { Page } from "../model/types"
 import { StoryWrap } from "./StoryWrap"
-import { storyService } from "@/entities/Story"
+import { fetchStory } from "../lib/fetchStory"
 
 export const Story = async ({ params }: Page) => {
    const accessToken = cookies().get("access-token")
-   const story = await storyService.fetchStoryById(params.id, {
-      cookie: `${accessToken?.name}=${accessToken?.value}`,
-   })
+   const story = await fetchStory(params.id, accessToken)
+   console.log(story)
 
    if (!story) {
       return <p>Error</p>

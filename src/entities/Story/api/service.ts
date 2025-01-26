@@ -1,9 +1,11 @@
 import { api, APIEndpoints } from "@/shared/api"
 import { storyAdapter } from "./adapters/storyAdapter"
-import { ApiStory, StoryLikeUpdateDto, StoryPassesUpdateDto } from "./types"
-import { StoryFilters } from "../model/types"
+import { GetStoryDto, StoryLikeUpdateDto, StoryPassesUpdateDto } from "./dto"
+import { Story, StoryFilters } from "../model/types"
 import { setPath } from "@/shared/lib"
 import { RawAxiosRequestHeaders } from "axios"
+import { ApiStorySchema } from "../model/schemas"
+import { z, ZodError } from "zod"
 
 const { Stories, Passes, Like } = APIEndpoints
 
@@ -16,13 +18,17 @@ export const storyService = {
       }
 
       try {
-         const response = await api.get<ApiStory[]>(Stories, {
-            params: { ...params, },
+         const response = await api.get<GetStoryDto[]>(Stories, {
+            params: { ...params },
             headers,
          })
 
+         const parsedData = z.array(ApiStorySchema).parse(response.data)
+         const stories: Story[] = parsedData.map((story: GetStoryDto) =>
+            storyAdapter(story),
+         )
+
          const totalCount = +response.headers["x-total-count"]
-         const stories = response.data.map((story: ApiStory) => storyAdapter(story))
 
          let next: number | null = null
          if (stories.length > 0 && params.limit) {
@@ -41,11 +47,15 @@ export const storyService = {
             next,
          }
       } catch (error) {
+         console.error(error)
+         if (error instanceof ZodError) {
+            throw error
+         }
          throw new Error()
       }
    },
 
-   async fetchStoryById(id: string, options?: { cookie?: string }) {
+   async fetchStoryById(id: string, options?: { cookie?: string }): Promise<Story> {
       const headers: RawAxiosRequestHeaders = {}
 
       if (options?.cookie) {
@@ -53,11 +63,20 @@ export const storyService = {
       }
 
       try {
-         const response = await api.get<ApiStory>(setPath(Stories, id), { headers })
-         const story = storyAdapter(response.data)
+         const response = await api.get<GetStoryDto>(setPath(Stories, id), { headers })
+
+         const parsedData = ApiStorySchema.parse(response.data)
+         const story: Story = storyAdapter(parsedData)
+         
          return story
       } catch (error) {
-         return null
+         console.error(error)
+
+         if (error instanceof ZodError) {
+            throw new Error()
+         }
+
+         throw new Error()
       }
    },
 
@@ -68,7 +87,7 @@ export const storyService = {
          )
          return response.data
       } catch (error) {
-         return null
+         throw new Error()
       }
    },
 
@@ -79,7 +98,7 @@ export const storyService = {
          )
          return response.data
       } catch (error) {
-         return null
+         throw new Error()
       }
    },
 }

@@ -1,6 +1,6 @@
 export { useInfiniteStories } from "./lib/hooks/useInfiniteStories"
 export { STORIES_SEARCH_LIMIT, STORY_FIRST_SCENE } from "./model/constants"
-export { storySearchParamsSchema } from "./model/schemas"
+export { StorySearchParamsSchema } from "./model/schemas"
 export { storyQueries } from "./api/queries"
 export { storyService } from "./api/service"
 export { StoryHeader } from "./ui/StoryHeader/StoryHeader"
