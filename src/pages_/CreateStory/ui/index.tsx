@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 export const CreateStory = async () => {
-   const accessToken = cookies().get("access-token")
+   const accessToken = (await cookies()).get("access-token")
    
    const session = await userService.getSessionInfo({
       cookie: `${accessToken?.name}=${accessToken?.value}`,

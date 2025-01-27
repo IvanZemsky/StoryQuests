@@ -1,3 +1,4 @@
+export { storyAdapter } from "./api/adapters/storyAdapter"
 export { useInfiniteStories } from "./lib/hooks/useInfiniteStories"
 export { STORIES_SEARCH_LIMIT, STORY_FIRST_SCENE } from "./model/constants"
 export { StorySearchParamsSchema } from "./model/schemas"

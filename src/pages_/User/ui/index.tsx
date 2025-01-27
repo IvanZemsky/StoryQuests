@@ -6,7 +6,8 @@ import { Page } from "../model/types"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
-export const User = async ({ params }: Page) => {
+export const User = async (props: Page) => {
+   const params = await props.params
    const accessToken = (await cookies()).get("access-token")
    const session = await userService.getSessionInfo({
       cookie: `${accessToken?.name}=${accessToken?.value}`,
