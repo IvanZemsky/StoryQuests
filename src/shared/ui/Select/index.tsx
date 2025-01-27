@@ -48,7 +48,7 @@ export const Select = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
                {group?.map((check) => (
                   <Check
                      key={check.id}
-                     onInput={handleCheck}
+                     onChange={handleCheck}
                      {...check}
                      {...attributes}
                      ref={ref}

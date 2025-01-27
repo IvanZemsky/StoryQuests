@@ -1,24 +1,23 @@
-import { ComponentProps, forwardRef, Ref } from "react"
+"use client"
+
+import { ComponentProps } from "react"
 import styles from "./styles.module.scss"
-import { Check } from "../Check"
-import { CheckData } from "@/shared/model"
+import cn from "classnames"
+import { SwitcherGroupContext } from "./context"
+import { SwitcherGroupCheck } from "./SwitcherGroupCheck"
 
-type Props = {
+type Props = ComponentProps<"input"> & {
    variant?: "row" | "column"
-   group?: CheckData[]
-} & ComponentProps<"input">
+}
 
-export const SwitcherGroup = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
-   const { variant = "row", group, className, onClick, children, ...attributes } = props
+export const SwitcherGroup = (props: Props) => {
+   const { variant = "row", className, name, onChange, value = "", children } = props
 
    return (
-      <div className={[styles.content, className, styles[variant]].join(" ")}>
-         {group?.map((check) => (
-            <Check key={check.id} {...check} {...attributes} ref={ref} />
-         ))}
-         {children}
-      </div>
+      <SwitcherGroupContext.Provider value={{ value, name, onChange }}>
+         <div className={cn(styles.content, className, styles[variant])}>{children}</div>
+      </SwitcherGroupContext.Provider>
    )
-})
+}
 
-SwitcherGroup.displayName = "SwitcherGroup"
+SwitcherGroup.Check = SwitcherGroupCheck

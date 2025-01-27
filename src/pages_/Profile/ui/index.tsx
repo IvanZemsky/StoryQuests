@@ -5,7 +5,7 @@ import { ProfileCard, ProfileHeader, UserPagelayout, userService } from "@/entit
 import { ProfileStoriesList } from "@/widgets/StoriesList"
 
 export const Profile = async () => {
-   const accessToken = cookies().get("access-token")
+   const accessToken = (await cookies()).get("access-token")
    const profileData = await userService.getSessionInfo({
       cookie: `${accessToken?.name}=${accessToken?.value}`,
    })

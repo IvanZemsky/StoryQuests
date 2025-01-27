@@ -4,7 +4,7 @@ import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
-import { baseParams, filterData, orderData } from "../../model/formData"
+import { baseParams, filterData } from "../../model/formData"
 import { Controller, useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
 import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
@@ -45,10 +45,25 @@ export const StoriesFilters = () => {
    return (
       <header>
          <form className={styles.content} onSubmit={handleSubmit(onSubmit)}>
-            <SwitcherGroup
-               className={styles.sort}
-               group={orderData}
-               {...register("order")}
+            <Controller
+               control={control}
+               name="order"
+               render={({ field }) => (
+                  <SwitcherGroup
+                     name="order"
+                     className={styles.sort}
+                     value={field.value}
+                     onChange={field.onChange}
+                  >
+                     <SwitcherGroup.Check text="New" value="new" id="order_new" />
+                     <SwitcherGroup.Check
+                        text="Popular"
+                        value="popular"
+                        id="order_popular"
+                     />
+                     <SwitcherGroup.Check text="Best" value="best" id="order_best" />
+                  </SwitcherGroup>
+               )}
             />
 
             <Controller

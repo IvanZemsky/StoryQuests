@@ -6,6 +6,7 @@ const { Scenes } = APIEndpoints
 
 export const sceneService = {
    async fetchScenesByStoryId(storyId: string) {
+      console.log(storyId)
       try {
          const response = await api.get<IApiScene[]>(Scenes, {
             params: {

@@ -2,7 +2,8 @@ import { storyService } from "@/entities/Story"
 import { Metadata } from "next"
 import { Page } from "./types"
 
-export const generateMetadata = async ({ params }: Page) => {
+export const generateMetadata = async (props: Page) => {
+   const params = await props.params
    try {
       const data = await storyService.fetchStoryById(params.id)
       return {

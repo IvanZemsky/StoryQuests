@@ -7,7 +7,7 @@ import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
 export const User = async ({ params }: Page) => {
-   const accessToken = cookies().get("access-token")
+   const accessToken = (await cookies()).get("access-token")
    const session = await userService.getSessionInfo({
       cookie: `${accessToken?.name}=${accessToken?.value}`,
    })

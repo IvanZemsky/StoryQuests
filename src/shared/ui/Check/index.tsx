@@ -1,40 +1,29 @@
-"use client"
-
 import {
-   ChangeEvent,
    ComponentProps,
    forwardRef,
    MouseEventHandler,
    Ref,
-   useState,
 } from "react"
 import styles from "./styles.module.scss"
 import { Button } from ".."
 import cn from "classnames"
 
-type Props = ComponentProps<"input"> & {
+export type CheckProps = ComponentProps<"input"> & {
    text: string
    fillContainer?: boolean
    onDoubleClick?: MouseEventHandler<HTMLDivElement>
 }
 
-export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+export const Check = forwardRef((props: CheckProps, ref: Ref<HTMLInputElement>) => {
    const {
       fillContainer = false,
       checked = false,
       text,
       className,
-      onInput,
+      onChange,
       onDoubleClick,
       ...attributes
    } = props
-
-   const [isChecked, setIsChecked] = useState(checked)
-
-   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
-      onInput?.(event)
-      setIsChecked(checked)
-   }
 
    return (
       <div
@@ -43,8 +32,8 @@ export const Check = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
       >
          <input
             type="radio"
-            defaultChecked={isChecked}
-            onInput={handleInput}
+            checked={checked}
+            onChange={onChange}
             {...attributes}
             ref={ref}
          />

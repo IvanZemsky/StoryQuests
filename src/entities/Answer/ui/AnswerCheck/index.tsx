@@ -1,4 +1,4 @@
-import { Check } from "@/shared/ui"
+import { SwitcherGroup } from "@/shared/ui"
 import { Answer } from "../../model/types"
 import { ComponentProps, MouseEventHandler } from "react"
 
@@ -11,9 +11,9 @@ export const AnswerCheck = ({ data, className, onDoubleClick, ...attributes }: P
    const { text, nextSceneId, id } = data
 
    return (
-      <Check
+      <SwitcherGroup.Check
          fillContainer
-         name="answer"
+         value={nextSceneId}
          id={id + nextSceneId}
          text={text}
          className={className}

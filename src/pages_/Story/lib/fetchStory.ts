@@ -1,5 +1,7 @@
 
+import { storyAdapter } from "@/entities/Story/api/adapters/storyAdapter";
 import { api } from "@/shared/api";
+import { notFound } from "next/navigation";
 
 export async function fetchStory(
    storyId: string,
@@ -12,11 +14,15 @@ export async function fetchStory(
          }
       })
 
+      if (res.status === 404) {
+         notFound()
+      }
+
       if (res.status !== 200) {
          return null
       }
 
-      return res.data
+      return storyAdapter(res.data)
    } catch (error) {
       return null
    }

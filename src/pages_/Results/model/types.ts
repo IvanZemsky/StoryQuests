@@ -1,5 +1,5 @@
 export type Page = {
-   params: {
+   params: Promise<{
       id: string
-   }
+   }>
 }
