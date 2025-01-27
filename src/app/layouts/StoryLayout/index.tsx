@@ -4,13 +4,14 @@ import { StoryHeader, storyService } from "@/entities/Story"
 
 type Props = {
    children: ReactNode,
-   params: {
+   params: Promise<{
       id: string
-   }
+   }>
 }
 
 export const StoryLayout = async ({ children, params }: Props) => {
-   const story = await storyService.fetchStoryById(params.id)
+   const {id} = await params
+   const story = await storyService.fetchStoryById(id)
 
    return (
       <div className={styles.app}>

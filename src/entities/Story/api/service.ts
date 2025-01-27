@@ -5,7 +5,7 @@ import { Story, StoryFilters } from "../model/types"
 import { setPath } from "@/shared/lib"
 import { RawAxiosRequestHeaders } from "axios"
 import { ApiStorySchema } from "../model/schemas"
-import { z, ZodError } from "zod"
+import { z } from "zod"
 
 const { Stories, Passes, Like } = APIEndpoints
 
@@ -23,8 +23,13 @@ export const storyService = {
             headers,
          })
 
-         const parsedData = z.array(ApiStorySchema).parse(response.data)
-         const stories: Story[] = parsedData.map((story: GetStoryDto) =>
+         const parsedData = z.array(ApiStorySchema).safeParse(response.data)
+
+         if (!parsedData.success) {
+            console.error("Zod validation error:", parsedData.error)
+         }
+
+         const stories: Story[] = response.data.map((story: GetStoryDto) =>
             storyAdapter(story),
          )
 
@@ -48,14 +53,11 @@ export const storyService = {
          }
       } catch (error) {
          console.error(error)
-         if (error instanceof ZodError) {
-            throw error
-         }
-         throw new Error()
+         throw error
       }
    },
 
-   async fetchStoryById(id: string, options?: { cookie?: string }): Promise<Story> {
+   async fetchStoryById(id: string, options?: { cookie?: string }) {
       const headers: RawAxiosRequestHeaders = {}
 
       if (options?.cookie) {
@@ -65,18 +67,16 @@ export const storyService = {
       try {
          const response = await api.get<GetStoryDto>(setPath(Stories, id), { headers })
 
-         const parsedData = ApiStorySchema.parse(response.data)
-         const story: Story = storyAdapter(parsedData)
-         
-         return story
-      } catch (error) {
-         console.error(error)
+         const parsed = ApiStorySchema.safeParse(response.data)
 
-         if (error instanceof ZodError) {
-            throw new Error()
+         if (!parsed.success) {
+            console.warn("Zod validation error:", parsed.error)
          }
 
-         throw new Error()
+         const story: Story = storyAdapter(response.data)
+         return story
+      } catch (error) {
+         throw error
       }
    },
 

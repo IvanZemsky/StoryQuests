@@ -1,14 +1,22 @@
-import { storyService } from "@/entities/Story"
+
+import { api } from "@/shared/api";
 
 export async function fetchStory(
    storyId: string,
    accessToken: { name: string; value: string } | undefined,
 ) {
    try {
-      const story = await storyService.fetchStoryById(storyId, {
-         cookie: `${accessToken?.name}=${accessToken?.value}`,
+      const res = await api.get('stories/' + storyId, {
+         headers: {
+            cookie: `${accessToken?.name}=${accessToken?.value}`,
+         }
       })
-      return story
+
+      if (res.status !== 200) {
+         return null
+      }
+
+      return res.data
    } catch (error) {
       return null
    }

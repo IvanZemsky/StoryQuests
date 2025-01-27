@@ -3,8 +3,9 @@ import { storyService } from "@/entities/Story"
 import { Page } from "./types"
 
 export const generateMetadata = async ({ params }: Page) => {
+   const {id} = await params
    try {
-      const data = await storyService.fetchStoryById(params.id)
+      const data = await storyService.fetchStoryById(id)
       return {
          title: data?.name || "Story not found",
       } as Metadata

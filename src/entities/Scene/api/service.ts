@@ -7,12 +7,19 @@ const { Scenes } = APIEndpoints
 export const sceneService = {
    async fetchScenesByStoryId(storyId: string) {
       try {
-         const { data } = await api.get<IApiScene[]>(Scenes, {
+         const response = await api.get<IApiScene[]>(Scenes, {
             params: {
                storyId,
             },
          })
-         return data.map((scene) => sceneAdapter(scene))
+
+         // const parsed = ApiSceneSchema.safeParse(response.data)
+
+         // if (!parsed.success) {
+         //    console.warn("Zod validation error:", parsed.error)
+         // }
+
+         return response.data.map((scene) => sceneAdapter(scene))
       } catch (error) {
          return null
       }

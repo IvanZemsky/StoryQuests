@@ -8,7 +8,7 @@ import { cookies } from "next/headers"
 import { fetchPopularStories } from "../../lib/fetchPopularStories"
 
 export const PopularStories = async () => {
-   const accessToken = cookies().get("access-token")
+   const accessToken = (await cookies()).get("access-token")
 
    const popular = await fetchPopularStories(accessToken)
 
