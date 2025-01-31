@@ -1,4 +1,4 @@
-import { makeAutoObservable, toJS } from "mobx";
+import { makeAutoObservable } from "mobx";
 import { SceneNodeData, SceneNode, Scene } from '@/entities/Scene';
 import { AnswerEdge } from '@/entities/Answer';
 
@@ -14,7 +14,6 @@ class StoryCreationStore {
 
    saveNodes = (nodes: SceneNode[]): void => {
       this.nodes = nodes
-      console.log(toJS(nodes))
    }
 
    saveEdges = (edges: AnswerEdge[]): void => {

@@ -14,7 +14,7 @@ export const StoryPreview = observer(() => {
       if (opened === Modals.StoryPreview) {
          validate()
       }
-   }, [opened])
+   }, [opened, validate])
 
    if (!isValid) {
       return <NotValidStoryModal />

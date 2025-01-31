@@ -1,17 +1,14 @@
-import { UserPagelayout, ProfileHeader, ProfileCard, userService } from "@/entities/User"
+import { UserPagelayout, ProfileHeader, ProfileCard } from "@/entities/User"
 import { Wrapper } from "@/shared/ui"
 import { ProfileStoriesList } from "@/widgets/StoriesList"
 import { fetchUserById } from "../lib/fetchUserById"
 import { Page } from "../model/types"
-import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import { verifyServerSession } from "@/features/user"
 
 export const User = async (props: Page) => {
    const params = await props.params
-   const accessToken = (await cookies()).get("access-token")
-   const session = await userService.getSessionInfo({
-      cookie: `${accessToken?.name}=${accessToken?.value}`,
-   })
+   const session = await verifyServerSession()
 
    if (session?.id === params.id) {
       redirect("/profile")

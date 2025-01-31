@@ -13,8 +13,6 @@ type Props = {
 export const StoryWrap = ({ story }: Props) => {
    const [isStoryStarted, setIsStoryStarted] = useState(false)
 
-   console.log(story)
-
    const { data, isPending, isError } = useScenes(story.id, isStoryStarted)
 
    if ((!data && !isPending) || isError) {

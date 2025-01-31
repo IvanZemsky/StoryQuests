@@ -1,4 +1,4 @@
-.top{
+.top {
    position: relative;
    display: grid;
    grid-template-columns: 1fr 339px;
@@ -6,34 +6,7 @@
    gap: 33px;
 }
 
-.inputs{
-   display: flex;
-   flex-direction: column;
-   gap: 25px;
-
-   input{
-      height: 50px;
-   }
-
-   input, textarea{
-      font-size: 16px;
-   }
-
-   textarea{
-      height: 157px;
-      overflow-y: auto;
-   }
-}
-
-.imageLoad{
-   height: 320px;
-
-   img {
-      max-height: 225px;
-   }
-}
-
-.preview{
+.preview {
    position: sticky;
    top: 10px;
    left: 0;
@@ -41,12 +14,12 @@
 }
 
 @media screen and (max-width: 800px) {
-   .top{
+   .top {
       grid-template-rows: auto auto;
       grid-template-columns: 1fr;
    }
 
-   .preview{
+   .preview {
       max-width: 400px;
       width: 100%;
       margin: 0 auto;

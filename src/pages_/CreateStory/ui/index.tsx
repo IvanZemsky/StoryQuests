@@ -1,23 +1,17 @@
 import { Wrapper } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import { Metadata } from "next"
-import { ReactFlowProvider } from "@xyflow/react"
-import { CreateStoryFormButtons, CreateStoryForm } from "@/features/story"
+import { CreateStoryForm } from "@/features/story"
 import { StoryPreview } from "./StoryPreview"
-import { StoryField } from "@/widgets/StoryField"
-import { userService } from "@/entities/User"
-import { cookies } from "next/headers"
+import { StoryCreationField } from "./StoryCreationField"
+import { verifyServerSession } from "@/features/user"
 
 export const metadata: Metadata = {
    title: "Story creation",
 }
 
 export const CreateStory = async () => {
-   const accessToken = (await cookies()).get("access-token")
-   
-   const session = await userService.getSessionInfo({
-      cookie: `${accessToken?.name}=${accessToken?.value}`,
-   })
+   const session = await verifyServerSession()
 
    if (!session) {
       return <p>Error</p>
@@ -27,17 +21,13 @@ export const CreateStory = async () => {
       <Wrapper className={styles.wrapper}>
          <div className={styles.content}>
             <h1 className={styles.title}>Quest creation</h1>
-            <form className={styles.form}>
-               <CreateStoryForm authorLogin={session.login} />
 
-               <ReactFlowProvider>
-                  <StoryField />
-               </ReactFlowProvider>
+            <CreateStoryForm
+               authorLogin={session.login}
+               field={<StoryCreationField/>}
+            />
 
-               <StoryPreview />
-
-               <CreateStoryFormButtons />
-            </form>
+            <StoryPreview />
          </div>
       </Wrapper>
    )

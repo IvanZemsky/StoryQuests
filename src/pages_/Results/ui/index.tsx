@@ -1,9 +1,7 @@
 import { Wrapper } from "@/shared/ui";
 
-type Props = {
- 
-}
-export const Results = ({}: Props) => {
+
+export const Results = () => {
    return ( 
       <Wrapper>
          Results page

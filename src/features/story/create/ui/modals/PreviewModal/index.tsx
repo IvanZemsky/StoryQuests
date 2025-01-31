@@ -5,8 +5,7 @@ import styles from "./styles.module.scss"
 import { observer } from "mobx-react"
 import { storyCreationStore } from "@/features/story"
 import { ReactNode } from "react"
-import { modalStore } from "@/shared/model"
-import { Modals } from "@/shared/model/modals/modals"
+import { modalStore, Modals } from "@/shared/model"
 
 type Props = {
    scene: ReactNode

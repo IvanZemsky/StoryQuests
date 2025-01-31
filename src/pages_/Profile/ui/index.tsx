@@ -1,14 +1,10 @@
-import { SignOutBtn } from "@/features/user"
+import { SignOutBtn, verifyServerSession } from "@/features/user"
 import { Wrapper } from "@/shared/ui"
-import { cookies } from "next/headers"
-import { ProfileCard, ProfileHeader, UserPagelayout, userService } from "@/entities/User"
+import { ProfileCard, ProfileHeader, UserPagelayout } from "@/entities/User"
 import { ProfileStoriesList } from "@/widgets/StoriesList"
 
 export const Profile = async () => {
-   const accessToken = (await cookies()).get("access-token")
-   const profileData = await userService.getSessionInfo({
-      cookie: `${accessToken?.name}=${accessToken?.value}`,
-   })
+   const profileData = await verifyServerSession()
 
    if (!profileData) {
       return (

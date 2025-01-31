@@ -1,35 +1,30 @@
 "use client"
 
 import { Controls, Background } from "@xyflow/react"
-import styles from "./styles.module.scss"
 import "@xyflow/react/dist/style.css"
+import styles from "./styles.module.scss"
 
 import { nodeTypes } from "../model/customNodes"
 import { edgeTypes } from "../model/customEdges"
+import { initialNodes } from "../model/initialNodes"
 import { createCustomEdge } from "../lib/helpers/createCustomEdge"
 import { useDragAndDrop } from "../lib/hooks/useDragAndDrop"
 
 import { ScenePanel, SceneNode } from "@/entities/Scene"
-import { BaseStoryField, STORY_FIRST_SCENE } from "@/entities/Story"
+import { BaseStoryField } from "@/entities/Story"
 import { AnswerEdge } from "@/entities/Answer"
 
-import { storyCreationStore } from "@/features/story"
 import { useReactFlowField } from "@/shared/lib"
 import { FullScreenBtn } from "@/shared/ui"
 import { useEffect } from "react"
+import cn from "classnames"
 
-const initialNodes: SceneNode[] = [
-   {
-      id: STORY_FIRST_SCENE,
-      type: "startScene",
-      position: { x: 0, y: 0 },
-      data: { title: "", description: "", img: "", type: "default" },
-   },
-]
+type Props = {
+   nodesChangeEffect?: (nodes: SceneNode[]) => any
+   edgesChangeEffect?: (edges: AnswerEdge[]) => any
+}
 
-const { saveNodes, saveEdges } = storyCreationStore
-
-export const StoryField = () => {
+export const StoryField = ({ nodesChangeEffect, edgesChangeEffect }: Props) => {
    const {
       nodes,
       onEdgesChange,
@@ -39,21 +34,21 @@ export const StoryField = () => {
       onConnect,
       fullScreenMode,
       handleFullScreenClick,
-   } = useReactFlowField<SceneNode, any>(createCustomEdge, initialNodes) // TODO: working types for AnswerEdge
+   } = useReactFlowField<SceneNode, any>(createCustomEdge, initialNodes) // TODO: solve types for AnswerEdge
 
    const [onDragOver, onDrop] = useDragAndDrop(setNodes)
 
    useEffect(() => {
-      saveNodes(nodes)
-   }, [nodes])
+      nodesChangeEffect?.(nodes)
+   }, [nodes, nodesChangeEffect])
 
    useEffect(() => {
-      saveEdges(edges)
-   }, [edges])
+      edgesChangeEffect?.(edges)
+   }, [edges, edgesChangeEffect])
 
    return (
       <BaseStoryField
-         className={[styles.content, fullScreenMode && styles.fullScreenMode].join(" ")}
+         className={cn(styles.content, fullScreenMode && styles.fullScreenMode)}
          title="Tree"
          scenePanel={<ScenePanel />}
          onNodesChange={onNodesChange}
@@ -74,3 +69,5 @@ export const StoryField = () => {
       </BaseStoryField>
    )
 }
+
+StoryField.displayName = "StoryField"
