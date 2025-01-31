@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react"
-import { Providers } from "../providers"
+import { Providers } from "../../providers"
 import "@/shared/ui/styles/vars.scss"
 import "@/shared/ui/styles/mixins.scss"
 import "@/app/styles/reset.scss"
