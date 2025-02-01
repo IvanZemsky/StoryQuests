@@ -1,17 +1,17 @@
 "use client"
 
-import { ComponentProps } from "react"
+import { ComponentPropsWithoutRef } from "react"
 import styles from "./styles.module.scss"
 import cn from "classnames"
 import { SwitcherGroupContext } from "./context"
 import { SwitcherGroupCheck } from "./SwitcherGroupCheck"
 
-type Props = ComponentProps<"input"> & {
+type Props = ComponentPropsWithoutRef<"input"> & {
    variant?: "row" | "column"
 }
 
 export const SwitcherGroup = (props: Props) => {
-   const { variant = "row", className, name, onChange, value = "", children } = props
+   const { variant = "row", className, name, onChange, value, children } = props
 
    return (
       <SwitcherGroupContext.Provider value={{ value, name, onChange }}>

@@ -1,7 +1,7 @@
 export { BaseEditModal } from "./EditModal/BaseEditModal"
 export { EditModalHeader } from "./EditModal/EditModalHeader"
 export { Loading } from "./Loading"
-export {PageBtns} from "./PageBtns"
+export { PageBtns } from "./PageBtns"
 export { Modal } from "./Modal"
 export { SwitchFade } from "./Transitions/SwitchFade"
 export { Fade } from "./Transitions/Fade"

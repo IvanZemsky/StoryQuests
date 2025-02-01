@@ -5,12 +5,12 @@ import styles from "./styles.module.scss"
 import { useInput } from "../../lib"
 import cn from "classnames"
 
-type Props = {
+type Props = ComponentProps<"input"> & {
    variant?: "outlined" | "filled"
    counter?: boolean
    value?: string
    onChange?: (...args: any) => any
-} & ComponentProps<"input">
+}
 
 export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
    const {

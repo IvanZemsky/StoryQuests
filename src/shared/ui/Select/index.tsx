@@ -1,21 +1,21 @@
 "use client"
 
-import { ChangeEvent, ComponentProps, forwardRef, Ref, useState } from "react"
+import { ChangeEvent, ComponentProps, useState } from "react"
 import { Button } from "../Button"
 import { Fade } from "../Transitions/Fade"
 import OpenArrowBottomIcon from "@/shared/assets/icons/arrow-bottom.svg"
 import styles from "./styles.module.scss"
-import { Check } from "../Check"
-import { CheckData } from "@/shared/model"
 import { useOutsideClick } from "@/shared/lib"
+import { SelectContext } from "./context"
+import { SelectOption } from "./SelectOption"
+import cn from "classnames"
 
 type Props = ComponentProps<"input"> & {
-   group: CheckData[]
    title: string
 }
 
-export const Select = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
-   const { title, group, className, children, value, onChange, ...attributes } = props
+export const Select = (props: Props) => {
+   const { title, className, name, children, value, onChange } = props
 
    const [isOpen, setIsOpen] = useState(false)
 
@@ -32,7 +32,7 @@ export const Select = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
 
    return (
       <div
-         className={[styles.wrap, className, isOpen && styles.opened].join(" ")}
+         className={cn(styles.wrap, className, isOpen && styles.opened)}
          ref={selectRef}
       >
          <Button
@@ -44,21 +44,12 @@ export const Select = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
             {value || title}
          </Button>
          <Fade inProp={isOpen} timeout={300}>
-            <div className={styles.options}>
-               {group?.map((check) => (
-                  <Check
-                     key={check.id}
-                     onChange={handleCheck}
-                     {...check}
-                     {...attributes}
-                     ref={ref}
-                  />
-               ))}
-               {children}
-            </div>
+            <SelectContext.Provider value={{ onChange: handleCheck, value, name }}>
+               <div className={styles.options}>{children}</div>
+            </SelectContext.Provider>
          </Fade>
       </div>
    )
-})
+}
 
-Select.displayName = "Select"
+Select.Option = SelectOption

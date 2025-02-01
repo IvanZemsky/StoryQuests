@@ -1,8 +1,8 @@
 import { Check, CheckProps } from "../Check"
-import { useSwitcherGroupContext } from "./context"
+import { useSelectContext } from "./context"
 
-export const SwitcherGroupCheck = (props: Omit<CheckProps, "name">) => {
-   const { value, onChange, name } = useSwitcherGroupContext()
+export const SelectOption = (props: Omit<CheckProps, "name">) => {
+   const { onChange, name, value } = useSelectContext()
 
    return (
       <Check

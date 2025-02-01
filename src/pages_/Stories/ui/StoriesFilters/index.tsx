@@ -4,43 +4,53 @@ import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
-import { baseParams, filterData } from "../../model/formData"
 import { Controller, useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
 import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
+
+export const baseParams: StoryFiltersParams = {
+   page: 1,
+}
 
 export const StoriesFilters = () => {
    const { filters, setParams } = useStoriesFilterParams()
    const { register, handleSubmit, getValues, reset, control } =
       useForm<StoryFiltersParams>({
          defaultValues: {
-            search: filters?.search ?? "",
-            order: filters?.order ?? "",
-            length: filters?.length ?? "",
+            search: filters?.search || "",
+            order: filters?.order || "",
+            length: filters?.length || "",
             page: 1,
          },
       })
 
    const onSubmit = () => {
       const search = getValues("search")
-      const order = getValues("order") as OrderBy
-      const length = getValues("length") as SortByScenesAmount
+      const order = (getValues("order") as OrderBy)
+      const length = (getValues("length") as SortByScenesAmount)
+
+      console.log("values", search, order, length)
+      console.log("filters", filters)
+
+      if (
+         search === filters?.search &&
+         order === filters?.order &&
+         length === filters?.length
+      ) {
+         return
+      }
 
       setParams({ search, order, length, page: 1 })
    }
 
    const handleResetClick = () => {
-      setParams(baseParams)
       reset({
+         ...baseParams,
          search: "",
          order: "",
          length: "",
-         page: 1,
       })
    }
-
-   const selectLengthSortTitle =
-      filterData.find((item) => item.value === filters?.length)?.text || "Length"
 
    return (
       <header>
@@ -71,12 +81,16 @@ export const StoriesFilters = () => {
                name="length"
                render={({ field }) => (
                   <Select
+                     name="length"
                      className={styles.selectLength}
-                     title={selectLengthSortTitle}
-                     group={filterData}
-                     value={field.value as string}
+                     title="Length"
+                     value={field.value}
                      onChange={field.onChange}
-                  />
+                  >
+                     <Select.Option text="Short" value="short" id="length_short" />
+                     <Select.Option text="Medium" value="medium" id="length_medium" />
+                     <Select.Option text="Long" value="long" id="length_long" />
+                  </Select>
                )}
             />
 
