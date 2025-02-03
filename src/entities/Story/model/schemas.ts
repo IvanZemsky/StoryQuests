@@ -6,7 +6,7 @@ export const GetStoryDtoSchema = z.object({
    description: z.string(),
    img: z.string(),
    author: z.object({ _id: z.string(), login: z.string() }),
-   passes: z.number().positive(),
+   passes: z.number(),
    likes: z.number(),
    isLiked: z.boolean(),
    tags: z.array(z.string()),
