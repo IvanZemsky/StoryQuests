@@ -4,7 +4,7 @@ import { GetStoryDto, StoryLikeUpdateDto, StoryPassesUpdateDto } from "./dto"
 import { Story, StoryFilters } from "../model/types"
 import { setPath } from "@/shared/lib"
 import { RawAxiosRequestHeaders } from "axios"
-import { ApiStorySchema } from "../model/schemas"
+import { GetStoryDtoSchema } from "../model/schemas"
 import { z } from "zod"
 
 const { Stories, Passes, Like } = APIEndpoints
@@ -23,7 +23,7 @@ export const storyService = {
             headers,
          })
 
-         const parsedData = z.array(ApiStorySchema).safeParse(response.data)
+         const parsedData = z.array(GetStoryDtoSchema).safeParse(response.data)
 
          if (!parsedData.success) {
             console.error("Zod validation error:", parsedData.error)
@@ -60,6 +60,8 @@ export const storyService = {
    async fetchStoryById(id: string, options?: { cookie?: string }) {
       const headers: RawAxiosRequestHeaders = {}
 
+      console.log('storyService.fetchStoryById')
+
       if (options?.cookie) {
          headers["Cookie"] = options.cookie
       }
@@ -67,7 +69,7 @@ export const storyService = {
       try {
          const response = await api.get<GetStoryDto>(setPath(Stories, id), { headers })
 
-         const parsed = ApiStorySchema.safeParse(response.data)
+         const parsed = GetStoryDtoSchema.safeParse(response.data)
 
          if (!parsed.success) {
             console.warn("Zod validation error:", parsed.error)

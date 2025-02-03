@@ -1,7 +1,7 @@
 import { z } from "zod"
-import { ApiStorySchema } from "../model/schemas"
+import { GetStoryDtoSchema } from "../model/schemas"
 
-export type GetStoryDto = z.infer<typeof ApiStorySchema>
+export type GetStoryDto = z.infer<typeof GetStoryDtoSchema>
 
 export type StoryPassesUpdateDto = {
    readonly storyId: string

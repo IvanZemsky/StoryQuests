@@ -11,7 +11,7 @@
    background-image: var(--gradientMain);
 
    &:nth-child(1) {
-      width: 60%;
+      flex-grow: 1;
    }
 
    &:nth-child(2) {

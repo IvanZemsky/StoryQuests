@@ -1,12 +1,12 @@
 import { z } from "zod"
 
-export const ApiStorySchema = z.object({
+export const GetStoryDtoSchema = z.object({
    _id: z.string(),
    name: z.string(),
    description: z.string(),
    img: z.string(),
    author: z.object({ _id: z.string(), login: z.string() }),
-   passes: z.number(),
+   passes: z.number().positive(),
    likes: z.number(),
    isLiked: z.boolean(),
    tags: z.array(z.string()),

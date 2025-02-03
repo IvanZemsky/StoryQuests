@@ -1,6 +1,9 @@
+"use server"
+
 import { ReactNode } from "react"
 import styles from './styles.module.scss'
-import { StoryHeader, storyService } from "@/entities/Story"
+import { StoryHeader } from "@/entities/Story"
+import { fetchStory } from "@/pages_/Story"
 
 type Props = {
    children: ReactNode,
@@ -11,7 +14,7 @@ type Props = {
 
 export const StoryLayout = async ({ children, params }: Props) => {
    const {id} = await params
-   const story = await storyService.fetchStoryById(id)
+   const story = await fetchStory(id)
 
    return (
       <div className={styles.app}>
