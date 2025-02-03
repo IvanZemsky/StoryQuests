@@ -32,8 +32,6 @@ export const SignUpForm = () => {
       signUpMutation.mutate(data)
    }
 
-   const error = signUpMutation.error
-
    return (
       <AuthFormLayout
          onSubmit={handleSubmit(onSubmit)}
@@ -47,13 +45,16 @@ export const SignUpForm = () => {
                   placeholder="Password"
                   {...register("password")}
                />
-               <Button type="submit" disabled={signUpMutation.isPending}>
+               <Button
+                  type="submit"
+                  disabled={signUpMutation.isPending || signUpMutation.isSuccess}
+               >
                   Sign up
                </Button>
             </>
          }
          link={<Link href={PageRoutes.SignIn}>Already have an account? Sign in!</Link>}
-         error={error}
+         error={signUpMutation.error}
       />
    )
 }
