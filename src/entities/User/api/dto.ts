@@ -1,3 +1,5 @@
+import { UserId } from "../model/types"
+
 export type SignUpDto = {
    login: string
    password: string
@@ -9,7 +11,7 @@ export type SignInDto = {
 }
 
 export type GetSessionInfoDto = {
-   id: string
+   id: UserId
    login: string
    iat: number
    exp: number

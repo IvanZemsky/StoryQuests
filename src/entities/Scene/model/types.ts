@@ -1,16 +1,21 @@
+import { StoryId } from "@/entities/Story"
 import { Answer } from "../../Answer"
 import { Node, NodeProps } from "@xyflow/react"
+import { z } from "zod"
+import { SceneTypeSchema } from "./schemas"
 
-export type SceneType = "default" | "end"
+export type SceneType = z.infer<typeof SceneTypeSchema>
+
+export type SceneId = string
 
 export type Scene = {
-   id: string
+   id: SceneId
    title: string
    description: string
    img: string
    type: SceneType
-   storyId: string
-   answers: Answer[]
+   storyId: StoryId
+   answers: Answer[] | null
 }
 
 export type SceneNodeData = {
@@ -20,6 +25,6 @@ export type SceneNodeData = {
    type: SceneType
 } & Record<string, unknown>
 
-export type SceneNode = {} & Node<SceneNodeData>
+export type SceneNode = Node<SceneNodeData>
 
-export type SceneNodeProps = {} & NodeProps<SceneNode>
+export type SceneNodeProps = NodeProps<SceneNode>

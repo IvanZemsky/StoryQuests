@@ -1,7 +1,9 @@
 import { Edge, EdgeProps } from '@xyflow/react';
 
+export type AnswerId = string
+
 export type Answer = {
-   id: string
+   id: AnswerId
    text: string
    nextSceneId: string
 }

@@ -5,8 +5,10 @@ import {
    StorySortByLengthSchema,
 } from "./schemas"
 
+export type StoryId = string
+
 export type Story = {
-   id: string
+   id: StoryId
    name: string
    description: string
    img: string

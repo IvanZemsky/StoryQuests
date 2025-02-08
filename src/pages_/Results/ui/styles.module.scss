@@ -1,0 +1,79 @@
+.content {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   padding: 25px 0;
+}
+
+.title {
+   margin-bottom: 10px;
+   font-size: 30px;
+}
+
+.headerLinks {
+   display: flex;
+   align-items: stretch;
+   gap: 12px;
+
+   & > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 15px;
+      border-left: 2px solid var(--secondaryMain);
+      text-align: center;
+
+      &:last-child {
+         padding-right: 15px;
+         border-right: 2px solid var(--secondaryMain);
+      }
+   }
+
+   .toStoryLink {
+      font-size: 15px;
+
+      span {
+         padding: 10px;
+      }
+   }
+}
+
+.author {
+   a {
+      font-weight: 600;
+      color: inherit;
+   }
+}
+
+.resultInfo {
+   h2 {
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 18px;
+   }
+}
+
+.userResult {
+   display: flex;
+   align-items: center;
+   max-width: 560px;
+   gap: 15px;
+   padding: 10px;
+   border-radius: 15px;
+   background-color: var(--secondaryMain);
+
+   img {
+      max-width: 35%;
+      border-radius: 10px;
+   }
+}
+
+.resultTitle{
+   margin-bottom: 10px;
+   font-size: 16px;
+   font-weight: 600;
+}
+
+.resultDesc{
+   font-size: 15px;
+}

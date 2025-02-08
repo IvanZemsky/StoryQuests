@@ -3,7 +3,6 @@
 import { Button } from "@/shared/ui"
 import { BaseEdge, EdgeLabelRenderer, getBezierPath } from "@xyflow/react"
 import styles from "./styles.module.scss"
-import { setModal } from "@/shared/lib";
 import { AnswerEdgeProps } from "@/entities/Answer";
 import { MouseEventHandler, ReactNode } from "react";
 

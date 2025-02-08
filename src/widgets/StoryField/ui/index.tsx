@@ -69,5 +69,3 @@ export const StoryField = ({ nodesChangeEffect, edgesChangeEffect }: Props) => {
       </BaseStoryField>
    )
 }
-
-StoryField.displayName = "StoryField"

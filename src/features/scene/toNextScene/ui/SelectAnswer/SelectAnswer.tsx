@@ -7,7 +7,7 @@ import { SetStateFn } from "@/shared/model"
 import { scrollToTop } from "@/shared/lib"
 
 type Props = {
-   answers: Answer[]
+   answers: Answer[] | null
    setScene: SetStateFn<string>
 }
 
@@ -33,7 +33,7 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
             onChange={handleAnswerChange}
             value={nextSceneId}
          >
-            {answers.map((answer) => (
+            {answers?.map((answer) => (
                <AnswerCheck
                   key={answer.id + answer.nextSceneId}
                   className={styles.answer}
