@@ -5,12 +5,16 @@ import { Controller, useFormContext } from "react-hook-form"
 import styles from "./styles.module.scss"
 import { SceneNodeData } from "@/entities/Scene"
 import { descOptinos, titleOptinos } from "../../model/registerOptions"
+import { observer } from "mobx-react"
 
 type Props = { data: SceneNodeData }
 
-export const EditSceneForm = ({data}: Props) => {
-   const { register, control, setValue } = useFormContext()
+export const EditSceneForm = observer(({ data }: Props) => {
+   const { register, control, setValue, getValues } = useFormContext()
 
+   console.log(data.img)
+
+   const imgInput = getValues("img")
    const titleInput = register("title", titleOptinos)
    const descInput = register("desc", descOptinos)
 
@@ -44,13 +48,13 @@ export const EditSceneForm = ({data}: Props) => {
             render={({ field }) => (
                <ImageLoad
                   label="Illustration"
-                  defaultValue={data.img}
                   onError={handleImgError}
                   className={styles.illustration}
                   {...field}
+                  defaultValue={data.img}
                />
             )}
          />
       </form>
    )
-}
+})

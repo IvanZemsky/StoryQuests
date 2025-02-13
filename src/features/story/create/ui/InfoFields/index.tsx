@@ -28,7 +28,6 @@ export const InfoFields = () => {
          <Controller
             control={control}
             name="img"
-            defaultValue=""
             render={({ field }) => (
                <ImageLoad
                   label="Cover"

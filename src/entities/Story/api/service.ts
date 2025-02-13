@@ -6,8 +6,9 @@ import { setPath } from "@/shared/lib"
 import { RawAxiosRequestHeaders } from "axios"
 import { GetStoryDtoSchema } from "../model/schemas"
 import { z } from "zod"
+import { UserId } from "@/entities/User"
 
-const { Stories, Passes, Like } = APIEndpoints
+const { Stories, Passes, Like, Results } = APIEndpoints
 
 export const storyService = {
    async fetchStories(params: StoryFilters, options?: { cookie?: string }) {
@@ -87,4 +88,27 @@ export const storyService = {
 
       return response.data
    },
+
+   async setStoryInfo(options: {
+      storyId: StoryId
+      userId: UserId
+      resultSceneId: string
+   }) {
+      const { storyId, userId, resultSceneId } = options
+      const response = await api.put(setPath(Stories, storyId, Results), {
+         userId,
+         resultSceneId,
+         datetime: new Date().toISOString(),
+      })
+      return response.data
+   },
+
+   async fetchResult(options: {
+      storyId: StoryId
+      userId: UserId
+   }) {
+      const { storyId, userId } = options
+      const response = await api.get(setPath(Stories, storyId, Results, userId))
+      return response.data
+   }
 }

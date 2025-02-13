@@ -3,7 +3,10 @@ import { storyService } from "@/entities/Story"
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
 
-export function useIncrementStoryPasses(sceneData: Scene | undefined, disabled: boolean) {
+export function useIncrementStoryPasses(
+   sceneData: Scene | undefined,
+   disabled: boolean = false,
+) {
    const [passesIncremented, setPassesIncremented] = useState(false)
 
    const incrementStoryPassesMutation = useMutation({
@@ -11,13 +14,13 @@ export function useIncrementStoryPasses(sceneData: Scene | undefined, disabled: 
       onSuccess: () => setPassesIncremented(true),
    })
 
-   const isEndScenePending =
+   const isPassesUpdatePending =
       sceneData?.type === "end" &&
       !disabled &&
       !incrementStoryPassesMutation.isPending &&
       !passesIncremented
 
-   if (isEndScenePending) {
+   if (isPassesUpdatePending) {
       incrementStoryPassesMutation.mutate(sceneData.storyId)
    }
 

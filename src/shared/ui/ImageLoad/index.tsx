@@ -5,6 +5,7 @@ import UploadIcon from "@/shared/assets/icons/upload.svg"
 import { ChangeEvent, ComponentProps, forwardRef, Ref } from "react"
 import { TextInput } from "../TextInput"
 import { useDebounce, useImgLoad } from "../../lib"
+import cn from "classnames"
 
 type Props = {
    label?: string
@@ -27,7 +28,7 @@ export const ImageLoad = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
    }, 600)
 
    return (
-      <div className={[styles.load, className].join(" ")}>
+      <div className={cn(styles.load, className)}>
          <TextInput
             placeholder="Image link"
             ref={ref}
@@ -50,6 +51,7 @@ export const ImageLoad = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
                </>
             )}
             {isImg && (
+               // eslint-disable-next-line @next/next/no-img-element
                <img
                   src={imgLink}
                   alt={label || ""}

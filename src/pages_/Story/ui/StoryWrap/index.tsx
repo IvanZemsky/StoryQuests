@@ -4,13 +4,15 @@ import { useState } from "react"
 import { StoryPreviewCard } from "../StoryPreviewCard"
 import { Story } from "@/entities/Story"
 import { PageScenes } from "../PageScenes"
-import { useScenes } from "@/entities/Scene/lib/hooks/useScenes"
+import { useScenes } from "@/entities/Scene"
+import { UserId } from "@/entities/User"
 
 type Props = {
    story: Story
+   userId: UserId | null
 }
 
-export const StoryWrap = ({ story }: Props) => {
+export const StoryWrap = ({ story, userId }: Props) => {
    const [isStoryStarted, setIsStoryStarted] = useState(false)
 
    const { data, isPending, isError } = useScenes(story.id, isStoryStarted)
@@ -20,7 +22,7 @@ export const StoryWrap = ({ story }: Props) => {
    }
 
    if (data && isStoryStarted) {
-      return <PageScenes data={data} />
+      return <PageScenes data={data} userId={userId} />
    }
 
    return (

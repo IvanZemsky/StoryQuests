@@ -1,3 +1,5 @@
+export { useCurrentScene } from "./lib/hooks/useCurrentScene"
+export { useScenes } from "./lib/hooks/useScenes"
 export { GetSceneDtoSchema } from "./model/schemas"
 export { BaseSceneNode } from "./ui/nodes/BaseSceneNode"
 export { BaseEndSceneNode } from "./ui/nodes/BaseEndSceneNode"

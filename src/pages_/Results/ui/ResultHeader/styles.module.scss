@@ -1,0 +1,39 @@
+.title {
+   margin-bottom: 25px;
+   font-size: 30px;
+}
+
+.headerLinks {
+   display: flex;
+   align-items: stretch;
+   gap: 12px;
+
+   & > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 15px;
+      border-left: 2px solid var(--secondaryMain);
+      text-align: center;
+
+      &:last-child {
+         padding-right: 15px;
+         border-right: 2px solid var(--secondaryMain);
+      }
+   }
+
+   .toStoryLink {
+      font-size: 15px;
+
+      span {
+         padding: 10px;
+      }
+   }
+}
+
+.author {
+   a {
+      font-weight: 600;
+      color: inherit;
+   }
+}

@@ -4,7 +4,7 @@ import { observer } from "mobx-react"
 import { useEffect } from "react"
 import { modalStore, Modals } from "@/shared/model"
 import { storyCreationStore, NotValidStoryModal, PreviewModal } from "@/features/story"
-import { StoryScene } from "@/widgets/StoryScene"
+import { PreviewScene } from "../PreviewScene"
 
 export const StoryPreview = observer(() => {
    const { isValid, validate, scenes } = storyCreationStore
@@ -20,5 +20,5 @@ export const StoryPreview = observer(() => {
       return <NotValidStoryModal />
    }
 
-   return <PreviewModal scene={<StoryScene scenes={scenes} isPreview />} />
+   return <PreviewModal scene={<PreviewScene scenes={scenes} />} />
 })

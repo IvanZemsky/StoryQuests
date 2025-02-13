@@ -23,7 +23,9 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
       ...attributes
    } = props
 
-   const [_, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+   const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+
+   console.log("input", value)
 
    return (
       <div
@@ -37,6 +39,7 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
             onChange={handleChange}
             ref={ref}
             {...attributes}
+            defaultValue={inputValue}
          />
          {counter && <div className={styles.counter}>{symbolsLeft}</div>}
       </div>

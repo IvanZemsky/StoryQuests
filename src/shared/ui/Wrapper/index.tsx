@@ -1,5 +1,6 @@
 import { HTMLAttributes } from "react"
 import styles from "./styles.module.scss"
+import cn from "classnames"
 
 export const Wrapper = ({
    children,
@@ -7,7 +8,7 @@ export const Wrapper = ({
    ...attributes
 }: HTMLAttributes<HTMLDivElement>) => {
    return (
-      <div className={[styles.wrapper, className].join(" ")} {...attributes}>
+      <div className={cn(styles.wrapper, className)} {...attributes}>
          {children}
       </div>
    )
