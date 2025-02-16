@@ -13,7 +13,7 @@ import Bookmark from "@/shared/assets/icons/bookmark.svg"
 import { LikeStoryBtn } from "@/features/story"
 import { setPath } from "@/shared/lib"
 
-const { Stories } = PageRoutes
+const { Stories, Results } = PageRoutes
 
 type Props = {
    data: Story
@@ -39,7 +39,7 @@ export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) 
                <button>
                   <Bookmark />
                </button>
-               <Link href={Stories}>
+               <Link href={setPath(Stories, id, Results)}>
                   Statistics
                   <Diagram />
                </Link>

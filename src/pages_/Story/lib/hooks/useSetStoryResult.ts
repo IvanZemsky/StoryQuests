@@ -13,7 +13,7 @@ export function useSetStoryResult(options: {
    const [isResultSet, setIsResultSet] = useState(false)
 
    const setStoryResultMutation = useMutation({
-      mutationFn: storyService.setStoryInfo,
+      mutationFn: storyService.setStoryResult,
       onSettled: () => setIsResultSet(true),
    })
 

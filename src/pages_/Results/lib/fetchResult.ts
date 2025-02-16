@@ -11,7 +11,7 @@ export async function fetchResult({
    try {
       const session = await verifyServerSession()
 
-      if (!session) throw new Error("")
+      if (!session) throw new Error("user-unauthorized")
 
       const result = await storyService.fetchResult({ storyId, userId })
       return result

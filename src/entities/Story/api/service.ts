@@ -7,6 +7,8 @@ import { RawAxiosRequestHeaders } from "axios"
 import { GetStoryDtoSchema } from "../model/schemas"
 import { z } from "zod"
 import { UserId } from "@/entities/User"
+import { setStoryResultAdapter } from "./adapters/setStoryResultAdapter"
+import { storyResultAdapter } from "./adapters/storyResultAdapter"
 
 const { Stories, Passes, Like, Results } = APIEndpoints
 
@@ -89,9 +91,9 @@ export const storyService = {
       return response.data
    },
 
-   async setStoryInfo(options: {
+   async setStoryResult(options: {
       storyId: StoryId
-      userId: UserId
+      userId: UserId | null
       resultSceneId: string
    }) {
       const { storyId, userId, resultSceneId } = options
@@ -100,15 +102,12 @@ export const storyService = {
          resultSceneId,
          datetime: new Date().toISOString(),
       })
-      return response.data
+      return setStoryResultAdapter(response.data)
    },
 
-   async fetchResult(options: {
-      storyId: StoryId
-      userId: UserId
-   }) {
+   async fetchResult(options: { storyId: StoryId; userId: UserId }) {
       const { storyId, userId } = options
       const response = await api.get(setPath(Stories, storyId, Results, userId))
-      return response.data
-   }
+      return storyResultAdapter(response.data)
+   },
 }

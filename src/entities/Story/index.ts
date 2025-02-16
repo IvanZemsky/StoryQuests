@@ -10,9 +10,12 @@ export { useStories } from "./lib/hooks/useStories"
 export { BaseStoryField } from "./ui/BaseField"
 export { StoryCard } from "./ui/StoryCard"
 export type {
-   Story, StoryId,
+   Story,
+   StoryId,
    SortByScenesAmount,
    OrderBy,
    StoryFilters,
    StoryFiltersParams,
+   SetStoryResult,
+   StoryResult,
 } from "./model/types"

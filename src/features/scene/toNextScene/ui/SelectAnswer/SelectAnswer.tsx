@@ -14,8 +14,6 @@ type Props = {
 export const SelectAnswer = ({ answers, setScene }: Props) => {
    const [nextSceneId, setNextSceneId] = useState<string | undefined>(undefined)
 
-
-   //TODO: think if it is necessary, maybe try to move it out of this component
    const handleSetSceneCLick = () => {
       if (nextSceneId) {
          setScene(nextSceneId)
@@ -39,7 +37,7 @@ export const SelectAnswer = ({ answers, setScene }: Props) => {
                <AnswerCheck
                   key={answer.id + answer.nextSceneId}
                   className={styles.answer}
-                  onDoubleClick={() => setScene(answer.nextSceneId)}
+                  onDoubleClick={handleSetSceneCLick}
                   data={answer}
                />
             ))}

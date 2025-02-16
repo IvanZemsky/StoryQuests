@@ -12,6 +12,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 30px;
       padding-left: 15px;
       border-left: 2px solid var(--secondaryMain);
       text-align: center;
@@ -23,17 +24,23 @@
    }
 
    .toStoryLink {
-      font-size: 15px;
+      color: inherit;
 
-      span {
-         padding: 10px;
+      &:hover {
+         text-decoration: underline;
       }
    }
 }
 
-.author {
-   a {
-      font-weight: 600;
-      color: inherit;
-   }
+.skeleton {
+   width: 100%;
+   max-width: 500px;
+   height: 30px;
+   background-color: var(--secondaryMain);
+   border-radius: 15px;
+}
+
+.author a {
+   font-weight: 600;
+   color: inherit;
 }

@@ -25,8 +25,6 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
 
    const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
 
-   console.log("input", value)
-
    return (
       <div
          className={cn(styles.wrap, styles[variant], className, {

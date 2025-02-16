@@ -2,10 +2,9 @@ import { storyService } from "@/entities/Story"
 import {  Wrapper } from "@/shared/ui"
 import { Page } from "../model/types"
 import styles from "./styles.module.scss"
-import { verifyServerSession } from "@/features/user"
 import { ResultHeader } from "./ResultHeader"
 import { UserResult } from "./UserResult"
-import { fetchResult } from "../model/lib/fetchResult"
+import { fetchResult } from "../lib/fetchResult"
 
 export const Results = async ({ params }: Page) => {
    const { id } = await params
