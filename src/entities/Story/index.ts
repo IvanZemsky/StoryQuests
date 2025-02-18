@@ -18,4 +18,5 @@ export type {
    StoryFiltersParams,
    SetStoryResult,
    StoryResult,
+   StoryResultInLS
 } from "./model/types"

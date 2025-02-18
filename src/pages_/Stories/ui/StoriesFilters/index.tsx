@@ -7,9 +7,13 @@ import SearchIcon from "@/shared/assets/icons/search.svg"
 import { Controller, useForm } from "react-hook-form"
 import { useStoriesFilterParams } from "@/pages_/Stories/lib/hooks/useStoriesFilterParams"
 import { OrderBy, SortByScenesAmount, StoryFiltersParams } from "@/entities/Story"
+import { useEffect } from "react"
 
 export const baseParams: StoryFiltersParams = {
    page: 1,
+   search: "",
+   order: "",
+   length: "",
 }
 
 export const StoriesFilters = () => {
@@ -17,17 +21,21 @@ export const StoriesFilters = () => {
    const { register, handleSubmit, getValues, reset, control } =
       useForm<StoryFiltersParams>({
          defaultValues: {
-            search: filters?.search || "",
-            order: filters?.order || "",
-            length: filters?.length || "",
-            page: 1,
+            search: filters?.search || baseParams.search,
+            order: filters?.order || baseParams.order,
+            length: filters?.length || baseParams.length,
+            page: filters?.page || baseParams.page,
          },
       })
 
+      useEffect(() => {
+         console.log(filters)
+      }, [filters])
+
    const onSubmit = () => {
       const search = getValues("search")
-      const order = (getValues("order") as OrderBy)
-      const length = (getValues("length") as SortByScenesAmount)
+      const order = getValues("order") as OrderBy
+      const length = getValues("length") as SortByScenesAmount
 
       console.log("values", search, order, length)
       console.log("filters", filters)
@@ -44,12 +52,7 @@ export const StoriesFilters = () => {
    }
 
    const handleResetClick = () => {
-      reset({
-         ...baseParams,
-         search: "",
-         order: "",
-         length: "",
-      })
+      reset(baseParams)
    }
 
    return (
@@ -60,10 +63,8 @@ export const StoriesFilters = () => {
                name="order"
                render={({ field }) => (
                   <SwitcherGroup
-                     name="order"
                      className={styles.sort}
-                     value={field.value}
-                     onChange={field.onChange}
+                     {...field}
                   >
                      <SwitcherGroup.Check text="New" value="new" id="order_new" />
                      <SwitcherGroup.Check
@@ -81,11 +82,9 @@ export const StoriesFilters = () => {
                name="length"
                render={({ field }) => (
                   <Select
-                     name="length"
                      className={styles.selectLength}
                      title="Length"
-                     value={field.value}
-                     onChange={field.onChange}
+                     {...field}
                   >
                      <Select.Option text="Short" value="short" id="length_short" />
                      <Select.Option text="Medium" value="medium" id="length_medium" />

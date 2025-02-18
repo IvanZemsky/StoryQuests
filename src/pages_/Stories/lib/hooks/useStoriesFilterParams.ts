@@ -9,7 +9,6 @@ export function useStoriesFilterParams() {
 
    const setParams = (params: StoryFiltersParams) => {
       const initialParams = searchParams.data as Record<string, string> | undefined
-      console.log(initialParams, params)
       router.push(pathname + "?" + createQueryParamsString(params, initialParams))
    }
 

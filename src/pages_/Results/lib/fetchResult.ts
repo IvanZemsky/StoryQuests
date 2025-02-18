@@ -1,4 +1,4 @@
-import { storyService } from "@/entities/Story"
+import { StoryResult, storyService } from "@/entities/Story"
 import { verifyServerSession } from "@/features/user"
 
 export async function fetchResult({
@@ -7,7 +7,7 @@ export async function fetchResult({
 }: {
    storyId: string
    userId: string
-}): Promise<any> {
+}): Promise<StoryResult | null> {
    try {
       const session = await verifyServerSession()
 

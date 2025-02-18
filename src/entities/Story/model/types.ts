@@ -56,3 +56,9 @@ export type StoryResult = {
    userId: string
    scene: Scene
 }
+
+export type StoryResultInLS = {
+   storyId: StoryId,
+   datetime: string
+   scene: Scene
+}

@@ -16,6 +16,7 @@ export type Scene = {
    type: SceneType
    storyId: StoryId
    answers: Answer[] | null
+   passes?: number
 }
 
 export type SceneNodeData = {

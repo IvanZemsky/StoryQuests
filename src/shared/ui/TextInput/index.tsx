@@ -1,18 +1,16 @@
 "use client"
 
-import { ComponentProps, forwardRef, Ref } from "react"
+import { ComponentProps, forwardRef } from "react"
 import styles from "./styles.module.scss"
 import { useInput } from "../../lib"
 import cn from "classnames"
 
-type Props = ComponentProps<"input"> & {
+type Props = {
    variant?: "outlined" | "filled"
    counter?: boolean
-   value?: string
-   onChange?: (...args: any) => any
-}
+} & ComponentProps<"input">
 
-export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) => {
+export const TextInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
    const {
       variant = "filled",
       counter,
@@ -23,7 +21,11 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
       ...attributes
    } = props
 
-   const [inputValue, handleChange, symbolsLeft] = useInput(maxLength, value, onChange)
+   const [inputValue, handleChange, symbolsLeft] = useInput(
+      maxLength,
+      value || "",
+      onChange,
+   )
 
    return (
       <div
@@ -32,11 +34,10 @@ export const TextInput = forwardRef((props: Props, ref: Ref<HTMLInputElement>) =
          })}
       >
          <input
+            {...attributes}
             className={styles.input}
-            type="text"
             onChange={handleChange}
             ref={ref}
-            {...attributes}
             defaultValue={inputValue}
          />
          {counter && <div className={styles.counter}>{symbolsLeft}</div>}

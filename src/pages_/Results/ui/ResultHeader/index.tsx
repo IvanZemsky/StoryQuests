@@ -1,6 +1,6 @@
 "use client"
 
-import { Story } from "@/entities/Story"
+import { Story, StoryResult } from "@/entities/Story"
 import styles from "./styles.module.scss"
 import { PageRoutes } from "@/shared/constants"
 import { setPath } from "@/shared/lib"
@@ -9,18 +9,20 @@ import { useUserResult } from "../../lib/useUserResult"
 
 type Props = {
    story: Story
-   result: any
+   result: StoryResult | null
 }
 
 export const ResultHeader = ({ story, result }: Props) => {
-   const storyResult = useUserResult(result)
+   const { isLoading, storyResult } = useUserResult(result, story.id)
 
    return (
       <header>
          <h1 className={styles.title}>Results: {story.name}</h1>
-         {storyResult ? (
+         {!isLoading ? (
             <div className={styles.headerLinks}>
-               <p className={styles.date}>Passed: {storyResult.datetime}</p>
+               {storyResult && (
+                  <p className={styles.date}>Passed: {storyResult.datetime}</p>
+               )}
                <div className={styles.author}>
                   <p>
                      Author:{" "}

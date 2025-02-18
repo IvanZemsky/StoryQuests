@@ -6,7 +6,7 @@ import { UserId } from "@/entities/User"
 import { SelectAnswer } from "@/features/scene"
 import { useIncrementStoryPasses } from "../../lib/hooks/useIncrementStoryPasses"
 import { useSetStoryResult } from "../../lib/hooks/useSetStoryResult"
-import { setStoryResultToLS } from "../../lib/helpers/setStoryResultToLS"
+import { saveStoryResultToLS } from "../../lib/helpers/saveStoryResultToLS"
 import { useEffect } from "react"
 
 type Props = {
@@ -23,14 +23,14 @@ export const StoryScene = ({ scenes, userId }: Props) => {
       disabled: !userId,
    })
 
-   const isSaveToLSNeeded =
+   const shouldSaveToLS =
       (increasePassesMutation.error || !userId) && sceneData?.type === "end"
 
    useEffect(() => {
-      if (isSaveToLSNeeded) {
-         setStoryResultToLS(sceneData)
+      if (shouldSaveToLS) {
+         saveStoryResultToLS(sceneData)
       }
-   }, [isSaveToLSNeeded, sceneData])
+   }, [shouldSaveToLS, sceneData])
 
    const isPending = increasePassesMutation.isPending || resultMutation.isPending
 
