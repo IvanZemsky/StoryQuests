@@ -8,6 +8,7 @@ import { useIncrementStoryPasses } from "../../lib/hooks/useIncrementStoryPasses
 import { useSetStoryResult } from "../../lib/hooks/useSetStoryResult"
 import { saveStoryResultToLS } from "../../lib/helpers/saveStoryResultToLS"
 import { useEffect } from "react"
+import { useIncrementScenePasses } from "../../lib/hooks/useIncrementScenePasses"
 
 type Props = {
    scenes: Scene[]
@@ -15,8 +16,9 @@ type Props = {
 }
 
 export const StoryScene = ({ scenes, userId }: Props) => {
-   const {sceneData, sceneId, setSceneId} = useCurrentScene(scenes, STORY_FIRST_SCENE)
-   const increasePassesMutation = useIncrementStoryPasses(sceneData)
+   const { sceneData, sceneId, setSceneId } = useCurrentScene(scenes, STORY_FIRST_SCENE)
+   const increaseStoryPassesMutation = useIncrementStoryPasses(sceneData)
+   const incrementScenePassesMutation = useIncrementScenePasses(sceneData)
    const resultMutation = useSetStoryResult({
       sceneData,
       userId,
@@ -24,7 +26,7 @@ export const StoryScene = ({ scenes, userId }: Props) => {
    })
 
    const shouldSaveToLS =
-      (increasePassesMutation.error || !userId) && sceneData?.type === "end"
+      (increaseStoryPassesMutation.error || !userId) && sceneData?.type === "end"
 
    useEffect(() => {
       if (shouldSaveToLS) {
@@ -32,7 +34,10 @@ export const StoryScene = ({ scenes, userId }: Props) => {
       }
    }, [shouldSaveToLS, sceneData])
 
-   const isPending = increasePassesMutation.isPending || resultMutation.isPending
+   const isPending =
+      increaseStoryPassesMutation.isPending ||
+      resultMutation.isPending ||
+      incrementScenePassesMutation.isPending
 
    if (!sceneData) {
       return <p>Error</p>

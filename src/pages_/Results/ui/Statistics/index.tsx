@@ -2,6 +2,7 @@ import { StoryId } from "@/entities/Story"
 import styles from "./styles.module.scss"
 import { fetchAllResults } from "../../lib/fetchAllResults"
 import { ResultCard } from "../ResultCard"
+import { ResultPassesCard } from "../ResultPassesCard"
 
 type Props = {
    storyId: StoryId
@@ -14,6 +15,8 @@ export const Statistics = async ({ storyId }: Props) => {
       return <p>Error</p>
    }
 
+   const total = scenes.reduce((total, item) => total + item.passes!, 0)
+
    return (
       <section className={styles.stats}>
          <h2>Statistics</h2>
@@ -24,7 +27,9 @@ export const Statistics = async ({ storyId }: Props) => {
                ))}
             </div>
             <div className={styles.resultColumn}>
-               <div className={styles.resultColumnBlock}>10%</div>
+               {total > 0 && scenes.map((scene, i) => (
+                  <ResultPassesCard key={scene.id} number={i} total={total} passes={scene.passes!} />
+               ))}
             </div>
          </div>
       </section>

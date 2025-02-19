@@ -2,11 +2,11 @@ import { Scene } from "@/entities/Scene"
 import { storyService } from "@/entities/Story"
 import { UserId } from "@/entities/User"
 import { useMutation } from "@tanstack/react-query"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function useSetStoryResult(options: {
    sceneData: Scene | undefined
-   userId: UserId | null,
+   userId: UserId | null
    disabled: boolean
 }) {
    const { sceneData, userId, disabled } = options
@@ -23,13 +23,15 @@ export function useSetStoryResult(options: {
       !setStoryResultMutation.isPending &&
       !isResultSet
 
-   if (isResultPending) {
-      setStoryResultMutation.mutate({
-         storyId: sceneData.storyId,
-         userId,
-         resultSceneId: sceneData.id,
-      })
-   }
+   useEffect(() => {
+      if (isResultPending) {
+         setStoryResultMutation.mutate({
+            storyId: sceneData.storyId,
+            userId,
+            resultSceneId: sceneData.id,
+         })
+      }
+   }, [sceneData])
 
    return setStoryResultMutation
 }

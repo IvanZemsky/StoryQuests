@@ -21,26 +21,3 @@
    border: 4px solid var(--secondaryMain);
    border-radius: 10px;
 }
-
-.resultColumnBlock {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 20%;
-   background-image: var(--gradientMain);
-   transition: transform 0.15s linear;
-   font-weight: 500;
-   cursor: pointer;
-
-   &:first-child {
-      border-radius: 7px 7px 0 0;
-   }
-
-   &:last-child {
-      border-radius: 0 0 7px 7px;
-   }
-
-   &:hover {
-      transform: scale(1.04);
-   }
-}
