@@ -2,7 +2,7 @@ import { api, APIEndpoints } from "@/shared/api"
 import { storyAdapter } from "./adapters/storyAdapter"
 import { GetStoryDto, StoryLikeUpdateDto, StoryPassesUpdateDto } from "./dto"
 import { Story, StoryFilters, StoryId } from "../model/types"
-import { setPath } from "@/shared/lib"
+import { logParsing, setPath } from "@/shared/lib"
 import { RawAxiosRequestHeaders } from "axios"
 import { GetStoryDtoSchema } from "../model/schemas"
 import { z } from "zod"
@@ -25,11 +25,7 @@ export const storyService = {
          headers,
       })
 
-      const parsedData = z.array(GetStoryDtoSchema).safeParse(response.data)
-
-      if (!parsedData.success) {
-         console.error("Zod validation error:", parsedData.error)
-      }
+      logParsing(z.array(GetStoryDtoSchema), response.data)
 
       const stories: Story[] = response.data.map((story: GetStoryDto) =>
          storyAdapter(story),
@@ -58,25 +54,19 @@ export const storyService = {
    async fetchStoryById(id: StoryId, options?: { cookie?: string }) {
       const headers: RawAxiosRequestHeaders = {}
 
-      console.log("storyService.fetchStoryById")
-
       if (options?.cookie) {
          headers["Cookie"] = options.cookie
       }
 
       const response = await api.get<GetStoryDto>(setPath(Stories, id), { headers })
 
-      const parsed = GetStoryDtoSchema.safeParse(response.data)
-
-      if (!parsed.success) {
-         console.warn("Zod validation error:", parsed.error)
-      }
+      logParsing(GetStoryDtoSchema, response.data)
 
       const story: Story = storyAdapter(response.data)
       return story
    },
 
-   async incrementStoryPasses(storyId: string) {
+   async incrementStoryPasses(storyId: StoryId) {
       const response = await api.patch<StoryPassesUpdateDto>(
          setPath(Stories, storyId, Passes),
       )
@@ -93,13 +83,12 @@ export const storyService = {
 
    async setStoryResult(options: {
       storyId: StoryId
-      userId: UserId | null
-      resultSceneId: string
+      userId: UserId
+      resultSceneNumber: string
    }) {
-      const { storyId, userId, resultSceneId } = options
-      const response = await api.put(setPath(Stories, storyId, Results), {
-         userId,
-         resultSceneId,
+      const { storyId, userId, resultSceneNumber } = options
+      const response = await api.put(setPath(Stories, storyId, Results, userId), {
+         resultSceneNumber,
          datetime: new Date().toISOString(),
       })
       return setStoryResultAdapter(response.data)

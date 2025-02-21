@@ -6,7 +6,6 @@ export const ScenePanel = () => {
    const onDragStart = (event: DragEvent<HTMLDivElement>, nodeType: string) => {
       if (event.dataTransfer) {
          event.dataTransfer.setData("application/reactflow", nodeType)
-         console.log(nodeType)
          event.dataTransfer.effectAllowed = "move"
       }
    }

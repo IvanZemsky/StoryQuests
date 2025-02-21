@@ -7,15 +7,17 @@ import { SceneTypeSchema } from "./schemas"
 export type SceneType = z.infer<typeof SceneTypeSchema>
 
 export type SceneId = string
+export type SceneNumber = string
 
 export type Scene = {
    id: SceneId
+   storyId: StoryId
+   number: SceneNumber
+   type: SceneType
+   answers: Answer[] | null
    title: string
    description: string
    img: string
-   type: SceneType
-   storyId: StoryId
-   answers: Answer[] | null
    passes?: number
 }
 
@@ -24,6 +26,7 @@ export type SceneNodeData = {
    description: string
    img: string
    type: SceneType
+   number: string
 } & Record<string, unknown>
 
 export type SceneNode = Node<SceneNodeData>

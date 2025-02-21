@@ -7,16 +7,13 @@ type Props = {
 }
 export const ResultPassesCard = ({ total, passes, number }: Props) => {
    let resultPasses = Math.round((passes / total) * 100)
-   const brightness = 1 - number * 0.015
+   const brightness = 1 - number * 0.045
 
    if (!resultPasses) return null
 
    return (
-      <div
-         className={styles.resultColumnBlock}
-         style={{ height: `${resultPasses}%`, filter: `brightness(${brightness})` }}
-      >
-         {resultPasses}%
+      <div className={styles.resultColumnBlock} style={{ height: `${resultPasses}%` }}>
+         <div style={{ filter: `brightness(${brightness})` }}>{resultPasses}%</div>
       </div>
    )
 }

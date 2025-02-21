@@ -13,7 +13,7 @@ export const ResultCard = ({ scene }: Props) => {
       <div className={styles.resultCard}>
          <p className={styles.totalResults}>{passes}</p>
          <div className={styles.imgWrap}>
-            <Image src={img} alt="Result image" fill />
+            <Image src={img} alt="Result image" fill sizes="auto" />
          </div>
          <div>
             <p className={styles.resultCardTitle}>{title}</p>

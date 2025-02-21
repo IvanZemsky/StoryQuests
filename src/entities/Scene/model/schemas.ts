@@ -6,7 +6,7 @@ export const SceneTypeSchema = z.enum(["default", "end"])
 export const GetSceneDtoSchema = z
    .object({
       _id: z.string(),
-      sceneId: z.string(),
+      number: z.string(),
       storyId: z.string(),
       title: z.string(),
       description: z.string(),
@@ -18,6 +18,8 @@ export const GetSceneDtoSchema = z
    .refine(
       (data) => {
          if (data.type === "end" && data.passes === undefined) {
+            return false
+         } else if (data.type === "default" && data.passes !== undefined) {
             return false
          }
          return true

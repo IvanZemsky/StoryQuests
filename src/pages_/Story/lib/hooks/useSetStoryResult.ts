@@ -24,11 +24,11 @@ export function useSetStoryResult(options: {
       !isResultSet
 
    useEffect(() => {
-      if (isResultPending) {
+      if (isResultPending && userId) {
          setStoryResultMutation.mutate({
             storyId: sceneData.storyId,
             userId,
-            resultSceneId: sceneData.id,
+            resultSceneNumber: sceneData.number,
          })
       }
    }, [sceneData])

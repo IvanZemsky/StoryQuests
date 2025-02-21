@@ -1,11 +1,11 @@
-import { Scene, SceneId, sceneService } from "@/entities/Scene"
+import { Scene, SceneNumber, sceneService } from "@/entities/Scene"
 import { StoryId } from "@/entities/Story"
 import { useMutation } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
 
 type IncrementFuncArgs = {
    storyId: StoryId
-   sceneId: SceneId
+   sceneNumber: SceneNumber
 }
 
 export function useIncrementScenePasses(
@@ -15,8 +15,8 @@ export function useIncrementScenePasses(
    const [passesIncremented, setPassesIncremented] = useState(false)
 
    const incrementScenePassesMutation = useMutation({
-      mutationFn: ({ storyId, sceneId }: IncrementFuncArgs) =>
-         sceneService.incrementScenePasses(storyId, sceneId),
+      mutationFn: ({ storyId, sceneNumber }: IncrementFuncArgs) =>
+         sceneService.incrementScenePasses(storyId, sceneNumber),
       onSuccess: () => setPassesIncremented(true),
    })
 
@@ -30,7 +30,7 @@ export function useIncrementScenePasses(
       if (isPassesUpdatePending) {
          incrementScenePassesMutation.mutate({
             storyId: sceneData.storyId,
-            sceneId: sceneData.id
+            sceneNumber: sceneData.number,
          })
       }
    }, [sceneData])

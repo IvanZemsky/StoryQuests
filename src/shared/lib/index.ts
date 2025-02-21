@@ -1,4 +1,4 @@
-
+export { logParsing } from "./utils/logParsing"
 export { useIntersection } from "./hooks/useIntersection"
 export { useOutsideClick } from "./hooks/useOutsideClick"
 export { setPath } from "./utils/setPath"

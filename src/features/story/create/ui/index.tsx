@@ -27,7 +27,7 @@ export const CreateStoryForm = observer(({ authorLogin, field }: Props) => {
 
    const { handleSubmit } = methods
 
-   const {scenes} = storyCreationStore
+   const { scenes } = storyCreationStore
 
    const onSubmit = (data: FormValues) => {
       console.log(data)

@@ -4,13 +4,13 @@ import { useState } from "react"
 import { Scene } from "../../model/types"
 
 export function useCurrentScene(scenes: Scene[], firstScene: string) {
-   const [sceneId, setSceneId] = useState(firstScene)
+   const [sceneNumber, setSceneNumber] = useState(firstScene)
 
-   const sceneData = scenes.find((scene) => scene.id === sceneId)
+   const sceneData = scenes.find((scene) => scene.number === sceneNumber)
 
    return {
-      sceneId,
-      setSceneId,
+      sceneNumber,
+      setSceneNumber,
       sceneData,
    }
 }

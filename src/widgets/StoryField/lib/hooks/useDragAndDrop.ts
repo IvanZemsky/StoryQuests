@@ -1,13 +1,13 @@
-import { SceneNode } from "@/entities/Scene";
+import { SceneNode } from "@/entities/Scene"
 import { useReactFlow } from "@xyflow/react"
 import { Dispatch, SetStateAction, useCallback } from "react"
 import { DragEvent } from "react"
-
-let id = 2;
-const getId = () => `scene_${id++}`;
+import { useSceneNumber } from "./useSceneNumber"
+import { STORY_FIRST_SCENE } from "@/entities/Story"
 
 export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<SceneNode[]>>) => {
    const { screenToFlowPosition } = useReactFlow()
+   const getId = useSceneNumber(+STORY_FIRST_SCENE)
 
    const onDragOver = useCallback((event: DragEvent<HTMLDivElement>) => {
       event.preventDefault()
@@ -29,17 +29,23 @@ export const useDragAndDrop = (setNodes: Dispatch<SetStateAction<SceneNode[]>>) 
             y: event.clientY,
          })
 
+         // for the simplicity, scene id equals scene number
+         const sceneNodeId = getId()
+
          const newNode: SceneNode = {
-            id: getId(),
+            id: sceneNodeId,
             type,
             position,
             data: {
+               number: sceneNodeId,
                title: "",
                description: "",
                img: "",
-               type: type === 'scene' ? 'default' : 'end'
+               type: type === "scene" ? "default" : "end",
             },
          }
+
+         console.log(newNode.data.number)
 
          setNodes((nds: SceneNode[]) => nds.concat(newNode))
       },

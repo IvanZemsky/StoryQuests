@@ -11,6 +11,7 @@ export { ScenePanel } from "./ui/ScenePanel"
 export type {
    SceneType,
    SceneId,
+   SceneNumber,
    Scene,
    SceneNode,
    SceneNodeData,

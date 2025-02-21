@@ -4,50 +4,37 @@ import { StoryId } from "@/entities/Story"
 import { GetSceneDtoSchema } from "../model/schemas"
 import { z } from "zod"
 import { GetSceneDto } from "./dto"
-import { setPath } from "@/shared/lib"
-import { SceneId } from "../model/types"
+import { logParsing, setPath } from "@/shared/lib"
+import { SceneId, SceneNumber } from "../model/types"
 
-const { Scenes, Results, Passes } = APIEndpoints
+const { Stories, Scenes, Results, Passes } = APIEndpoints
 
 export const sceneService = {
    async fetchScenesByStoryId(storyId: StoryId) {
-      const response = await api.get<GetSceneDto[]>(Scenes, {
-         params: {
-            storyId,
-         },
-      })
+      const response = await api.get<GetSceneDto[]>(setPath(Stories, storyId, Scenes))
 
-      const parsed = z.array(GetSceneDtoSchema).safeParse(response.data)
+      logParsing(z.array(GetSceneDtoSchema), response.data)
 
-      if (!parsed.success) {
-         console.warn("Zod validation error:", parsed.error)
-      }
-
-      console.log(response.data.map((scene) => sceneAdapter(scene)))
       return response.data.map((scene) => sceneAdapter(scene))
    },
 
    async fetchEndScenesByStoryId(storyId: StoryId) {
-      const response = await api.get<GetSceneDto[]>(setPath(Scenes, storyId, Results))
+      const response = await api.get<GetSceneDto[]>(
+         setPath(Stories, storyId, Results),
+      )
 
-      const parsed = z.array(GetSceneDtoSchema).safeParse(response.data)
-
-      if (!parsed.success) {
-         console.warn("Zod validation error:", parsed.error)
-      }
-
-      return response.data.map(scene => sceneAdapter(scene))
+      logParsing(z.array(GetSceneDtoSchema), response.data)
+      
+      return response.data.map((scene) => sceneAdapter(scene))
    },
 
-   async incrementScenePasses(storyId: StoryId, sceneId: SceneId) {
-      const response = await api.patch<GetSceneDto>(setPath(Scenes, storyId, Passes, sceneId))
+   async incrementScenePasses(storyId: StoryId, sceneNumber: SceneNumber) {
+      const response = await api.patch<GetSceneDto>(
+         setPath(Stories, storyId, Passes, sceneNumber),
+      )
 
-      const parsed = GetSceneDtoSchema.safeParse(response.data)
-
-      if (!parsed.success) {
-         console.warn("Zod validation error:", parsed.error)
-      }
+      logParsing(GetSceneDtoSchema, response.data)
 
       return sceneAdapter(response.data)
-   }
+   },
 }

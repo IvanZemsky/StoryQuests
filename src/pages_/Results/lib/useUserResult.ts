@@ -22,10 +22,10 @@ export function useUserResult(result: StoryResult | null, storyId: StoryId) {
          if (storyResult) {
             setStoryResult(storyResult)
          }
-
-         setIsLoading(false)
       }
+      
+      setIsLoading(false)
    }, [result, storyId])
 
-   return {isLoading, storyResult}
+   return { isLoading, storyResult }
 }

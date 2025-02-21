@@ -8,8 +8,11 @@ type Props = {
    scenes: Scene[]
 }
 
-export const PreviewScene = ({ scenes}: Props) => {
-   const {sceneData, sceneId, setSceneId} = useCurrentScene(scenes, STORY_FIRST_SCENE)
+export const PreviewScene = ({ scenes }: Props) => {
+   const { sceneData, sceneNumber, setSceneNumber } = useCurrentScene(
+      scenes,
+      STORY_FIRST_SCENE,
+   )
 
    if (!sceneData) {
       return <p>Error</p>
@@ -17,9 +20,11 @@ export const PreviewScene = ({ scenes}: Props) => {
 
    return (
       <BaseScene
-         currentSceneId={sceneId}
+         currentSceneNumber={sceneNumber}
          data={sceneData}
-         selectAnswer={<SelectAnswer answers={sceneData.answers} setScene={setSceneId} />}
+         selectAnswer={
+            <SelectAnswer answers={sceneData.answers} setScene={setSceneNumber} />
+         }
       />
    )
 }

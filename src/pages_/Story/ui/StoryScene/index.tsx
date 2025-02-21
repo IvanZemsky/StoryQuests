@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import { BaseScene, Scene, useCurrentScene } from "@/entities/Scene"
 import { STORY_FIRST_SCENE } from "@/entities/Story"
 import { UserId } from "@/entities/User"
@@ -7,7 +8,6 @@ import { SelectAnswer } from "@/features/scene"
 import { useIncrementStoryPasses } from "../../lib/hooks/useIncrementStoryPasses"
 import { useSetStoryResult } from "../../lib/hooks/useSetStoryResult"
 import { saveStoryResultToLS } from "../../lib/helpers/saveStoryResultToLS"
-import { useEffect } from "react"
 import { useIncrementScenePasses } from "../../lib/hooks/useIncrementScenePasses"
 
 type Props = {
@@ -16,7 +16,10 @@ type Props = {
 }
 
 export const StoryScene = ({ scenes, userId }: Props) => {
-   const { sceneData, sceneId, setSceneId } = useCurrentScene(scenes, STORY_FIRST_SCENE)
+   const { sceneData, sceneNumber, setSceneNumber } = useCurrentScene(
+      scenes,
+      STORY_FIRST_SCENE,
+   )
    const increaseStoryPassesMutation = useIncrementStoryPasses(sceneData)
    const incrementScenePassesMutation = useIncrementScenePasses(sceneData)
    const resultMutation = useSetStoryResult({
@@ -26,7 +29,7 @@ export const StoryScene = ({ scenes, userId }: Props) => {
    })
 
    const shouldSaveToLS =
-      (increaseStoryPassesMutation.error || !userId) && sceneData?.type === "end"
+      (resultMutation.error || !userId) && sceneData?.type === "end"
 
    useEffect(() => {
       if (shouldSaveToLS) {
@@ -45,9 +48,11 @@ export const StoryScene = ({ scenes, userId }: Props) => {
 
    return (
       <BaseScene
-         currentSceneId={sceneId}
+         currentSceneNumber={sceneNumber}
          data={sceneData}
-         selectAnswer={<SelectAnswer answers={sceneData.answers} setScene={setSceneId} />}
+         selectAnswer={
+            <SelectAnswer answers={sceneData.answers} setScene={setSceneNumber} />
+         }
          disabledLink={isPending}
       />
    )

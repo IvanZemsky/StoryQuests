@@ -21,7 +21,7 @@ class StoryCreationStore {
    }
 
    saveOneNode = (id: string, data: SceneNodeData) => {
-      const scene = this.nodes.find(scene => scene.id === id)
+      const scene = this.nodes.find(scene => scene.data.number === id)
       if (!scene) {
          throw new Error("Scene not found") // if the scene exists in field, it must exist in node array as well
       }
@@ -51,6 +51,7 @@ class StoryCreationStore {
          description: node.data.description,
          img: node.data.img,
          type: node.data.type,
+         number: node.data.number,
          storyId: "",
          answers: this.edges.map(edge => {
             if (edge.source === node.id) {

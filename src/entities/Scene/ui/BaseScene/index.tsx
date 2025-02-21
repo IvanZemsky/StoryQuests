@@ -1,5 +1,5 @@
 import { ButtonLink, SwitchFade } from "@/shared/ui"
-import { Scene } from "../../model/types"
+import { Scene, SceneNumber } from "../../model/types"
 import styles from "./styles.module.scss"
 import { PageRoutes } from "@/shared/constants"
 import ArrowRightIcon from "@/shared/assets/icons/arrow-right.svg"
@@ -10,13 +10,13 @@ const { Stories, Results } = PageRoutes
 
 type Props = {
    selectAnswer: ReactNode
-   currentSceneId: string | null
+   currentSceneNumber: SceneNumber | null
    data: Omit<Scene, "answers">
    disabledLink?: boolean
 }
 
 export const BaseScene = ({
-   currentSceneId,
+   currentSceneNumber,
    data,
    selectAnswer,
    disabledLink = false,
@@ -24,7 +24,7 @@ export const BaseScene = ({
    const { title, description, type, img, storyId } = data
 
    return (
-      <SwitchFade switchKey={currentSceneId} timeout={300}>
+      <SwitchFade switchKey={currentSceneNumber} timeout={300}>
          <div className={styles.content}>
             {type === "end" && <div className={styles.topLine}></div>}
             <h2 className={styles.title}>{title}</h2>
