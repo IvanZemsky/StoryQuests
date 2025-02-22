@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, TextInput, SwitcherGroup, Select } from "@/shared/ui"
+import { Button, TextInput, SwitcherGroup, Select, Tooltip } from "@/shared/ui"
 import styles from "./styles.module.scss"
 import CrossIcon from "@/shared/assets/icons/cross.svg"
 import SearchIcon from "@/shared/assets/icons/search.svg"
@@ -28,9 +28,9 @@ export const StoriesFilters = () => {
          },
       })
 
-      useEffect(() => {
-         console.log(filters)
-      }, [filters])
+   useEffect(() => {
+      console.log(filters)
+   }, [filters])
 
    const onSubmit = () => {
       const search = getValues("search")
@@ -62,10 +62,7 @@ export const StoriesFilters = () => {
                control={control}
                name="order"
                render={({ field }) => (
-                  <SwitcherGroup
-                     className={styles.sort}
-                     {...field}
-                  >
+                  <SwitcherGroup className={styles.sort} {...field}>
                      <SwitcherGroup.Check text="New" value="new" id="order_new" />
                      <SwitcherGroup.Check
                         text="Popular"
@@ -81,11 +78,7 @@ export const StoriesFilters = () => {
                control={control}
                name="length"
                render={({ field }) => (
-                  <Select
-                     className={styles.selectLength}
-                     title="Length"
-                     {...field}
-                  >
+                  <Select className={styles.selectLength} title="Length" {...field}>
                      <Select.Option text="Short" value="short" id="length_short" />
                      <Select.Option text="Medium" value="medium" id="length_medium" />
                      <Select.Option text="Long" value="long" id="length_long" />
@@ -106,11 +99,14 @@ export const StoriesFilters = () => {
                   type="submit"
                   className={styles.searchBtn}
                />
-               <Button
-                  variant="filled"
-                  rightIcon={<CrossIcon />}
-                  onClick={handleResetClick}
-               />
+               
+               <Tooltip text="Reset">
+                  <Button
+                     variant="filled"
+                     rightIcon={<CrossIcon />}
+                     onClick={handleResetClick}
+                  />
+               </Tooltip>
             </div>
          </form>
       </header>

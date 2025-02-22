@@ -2,7 +2,6 @@
 
 import { MainLink } from "@/shared/ui"
 import styles from "./styles.module.scss"
-import { PageRoutes } from "@/shared/constants"
 import cn from "classnames"
 import { useState } from "react"
 import BurgerIcon from "@/shared/assets/icons/burger.svg"
@@ -10,8 +9,7 @@ import CrossIcon from "@/shared/assets/icons/cross.svg"
 import { LogInLink } from "../LogInLink"
 import { ProfileLink } from "../ProfileLink"
 import { useSessionQuery } from "@/entities/User"
-
-const { Stories, Create, Home } = PageRoutes
+import { mapNavLinks } from "@/shared/lib"
 
 export function HeaderMenu() {
    const session = useSessionQuery()
@@ -23,15 +21,13 @@ export function HeaderMenu() {
    }
 
    if (session.isPending) {
-      return null
+      return <div className={styles.skeleton}></div>
    }
 
    return (
       <nav className={styles.nav}>
          <ul className={cn({ [styles.opened]: isMenuOpened })}>
-            <MainLink href={Home}>Home</MainLink>
-            <MainLink href={Stories}>Stories</MainLink>
-            {session.data && <MainLink href={Create}>Create</MainLink>}
+            {mapNavLinks({ component: MainLink, isAuth: !!session.data })}
 
             {session.data ? <ProfileLink /> : <LogInLink />}
 

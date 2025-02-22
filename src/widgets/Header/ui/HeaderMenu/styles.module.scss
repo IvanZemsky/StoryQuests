@@ -11,6 +11,14 @@
    }
 }
 
+.skeleton{
+   width: 100%;
+   max-width: 278px;
+   height: 28px;
+   background-color: var(--primaryMain);
+   border-radius: 8px;
+}
+
 .closeBtn{
    display: none;
    background: none;
@@ -32,6 +40,10 @@
 }
 
 @media screen and (max-width: 625px) {
+   .skeleton{
+      display: none;
+   }
+
    .burger, .closeBtn {
       display: block;
    }

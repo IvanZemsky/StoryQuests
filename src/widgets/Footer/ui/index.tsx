@@ -1,9 +1,7 @@
 import { Logo, Wrapper } from "@/shared/ui"
 import styles from "./styles.module.scss"
-import Link from 'next/link';
-import { PageRoutes } from "@/shared/constants";
-
-const {Stories, Create, Home} = PageRoutes
+import Link from "next/link"
+import { mapNavLinks } from "@/shared/lib"
 
 export const Footer = () => {
    return (
@@ -17,9 +15,7 @@ export const Footer = () => {
                   </p>
                </div>
                <nav className={styles.links}>
-                  <Link href={Home}>Home</Link>
-                  <Link href={Stories}>Stories</Link>
-                  <Link href={Create}>Create</Link>
+                  {mapNavLinks({ component: Link, isAuth: false })}
                </nav>
             </div>
          </Wrapper>

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "./styles.module.scss"
 import { PageRoutes } from "@/shared/constants"
-import { ButtonLink, Button } from "@/shared/ui"
+import { ButtonLink, Button, Tooltip } from "@/shared/ui"
 import { Story } from "../../model/types"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import cn from "classnames"
@@ -51,10 +51,12 @@ export const StoryCard = memo(({ data, type = "default", likeBtn, className }: P
 
                   <div className={styles.stats}>
                      <div className={styles.statsItem}>{likeBtn}</div>
-                     <div className={styles.statsItem}>
-                        <EyeIcon />
-                        <p>{passes}</p>
-                     </div>
+                     <Tooltip text="Number of passes">
+                        <div className={styles.statsItem}>
+                           <EyeIcon />
+                           <p>{passes}</p>
+                        </div>
+                     </Tooltip>
                   </div>
 
                   {type === "default" ? (

@@ -27,9 +27,16 @@ export const Statistics = async ({ storyId }: Props) => {
                ))}
             </div>
             <div className={styles.resultColumn}>
-               {total > 0 && scenes.map((scene, i) => (
-                  <ResultPassesCard key={scene.id} number={i} total={total} passes={scene.passes!} />
-               ))}
+               {total > 0 &&
+                  scenes.map((scene, i) => (
+                     <ResultPassesCard
+                        key={scene.id}
+                        number={i}
+                        total={total}
+                        passes={scene.passes!}
+                        text={scene.title}
+                     />
+                  ))}
             </div>
          </div>
       </section>

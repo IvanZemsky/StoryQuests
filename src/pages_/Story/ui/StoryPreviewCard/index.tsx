@@ -3,7 +3,7 @@ import styles from "./styles.module.scss"
 import Link from "next/link"
 import { PageRoutes } from "@/shared/constants"
 import Image from "next/image"
-import { Button, Loading, Wrapper } from "@/shared/ui"
+import { Button, Loading, Tooltip, Wrapper } from "@/shared/ui"
 import EyeIcon from "@/shared/assets/icons/eye.svg"
 import { SetStateFn } from "@/shared/model"
 import cn from "classnames"
@@ -36,9 +36,11 @@ export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) 
                   <ArrowLeftLongIcon />
                   Go back
                </Link>
-               <button>
-                  <Bookmark />
-               </button>
+               <Tooltip text="Add to bookmarks">
+                  <button>
+                     <Bookmark />
+                  </button>
+               </Tooltip>
                <Link href={setPath(Stories, id, Results)}>
                   Statistics
                   <Diagram />
@@ -81,9 +83,17 @@ export const StoryPreviewCard = ({ data, setIsStoryStarted, isPending }: Props) 
                               storyId={id}
                            />
                         </div>
+
                         <div className={styles.infoItem}>
-                           <EyeIcon />
-                           <p>{passes}</p>
+                           <Tooltip
+                              text="Number of passes"
+                              className={styles.passesTooltip}
+                           >
+                              <div>
+                                 <EyeIcon />
+                                 <p>{passes}</p>
+                              </div>
+                           </Tooltip>
                         </div>
                      </div>
 

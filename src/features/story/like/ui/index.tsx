@@ -7,6 +7,7 @@ import { useToggleLike } from "../lib/useToggleLike"
 import { AuthModal, useSessionQuery } from "@/entities/User"
 import { setModal } from "@/shared/lib"
 import { Modals } from "@/shared/model"
+import { Tooltip } from "@/shared/ui"
 
 type Props = {
    storyId: string
@@ -44,15 +45,19 @@ export const LikeStoryBtn = ({
 
    return (
       <div className={cn(styles.wrap, className)}>
-         <button
-            className={cn({ [styles.liked]: likeBtnState.isLiked })}
-            disabled={disabledBtn}
-            onClick={handleLikeBtnClick}
-         >
-            <HeartIcon />
-         </button>
+         <Tooltip text="Like">
+            <button
+               className={cn({ [styles.liked]: likeBtnState.isLiked })}
+               disabled={disabledBtn}
+               onClick={handleLikeBtnClick}
+            >
+               <HeartIcon />
+            </button>
+         </Tooltip>
+
          <p>{likeBtnState.likes}</p>
-         <AuthModal id={storyId}/>
+         
+         <AuthModal id={storyId} />
       </div>
    )
 }

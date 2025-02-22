@@ -1,3 +1,15 @@
+.tooltip:first-child > .resultColumnBlock {
+   border-radius: 7px 7px 0 0;
+}
+
+.tooltip:last-child > .resultColumnBlock {
+   border-radius: 0 0 7px 7px;
+}
+
+.tooltip:only-child > .resultColumnBlock {
+   border-radius: 7px;
+}
+
 .resultColumnBlock {
    position: relative;
    transition: box-shadow 0.15s linear;
@@ -14,18 +26,6 @@
       background-image: var(--gradientMain);
    }
 
-   &:first-child {
-      border-radius: 7px 7px 0 0;
-   }
-
-   &:last-child {
-      border-radius: 0 0 7px 7px;
-   }
-
-   &:only-child {
-      border-radius: 7px;
-   }
-   
    &:hover {
       z-index: 2;
       box-shadow: 0px 0px 0px 2px var(--thirdLight);

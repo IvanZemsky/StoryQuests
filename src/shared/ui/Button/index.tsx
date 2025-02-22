@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode } from "react"
-import styles from "../styles/button.module.scss"
+import styles from "../../styles/button.module.scss"
 import cn from "classnames"
 
 type Props = {

@@ -6,20 +6,26 @@ import { PageBtns } from "@/shared/ui"
 import { STORIES_SEARCH_LIMIT } from "@/entities/Story/model/constants"
 import { useStoriesFilterParams } from "../../lib/hooks/useStoriesFilterParams"
 import { BaseStoriesList } from "@/widgets/StoriesList"
+import { scrollToTop } from "@/shared/lib"
+import { useEffect } from "react"
 
 export const StoryList = () => {
    const { filters, setParams, parseError } = useStoriesFilterParams()
-   const { data, isError, isPending } = useStories({
+   const { data, isError, isPending, isSuccess } = useStories({
       ...filters,
       limit: STORIES_SEARCH_LIMIT,
    })
 
-   if (parseError || !filters) {
-      return <p>Error: invalid search params</p>
-   }
+   useEffect(() => {
+      if (isSuccess) scrollToTop()
+   }, [isSuccess])
 
    const handlePageClick = (page: number) => () => {
       setParams({ ...filters, page })
+   }
+
+   if (parseError || !filters) {
+      return <p>Error: invalid search params</p>
    }
 
    if (isError) return <p>Error</p>
